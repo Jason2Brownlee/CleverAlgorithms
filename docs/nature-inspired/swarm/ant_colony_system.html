@@ -1,0 +1,315 @@
+<html>
+          <head>
+            <title>Ant Colony System | Clever Algorithms</title><link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+          <!-- support to display ruby source nicely -->
+            <link href="prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="prettify.js"></script>
+          </head>
+        <!-- call to display ruby source nicely -->
+        <body onload="prettyPrint()"><!-- Start Header -->
+          <center>
+          <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
+          <em>A book by Jason Brownlee</em>
+
+          <p>
+            <a href="/">Home</a> |
+            <a href="https://amzn.to/4iKM9uc">Amazon</a> |
+            <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
+            <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
+            <a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf">PDF</a> (<a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip">code</a>) |
+            <a href="https://github.com/Jason2Brownlee/CleverAlgorithms">GitHub</a>
+          </p>
+
+          </center>
+          <hr/>
+          <br/>
+          <!-- End Header --><div class='breadcrumb'>
+<a href='../index.html'>Table of Contents</a>
+&gt;&gt;
+<a href='../swarm.html'>Swarm Algorithms</a>
+&gt;&gt;
+<a href='ant_colony_system.html'>Ant Colony System</a>
+</div>
+<h1><a name='ant_colony_system'>Ant Colony System</a></h1>
+<p>
+<em>Ant Colony System, ACS, Ant-Q.</em>
+</p>
+
+<h2><a name='taxonomy'>Taxonomy</a></h2>
+<p>
+The Ant Colony System algorithm is an example of an Ant Colony Optimization method from the field of Swarm Intelligence, Metaheuristics and Computational Intelligence.
+Ant Colony System is an extension to the Ant System algorithm and is related to other Ant Colony Optimization methods such as Elite Ant System, and Rank-based Ant System.
+</p>
+
+
+<h2><a name='inspiration'>Inspiration</a></h2>
+<p>
+The Ant Colony System algorithm is inspired by the foraging behavior of ants, specifically the pheromone communication between ants regarding a good path between the colony and a food source in an environment. This mechanism is called stigmergy.
+</p>
+
+
+<h2><a name='metaphor'>Metaphor</a></h2>
+<p>
+Ants initially wander randomly around their environment. Once food is located an ant will begin laying down pheromone in the environment. Numerous trips between the food and the colony are performed and if the same route is followed that leads to food then additional pheromone is laid down. Pheromone decays in the environment, so that older paths are less likely to be followed. Other ants may discover the same path to the food and in turn may follow it and also lay down pheromone. A positive feedback process routes more and more ants to productive paths that are in turn further refined through use.
+</p>
+
+
+<h2><a name='strategy'>Strategy</a></h2>
+<p>
+The objective of the strategy is to exploit historic and heuristic information to construct candidate solutions and fold the information learned from constructing solutions into the history.
+Solutions are constructed one discrete piece at a time in a probabilistic step-wise manner. The probability of selecting a component is determined by the heuristic contribution of the component to the overall cost of the solution and the quality of solutions from which the component has historically known to have been included. History is updated proportional to the quality of the best known solution and is decreased proportional to the usage if discrete solution components.
+</p>
+
+
+<h2><a name='procedure'>Procedure</a></h2>
+<p>
+Algorithm (below) provides a pseudocode listing of the main Ant Colony System algorithm for minimizing a cost function.
+The probabilistic step-wise construction of solution makes use of both history (pheromone) and problem-specific heuristic information to incrementally construct a solution piece-by-piece. Each component can only be selected if it has not already been chosen (for most combinatorial problems), and for those components that can  be selected from given the current component $["i"]$, their probability for selection is defined as:
+</p>
+$P_{i,j} \leftarrow \frac{\tau_{i,j}^{\alpha} \times \eta_{i,j}^{\beta}}{\sum_{k=1}^c \tau_{i,k}^{\alpha} \times \eta_{i,k}^{\beta}}$
+<p>
+where $["\\eta_{i,j}"]$ is the maximizing contribution to the overall score of selecting the component (such as $["\\frac{1.0}{distance_{i,j}}"]$ for the Traveling Salesman Problem), $["\\beta"]$ is the heuristic coefficient (commonly fixed at 1.0), $["\\tau_{i,j}"]$ is the pheromone value for the component, $["\\alpha"]$ is the history coefficient, and $["c"]$ is the set of usable components. A greediness factor ($["q0"]$) is used to influence when to use the above probabilistic component selection and when to greedily select the best possible component.
+</p>
+<p>
+A local pheromone update is performed for each solution that is constructed to dissuade following solutions to use the same components in the same order, as follows:
+</p>
+$\tau_{i,j} \leftarrow (1-\sigma) \times \tau_{i,j} + \sigma \times \tau_{i,j}^{0}$
+<p>
+where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) ($["i,j"]$), $["\\sigma"]$ is the local pheromone factor, and $["\\tau_{i,j}^{0}"]$ is the initial pheromone value.
+</p>
+<p>
+At the end of each iteration, the pheromone is updated and decayed using the best candidate solution found thus far (or the best candidate solution found for the iteration), as follows:
+</p>
+$\tau_{i,j} \leftarrow (1-\rho) \times \tau_{i,j} + \rho \times \Delta\tau{i,j}$
+<p>
+where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) ($["i,j"]$), $["\\rho"]$ is the decay factor, and $["\\Delta\\tau{i,j}"]$ is the maximizing solution cost for the best solution found so far if the component $["ij"]$ is used in the globally best known solution, otherwise it is 0.
+</p>
+<div class='pseudocode'>
+<strong><strong><code>Input</code></strong></strong>: 
+<code>ProblemSize</code>, $Population_{size}$, $m$, $\rho$, $\beta$, $\sigma$, $q0$
+<br />
+<strong><strong><code>Output</code></strong></strong>: 
+$P_{best}$
+<br />
+$P_{best}$ $["\\leftarrow"]$ <code>CreateHeuristicSolution</code>(<code>ProblemSize</code>)<br />
+$Pbest_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{h}$)<br />
+$Pheromone_{init}$ $["\\leftarrow"]$ $["\\frac{1.0}{<code>ProblemSize</code> \\times \Pbest_{cost}}"]$<br />
+<code>Pheromone</code> $["\\leftarrow"]$ <code>InitializePheromone</code>($Pheromone_{init}$)<br />
+<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=1"]$ $["\<strong><code>To</code></strong>"]$ $m$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>ConstructSolution</code>(<code>Pheromone</code>, <code>ProblemSize</code>, $\beta$, $q0$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{i}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Si_{cost}$ $["\\leq"]$ $Pbest_{cost}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Pbest_{cost}$ $["\\leftarrow"]$ $Si_{cost}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{best}$ $["\\leftarrow"]$ $S_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>LocalUpdateAndDecayPheromone</code>(<code>Pheromone</code>, $S_{i}$, $Si_{cost}$, $\sigma$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>GlobalUpdateAndDecayPheromone</code>(<code>Pheromone</code>, $P_{best}$, $Pbest_{cost}$, $\rho$)<br />
+<strong><code>End</code></strong><br />
+<strong><code>Return</code></strong> ($P_{best}$)<br />
+</div>
+<div class='caption'>Pseudocode for Ant Colony System.</div>
+
+
+
+<h2><a name='heuristics'>Heuristics</a></h2>
+<ul>
+<li> The Ant Colony System algorithm was designed for use with combinatorial problems such as the TSP, knapsack problem, quadratic assignment problems, graph coloring problems and many others.</li>
+<li> The local pheromone (history) coefficient ($["\\sigma"]$) controls the amount of contribution history plays in a components probability of selection and is commonly set to 0.1.</li>
+<li> The heuristic coefficient ($["\\beta"]$) controls the amount of contribution problem-specific heuristic information plays in a components probability of selection and is commonly between 2 and 5, such as 2.5.</li>
+<li> The decay factor ($["\\rho"]$) controls the rate at which historic information is lost and is commonly set to 0.1.</li>
+<li> The greediness factor ($["q0"]$) is commonly set to 0.9.</li>
+<li> The total number of ants ($["m"]$) is commonly set low, such as 10.</li>
+</ul>
+
+
+<h2><a name='code_listing'>Code Listing</a></h2>
+<p>
+Listing (below) provides an example of the Ant Colony System algorithm implemented in the Ruby Programming Language.
+The algorithm is applied to the Berlin52 instance of the Traveling Salesman Problem (TSP), taken from the TSPLIB. The problem seeks a permutation of the order to visit cities (called a tour) that minimized the total distance traveled. The optimal tour distance for Berlin52 instance is 7542 units.
+Some extensions to the algorithm implementation for speed improvements may consider pre-calculating a distance matrix for all the cities in the problem, and pre-computing a probability matrix for choices during the probabilistic step-wise construction of tours.
+</p>
+<pre class='prettyprint lang-rb'>
+def euc_2d(c1, c2)
+  Math.sqrt((c1[0] - c2[0])**2.0 + (c1[1] - c2[1])**2.0).round
+end
+
+def cost(permutation, cities)
+  distance =0
+  permutation.each_with_index do |c1, i|
+    c2 = (i==permutation.size-1) ? permutation[0] : permutation[i+1]
+    distance += euc_2d(cities[c1], cities[c2])
+  end
+  return distance
+end
+
+def random_permutation(cities)
+  perm = Array.new(cities.size){|i| i}
+  perm.each_index do |i|
+    r = rand(perm.size-i) + i
+    perm[r], perm[i] = perm[i], perm[r]
+  end
+  return perm
+end
+
+def initialise_pheromone_matrix(num_cities, init_pher)
+  return Array.new(num_cities){|i| Array.new(num_cities, init_pher)}
+end
+
+def calculate_choices(cities, last_city, exclude, pheromone, c_heur, c_hist)
+  choices = []
+  cities.each_with_index do |coord, i|
+    next if exclude.include?(i)
+    prob = {:city=&gt;i}
+    prob[:history] = pheromone[last_city][i] ** c_hist
+    prob[:distance] = euc_2d(cities[last_city], coord)
+    prob[:heuristic] = (1.0/prob[:distance]) ** c_heur
+    prob[:prob] = prob[:history] * prob[:heuristic]
+    choices &lt;&lt; prob
+  end
+  return choices
+end
+
+def prob_select(choices)
+  sum = choices.inject(0.0){|sum,element| sum + element[:prob]}
+  return choices[rand(choices.size)][:city] if sum == 0.0
+  v = rand()
+  choices.each_with_index do |choice, i|
+    v -= (choice[:prob]/sum)
+    return choice[:city] if v &lt;= 0.0
+  end
+  return choices.last[:city]
+end
+
+def greedy_select(choices)
+  return choices.max{|a,b| a[:prob]&lt;=&gt;b[:prob]}[:city]
+end
+
+def stepwise_const(cities, phero, c_heur, c_greed)
+  perm = []
+  perm &lt;&lt; rand(cities.size)
+  begin
+    choices = calculate_choices(cities, perm.last, perm, phero, c_heur, 1.0)
+    greedy = rand() &lt;= c_greed
+    next_city = (greedy) ? greedy_select(choices) : prob_select(choices)
+    perm &lt;&lt; next_city
+  end until perm.size == cities.size
+  return perm
+end
+
+def global_update_pheromone(phero, cand, decay)
+  cand[:vector].each_with_index do |x, i|
+    y = (i==cand[:vector].size-1) ? cand[:vector][0] : cand[:vector][i+1]
+    value = ((1.0-decay)*phero[x][y]) + (decay*(1.0/cand[:cost]))
+    phero[x][y] = value
+    phero[y][x] = value
+  end
+end
+
+def local_update_pheromone(pheromone, cand, c_local_phero, init_phero)
+  cand[:vector].each_with_index do |x, i|
+    y = (i==cand[:vector].size-1) ? cand[:vector][0] : cand[:vector][i+1]
+    value = ((1.0-c_local_phero)*pheromone[x][y])+(c_local_phero*init_phero)
+    pheromone[x][y] = value
+    pheromone[y][x] = value
+  end
+end
+
+def search(cities, max_it, num_ants, decay, c_heur, c_local_phero, c_greed)
+  best = {:vector=&gt;random_permutation(cities)}
+  best[:cost] = cost(best[:vector], cities)
+  init_pheromone = 1.0 / (cities.size.to_f * best[:cost])
+  pheromone = initialise_pheromone_matrix(cities.size, init_pheromone)
+  max_it.times do |iter|
+    solutions = []
+    num_ants.times do
+      cand = {}
+      cand[:vector] = stepwise_const(cities, pheromone, c_heur, c_greed)
+      cand[:cost] = cost(cand[:vector], cities)
+      best = cand if cand[:cost] &lt; best[:cost]
+      local_update_pheromone(pheromone, cand, c_local_phero, init_pheromone)
+    end
+    global_update_pheromone(pheromone, best, decay)
+    puts " &gt; iteration #{(iter+1)}, best=#{best[:cost]}"
+  end
+  return best
+end
+
+if __FILE__ == $0
+  # problem configuration
+  berlin52 = [[565,575],[25,185],[345,750],[945,685],[845,655],
+   [880,660],[25,230],[525,1000],[580,1175],[650,1130],[1605,620],
+   [1220,580],[1465,200],[1530,5],[845,680],[725,370],[145,665],
+   [415,635],[510,875],[560,365],[300,465],[520,585],[480,415],
+   [835,625],[975,580],[1215,245],[1320,315],[1250,400],[660,180],
+   [410,250],[420,555],[575,665],[1150,1160],[700,580],[685,595],
+   [685,610],[770,610],[795,645],[720,635],[760,650],[475,960],
+   [95,260],[875,920],[700,500],[555,815],[830,485],[1170,65],
+   [830,610],[605,625],[595,360],[1340,725],[1740,245]]
+  # algorithm configuration
+  max_it = 100
+  num_ants = 10
+  decay = 0.1
+  c_heur = 2.5
+  c_local_phero = 0.1
+  c_greed = 0.9
+  # execute the algorithm
+  best = search(berlin52, max_it, num_ants, decay, c_heur, c_local_phero, c_greed)
+  puts "Done. Best Solution: c=#{best[:cost]}, v=#{best[:vector].inspect}"
+end
+</pre>
+<div class='caption'>Ant Colony System in Ruby</div>
+<div class='download_src'>Download: <a href='ant_colony_system.rb'>ant_colony_system.rb</a>. Unit test available in the <%=natureinspired_dev_url("github project")%></div>
+
+
+<h2><a name='references'>References</a></h2>
+
+<h3><a name='primary_sources'>Primary Sources</a></h3>
+<p>
+The algorithm was initially investigated by Dorigo and Gambardella under the name Ant-Q  [<a href='#Dorigo1996a'>Dorigo1996a</a>] [<a href='#Gambardella1995'>Gambardella1995</a>].
+It was renamed Ant Colony System and further investigated first in a technical report by Dorigo and Gambardella  [<a href='#Dorigo1997a'>Dorigo1997a</a>], and later published  [<a href='#Dorigo1997'>Dorigo1997</a>].
+</p>
+
+
+<h3><a name='learn_more'>Learn More</a></h3>
+<p>
+The seminal book on Ant Colony Optimization in general with a detailed treatment of Ant Colony System is &quot;Ant colony optimization&quot; by Dorigo and St&uuml;tzle  [<a href='#Dorigo2004'>Dorigo2004</a>]. An earlier book &quot;Swarm intelligence: from natural to artificial systems&quot; by Bonabeau, Dorigo, and Theraulaz also provides an introduction to Swarm Intelligence with a detailed treatment of Ant Colony System  [<a href='#Bonabeau1999'>Bonabeau1999</a>].
+</p>
+
+
+
+
+<h2>Bibliography</h2>
+<table>
+ <tr valign="top">
+ <td><a name='Bonabeau1999'>[Bonabeau1999]</a></td>
+ <td>["E. Bonabeau and M. Dorigo and G. Theraulaz"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence:+From+Natural+to+Artificial+Systems"]">["Swarm Intelligence: From Natural to Artificial Systems"]</a>", ["Oxford University Press US"], ["1999"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo1996a'>[Dorigo1996a]</a></td>
+ <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["A+study+of+some+properties+of+Ant-Q"]">["A study of some properties of Ant-Q"]</a>", in ["Proceedings of PPSN IV–Fourth International Conference on Parallel\n\tProblem Solving From Nature"], ["1996"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo1997'>[Dorigo1997]</a></td>
+ <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+System+:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problem"]">["Ant Colony System : A Cooperative Learning Approach to the Traveling\n\tSalesman Problem"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["1997"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo1997a'>[Dorigo1997a]</a></td>
+ <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+System:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problems"]">["Ant Colony System: A Cooperative Learning Approach to the Traveling\n\tSalesman Problems"]</a>", Technical Report ["TR/IRIDIA/1996-5"], ["IRIDIA, Universit&amp;eacute; Libre de Bruxelles"], ["1997"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo2004'>[Dorigo2004]</a></td>
+ <td>["M. Dorigo and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+Optimization"]">["Ant Colony Optimization"]</a>", ["MIT Press"], ["2004"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Gambardella1995'>[Gambardella1995]</a></td>
+ <td>["L. Gambardella and M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["Ant&ndash;Q:+A+reinforcement+learning+approach+to+the+traveling+salesman\n\tproblems"]">["Ant&ndash;Q: A reinforcement learning approach to the traveling salesman\n\tproblems"]</a>", in ["Proceedings of ML-95, Twelfth International Conference on Machine\n\tLearning"], ["1995"].</td>
+ </tr>
+</table>
+
+<!-- generate math images from latex math snippets -->
+    <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
+    <script type="text/javascript">replaceMath(document.body);</script>
+        </body>
+          </html>

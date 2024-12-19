@@ -1,0 +1,227 @@
+<html>
+          <head>
+            <title>Population-Based Incremental Learning | Clever Algorithms</title><link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+          <!-- support to display ruby source nicely -->
+            <link href="prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="prettify.js"></script>
+          </head>
+        <!-- call to display ruby source nicely -->
+        <body onload="prettyPrint()"><!-- Start Header -->
+          <center>
+          <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
+          <em>A book by Jason Brownlee</em>
+
+          <p>
+            <a href="/">Home</a> |
+            <a href="https://amzn.to/4iKM9uc">Amazon</a> |
+            <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
+            <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
+            <a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf">PDF</a> (<a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip">code</a>) |
+            <a href="https://github.com/Jason2Brownlee/CleverAlgorithms">GitHub</a>
+          </p>
+
+          </center>
+          <hr/>
+          <br/>
+          <!-- End Header --><div class='breadcrumb'>
+<a href='../index.html'>Table of Contents</a>
+&gt;&gt;
+<a href='../probabilistic.html'>Probabilistic Algorithms</a>
+&gt;&gt;
+<a href='pbil.html'>Population-Based Incremental Learning</a>
+</div>
+<h1><a name='population-based_incremental_learning'>Population-Based Incremental Learning</a></h1>
+<p>
+<em>Population-Based Incremental Learning, PBIL.</em>
+</p>
+
+<h2><a name='taxonomy'>Taxonomy</a></h2>
+<p>
+Population-Based Incremental Learning is an Estimation of Distribution Algorithm (EDA), also referred to as Population Model-Building Genetic Algorithms (PMBGA) an extension to the field of Evolutionary Computation.
+PBIL is related to other EDAs such as the Compact Genetic Algorithm, the Probabilistic Incremental Programing Evolution Algorithm, and the Bayesian Optimization Algorithm. The fact the the algorithm maintains a single prototype vector that is updated competitively shows some relationship to the Learning Vector Quantization algorithm.
+</p>
+
+
+<h2><a name='inspiration'>Inspiration</a></h2>
+<p>
+Population-Based Incremental Learning is a population-based technique without an inspiration. It is related to the Genetic Algorithm and other Evolutionary Algorithms that are inspired by the biological theory of evolution by means of natural selection.
+</p>
+
+
+<h2><a name='strategy'>Strategy</a></h2>
+<p>
+The information processing objective of the PBIL algorithm is to reduce the memory required by the genetic algorithm.
+This is done by reducing the population of a candidate solutions to a single prototype vector of attributes from which candidate solutions can be generated and assessed. Updates and mutation operators are also performed to the prototype vector, rather than the generated candidate solutions.
+</p>
+
+
+<h2><a name='procedure'>Procedure</a></h2>
+<p>
+The Population-Based Incremental Learning algorithm maintains a real-valued prototype vector that represents the probability of each component being expressed in a candidate solution.
+Algorithm (below) provides a pseudocode listing of the Population-Based Incremental Learning algorithm for maximizing a cost function.
+</p>
+<div class='pseudocode'>
+<strong><strong><code>Input</code></strong></strong>: 
+$Bits_{num}$, $Samples_{num}$, $Learn_{rate}$, $P_{mutation}$, $Mutation_{factor}$
+<br />
+<strong><strong><code>Output</code></strong></strong>: 
+$S_{best}$
+<br />
+$V$ $["\\leftarrow"]$ <code>InitializeVector</code>($Bits_{num}$)<br />
+$S_{best}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
+<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i"]$ <strong><code>To</code></strong> $Samples_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_i$ $["\\leftarrow"]$ <code>GenerateSamples</code>($V$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_i$) $["\\leq"]$ <code>Cost</code>($S_{current}$))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $["\\leftarrow"]$ $S_i$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_i$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_i$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{bit}^i$ $["\\in"]$ $S_{current}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{bit}^i$ $["\\leftarrow"]$ $V_{bit}^i$ $["\\times"]$ (1.0 &ndash; $Learn_{rate}$) + $S_{bit}^i$ $["\\times"]$ $Learn_{rate}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() &lt; $P_{mutation}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{bit}^i$ $["\\leftarrow"]$ $V_{bit}^i$ $["\\times"]$ (1.0 &ndash; $Mutation_{factor}$) + <code>Rand</code>() $["\\times"]$ $Mutation_{factor}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+<strong><code>End</code></strong><br />
+<strong><code>Return</code></strong> ($S_{best}$)<br />
+</div>
+<div class='caption'>Pseudocode for PBIL.</div>
+
+
+
+<h2><a name='heuristics'>Heuristics</a></h2>
+<ul>
+<li> PBIL was designed to optimize the probability of components from low cardinality sets, such as bit's in a binary string.</li>
+<li> The algorithm has a very small memory footprint (compared to some population-based evolutionary algorithms) given the compression of information into a single prototype vector.</li>
+<li> Extensions to PBIL have been proposed that extend the representation beyond sets to real-valued vectors.</li>
+<li> Variants of PBIL that were proposed in the original paper include updating the prototype vector with more than one competitive candidate solution (such as an average of top candidate solutions), and moving the prototype vector away from the least competitive candidate solution each iteration.</li>
+<li> Low learning rates are preferred, such as 0.1.</li>
+</ul>
+
+
+<h2><a name='code_listing'>Code Listing</a></h2>
+<p>
+Listing (below) provides an example of the Population-Based Incremental Learning algorithm implemented in the Ruby Programming Language.
+The demonstration problem is a maximizing binary optimization problem called OneMax that seeks a binary string of unity (all '1' bits). The objective function only provides an indication of the number of correct bits in a candidate string, not the positions of the correct bits.
+The algorithm is an implementation of the simple PBIL algorithm that updates the prototype vector based on the best candidate solution generated each iteration.
+</p>
+<pre class='prettyprint lang-rb'>
+def onemax(vector)
+  return vector.inject(0){|sum, value| sum + value}
+end
+
+def generate_candidate(vector)
+  candidate = {}
+  candidate[:bitstring] = Array.new(vector.size)
+  vector.each_with_index do |p, i|
+    candidate[:bitstring][i] = (rand()&lt;p) ? 1 : 0
+  end
+  return candidate
+end
+
+def update_vector(vector, current, lrate)
+  vector.each_with_index do |p, i|
+    vector[i] = p*(1.0-lrate) + current[:bitstring][i]*lrate
+  end
+end
+
+def mutate_vector(vector, current, coefficient, rate)
+  vector.each_with_index do |p, i|
+    if rand() &lt; rate
+      vector[i] = p*(1.0-coefficient) + rand()*coefficient
+    end
+  end
+end
+
+def search(num_bits, max_iter, num_samples, p_mutate, mut_factor, l_rate)
+  vector = Array.new(num_bits){0.5}
+  best = nil
+  max_iter.times do |iter|
+    current = nil
+    num_samples.times do
+      candidate = generate_candidate(vector)
+      candidate[:cost] = onemax(candidate[:bitstring])
+      current = candidate if current.nil? or candidate[:cost]&gt;current[:cost]
+      best = candidate if best.nil? or candidate[:cost]&gt;best[:cost]
+    end
+    update_vector(vector, current, l_rate)
+    mutate_vector(vector, current, mut_factor, p_mutate)
+    puts " &gt;iteration=#{iter}, f=#{best[:cost]}, s=#{best[:bitstring]}"
+    break if best[:cost] == num_bits
+  end
+  return best
+end
+
+if __FILE__ == $0
+  # problem configuration
+  num_bits = 64
+  # algorithm configuration
+  max_iter = 100
+  num_samples = 100
+  p_mutate = 1.0/num_bits
+  mut_factor = 0.05
+  l_rate = 0.1
+  # execute the algorithm
+  best=search(num_bits, max_iter, num_samples, p_mutate, mut_factor, l_rate)
+  puts "done! Solution: f=#{best[:cost]}/#{num_bits}, s=#{best[:bitstring]}"
+end
+</pre>
+<div class='caption'>Population-Based Incremental Learning in Ruby</div>
+<div class='download_src'>Download: <a href='pbil.rb'>pbil.rb</a>. Unit test available in the <%=natureinspired_dev_url("github project")%></div>
+
+
+<h2><a name='references'>References</a></h2>
+
+<h3><a name='primary_sources'>Primary Sources</a></h3>
+<p>
+The Population-Based Incremental Learning algorithm was proposed by Baluja in a technical report that proposed the base algorithm as well as a number of variants inspired by the Learning Vector Quantization algorithm  [<a href='#Baluja1994'>Baluja1994</a>].
+</p>
+
+
+<h3><a name='learn_more'>Learn More</a></h3>
+<p>
+Baluja and Caruana provide an excellent overview of PBIL and compare it to the standard Genetic Algorithm, released as a technical report  [<a href='#Baluja1995'>Baluja1995</a>] and later published  [<a href='#Baluja1995a'>Baluja1995a</a>]. Baluja provides a detailed comparison between the Genetic algorithm and PBIL on a range of problems and scales in another technical report  [<a href='#Baluja1995b'>Baluja1995b</a>].
+Greene provided an excellent account on the applicability of PBIL as a practical optimization algorithm  [<a href='#Greene1996'>Greene1996</a>].
+H&ouml;hfeld and Rudolph provide the first theoretical analysis of the technique and provide a convergence proof  [<a href='#Hohfeld1997'>Hohfeld1997</a>].
+</p>
+
+
+
+
+<h2>Bibliography</h2>
+<table>
+ <tr valign="top">
+ <td><a name='Baluja1994'>[Baluja1994]</a></td>
+ <td>S."] ["Baluja, "<a href="http://scholar.google.com.au/scholar?q=["Population-Based+Incremental+Learning:+A+Method+for+Integrating+Genetic\n\tSearch+Based+Function+Optimization+and+Competitive+Learning"]">["Population-Based Incremental Learning: A Method for Integrating Genetic\n\tSearch Based Function Optimization and Competitive Learning"]</a>", Technical Report ["CMU-CS-94-163"], ["School of Computer Science, Carnegie Mellon University"], ["1994"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Baluja1995'>[Baluja1995]</a></td>
+ <td>["S. Baluja and R. Caruana"], "<a href="http://scholar.google.com.au/scholar?q=["Removing+the+Genetics+from+the+Standard+Genetic+Algorithm"]">["Removing the Genetics from the Standard Genetic Algorithm"]</a>", Technical Report ["CMU-CS-95-141"], ["School of Computer Science Carnegie Mellon University"], ["1995"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Baluja1995a'>[Baluja1995a]</a></td>
+ <td>["S. Baluja and R. Caruana"], "<a href="http://scholar.google.com.au/scholar?q=["Removing+the+Genetics+from+the+Standard+Genetic+Algorithm"]">["Removing the Genetics from the Standard Genetic Algorithm"]</a>", in ["Proceedings of the International Conference on Machine Learning"], ["1995"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Baluja1995b'>[Baluja1995b]</a></td>
+ <td>["S. Baluja"], "<a href="http://scholar.google.com.au/scholar?q=["An+Empirical+Comparison+of+Seven+Iterative+and+Evolutionary+Function\n\tOptimization+Heuristics"]">["An Empirical Comparison of Seven Iterative and Evolutionary Function\n\tOptimization Heuristics"]</a>", Technical Report ["CMU-CS-95-193"], ["School of Computer Science Carnegie Mellon University"], ["1995"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Greene1996'>[Greene1996]</a></td>
+ <td>["J. R. Greene"], "<a href="http://scholar.google.com.au/scholar?q=["Population-based+incremental+learning+as+a+simple+versatile+tool\n\tfor+engineering+optimization"]">["Population-based incremental learning as a simple versatile tool\n\tfor engineering optimization"]</a>", in ["Proceedings of the First International Conference on Evolutionary\n\tComputation and Its Applications"], ["1996"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Hohfeld1997'>[Hohfeld1997]</a></td>
+ <td>M. ["H\&amp;ouml;hfeld and G."] Rudolph, "<a href="http://scholar.google.com.au/scholar?q=["Towards+a+theory+of+population+based+incremental+learning"]">["Towards a theory of population based incremental learning"]</a>", in ["Proceedings of the IEEE Conference on Evolutionary Computation"], ["1997"].</td>
+ </tr>
+</table>
+
+<!-- generate math images from latex math snippets -->
+    <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
+    <script type="text/javascript">replaceMath(document.body);</script>
+        </body>
+          </html>

@@ -8,11 +8,44 @@
 require File.expand_path(File.dirname(__FILE__)) + '/bibtex'
 
 
-OUTPUT_DIR = "build/web"
+# OUTPUT_DIR = "build/web"
+OUTPUT_DIR = "docs/nature-inspired"
 BIBTEX_FILE = "book/bibtex.bib"
 
 def create_directory(name)
   Dir.mkdir(name) unless File.directory?(name)
+end
+
+def header(title)
+  str = "<html>
+          <head>
+            <title>#{title} | Clever Algorithms</title>"
+  str <<  '<link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+          <!-- support to display ruby source nicely -->
+            <link href="prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="prettify.js"></script>
+          </head>
+        <!-- call to display ruby source nicely -->
+        <body onload="prettyPrint()">'
+  str << '<!-- Start Header -->
+          <center>
+          <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
+          <em>A book by Jason Brownlee</em>
+
+          <p>
+            <a href="/">Home</a> |
+            <a href="https://amzn.to/4iKM9uc">Amazon</a> |
+            <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
+            <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
+            <a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf">PDF</a> (<a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip">code</a>) |
+            <a href="https://github.com/Jason2Brownlee/CleverAlgorithms">GitHub</a>
+          </p>
+
+          </center>
+          <hr/>
+          <br/>
+          <!-- End Header -->'
+  return str
 end
 
 # http://railsforum.com/viewtopic.php?id=10057
@@ -691,7 +724,7 @@ def process_figure(lines)
   caption = post_process_text(caption) # processing of text
   just_file = filename[(filename.index('/')+1)..-1]
   s = ""
-  add_line(s, "<img src='/images/#{just_file}.png' align='middle' alt='#{caption}' class='book_image'>")
+  add_line(s, "<img src='#{just_file}.png' align='middle' alt='#{caption}' class='book_image'>")
   add_line(s, "<br />")
   add_line(s, "<div class='caption'>#{caption}</div>")
 
@@ -1086,30 +1119,31 @@ def recursive_html_for_chapter(data, has_chapter=true)
 end
 
 def head(name, parent, keywords)
-  s = ""
-  # title
-  if parent.nil?
-    add_line(s, "<% content_for :head_title, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  else
-    add_line(s, "<% content_for :head_title, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  end
-  # description
-  if parent.nil?
-    add_line(s, "<% content_for :head_description, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  else
-    add_line(s, "<% content_for :head_description, \"#{name} - #{parent} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  end
-  # keywords
-  if keywords.nil? or keywords.empty?
-    if parent.nil?
-      add_line(s, "<% content_for :head_keywords, \"#{name}, Clever Algorithms\" %>")
-    else
-       add_line(s, "<% content_for :head_keywords, \"#{name}, #{parent}, Clever Algorithms\" %>")
-    end
-  else
-    add_line(s, "<% content_for :head_keywords, \"#{keywords}, Clever Algorithms\" %>")
-  end
-  return s
+  return header(name)
+  # s = ""
+  # # title
+  # if parent.nil?
+  #   add_line(s, "<% content_for :head_title, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # else
+  #   add_line(s, "<% content_for :head_title, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # end
+  # # description
+  # if parent.nil?
+  #   add_line(s, "<% content_for :head_description, \"#{name} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # else
+  #   add_line(s, "<% content_for :head_description, \"#{name} - #{parent} - Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # end
+  # # keywords
+  # if keywords.nil? or keywords.empty?
+  #   if parent.nil?
+  #     add_line(s, "<% content_for :head_keywords, \"#{name}, Clever Algorithms\" %>")
+  #   else
+  #      add_line(s, "<% content_for :head_keywords, \"#{name}, #{parent}, Clever Algorithms\" %>")
+  #   end
+  # else
+  #   add_line(s, "<% content_for :head_keywords, \"#{keywords}, Clever Algorithms\" %>")
+  # end
+  # return s
 end
 
 def breadcrumb(current, name, parent=nil)
@@ -1146,6 +1180,14 @@ def get_keywords(data)
   return keywords
 end
 
+def footer()
+  return '<!-- generate math images from latex math snippets -->
+    <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
+    <script type="text/javascript">replaceMath(document.body);</script>
+        </body>
+          </html>'
+end
+
 def html_for_algorithm(name, data, bib, parent)
   s = ""
   s << head(data.last[:section], parent[:name], get_keywords(data))
@@ -1154,6 +1196,8 @@ def html_for_algorithm(name, data, bib, parent)
   # bib
   add_line(s, "<h2>Bibliography</h2>")
   add_line(s, prepare_bibliography(data, bib))
+  # add footer
+  s << footer()
   return s
 end
 
@@ -1198,6 +1242,8 @@ def html_for_chapter_overview(name, data, source, bib, subsecname)
     add_line(s, "<h3>Bibliography</h3>")
     add_line(s, prepare_bibliography(data, bib))
   end
+  # add footer
+  s << footer()
   return s
 end
 
@@ -1245,6 +1291,8 @@ def html_for_chapter(name, data, bib)
     add_line(s, "<h2>Bibliography</h2>")
     add_line(s, prepare_bibliography(data, bib))
   end
+  # add footer
+  s << footer()
   return s
 end
 
@@ -1300,9 +1348,12 @@ end
 def create_toc_html(algorithms, frontmatter)
   s = ""
   # head
-  add_line(s, "<% content_for :head_title, \"Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  add_line(s, "<% content_for :head_description, \"Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
-  add_line(s, "<% content_for :head_keywords, \"clever algorithms, computational intelligence, artificial intelligence, metaheuristics, biologically inspired natural, table of contents\" %>")
+  # add_line(s, "<% content_for :head_title, \"Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # add_line(s, "<% content_for :head_description, \"Clever Algorithms: Nature-Inspired Programming Recipes\" %>")
+  # add_line(s, "<% content_for :head_keywords, \"clever algorithms, computational intelligence, artificial intelligence, metaheuristics, biologically inspired natural, table of contents\" %>")
+
+  s = header("Table of Contents")
+
   # front matter
   add_line(s, "<h1>Table of Contents</h1>")
   add_line(s, "<ol>")

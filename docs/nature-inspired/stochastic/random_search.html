@@ -1,0 +1,192 @@
+<html>
+          <head>
+            <title>Random Search | Clever Algorithms</title><link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+          <!-- support to display ruby source nicely -->
+            <link href="prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="prettify.js"></script>
+          </head>
+        <!-- call to display ruby source nicely -->
+        <body onload="prettyPrint()"><!-- Start Header -->
+          <center>
+          <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
+          <em>A book by Jason Brownlee</em>
+
+          <p>
+            <a href="/">Home</a> |
+            <a href="https://amzn.to/4iKM9uc">Amazon</a> |
+            <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
+            <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
+            <a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf">PDF</a> (<a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip">code</a>) |
+            <a href="https://github.com/Jason2Brownlee/CleverAlgorithms">GitHub</a>
+          </p>
+
+          </center>
+          <hr/>
+          <br/>
+          <!-- End Header --><div class='breadcrumb'>
+<a href='../index.html'>Table of Contents</a>
+&gt;&gt;
+<a href='../stochastic.html'>Stochastic Algorithms</a>
+&gt;&gt;
+<a href='random_search.html'>Random Search</a>
+</div>
+<h1><a name='random_search'>Random Search</a></h1>
+<p>
+<em>Random Search, RS, Blind Random Search, Blind Search, Pure Random Search, PRS</em>
+</p>
+
+<h2><a name='taxonomy'>Taxonomy</a></h2>
+<p>
+Random search belongs to the fields of Stochastic Optimization and Global Optimization.
+Random search is a direct search method as it does not require derivatives to search a continuous domain.
+This base approach is related to techniques that provide small improvements such as Directed Random Search, and Adaptive Random Search.
+</p>
+
+
+<h2><a name='strategy'>Strategy</a></h2>
+<p>
+The strategy of Random Search is to sample solutions from across the entire search space using a uniform probability distribution. Each future sample is independent of the samples that come before it.
+</p>
+
+
+<h2><a name='procedure'>Procedure</a></h2>
+<p>
+Algorithm (below) provides a pseudocode listing of the Random Search Algorithm for minimizing a cost function.
+</p>
+<div class='pseudocode'>
+<strong><strong><code>Input</code></strong></strong>: 
+<code>NumIterations</code>, <code>ProblemSize</code>, <code>SearchSpace</code>
+<br />
+<strong><strong><code>Output</code></strong></strong>: 
+<code>Best</code>
+<br />
+<code>Best</code> $["\\leftarrow \\emptyset"]$<br />
+<strong><code>For</code></strong> ($["iter_i \\in"]$ <code>NumIterations</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$["candidate_i"]$ $["\\leftarrow"]$ <code>RandomSolution</code>(<code>ProblemSize</code>, <code>SearchSpace</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($["candidate_i"]$) &lt; <code>Cost</code>(<code>Best</code>))<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Best</code> $["\\leftarrow"]$ $["candidate_i"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
+<strong><code>End</code></strong><br />
+<strong><code>Return</code></strong> (<code>Best</code>)<br />
+</div>
+<div class='caption'>Pseudocode for Random Search.</div>
+
+
+
+<h2><a name='heuristics'>Heuristics</a></h2>
+<ul>
+<li> Random search is minimal in that it only requires a candidate solution construction routine and a candidate solution evaluation routine, both of which may be calibrated using the approach.</li>
+<li> The worst case performance for Random Search for locating the optima is worse than an Enumeration of the search domain, given that Random Search has no memory and can blindly resample.</li>
+<li> Random Search can return a reasonable approximation of the optimal solution within a reasonable time under low problem dimensionality, although the approach does not scale well with problem size (such as the number of dimensions).</li>
+<li> Care must be taken with some problem domains to ensure that random candidate solution construction is  unbiased</li>
+<li> The results of a Random Search can be used to seed another search technique, like a local search technique (such as the Hill Climbing algorithm) that can be used to locate the best solution in the neighborhood of the 'good' candidate solution.</li>
+</ul>
+
+
+<h2><a name='code_listing'>Code Listing</a></h2>
+<p>
+Listing (below) provides an example of the Random Search Algorithm implemented in the Ruby Programming Language.
+In the example, the algorithm runs for a fixed number of iterations and returns the best candidate solution discovered.
+The example problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=2"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+</p>
+<pre class='prettyprint lang-rb'>
+def objective_function(vector)
+  return vector.inject(0) {|sum, x| sum + (x ** 2.0)}
+end
+
+def random_vector(minmax)
+  return Array.new(minmax.size) do |i|
+    minmax[i][0] + ((minmax[i][1] - minmax[i][0]) * rand())
+  end
+end
+
+def search(search_space, max_iter)
+  best = nil
+  max_iter.times do |iter|
+    candidate = {}
+    candidate[:vector] = random_vector(search_space)
+    candidate[:cost] = objective_function(candidate[:vector])
+    best = candidate if best.nil? or candidate[:cost] &lt; best[:cost]
+    puts " &gt; iteration=#{(iter+1)}, best=#{best[:cost]}"
+  end
+  return best
+end
+
+if __FILE__ == $0
+  # problem configuration
+  problem_size = 2
+  search_space = Array.new(problem_size) {|i| [-5, +5]}
+  # algorithm configuration
+  max_iter = 100
+  # execute the algorithm
+  best = search(search_space, max_iter)
+  puts "Done. Best Solution: c=#{best[:cost]}, v=#{best[:vector].inspect}"
+end
+</pre>
+<div class='caption'>Random Search in Ruby</div>
+<div class='download_src'>Download: <a href='random_search.rb'>random_search.rb</a>. Unit test available in the <%=natureinspired_dev_url("github project")%></div>
+
+
+<h2><a name='references'>References</a></h2>
+
+<h3><a name='primary_sources'>Primary Sources</a></h3>
+<p>
+There is no seminal specification of the Random Search algorithm, rather there are discussions of the general approach and related random search methods from the 1950s through to the 1970s. This was around the time that pattern and direct search methods were actively researched.
+Brooks is credited with the so-called 'pure random search'  [<a href='#Brooks1958'>Brooks1958</a>]. Two seminal reviews of 'random search methods' of the time include: Karnopp  [<a href='#Karnopp1963'>Karnopp1963</a>] and perhaps Kul'chitskii  [<a href='#Kulchitskii1976'>Kulchitskii1976</a>].
+</p>
+
+
+<h3><a name='learn_more'>Learn More</a></h3>
+<p>
+For overviews of Random Search Methods see Zhigljavsky  [<a href='#Zhigljavsky1991'>Zhigljavsky1991</a>], Solis and Wets  [<a href='#Solis1981'>Solis1981</a>], and also White  [<a href='#White1971'>White1971</a>] who provide an insightful review article.
+Spall provides a detailed overview of the field of Stochastic Optimization, including the Random Search method  [<a href='#Spall2003'>Spall2003</a>] (for example, see Chapter 2). For a shorter introduction by Spall, see  [<a href='#Spall2004'>Spall2004</a>] (specifically Section 6.2). Also see Zabinsky for another detailed review of the broader field  [<a href='#Zabinsky2003'>Zabinsky2003</a>].
+</p>
+
+
+
+
+<h2>Bibliography</h2>
+<table>
+ <tr valign="top">
+ <td><a name='Brooks1958'>[Brooks1958]</a></td>
+ <td>["S. H. Brooks"], "<a href="http://scholar.google.com.au/scholar?q=["A+Discussion+of+Random+Methods+for+Seeking+Maxima"]">["A Discussion of Random Methods for Seeking Maxima"]</a>", ["Operations Research"], ["1958"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Karnopp1963'>[Karnopp1963]</a></td>
+ <td>["D. C. Karnopp"], "<a href="http://scholar.google.com.au/scholar?q=["Random+search+techniques+for+optimization+problems"]">["Random search techniques for optimization problems"]</a>", ["Automatica"], ["1963"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Kulchitskii1976'>[Kulchitskii1976]</a></td>
+ <td>["O. Y. Kul'chitskii"], "<a href="http://scholar.google.com.au/scholar?q=["Random-search+algorithm+for+extrema+in+functional+space+under+conditions\n\tof+partial+uncertainty"]">["Random-search algorithm for extrema in functional space under conditions\n\tof partial uncertainty"]</a>", ["Cybernetics and Systems Analysis"], ["1976"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Solis1981'>[Solis1981]</a></td>
+ <td>["F. J. Solis and J. B. Wets"], "<a href="http://scholar.google.com.au/scholar?q=["Minimization+by+Random+Search+Techniques"]">["Minimization by Random Search Techniques"]</a>", ["Mathematics of Operations Research"], ["1981"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Spall2003'>[Spall2003]</a></td>
+ <td>["J. C. Spall"], "<a href="http://scholar.google.com.au/scholar?q=["Introduction+to+stochastic+search+and+optimization:+estimation,+simulation,\n\tand+control"]">["Introduction to stochastic search and optimization: estimation, simulation,\n\tand control"]</a>", ["John Wiley and Sons"], ["2003"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Spall2004'>[Spall2004]</a></td>
+ <td>["J. C. Spall"], "<a href="http://scholar.google.com.au/scholar?q=["6.+Stochastic+Optimization"]">["6. Stochastic Optimization"]</a>", in ["Handbook of computational statistics: concepts and methods"], pages ["169-198"], ["Springer"], ["2004"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='White1971'>[White1971]</a></td>
+ <td>["R. C. White"], "<a href="http://scholar.google.com.au/scholar?q=["A+survey+of+random+methods+for+parameter+optimization"]">["A survey of random methods for parameter optimization"]</a>", ["Simulation"], ["1971"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Zabinsky2003'>[Zabinsky2003]</a></td>
+ <td>["Z. B. Zabinsky"], "<a href="http://scholar.google.com.au/scholar?q=["Stochastic+adaptive+search+for+global+optimization"]">["Stochastic adaptive search for global optimization"]</a>", ["Kluwer Academic Publishers"], ["2003"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Zhigljavsky1991'>[Zhigljavsky1991]</a></td>
+ <td>["A. A. Zhigljavsky"], "<a href="http://scholar.google.com.au/scholar?q=["Theory+of+Global+Random+Search"]">["Theory of Global Random Search"]</a>", ["Kluwer Academic"], ["1991"].</td>
+ </tr>
+</table>
+
+<!-- generate math images from latex math snippets -->
+    <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
+    <script type="text/javascript">replaceMath(document.body);</script>
+        </body>
+          </html>

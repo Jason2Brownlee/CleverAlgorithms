@@ -1,0 +1,156 @@
+<html>
+          <head>
+            <title>Swarm Algorithms | Clever Algorithms</title><link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+          <!-- support to display ruby source nicely -->
+            <link href="prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="prettify.js"></script>
+          </head>
+        <!-- call to display ruby source nicely -->
+        <body onload="prettyPrint()"><!-- Start Header -->
+          <center>
+          <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
+          <em>A book by Jason Brownlee</em>
+
+          <p>
+            <a href="/">Home</a> |
+            <a href="https://amzn.to/4iKM9uc">Amazon</a> |
+            <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
+            <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
+            <a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf">PDF</a> (<a href="https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip">code</a>) |
+            <a href="https://github.com/Jason2Brownlee/CleverAlgorithms">GitHub</a>
+          </p>
+
+          </center>
+          <hr/>
+          <br/>
+          <!-- End Header --><div class='breadcrumb'>
+<a href='index.html'>Table of Contents</a>
+&gt;&gt;
+<a href='swarm.html'>Swarm Algorithms</a>
+</div>
+<h1><a name='swarm_algorithms'>Swarm Algorithms</a></h1>
+
+<h2><a name='overview'>Overview</a></h2>
+<p>
+This chapter describes Swarm Algorithms.
+</p>
+
+<h3><a name='swarm_intelligence'>Swarm Intelligence</a></h3>
+<p>
+Swarm intelligence is the study of computational systems inspired by the 'collective intelligence'. Collective Intelligence emerges through the cooperation of large numbers of homogeneous agents in the environment. Examples include schools of fish, flocks of birds, and colonies of ants. Such intelligence is decentralized, self-organizing and distributed through out an environment. In nature such systems are commonly used to solve problems such as effective foraging for food, prey evading, or colony re-location. The information is typically stored throughout the participating homogeneous agents, or is stored or communicated in the environment itself such as through the use of pheromones in ants, dancing in bees, and proximity in fish and birds.
+</p>
+<p>
+The paradigm consists of two dominant sub-fields 1) <em>Ant Colony Optimization</em> that investigates probabilistic algorithms inspired by the stigmergy and foraging behavior of ants, and 2) <em>Particle Swarm Optimization</em> that investigates probabilistic algorithms inspired by the flocking, schooling and herding. Like evolutionary computation, swarm intelligence 'algorithms' or 'strategies' are considered adaptive strategies and are typically applied to search and optimization domains.
+</p>
+
+
+<h3><a name='references'>References</a></h3>
+<p>
+Seminal books on the field of Swarm Intelligence include &quot;<em>Swarm Intelligence</em>&quot; by Kennedy, Eberhart and Shi  [<a href='#Kennedy2001'>Kennedy2001</a>], and &quot;<em>Swarm Intelligence: From Natural to Artificial Systems</em>&quot; by Bonabeau, Dorigo, and Theraulaz  [<a href='#Bonabeau1999'>Bonabeau1999</a>]. Another excellent text book on the area is &quot;<em>Fundamentals of Computational Swarm Intelligence</em>&quot; by Engelbrecht  [<a href='#Engelbrecht2006'>Engelbrecht2006</a>]. The seminal book reference for the field of Ant Colony Optimization is &quot;<em>Ant Colony Optimization</em>&quot; by Dorigo and St&uuml;tzle  [<a href='#Dorigo2004'>Dorigo2004</a>].
+</p>
+
+
+<h3>Algorithms</h3>
+<ul>
+<li><a href='swarm/pso.html'>Particle Swarm Optimization</a></li>
+<li><a href='swarm/ant_system.html'>Ant System</a></li>
+<li><a href='swarm/ant_colony_system.html'>Ant Colony System</a></li>
+<li><a href='swarm/bees_algorithm.html'>Bees Algorithm</a></li>
+<li><a href='swarm/bfoa.html'>Bacterial Foraging Optimization Algorithm</a></li>
+</ul>
+<h3><a name='extensions'>Extensions</a></h3>
+<p>
+There are many other algorithms and classes of algorithm that were not described from the field of Swarm Intelligence, not limited to:
+</p>
+<ul>
+<li> <strong>Ant Algorithms</strong>: such as Max-Min Ant Systems  [<a href='#Stutzle2000'>Stutzle2000</a>] Rank-Based Ant Systems  [<a href='#Bullnheimer1999'>Bullnheimer1999</a>], Elitist Ant Systems  [<a href='#Dorigo1996'>Dorigo1996</a>], Hyper Cube Ant Colony Optimization  [<a href='#Blum2001'>Blum2001</a>] Approximate Nondeterministic Tree-Search (ANTS)  [<a href='#Maniezzo1999'>Maniezzo1999</a>] and Multiple Ant Colony System  [<a href='#Gambardella1999'>Gambardella1999</a>].</li>
+<li> <strong>Bee Algorithms</strong>: such as Bee System and Bee Colony Optimization  [<a href='#Lucic2001'>Lucic2001</a>], the Honey Bee Algorithm  [<a href='#Tovey2004'>Tovey2004</a>], and Artificial Bee Colony Optimization  [<a href='#Karaboga2005'>Karaboga2005</a>] [<a href='#Basturk2006'>Basturk2006</a>].</li>
+<li> <strong>Other Social Insects</strong>: algorithms inspired by other social insects besides ants and bees, such as the Fireﬂy Algorithm  [<a href='#Yang2008'>Yang2008</a>] and the Wasp Swarm Algorithm  [<a href='#Pinto2007'>Pinto2007</a>].</li>
+<li> <strong>Extensions to Particle Swarm</strong>: such as Repulsive Particle Swarm Optimization  [<a href='#Urfalioglu2004'>Urfalioglu2004</a>].</li>
+<li> <strong>Bacteria Algorithms</strong>: such as the Bacteria Chemotaxis Algorithm  [<a href='#Muller2002'>Muller2002</a>].</li>
+</ul>
+
+
+
+
+<h3>Bibliography</h3>
+<table>
+ <tr valign="top">
+ <td><a name='Basturk2006'>[Basturk2006]</a></td>
+ <td>["B. Basturk and D. Karaboga"], "<a href="http://scholar.google.com.au/scholar?q=["An+Artificial+Bee+Colony+(ABC)+Algorithm+for+Numeric+function+Optimization"]">["An Artificial Bee Colony (ABC) Algorithm for Numeric function Optimization"]</a>", in ["IEEE Swarm Intelligence Symposium"], ["2006"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Blum2001'>[Blum2001]</a></td>
+ <td>["C. Blum and A. Roli and M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["HC&ndash;ACO:+The+hyper-cube+framework+for+Ant+Colony+Optimization"]">["HC&ndash;ACO: The hyper-cube framework for Ant Colony Optimization"]</a>", in ["Proceedings of the Fourth Metaheuristics International Conference"], ["2001"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Bonabeau1999'>[Bonabeau1999]</a></td>
+ <td>["E. Bonabeau and M. Dorigo and G. Theraulaz"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence:+From+Natural+to+Artificial+Systems"]">["Swarm Intelligence: From Natural to Artificial Systems"]</a>", ["Oxford University Press US"], ["1999"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Bullnheimer1999'>[Bullnheimer1999]</a></td>
+ <td>["B. Bullnheimer and R. F. Hartl and C. Strauss"], "<a href="http://scholar.google.com.au/scholar?q=["A+New+Rank+Based+Version+of+the+Ant+System:+A+Computational+Study"]">["A New Rank Based Version of the Ant System: A Computational Study"]</a>", ["Central European Journal for Operations Research and Economics"], ["1999"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo1996'>[Dorigo1996]</a></td>
+ <td>["M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["The+Ant+System:+Optimization+by+a+colony+of+cooperating+agents"]">["The Ant System: Optimization by a colony of cooperating agents"]</a>", ["IEEE Transactions on Systems, Man, and Cybernetics–Part B"], ["1996"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Dorigo2004'>[Dorigo2004]</a></td>
+ <td>["M. Dorigo and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+Optimization"]">["Ant Colony Optimization"]</a>", ["MIT Press"], ["2004"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Engelbrecht2006'>[Engelbrecht2006]</a></td>
+ <td>["A. P. Engelbrecht"], "<a href="http://scholar.google.com.au/scholar?q=["Fundamentals+of+Computational+Swarm+Intelligence"]">["Fundamentals of Computational Swarm Intelligence"]</a>", ["Wiley \&amp; Sons"], ["2006"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Gambardella1999'>[Gambardella1999]</a></td>
+ <td>["L. M. Gambardella and E. Taillard and G. Agazzi"], "<a href="http://scholar.google.com.au/scholar?q=["MACS&ndash;VRPTW:+A+Multiple+Ant+Colony+System+for+Vehicle+Routing\n\tProblems+with+Time+Windows"]">["MACS&ndash;VRPTW: A Multiple Ant Colony System for Vehicle Routing\n\tProblems with Time Windows"]</a>", in ["New Ideas in Optimization"], pages ["63&ndash;76"], ["McGraw-Hill"], ["1999"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Karaboga2005'>[Karaboga2005]</a></td>
+ <td>["D. Karaboga"], "<a href="http://scholar.google.com.au/scholar?q=["An+idea+based+on+honey+bee+swarm+for+numerical+optimization"]">["An idea based on honey bee swarm for numerical optimization"]</a>", Technical Report ["TR06"], ["Erciyes University, Engineering Faculty, Computer Engineering Department"], ["2005"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Kennedy2001'>[Kennedy2001]</a></td>
+ <td>["J. Kennedy and R. C. Eberhart and Y. Shi"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence"]">["Swarm Intelligence"]</a>", ["Morgan Kaufmann"], ["2001"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Lucic2001'>[Lucic2001]</a></td>
+ <td>P. ["Lu&amp;#269;i&amp;#263; and D."] Teodorovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=["Bee+system:+modeling+combinatorial+optimization+transportation+engineering\n\tproblems+by+swarm+intelligence"]">["Bee system: modeling combinatorial optimization transportation engineering\n\tproblems by swarm intelligence"]</a>", in ["Preprints of the TRISTAN IV Triennial Symposium on Transportation\n\tAnalysis"], ["2001"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Maniezzo1999'>[Maniezzo1999]</a></td>
+ <td>["V. Maniezzo"], "<a href="http://scholar.google.com.au/scholar?q=["Approximate+nondeterministic+tree-search+procedures+for+the+quadratic\n\tassignment+problem"]">["Approximate nondeterministic tree-search procedures for the quadratic\n\tassignment problem"]</a>", ["INFORMS Journal on Computing"], ["1999"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Muller2002'>[Muller2002]</a></td>
+ <td>["S. D. M\&amp;uuml;ller and J. Marchetto and S. Airaghi and P. Koumoutsakos"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+Based+on+Bacterial+Chemotaxis"]">["Optimization Based on Bacterial Chemotaxis"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2002"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Pinto2007'>[Pinto2007]</a></td>
+ <td>["P. C. Pinto and T. A. Runkler and J. M. Sousa"], "<a href="http://scholar.google.com.au/scholar?q=["Wasp+Swarm+Algorithm+for+Dynamic+MAX-SAT+Problems"]">["Wasp Swarm Algorithm for Dynamic MAX-SAT Problems"]</a>", in ["Proceedings of the 8th international conference on Adaptive and Natural\n\tComputing Algorithms, Part I"], ["2007"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Stutzle2000'>[Stutzle2000]</a></td>
+ <td>["T. St\&amp;uuml;tzle and H. H. Hoos"], "<a href="http://scholar.google.com.au/scholar?q=["MAX&ndash;MIN+Ant+System,+Future+Generation+Computer+Systems"]">["MAX&ndash;MIN Ant System, Future Generation Computer Systems"]</a>", ["Future Generation Computer Systems"], ["2000"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Tovey2004'>[Tovey2004]</a></td>
+ <td>["C. Tovey"], "<a href="http://scholar.google.com.au/scholar?q=["The+Honey+Bee+Algorithm:+A+Biological+Inspired+Approach+to+Internet\n\tServer+Optimization"]">["The Honey Bee Algorithm: A Biological Inspired Approach to Internet\n\tServer Optimization"]</a>", ["Engineering Enterprise, the Alumni Magazine for ISyE at Georgia\n\tInstitute of Technology"], ["2004"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Urfalioglu2004'>[Urfalioglu2004]</a></td>
+ <td>O"] ["Urfalioglu, "<a href="http://scholar.google.com.au/scholar?q=["Robust+Estimation+of+Camera+Rotation,+Translation+and+Focal+Length\n\tat+High+Outlier+Rates"]">["Robust Estimation of Camera Rotation, Translation and Focal Length\n\tat High Outlier Rates"]</a>", in ["Proceedings of the 1st Canadian Conference on Computer and Robot\n\tVision"], ["2004"].</td>
+ </tr>
+ <tr valign="top">
+ <td><a name='Yang2008'>[Yang2008]</a></td>
+ <td>X. S."] ["Yang, "<a href="http://scholar.google.com.au/scholar?q=["Nature-Inspired+Metaheuristic+Algorithms"]">["Nature-Inspired Metaheuristic Algorithms"]</a>", ["Luniver Press"], ["2008"].</td>
+ </tr>
+</table>
+
+<!-- generate math images from latex math snippets -->
+    <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
+    <script type="text/javascript">replaceMath(document.body);</script>
+        </body>
+          </html>

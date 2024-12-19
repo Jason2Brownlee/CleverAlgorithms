@@ -1,0 +1,56 @@
+
+/* centre and bold captions for code listings */
+.caption {
+	text-align: center;
+	font-weight: bold;
+	margin: 5px;
+}
+
+/* put a box around pseudo code */
+.pseudocode {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #000;
+}
+
+/* force book images to centre */
+.book_image {
+	display: block;
+	margin-left: auto;
+	margin-right: auto
+}
+
+/* better than default hr */
+hr {
+	border-top: 1px dashed #888;
+}
+
+/* header style */
+.header {
+	color: #444;
+}
+
+/* footer style */
+.footer {
+	color: #444;
+}
+
+/* algorithm side panel */
+.side {
+	color: #444;
+	padding: 2px;	
+}
+
+
+/* inset */
+.book_content {
+	padding: 4px;
+}
+
+.flash_info {
+	color: green;
+}
+
+.flash_error {
+	color: red;
+}
