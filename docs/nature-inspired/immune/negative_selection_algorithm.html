@@ -75,12 +75,12 @@ Algorithm (below) provides a pseudocode listing of the detector generation proce
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Repertoire</code>
 <br />
-<code>Repertoire</code> $["\\leftarrow \\emptyset"]$<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Detectors</code> $["\\leftarrow"]$ <code>GenerateRandomDetectors</code>()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Detector_{i}$ $["\\in"]$ <code>Repertoire</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($["\\neg"]$<code>Matches</code>($Detector_{i}$, <code>SelfData</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Repertoire</code> $["\\leftarrow"]$ $Detector_{i}$<br />
+<code>Repertoire</code> $\leftarrow \emptyset$<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Detectors</code> $\leftarrow$ <code>GenerateRandomDetectors</code>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Detector_{i}$ $\in$ <code>Repertoire</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($\neg$<code>Matches</code>{$Detector_{i}$, <code>SelfData</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Repertoire</code> $\leftarrow$ $Detector_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -92,11 +92,11 @@ Algorithm (below) provides a pseudocode listing of the detector generation proce
 <strong><strong><code>Input</code></strong></strong>: 
 <code>InputSamples</code>, <code>Repertoire</code>
 <br />
-<strong><code>For</code></strong> ($Input_{i}$ $["\\in"]$ <code>InputSamples</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Inputi_{class}$ $["\\leftarrow"]$ &quot;non-self&quot;<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Detector_{i}$ $["\\in"]$ <code>Repertoire</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Matches</code>($Input_{i}$, $Detector_{i}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Inputi_{class}$ $["\\leftarrow"]$ &quot;self&quot;<br />
+<strong><code>For</code></strong> ($Input_{i}$ $\in$ <code>InputSamples</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Inputi_{class}$ $\leftarrow$ &quot;non-self&quot;<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Detector_{i}$ $\in$ <code>Repertoire</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Matches</code>{$Input_{i}$, $Detector_{i}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Inputi_{class}$ $\leftarrow$ &quot;self&quot;<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Break</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
@@ -237,43 +237,43 @@ Recently, the validity of the application of negative selection algorithms in hi
 <table>
  <tr valign="top">
  <td><a name='Darlington2005'>[Darlington2005]</a></td>
- <td>["C. F. Esponda Darlington"], "<a href="http://scholar.google.com.au/scholar?q=["Negative+Representations+of+Information"]">["Negative Representations of Information"]</a>", [PhD Thesis] ["The University of New Mexico"], ["2005"].</td>
+ <td>C. F. Esponda Darlington, "<a href="http://scholar.google.com.au/scholar?q=Negative+Representations+of+Information">Negative Representations of Information</a>", [PhD Thesis] The University of New Mexico, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dhaeseleer1996'>[Dhaeseleer1996]</a></td>
- <td>["P. D'haeseleer"], "<a href="http://scholar.google.com.au/scholar?q=["An+immunological+approach+to+change+detection:+theoretical+results"]">["An immunological approach to change detection: theoretical results"]</a>", in ["Proceedings of the 9th IEEE Computer Security Foundations Workshop"], ["1996"].</td>
+ <td>P. D'haeseleer, "<a href="http://scholar.google.com.au/scholar?q=An+immunological+approach+to+change+detection:+theoretical+results">An immunological approach to change detection: theoretical results</a>", in Proceedings of the 9th IEEE Computer Security Foundations Workshop, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dhaeseleer1996a'>[Dhaeseleer1996a]</a></td>
- <td>P. ["D'haeseleer and S. Forrest and P."] Helman, "<a href="http://scholar.google.com.au/scholar?q=["An+immunological+approach+to+change+detection:+algorithms,+analysis\n\tand+implications"]">["An immunological approach to change detection: algorithms, analysis\n\tand implications"]</a>", in ["Proceedings of the IEEE Symposium on Security and Privacy"], ["1996"].</td>
+ <td>P. D'haeseleer and S. Forrest and P. Helman, "<a href="http://scholar.google.com.au/scholar?q=An+immunological+approach+to+change+detection:+algorithms,+analysis\n\tand+implications">An immunological approach to change detection: algorithms, analysis\n\tand implications</a>", in Proceedings of the IEEE Symposium on Security and Privacy, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Forrest1994'>[Forrest1994]</a></td>
- <td>S. ["Forrest and A. S. Perelson and L. Allen and R."] Cherukuri, "<a href="http://scholar.google.com.au/scholar?q=["Self-Nonself+Discrimination+in+a+Computer"]">["Self-Nonself Discrimination in a Computer"]</a>", in ["Proceedings of the 1992 IEEE Symposium on Security and Privacy"], ["1994"].</td>
+ <td>S. Forrest and A. S. Perelson and L. Allen and R. Cherukuri, "<a href="http://scholar.google.com.au/scholar?q=Self-Nonself+Discrimination+in+a+Computer">Self-Nonself Discrimination in a Computer</a>", in Proceedings of the 1992 IEEE Symposium on Security and Privacy, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Forrest1996'>[Forrest1996]</a></td>
- <td>S. ["Forrest and S. A. Hofmeyr and A. Somayaji and T.\n\tA."] Longstaff, "<a href="http://scholar.google.com.au/scholar?q=["A+Sense+of+Self+for+Unix+Processes"]">["A Sense of Self for Unix Processes"]</a>", in ["Proceedings of the 1996 IEEE Symposium on Security and Privacy"], ["1996"].</td>
+ <td>S. Forrest and S. A. Hofmeyr and A. Somayaji and T.\n\tA. Longstaff, "<a href="http://scholar.google.com.au/scholar?q=A+Sense+of+Self+for+Unix+Processes">A Sense of Self for Unix Processes</a>", in Proceedings of the 1996 IEEE Symposium on Security and Privacy, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hofmeyr1998'>[Hofmeyr1998]</a></td>
- <td>S. A. ["Hofmeyr and S. Forrest and A."] Somayaji, "<a href="http://scholar.google.com.au/scholar?q=["Intrusion+Detection+using+Sequences+of+System+Calls"]">["Intrusion Detection using Sequences of System Calls"]</a>", ["Journal of Computer Security"], ["1998"].</td>
+ <td>S. A. Hofmeyr and S. Forrest and A. Somayaji, "<a href="http://scholar.google.com.au/scholar?q=Intrusion+Detection+using+Sequences+of+System+Calls">Intrusion Detection using Sequences of System Calls</a>", Journal of Computer Security, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hofmeyr1999'>[Hofmeyr1999]</a></td>
- <td>S. ["Hofmeyr and S."] Forrest, "<a href="http://scholar.google.com.au/scholar?q=["Immunity+by+Design:+An+Artificial+Immune+System"]">["Immunity by Design: An Artificial Immune System"]</a>", in ["Proceedings of the Genetic and Evolutionary Computation Conference\n\n\t(GECCO)"], ["1999"].</td>
+ <td>S. Hofmeyr and S. Forrest, "<a href="http://scholar.google.com.au/scholar?q=Immunity+by+Design:+An+Artificial+Immune+System">Immunity by Design: An Artificial Immune System</a>", in Proceedings of the Genetic and Evolutionary Computation Conference\n\n\t(GECCO), 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hofmeyr1999a'>[Hofmeyr1999a]</a></td>
- <td>S. A."] ["Hofmeyr, "<a href="http://scholar.google.com.au/scholar?q=["An+Immunological+Model+of+Distributed+Detection+and+its+Application\n\tto+Computer+Security"]">["An Immunological Model of Distributed Detection and its Application\n\tto Computer Security"]</a>", [PhD Thesis] ["Department of Computer Sciences, University of New Mexico"], ["1999"].</td>
+ <td>S. A. Hofmeyr, "<a href="http://scholar.google.com.au/scholar?q=An+Immunological+Model+of+Distributed+Detection+and+its+Application\n\tto+Computer+Security">An Immunological Model of Distributed Detection and its Application\n\tto Computer Security</a>", [PhD Thesis] Department of Computer Sciences, University of New Mexico, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ji2007'>[Ji2007]</a></td>
- <td>["Z. Ji and D. Dasgupta"], "<a href="http://scholar.google.com.au/scholar?q=["Revisiting+Negative+Selection+Algorithms"]">["Revisiting Negative Selection Algorithms"]</a>", ["Evolutionary Computation"], ["2007"].</td>
+ <td>Z. Ji and D. Dasgupta, "<a href="http://scholar.google.com.au/scholar?q=Revisiting+Negative+Selection+Algorithms">Revisiting Negative Selection Algorithms</a>", Evolutionary Computation, 2007.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stibor2006'>[Stibor2006]</a></td>
- <td>T."] ["Stibor, "<a href="http://scholar.google.com.au/scholar?q=["On+the+Appropriateness+of+Negative+Selection+for+Anomaly+Detection\n\tand+Network+Intrusion+Detection"]">["On the Appropriateness of Negative Selection for Anomaly Detection\n\tand Network Intrusion Detection"]</a>", [PhD Thesis] ["Darmstadt University of Technology"], ["2006"].</td>
+ <td>T. Stibor, "<a href="http://scholar.google.com.au/scholar?q=On+the+Appropriateness+of+Negative+Selection+for+Anomaly+Detection\n\tand+Network+Intrusion+Detection">On the Appropriateness of Negative Selection for Anomaly Detection\n\tand Network Intrusion Detection</a>", [PhD Thesis] Darmstadt University of Technology, 2006.</td>
  </tr>
 </table>
 

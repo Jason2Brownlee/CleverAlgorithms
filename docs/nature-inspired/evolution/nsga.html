@@ -64,35 +64,35 @@ $Population_{size}$, <code>ProblemSize</code>, $P_{crossover}$, $P_{mutation}$
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Children</code>
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, <code>ProblemSize</code>)<br />
-<code>EvaluateAgainstObjectiveFunctions</code>(<code>Population</code>)<br />
-<code>FastNondominatedSort</code>(<code>Population</code>)<br />
-<code>Selected</code> $["\\leftarrow"]$ <code>SelectParentsByRank</code>(<code>Population</code>, $Population_{size}$)<br />
-<code>Children</code> $["\\leftarrow"]$ <code>CrossoverAndMutation</code>(<code>Selected</code>, $P_{crossover}$, $P_{mutation}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateAgainstObjectiveFunctions</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $["\\leftarrow"]$ <code>Merge</code>(<code>Population</code>, <code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Fronts</code> $["\\leftarrow"]$ <code>FastNondominatedSort</code>(<code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Front_i$ $["\\in"]$ <code>Fronts</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CrowdingDistanceAssignment</code>($Front_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>(<code>Parents</code>)+<code>Size</code>($Front_i$) &gt; $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $["\\leftarrow"]$ $["i"]$<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, <code>ProblemSize</code>}<br />
+<code>EvaluateAgainstObjectiveFunctions</code>{<code>Population</code>}<br />
+<code>FastNondominatedSort</code>{<code>Population</code>}<br />
+<code>Selected</code> $\leftarrow$ <code>SelectParentsByRank</code>{<code>Population</code>, $Population_{size}$}<br />
+<code>Children</code> $\leftarrow$ <code>CrossoverAndMutation</code>{<code>Selected</code>, $P_{crossover}$, $P_{mutation}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateAgainstObjectiveFunctions</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $\leftarrow$ <code>Merge</code>{<code>Population</code>, <code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Fronts</code> $\leftarrow$ <code>FastNondominatedSort</code>{<code>Union</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Front_i$ $\in$ <code>Fronts</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CrowdingDistanceAssignment</code>{$Front_i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>{<code>Parents</code>}$+$<code>Size</code>{$Front_i$} $>$ $Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $\leftarrow$ $i$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Break</code>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow"]$ <code>Merge</code>(<code>Parents</code>, $Front_i$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow$ <code>Merge</code>{<code>Parents</code>, $Front_i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>(<code>Parents</code>)&lt;$Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $["\\leftarrow"]$ <code>SortByRankAndDistance</code>($Front_L$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["P_1"]$ <strong><code>To</code></strong> $["P_{\Population_{size} - <code>Size</code>{\Front_L}}"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow"]$ $["Pi"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>{<code>Parents</code>}$<$$Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Front_L$ $\leftarrow$ <code>SortByRankAndDistance</code>{$Front_L$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($P_1$ <strong><code>To</code></strong> $P_{$Population_{size}$ - <code>Size</code>{$Front_L$}}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow$ $Pi$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $["\\leftarrow"]$ <code>SelectParentsByRankAndDistance</code>(<code>Parents</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code>  $["\\leftarrow"]$ <code>Children</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ <code>CrossoverAndMutation</code>(<code>Selected</code>, $P_{crossover}$, $P_{mutation}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $\leftarrow$ <code>SelectParentsByRankAndDistance</code>{<code>Parents</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code>  $\leftarrow$ <code>Children</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ <code>CrossoverAndMutation</code>{<code>Selected</code>, $P_{crossover}$, $P_{mutation}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Children</code>)<br />
 </div>
@@ -337,27 +337,27 @@ Deb provides in depth coverage of Evolutionary Multiple Objective Optimization a
 <table>
  <tr valign="top">
  <td><a name='Deb1995'>[Deb1995]</a></td>
- <td>["K. Deb and R. B. Agrawal"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+binary+crossover+for+continuous+search+space"]">["Simulated binary crossover for continuous search space"]</a>", ["Complex Systems"], ["1995"].</td>
+ <td>K. Deb and R. B. Agrawal, "<a href="http://scholar.google.com.au/scholar?q=Simulated+binary+crossover+for+continuous+search+space">Simulated binary crossover for continuous search space</a>", Complex Systems, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Deb2000'>[Deb2000]</a></td>
- <td>["K. Deb and S. Agrawal and A. Pratap and T. Meyarivan"], "<a href="http://scholar.google.com.au/scholar?q=["A+Fast+Elitist+Non&ndash;dominated+Sorting+Genetic+Algorithm+for+Multi&ndash;Objective\n\tOptimization:+NSGA&ndash;II"]">["A Fast Elitist Non&ndash;dominated Sorting Genetic Algorithm for Multi&ndash;Objective\n\tOptimization: NSGA&ndash;II"]</a>", ["Parallel Problem Solving from Nature PPSN VI"], ["2000"].</td>
+ <td>K. Deb and S. Agrawal and A. Pratap and T. Meyarivan, "<a href="http://scholar.google.com.au/scholar?q=A+Fast+Elitist+Non&ndash;dominated+Sorting+Genetic+Algorithm+for+Multi&ndash;Objective\n\tOptimization:+NSGA&ndash;II">A Fast Elitist Non&ndash;dominated Sorting Genetic Algorithm for Multi&ndash;Objective\n\tOptimization: NSGA&ndash;II</a>", Parallel Problem Solving from Nature PPSN VI, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Deb2001'>[Deb2001]</a></td>
- <td>["K. Deb"], "<a href="http://scholar.google.com.au/scholar?q=["Multi-Objective+Optimization+Using+Evolutionary+Algorithms"]">["Multi-Objective Optimization Using Evolutionary Algorithms"]</a>", ["John Wiley and Sons"], ["2001"].</td>
+ <td>K. Deb, "<a href="http://scholar.google.com.au/scholar?q=Multi-Objective+Optimization+Using+Evolutionary+Algorithms">Multi-Objective Optimization Using Evolutionary Algorithms</a>", John Wiley and Sons, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Deb2002'>[Deb2002]</a></td>
- <td>["K. Deb and A. Pratap and S. Agarwal and T. Meyarivan"], "<a href="http://scholar.google.com.au/scholar?q=["A+Fast+and+Elitist+Multiobjective+Genetic+Algorithm:+NSGA&ndash;II"]">["A Fast and Elitist Multiobjective Genetic Algorithm: NSGA&ndash;II"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2002"].</td>
+ <td>K. Deb and A. Pratap and S. Agarwal and T. Meyarivan, "<a href="http://scholar.google.com.au/scholar?q=A+Fast+and+Elitist+Multiobjective+Genetic+Algorithm:+NSGA&ndash;II">A Fast and Elitist Multiobjective Genetic Algorithm: NSGA&ndash;II</a>", IEEE Transactions on Evolutionary Computation, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goldberg1989'>[Goldberg1989]</a></td>
- <td>["D. E. Goldberg"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Algorithms+in+Search,+Optimization,+and+Machine+Learning"]">["Genetic Algorithms in Search, Optimization, and Machine Learning"]</a>", ["Addison-Wesley"], ["1989"].</td>
+ <td>D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Algorithms+in+Search,+Optimization,+and+Machine+Learning">Genetic Algorithms in Search, Optimization, and Machine Learning</a>", Addison-Wesley, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Srinivas1994'>[Srinivas1994]</a></td>
- <td>["N. Srinivas and K. Deb"], "<a href="http://scholar.google.com.au/scholar?q=["Muiltiobjective+Optimization+Using+Nondominated+Sorting+in+Genetic\n\tAlgorithms"]">["Muiltiobjective Optimization Using Nondominated Sorting in Genetic\n\tAlgorithms"]</a>", ["Evolutionary Computation"], ["1994"].</td>
+ <td>N. Srinivas and K. Deb, "<a href="http://scholar.google.com.au/scholar?q=Muiltiobjective+Optimization+Using+Nondominated+Sorting+in+Genetic\n\tAlgorithms">Muiltiobjective Optimization Using Nondominated Sorting in Genetic\n\tAlgorithms</a>", Evolutionary Computation, 1994.</td>
  </tr>
 </table>
 

@@ -61,17 +61,17 @@ $Iteration_{max}$, <code>Increase</code>, <code>Decrease</code>, <code>ProblemSi
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{curr}$ $["\\leftarrow"]$ <code>ConstructInitialSolution</code>()<br />
-$S_{best}$ $["\\leftarrow"]$ $S_{curr}$<br />
-<code>TabuList</code> $["\\leftarrow \\emptyset"]$<br />
-<code>ProhibitionPeriod</code> $["\\leftarrow"]$ 1<br />
-<strong><code>For</code></strong> ($Iteration_{i}$ $["\\in"]$ $Iteration_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>MemoryBasedReaction</code>(<code>Increase</code>, <code>Decrease</code>, <code>ProblemSize</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $["\\leftarrow"]$ <code>GenerateCandidateNeighborhood</code>($S_{curr}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $["\\leftarrow"]$ <code>BestMove</code>(<code>CandidateList</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>TabuList</code> $["\\leftarrow"]$ $Scurr_{feature}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{curr}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{curr}$<br />
+$S_{curr}$ $\leftarrow$ <code>ConstructInitialSolution</code>()<br />
+$S_{best}$ $\leftarrow$ $S_{curr}$<br />
+<code>TabuList</code> $\leftarrow \emptyset$<br />
+<code>ProhibitionPeriod</code> $\leftarrow$ 1<br />
+<strong><code>For</code></strong> ($Iteration_{i}$ $\in$ $Iteration_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>MemoryBasedReaction</code>{<code>Increase</code>, <code>Decrease</code>, <code>ProblemSize</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $\leftarrow$ <code>GenerateCandidateNeighborhood</code>{$S_{curr}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $\leftarrow$ <code>BestMove</code>{<code>CandidateList</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>TabuList</code> $\leftarrow$ $Scurr_{feature}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{curr}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{curr}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -82,22 +82,22 @@ $S_{best}$ $["\\leftarrow"]$ $S_{curr}$<br />
 <strong><strong><code>Input</code></strong></strong>: 
 <code>Increase</code>, <code>Decrease</code>, <code>ProblemSize</code>
 <br />
-<strong><code>If</code></strong> (<code>HaveVisitedSolutionBefore</code>($S_{curr}$, <code>VisitedSolutions</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $["\\leftarrow"]$ <code>RetrieveLastTimeVisited</code>(<code>VisitedSolutions</code>, $S_{curr}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>RepetitionInterval</code> $["\\leftarrow"]$ $Iteration_{i}$ &ndash; $Scurr_{t}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $["\\leftarrow"]$ $Iteration_{i}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>RepetitionInterval</code> &lt; 2 $["\\times"]$ <code>ProblemSize</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RepetitionInterval_{avg}$ $["\\leftarrow"]$ 0.1 $["\\times"]$ <code>RepetitionInterval</code> + 0.9 $["\\times"]$ $RepetitionInterval_{avg}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $["\\leftarrow"]$ <code>ProhibitionPeriod</code> $["\\times"]$ <code>Increase</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $["\\leftarrow"]$ $Iteration_{i}$<br />
+<strong><code>If</code></strong> (<code>HaveVisitedSolutionBefore</code>{$S_{curr}$, <code>VisitedSolutions</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $\leftarrow$ <code>RetrieveLastTimeVisited</code>{<code>VisitedSolutions</code>, $S_{curr}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>RepetitionInterval</code> $\leftarrow$ $Iteration_{i}$ $-$ $Scurr_{t}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $\leftarrow$ $Iteration_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>RepetitionInterval</code> $<$ 2 $\times$ <code>ProblemSize</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RepetitionInterval_{avg}$ $\leftarrow$ 0.1 $\times$ <code>RepetitionInterval</code> $+$ 0.9 $\times$ $RepetitionInterval_{avg}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $\leftarrow$ <code>ProhibitionPeriod</code> $\times$ <code>Increase</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $\leftarrow$ $Iteration_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>VisitedSolutions</code> $["\\leftarrow"]$ $S_{curr}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $["\\leftarrow"]$ $Iteration_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>VisitedSolutions</code> $\leftarrow$ $S_{curr}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Scurr_{t}$ $\leftarrow$ $Iteration_{i}$<br />
 <strong><code>End</code></strong><br />
-<strong><code>If</code></strong> ($Iteration_{i}$ &ndash; $ProhibitionPeriod_{t}$ &gt; $RepetitionInterval_{avg}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $["\\leftarrow"]$ <code>Max</code>(1, <code>ProhibitionPeriod</code> $["\\times"]$ <code>Decrease</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $["\\leftarrow"]$ $Iteration_{i}$<br />
+<strong><code>If</code></strong> ($Iteration_{i}$ $-$ $ProhibitionPeriod_{t}$ $>$ $RepetitionInterval_{avg}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $\leftarrow$ <code>Max</code>{1, <code>ProhibitionPeriod</code> $\times$ <code>Decrease</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $\leftarrow$ $Iteration_{i}$<br />
 <strong><code>End</code></strong><br />
 </div>
 <div class='caption'>Pseudocode for the <code>MemoryBasedReaction</code> function.</div>
@@ -109,16 +109,16 @@ $S_{best}$ $["\\leftarrow"]$ $S_{curr}$<br />
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{curr}$
 <br />
-$CandidateList_{admissible}$ $["\\leftarrow"]$ <code>GetAdmissibleMoves</code>(<code>CandidateList</code>)<br />
-$CandidateList_{tabu}$ $["\\leftarrow"]$ <code>CandidateList</code> &ndash; $CandidateList_{admissible}$<br />
-<strong><code>If</code></strong> (<code>Size</code>($CandidateList_{admissible}$) &lt; 2)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $["\\leftarrow"]$ <code>ProblemSize</code> &ndash; 2<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $["\\leftarrow"]$ $Iteration_{i}$<br />
+$CandidateList_{admissible}$ $\leftarrow$ <code>GetAdmissibleMoves</code>{<code>CandidateList</code>}<br />
+$CandidateList_{tabu}$ $\leftarrow$ <code>CandidateList</code> $-$ $CandidateList_{admissible}$<br />
+<strong><code>If</code></strong> (<code>Size</code>{$CandidateList_{admissible}$} $<$ 2)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>ProhibitionPeriod</code> $\leftarrow$ <code>ProblemSize</code> $-$ 2<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$ProhibitionPeriod_{t}$ $\leftarrow$ $Iteration_{i}$<br />
 <strong><code>End</code></strong><br />
-$S_{curr}$ $["\\leftarrow"]$ <code>GetBest</code>($CandidateList_{admissible}$)<br />
-$Sbest_{tabu}$ $["\\leftarrow"]$ <code>GetBest</code>($CandidateList_{tabu}$)<br />
-<strong><code>If</code></strong> (<code>Cost</code>($Sbest_{tabu}$) &lt; <code>Cost</code>($S_{best}$) $["\\wedge"]$ <code>Cost</code>($Sbest_{tabu}$) &lt; <code>Cost</code>($S_{curr}$) )<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $["\\leftarrow"]$ $Sbest_{tabu}$<br />
+$S_{curr}$ $\leftarrow$ <code>GetBest</code>{$CandidateList_{admissible}$}<br />
+$Sbest_{tabu}$ $\leftarrow$ <code>GetBest</code>{$CandidateList_{tabu}$}<br />
+<strong><code>If</code></strong> (<code>Cost</code>{$Sbest_{tabu}$} $<$ <code>Cost</code>{$S_{best}$} $\wedge$ <code>Cost</code>{$Sbest_{tabu}$} $<$ <code>Cost</code>{$S_{curr}$} )<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $\leftarrow$ $Sbest_{tabu}$<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{curr}$)<br />
 </div>
@@ -128,10 +128,10 @@ $Sbest_{tabu}$ $["\\leftarrow"]$ <code>GetBest</code>($CandidateList_{tabu}$)<br
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Tabu</code>
 <br />
-<code>Tabu</code> $["\\leftarrow"]$ <strong><code>False</code></strong><br />
-$Scurr_{feature}^{t}$ $["\\leftarrow"]$ <code>RetrieveTimeFeatureLastUsed</code>($Scurr_{feature}$)<br />
-<strong><code>If</code></strong> ($Scurr_{feature}^{t}$ $["\\geq"]$ $Iteration_{curr}$ &ndash; <code>ProhibitionPeriod</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Tabu</code> $["\\leftarrow"]$ <strong><code>True</code></strong><br />
+<code>Tabu</code> $\leftarrow$ <strong><code>False</code></strong><br />
+$Scurr_{feature}^{t}$ $\leftarrow$ <code>RetrieveTimeFeatureLastUsed</code>{$Scurr_{feature}$}<br />
+<strong><code>If</code></strong> ($Scurr_{feature}^{t}$ $\geq$ $Iteration_{curr}$ $-$ <code>ProhibitionPeriod</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Tabu</code> $\leftarrow$ <strong><code>True</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Tabu</code>)<br />
 </div>
@@ -360,43 +360,43 @@ This framework was further extended to the use of any adaptive machine learning 
 <table>
  <tr valign="top">
  <td><a name='Battiti1992'>[Battiti1992]</a></td>
- <td>["R. Battiti and G. Tecchiolli"], "<a href="http://scholar.google.com.au/scholar?q=["Parallel+Biased+Search+for+Combinatorial+Optimization:+genetic+algorithms\n\tand+TABU"]">["Parallel Biased Search for Combinatorial Optimization: genetic algorithms\n\tand TABU"]</a>", ["Microprocessors and Microsystems"], ["1992"].</td>
+ <td>R. Battiti and G. Tecchiolli, "<a href="http://scholar.google.com.au/scholar?q=Parallel+Biased+Search+for+Combinatorial+Optimization:+genetic+algorithms\n\tand+TABU">Parallel Biased Search for Combinatorial Optimization: genetic algorithms\n\tand TABU</a>", Microprocessors and Microsystems, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1994'>[Battiti1994]</a></td>
- <td>["R. Battiti and G. Tecchiolli"], "<a href="http://scholar.google.com.au/scholar?q=["The+reactive+tabu+search"]">["The reactive tabu search"]</a>", ["ORSA Journal on Computing"], ["1994"].</td>
+ <td>R. Battiti and G. Tecchiolli, "<a href="http://scholar.google.com.au/scholar?q=The+reactive+tabu+search">The reactive tabu search</a>", ORSA Journal on Computing, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1994a'>[Battiti1994a]</a></td>
- <td>["R. Battiti and G. Tecchiolli"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+annealing+and+tabu+search+in+the+long+run:+a+comparison\n\ton+qap+tasks"]">["Simulated annealing and tabu search in the long run: a comparison\n\ton qap tasks"]</a>", ["Computer and Mathematics with Applications"], ["1994"].</td>
+ <td>R. Battiti and G. Tecchiolli, "<a href="http://scholar.google.com.au/scholar?q=Simulated+annealing+and+tabu+search+in+the+long+run:+a+comparison\n\ton+qap+tasks">Simulated annealing and tabu search in the long run: a comparison\n\ton qap tasks</a>", Computer and Mathematics with Applications, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1995'>[Battiti1995]</a></td>
- <td>["R. Battiti and M. Protasi"], "<a href="http://scholar.google.com.au/scholar?q=["Reactive+local+search+for+the+Maximum+Clique+problem"]">["Reactive local search for the Maximum Clique problem"]</a>", Technical Report ["TR-95-052"], ["International Computer Science Institute, Berkeley, CA"], ["1995"].</td>
+ <td>R. Battiti and M. Protasi, "<a href="http://scholar.google.com.au/scholar?q=Reactive+local+search+for+the+Maximum+Clique+problem">Reactive local search for the Maximum Clique problem</a>", Technical Report TR-95-052, International Computer Science Institute, Berkeley, CA, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1995a'>[Battiti1995a]</a></td>
- <td>["R. Battiti and G. Tecchiolli"], "<a href="http://scholar.google.com.au/scholar?q=["Local+search+with+memory:+Benchmarking+RTS"]">["Local search with memory: Benchmarking RTS"]</a>", ["Operations Research Spektrum"], ["1995"].</td>
+ <td>R. Battiti and G. Tecchiolli, "<a href="http://scholar.google.com.au/scholar?q=Local+search+with+memory:+Benchmarking+RTS">Local search with memory: Benchmarking RTS</a>", Operations Research Spektrum, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1995b'>[Battiti1995b]</a></td>
- <td>["R. Battiti and G. Tecchiolli"], "<a href="http://scholar.google.com.au/scholar?q=["Training+neural+nets+with+the+reactive+tabu+search"]">["Training neural nets with the reactive tabu search"]</a>", ["IEEE Transactions on Neural Networks"], ["1995"].</td>
+ <td>R. Battiti and G. Tecchiolli, "<a href="http://scholar.google.com.au/scholar?q=Training+neural+nets+with+the+reactive+tabu+search">Training neural nets with the reactive tabu search</a>", IEEE Transactions on Neural Networks, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti1996'>[Battiti1996]</a></td>
- <td>["R. Battiti"], "<a href="http://scholar.google.com.au/scholar?q=["Machine+learning+methods+for+parameter+tuning+in+heuristics"]">["Machine learning methods for parameter tuning in heuristics"]</a>", in ["5th DIMACS Challenge Workshop: Experimental Methodology Day"], ["1996"].</td>
+ <td>R. Battiti, "<a href="http://scholar.google.com.au/scholar?q=Machine+learning+methods+for+parameter+tuning+in+heuristics">Machine learning methods for parameter tuning in heuristics</a>", in 5th DIMACS Challenge Workshop: Experimental Methodology Day, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti2001'>[Battiti2001]</a></td>
- <td>["R. Battiti and M. Protasi"], "<a href="http://scholar.google.com.au/scholar?q=["Reactive+local+search+for+the+Maximum+Clique+problem"]">["Reactive local search for the Maximum Clique problem"]</a>", ["Algorithmica"], ["2001"].</td>
+ <td>R. Battiti and M. Protasi, "<a href="http://scholar.google.com.au/scholar?q=Reactive+local+search+for+the+Maximum+Clique+problem">Reactive local search for the Maximum Clique problem</a>", Algorithmica, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti2008'>[Battiti2008]</a></td>
- <td>["R. Battiti and M. Brunato and F. Mascia"], "<a href="http://scholar.google.com.au/scholar?q=["Reactive+Search+and+Intelligent+Optimization"]">["Reactive Search and Intelligent Optimization"]</a>", ["Springer"], ["2008"].</td>
+ <td>R. Battiti and M. Brunato and F. Mascia, "<a href="http://scholar.google.com.au/scholar?q=Reactive+Search+and+Intelligent+Optimization">Reactive Search and Intelligent Optimization</a>", Springer, 2008.</td>
  </tr>
  <tr valign="top">
  <td><a name='Battiti2009'>[Battiti2009]</a></td>
- <td>["R. Battiti and M. Brunato"], "<a href="http://scholar.google.com.au/scholar?q=["Reactive+Search+Optimization:+Learning+while+Optimizing"]">["Reactive Search Optimization: Learning while Optimizing"]</a>", in ["Handbook of Metaheuristics"], ["Springer Verlag"], ["2009"].</td>
+ <td>R. Battiti and M. Brunato, "<a href="http://scholar.google.com.au/scholar?q=Reactive+Search+Optimization:+Learning+while+Optimizing">Reactive Search Optimization: Learning while Optimizing</a>", in Handbook of Metaheuristics, Springer Verlag, 2009.</td>
  </tr>
 </table>
 

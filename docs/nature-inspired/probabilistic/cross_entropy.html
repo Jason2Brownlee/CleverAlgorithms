@@ -67,23 +67,23 @@ $Problem_{size}$, $Samples_{num}$, $UpdateSamples_{num}$, $Learn_{rate}$, $Varia
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Means</code> $["\\leftarrow"]$ <code>InitializeMeans</code>()<br />
-<code>Variances</code> $["\\leftarrow"]$ <code>InitializeVariances</code>()<br />
-$S_{best}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-<strong><code>While</code></strong> (<code>Max</code>(<code>Variances</code>) $["\\leq"]$ $Variance_{min}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Samples</code> $["\\leftarrow"]$ $["0"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=0"]$ <strong><code>To</code></strong> $Samples_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Samples</code> $["\\leftarrow"]$ <code>GenerateSample</code>(<code>Means</code>, <code>Variances</code>)<br />
+<code>Means</code> $\leftarrow$ <code>InitializeMeans</code>()<br />
+<code>Variances</code> $\leftarrow$ <code>InitializeVariances</code>()<br />
+$S_{best}$ $\leftarrow$ $\emptyset$<br />
+<strong><code>While</code></strong> (<code>Max</code>{<code>Variances</code>} $\leq$ $Variance_{min}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Samples</code> $\leftarrow$ $0$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i=0$ <strong><code>To</code></strong> $Samples_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Samples</code> $\leftarrow$ <code>GenerateSample</code>{<code>Means</code>, <code>Variances</code>}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateSamples</code>(<code>Samples</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>SortSamplesByQuality</code>(<code>Samples</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($Samples_{0}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $Samples_{0}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateSamples</code>{<code>Samples</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>SortSamplesByQuality</code>{<code>Samples</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$Samples_{0}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $Samples_{0}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Samples_{selected}$ $["\\leftarrow "]$<code>SelectBestSamples</code>(<code>Samples</code>, $UpdateSamples_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=0"]$ <strong><code>To</code></strong> $Problem_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Means_i$ $["\\leftarrow"]$ $Means_i$ + $Learn_{rate}$ $["\\times"]$ <code>Mean</code>($Samples_{selected}$, $["i"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Variances_i$ $["\\leftarrow"]$ $Variances_i$ + $Learn_{rate}$ $["\\times"]$ <code>Variance</code>($Samples_{selected}$, $["i"]$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Samples_{selected}$ $\leftarrow $<code>SelectBestSamples</code>{<code>Samples</code>, $UpdateSamples_{num}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i=0$ <strong><code>To</code></strong> $Problem_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Means_i$ $\leftarrow$ $Means_i$ $+$ $Learn_{rate}$ $\times$ <code>Mean</code>{$Samples_{selected}$, $i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Variances_i$ $\leftarrow$ $Variances_i$ $+$ $Learn_{rate}$ $\times$ <code>Variance</code>{$Samples_{selected}$, $i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -216,23 +216,23 @@ Rubinstein and Kroese provide a thorough presentation of the approach in their b
 <table>
  <tr valign="top">
  <td><a name='DeBoer2005'>[DeBoer2005]</a></td>
- <td>P. T. ["De Boer and D. P. Kroese and S. Mannor and R.\n\tY."] Rubinstein, "<a href="http://scholar.google.com.au/scholar?q=["A+Tutorial+on+the+Cross-Entropy+Method"]">["A Tutorial on the Cross-Entropy Method"]</a>", ["Annals of Operations Research"], ["2005"].</td>
+ <td>P. T. De Boer and D. P. Kroese and S. Mannor and R.\n\tY. Rubinstein, "<a href="http://scholar.google.com.au/scholar?q=A+Tutorial+on+the+Cross-Entropy+Method">A Tutorial on the Cross-Entropy Method</a>", Annals of Operations Research, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rubinstein1997'>[Rubinstein1997]</a></td>
- <td>["R. Y. Rubinstein"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+of+Computer+simulation+Models+with+Rare+Events"]">["Optimization of Computer simulation Models with Rare Events"]</a>", ["European Journal of Operations Research"], ["1997"].</td>
+ <td>R. Y. Rubinstein, "<a href="http://scholar.google.com.au/scholar?q=Optimization+of+Computer+simulation+Models+with+Rare+Events">Optimization of Computer simulation Models with Rare Events</a>", European Journal of Operations Research, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rubinstein1999'>[Rubinstein1999]</a></td>
- <td>["R. Y. Rubinstein"], "<a href="http://scholar.google.com.au/scholar?q=["The+simulated+entropy+method+for+combinatorial+and+continuous+optimization"]">["The simulated entropy method for combinatorial and continuous optimization"]</a>", ["Methodology and Computing in Applied Probability"], ["1999"].</td>
+ <td>R. Y. Rubinstein, "<a href="http://scholar.google.com.au/scholar?q=The+simulated+entropy+method+for+combinatorial+and+continuous+optimization">The simulated entropy method for combinatorial and continuous optimization</a>", Methodology and Computing in Applied Probability, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rubinstein2001'>[Rubinstein2001]</a></td>
- <td>["R. Y. Rubinstein"], "<a href="http://scholar.google.com.au/scholar?q=["Combinatorial+optimization,+cross-entropy,+ants+and+rare+events"]">["Combinatorial optimization, cross-entropy, ants and rare events"]</a>", in ["Stochastic optimization: algorithms and applications"], pages ["303&ndash;364"], ["Springer"], ["2001"].</td>
+ <td>R. Y. Rubinstein, "<a href="http://scholar.google.com.au/scholar?q=Combinatorial+optimization,+cross-entropy,+ants+and+rare+events">Combinatorial optimization, cross-entropy, ants and rare events</a>", in Stochastic optimization: algorithms and applications, pages 303&ndash;364, Springer, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rubinstein2004'>[Rubinstein2004]</a></td>
- <td>["R. Y. Rubinstein and D. P. Kroese"], "<a href="http://scholar.google.com.au/scholar?q=["The+Cross-Entropy+Method:+A+Unified+Approach+to+Combinatorial+Optimization"]">["The Cross-Entropy Method: A Unified Approach to Combinatorial Optimization"]</a>", ["Springer"], ["2004"].</td>
+ <td>R. Y. Rubinstein and D. P. Kroese, "<a href="http://scholar.google.com.au/scholar?q=The+Cross-Entropy+Method:+A+Unified+Approach+to+Combinatorial+Optimization">The Cross-Entropy Method: A Unified Approach to Combinatorial Optimization</a>", Springer, 2004.</td>
  </tr>
 </table>
 

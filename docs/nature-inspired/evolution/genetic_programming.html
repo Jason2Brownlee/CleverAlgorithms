@@ -78,35 +78,35 @@ $Population_{size}$, $nodes_{func}$, $nodes_{term}$, $P_{crossover}$, $P_{mutati
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, $nodes_{func}$, $nodes_{term}$)<br />
-<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>Size</code>(<code>Children</code>) &lt; $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Operator</code> $["\\leftarrow"]$ <code>SelectGeneticOperator</code>($P_{crossover}$, $P_{mutation}$, $P_{reproduction}$, $P_{alteration}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Operator</code> $["\\equiv"]$ <code>CrossoverOperator</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$, $Parent_{2}$ $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$, $Child_{2}$ $["\\leftarrow"]$ <code>Crossover</code>($Parent_{1}$, $Parent_{2}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{1}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{2}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $["\\equiv"]$ <code>MutationOperator</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $["\\leftarrow"]$ <code>Mutate</code>($Parent_{1}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{1}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $["\\equiv"]$ <code>ReproductionOperator</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $["\\leftarrow"]$ <code>Reproduce</code>($Parent_{1}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{1}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $["\\equiv"]$ <code>AlterationOperator</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $["\\leftarrow"]$ <code>AlterArchitecture</code>($Parent_{1}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{1}$<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, $nodes_{func}$, $nodes_{term}$}<br />
+<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>Size</code>{<code>Children</code>} $<$ $Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Operator</code> $\leftarrow$ <code>SelectGeneticOperator</code>{$P_{crossover}$, $P_{mutation}$, $P_{reproduction}$, $P_{alteration}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Operator</code> $\equiv$ <code>CrossoverOperator</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$, $Parent_{2}$ $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$, $Child_{2}$ $\leftarrow$ <code>Crossover</code>{$Parent_{1}$, $Parent_{2}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{1}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{2}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $\equiv$ <code>MutationOperator</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $\leftarrow$ <code>Mutate</code>{$Parent_{1}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{1}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $\equiv$ <code>ReproductionOperator</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $\leftarrow$ <code>Reproduce</code>{$Parent_{1}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{1}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Operator</code> $\equiv$ <code>AlterationOperator</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Parent_{1}$ $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$ $\leftarrow$ <code>AlterArchitecture</code>{$Parent_{1}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{1}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Children</code>, $S_{best}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Children</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Children</code>, $S_{best}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Children</code><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -346,51 +346,51 @@ Some additional excellent books include a text by Banzhaf et al. that provides a
 <table>
  <tr valign="top">
  <td><a name='Angeline1996'>[Angeline1996]</a></td>
- <td>["P. J. Angeline"], "<a href="http://scholar.google.com.au/scholar?q=["Two+Self-Adaptive+Crossover+Operators+for+Genetic+Programming"]">["Two Self-Adaptive Crossover Operators for Genetic Programming"]</a>", in ["Advances in Genetic Programming 2"], ["1996"].</td>
+ <td>P. J. Angeline, "<a href="http://scholar.google.com.au/scholar?q=Two+Self-Adaptive+Crossover+Operators+for+Genetic+Programming">Two Self-Adaptive Crossover Operators for Genetic Programming</a>", in Advances in Genetic Programming 2, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Banzhaf1998'>[Banzhaf1998]</a></td>
- <td>["W. Banzhaf and P. Nordin and R. E. Keller and F. D. Francone"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Programming+&ndash;+An+Introduction;+On+the+Automatic+Evolution\n\tof+Computer+Programs+and+its+Applications"]">["Genetic Programming &ndash; An Introduction; On the Automatic Evolution\n\tof Computer Programs and its Applications"]</a>", ["Morgan Kaufmann"], ["1998"].</td>
+ <td>W. Banzhaf and P. Nordin and R. E. Keller and F. D. Francone, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Programming+&ndash;+An+Introduction;+On+the+Automatic+Evolution\n\tof+Computer+Programs+and+its+Applications">Genetic Programming &ndash; An Introduction; On the Automatic Evolution\n\tof Computer Programs and its Applications</a>", Morgan Kaufmann, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Cramer1985'>[Cramer1985]</a></td>
- <td>["N. L. Cramer"], "<a href="http://scholar.google.com.au/scholar?q=["A+Representation+for+the+Adaptive+Generation+of+Simple+Sequential\n\tPrograms"]">["A Representation for the Adaptive Generation of Simple Sequential\n\tPrograms"]</a>", in ["Proceedings of the 1st International Conference on Genetic Algorithms"], ["1985"].</td>
+ <td>N. L. Cramer, "<a href="http://scholar.google.com.au/scholar?q=A+Representation+for+the+Adaptive+Generation+of+Simple+Sequential\n\tPrograms">A Representation for the Adaptive Generation of Simple Sequential\n\tPrograms</a>", in Proceedings of the 1st International Conference on Genetic Algorithms, 1985.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza1989'>[Koza1989]</a></td>
- <td>["J. R. Koza"], "<a href="http://scholar.google.com.au/scholar?q=["Hierarchical+genetic+algorithms+operating+on+populations+of+computer\n\tprograms"]">["Hierarchical genetic algorithms operating on populations of computer\n\tprograms"]</a>", in ["Proceedings of the Eleventh International Joint Conference on Artificial\n\tIntelligence IJCAI-89"], ["1989"].</td>
+ <td>J. R. Koza, "<a href="http://scholar.google.com.au/scholar?q=Hierarchical+genetic+algorithms+operating+on+populations+of+computer\n\tprograms">Hierarchical genetic algorithms operating on populations of computer\n\tprograms</a>", in Proceedings of the Eleventh International Joint Conference on Artificial\n\tIntelligence IJCAI-89, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza1992'>[Koza1992]</a></td>
- <td>["J. R. Koza"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+programming:+On+the+programming+of+computers+by+means+of\n\tnatural+selection"]">["Genetic programming: On the programming of computers by means of\n\tnatural selection"]</a>", ["MIT Press"], ["1992"].</td>
+ <td>J. R. Koza, "<a href="http://scholar.google.com.au/scholar?q=Genetic+programming:+On+the+programming+of+computers+by+means+of\n\tnatural+selection">Genetic programming: On the programming of computers by means of\n\tnatural selection</a>", MIT Press, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza1994'>[Koza1994]</a></td>
- <td>["J. R. Koza"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+programming+II:+Automatic+discovery+of+reusable+programs"]">["Genetic programming II: Automatic discovery of reusable programs"]</a>", ["MIT Press"], ["1994"].</td>
+ <td>J. R. Koza, "<a href="http://scholar.google.com.au/scholar?q=Genetic+programming+II:+Automatic+discovery+of+reusable+programs">Genetic programming II: Automatic discovery of reusable programs</a>", MIT Press, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza1999'>[Koza1999]</a></td>
- <td>["J. R. Koza and F. H. Bennett III and D. Andre and M. A. Keane"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+programming+III:+Darwinian+invention+and+problem+solving"]">["Genetic programming III: Darwinian invention and problem solving"]</a>", ["Morgan Kaufmann"], ["1999"].</td>
+ <td>J. R. Koza and F. H. Bennett III and D. Andre and M. A. Keane, "<a href="http://scholar.google.com.au/scholar?q=Genetic+programming+III:+Darwinian+invention+and+problem+solving">Genetic programming III: Darwinian invention and problem solving</a>", Morgan Kaufmann, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza2003'>[Koza2003]</a></td>
- <td>["J. R. Koza and M. A. Keane and M. J. Streeter and W. Mydlowec and\n\tJ. Yu and G. Lanza"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Programming+IV:+Routine+Human-Competitive+Machine+Intelligence"]">["Genetic Programming IV: Routine Human-Competitive Machine Intelligence"]</a>", ["Springer"], ["2003"].</td>
+ <td>J. R. Koza and M. A. Keane and M. J. Streeter and W. Mydlowec and\n\tJ. Yu and G. Lanza, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Programming+IV:+Routine+Human-Competitive+Machine+Intelligence">Genetic Programming IV: Routine Human-Competitive Machine Intelligence</a>", Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Koza2005'>[Koza2005]</a></td>
- <td>["J. R. Koza and R. Poli"], "<a href="http://scholar.google.com.au/scholar?q=["5:+Genetic+Programming"]">["5: Genetic Programming"]</a>", in ["Search methodologies: Introductory tutorials in optimization and\n\tdecision support techniques"], pages ["127&ndash;164"], ["Springer"], ["2005"].</td>
+ <td>J. R. Koza and R. Poli, "<a href="http://scholar.google.com.au/scholar?q=5:+Genetic+Programming">5: Genetic Programming</a>", in Search methodologies: Introductory tutorials in optimization and\n\tdecision support techniques, pages 127&ndash;164, Springer, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Langdon2002'>[Langdon2002]</a></td>
- <td>["W. B. Langdon and R. Poli"], "<a href="http://scholar.google.com.au/scholar?q=["Foundations+of+Genetic+Programming"]">["Foundations of Genetic Programming"]</a>", ["Springer-Verlag"], ["2002"].</td>
+ <td>W. B. Langdon and R. Poli, "<a href="http://scholar.google.com.au/scholar?q=Foundations+of+Genetic+Programming">Foundations of Genetic Programming</a>", Springer-Verlag, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Perkis1994'>[Perkis1994]</a></td>
- <td>["T. Perkis"], "<a href="http://scholar.google.com.au/scholar?q=["Stack-Based+Genetic+Programming"]">["Stack-Based Genetic Programming"]</a>", in ["Proc IEEE Congress on Computational Intelligence"], ["1994"].</td>
+ <td>T. Perkis, "<a href="http://scholar.google.com.au/scholar?q=Stack-Based+Genetic+Programming">Stack-Based Genetic Programming</a>", in Proc IEEE Congress on Computational Intelligence, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Poli2008'>[Poli2008]</a></td>
- <td>["R. Poli and W. B. Langdon and N. F. McPhee"], "<a href="http://scholar.google.com.au/scholar?q=["A+Field+Programmers+Guide+to+Genetic+Programming"]">["A Field Programmers Guide to Genetic Programming"]</a>", ["Lulu Enterprises"], ["2008"].</td>
+ <td>R. Poli and W. B. Langdon and N. F. McPhee, "<a href="http://scholar.google.com.au/scholar?q=A+Field+Programmers+Guide+to+Genetic+Programming">A Field Programmers Guide to Genetic Programming</a>", Lulu Enterprises, 2008.</td>
  </tr>
 </table>
 

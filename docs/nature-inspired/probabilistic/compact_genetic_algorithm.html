@@ -68,21 +68,21 @@ $Bits_{num}$, $n$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$V$ $["\\leftarrow"]$ <code>InitializeVector</code>($Bits_{num}$, 0.5)<br />
-$S_{best}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{1}$ $["\\leftarrow"]$ <code>GenerateSamples</code>($V$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{2}$ $["\\leftarrow"]$ <code>GenerateSamples</code>($V$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{winner}$, $S_{loser}$ $["\\leftarrow"]$ <code>SelectWinnerAndLoser</code>($S_{1}$, $S_{2}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{winner}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{winner}$<br />
+$V$ $\leftarrow$ <code>InitializeVector</code>{$Bits_{num}$, 0.5}<br />
+$S_{best}$ $\leftarrow$ $\emptyset$<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{1}$ $\leftarrow$ <code>GenerateSamples</code>{$V$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{2}$ $\leftarrow$ <code>GenerateSamples</code>{$V$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{winner}$, $S_{loser}$ $\leftarrow$ <code>SelectWinnerAndLoser</code>{$S_{1}$, $S_{2}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{winner}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{winner}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i"]$ <strong><code>To</code></strong> $Bits_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($S_{winner}^i$ $["\\neq"]$ $S_{loser}^i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($S_{winner}^i$ $["\\equiv"]$ 1)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{i}^i$ $["\\leftarrow"]$ $V_{i}^i$ + $["\\frac{1}{\n}"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i$ <strong><code>To</code></strong> $Bits_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($S_{winner}^i$ $\neq$ $S_{loser}^i$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($S_{winner}^i$ $\equiv$ 1)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{i}^i$ $\leftarrow$ $V_{i}^i$ $+$ $\frac{1}{$n$}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{i}^i$ $["\\leftarrow"]$ $V_{i}^i$ &ndash; $["\\frac{1}{\n}"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$V_{i}^i$ $\leftarrow$ $V_{i}^i$ $-$ $\frac{1}{$n$}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
@@ -185,23 +185,23 @@ Harik et al. extended the Compact Genetic Algorithm (called the Extended Compact
 <table>
  <tr valign="top">
  <td><a name='Harik1997'>[Harik1997]</a></td>
- <td>G. R. ["Harik and E. Cant&amp;uacute;&ndash;Paz and D. E. Goldberg and \n\tB. L."] Miller, "<a href="http://scholar.google.com.au/scholar?q=["The+gambler's+ruin+problem,+genetic+algorithms,+and+the+sizing+of\n\tpopulations"]">["The gambler's ruin problem, genetic algorithms, and the sizing of\n\tpopulations"]</a>", in ["IEEE International Conference on Evolutionary Computation"], ["1997"].</td>
+ <td>G. R. Harik and E. Cant&amp;uacute;&ndash;Paz and D. E. Goldberg and \n\tB. L. Miller, "<a href="http://scholar.google.com.au/scholar?q=The+gambler's+ruin+problem,+genetic+algorithms,+and+the+sizing+of\n\tpopulations">The gambler's ruin problem, genetic algorithms, and the sizing of\n\tpopulations</a>", in IEEE International Conference on Evolutionary Computation, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Harik1999'>[Harik1999]</a></td>
- <td>G. R. ["Harik and F. G. Lobo and D. E."] Goldberg, "<a href="http://scholar.google.com.au/scholar?q=["The+compact+genetic+algorithm"]">["The compact genetic algorithm"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["1999"].</td>
+ <td>G. R. Harik and F. G. Lobo and D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=The+compact+genetic+algorithm">The compact genetic algorithm</a>", IEEE Transactions on Evolutionary Computation, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Harik1999a'>[Harik1999a]</a></td>
- <td>["G. R. Harik"], "<a href="http://scholar.google.com.au/scholar?q=["Linkage+Learning+via+Probabilistic+Modeling+in+the+Extended+Compact\n\tGenetic+Algorithm+(ECGA)"]">["Linkage Learning via Probabilistic Modeling in the Extended Compact\n\tGenetic Algorithm (ECGA)"]</a>", Technical Report ["99010"], ["Illinois Genetic Algorithms Laboratory, Department of General Engineering,\n\tUniversity of Illinois"], ["1999"].</td>
+ <td>G. R. Harik, "<a href="http://scholar.google.com.au/scholar?q=Linkage+Learning+via+Probabilistic+Modeling+in+the+Extended+Compact\n\tGenetic+Algorithm+(ECGA)">Linkage Learning via Probabilistic Modeling in the Extended Compact\n\tGenetic Algorithm (ECGA)</a>", Technical Report 99010, Illinois Genetic Algorithms Laboratory, Department of General Engineering,\n\tUniversity of Illinois, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Harik2006'>[Harik2006]</a></td>
- <td>["G. R. Harik and F. G. Lobo and K. Sastry"], "<a href="http://scholar.google.com.au/scholar?q=["Linkage+Learning+via+Probabilistic+Modeling+in+the+Extended+Compact\n\tGenetic+Algorithm+(ECGA)"]">["Linkage Learning via Probabilistic Modeling in the Extended Compact\n\tGenetic Algorithm (ECGA)"]</a>", in ["Scalable Optimization via Probabilistic Modeling"], pages ["39&ndash;61"], ["Springer"], ["2006"].</td>
+ <td>G. R. Harik and F. G. Lobo and K. Sastry, "<a href="http://scholar.google.com.au/scholar?q=Linkage+Learning+via+Probabilistic+Modeling+in+the+Extended+Compact\n\tGenetic+Algorithm+(ECGA)">Linkage Learning via Probabilistic Modeling in the Extended Compact\n\tGenetic Algorithm (ECGA)</a>", in Scalable Optimization via Probabilistic Modeling, pages 39&ndash;61, Springer, 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Sastry2000'>[Sastry2000]</a></td>
- <td>K. ["Sastry and D. E."] Goldberg, "<a href="http://scholar.google.com.au/scholar?q=["On+Extended+Compact+Genetic+Algorithm"]">["On Extended Compact Genetic Algorithm"]</a>", in ["Late Breaking Paper in Genetic and Evolutionary Computation Conference"], ["2000"].</td>
+ <td>K. Sastry and D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=On+Extended+Compact+Genetic+Algorithm">On Extended Compact Genetic Algorithm</a>", in Late Breaking Paper in Genetic and Evolutionary Computation Conference, 2000.</td>
  </tr>
 </table>
 

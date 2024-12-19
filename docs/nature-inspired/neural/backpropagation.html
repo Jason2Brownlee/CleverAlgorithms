@@ -104,13 +104,13 @@ where $["w_i(t+1)"]$ is the updated $["i^{th}"]$ weight, $["ed_k"]$ is the error
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Network</code>
 <br />
-<code>Network</code> $["\\leftarrow"]$ <code>ConstructNetworkLayers</code>()<br />
-$Network_{weights}$ $["\\leftarrow"]$ <code>InitializeWeights</code>(<code>Network</code>, <code>ProblemSize</code>)<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $["\\leftarrow"]$ <code>SelectInputPattern</code>(<code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Output_i$ $["\\leftarrow"]$ <code>ForwardPropagate</code>($Pattern_i$, <code>Network</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>BackwardPropagateError</code>($Pattern_i$, $Output_i$, <code>Network</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateWeights</code>($Pattern_i$, $Output_i$, <code>Network</code>, $learn_{rate}$)<br />
+<code>Network</code> $\leftarrow$ <code>ConstructNetworkLayers</code>()<br />
+$Network_{weights}$ $\leftarrow$ <code>InitializeWeights</code>{<code>Network</code>, <code>ProblemSize</code>}<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $\leftarrow$ <code>SelectInputPattern</code>{<code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Output_i$ $\leftarrow$ <code>ForwardPropagate</code>{$Pattern_i$, <code>Network</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>BackwardPropagateError</code>{$Pattern_i$, $Output_i$, <code>Network</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateWeights</code>{$Pattern_i$, $Output_i$, <code>Network</code>, $learn_{rate}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Network</code>)<br />
 </div>
@@ -312,35 +312,35 @@ Reed and Marks provide an excellent treatment of feed-forward neural networks ca
 <table>
  <tr valign="top">
  <td><a name='Bryson1969'>[Bryson1969]</a></td>
- <td>["A. E. Bryson and Y&ndash;C. Ho"], "<a href="http://scholar.google.com.au/scholar?q=["Applied+optimal+control:+optimization,+estimation,+and+control"]">["Applied optimal control: optimization, estimation, and control"]</a>", ["Taylor \&amp; Francis"], ["1969"].</td>
+ <td>A. E. Bryson and Y&ndash;C. Ho, "<a href="http://scholar.google.com.au/scholar?q=Applied+optimal+control:+optimization,+estimation,+and+control">Applied optimal control: optimization, estimation, and control</a>", Taylor \&amp; Francis, 1969.</td>
  </tr>
  <tr valign="top">
  <td><a name='Chauvin1995'>[Chauvin1995]</a></td>
- <td>["Y. Chauvin and D. E. Rumelhart"], "<a href="http://scholar.google.com.au/scholar?q=["Backpropagation:+Theory,+architectures,+and+applications"]">["Backpropagation: Theory, architectures, and applications"]</a>", ["Routledge"], ["1995"].</td>
+ <td>Y. Chauvin and D. E. Rumelhart, "<a href="http://scholar.google.com.au/scholar?q=Backpropagation:+Theory,+architectures,+and+applications">Backpropagation: Theory, architectures, and applications</a>", Routledge, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Minsky1969'>[Minsky1969]</a></td>
- <td>M. L. ["Minsky and S. A."] Papert, "<a href="http://scholar.google.com.au/scholar?q=["Perceptrons"]">["Perceptrons"]</a>", ["MIT Press"], ["1969"].</td>
+ <td>M. L. Minsky and S. A. Papert, "<a href="http://scholar.google.com.au/scholar?q=Perceptrons">Perceptrons</a>", MIT Press, 1969.</td>
  </tr>
  <tr valign="top">
  <td><a name='Reed1999'>[Reed1999]</a></td>
- <td>["R. D. Reed and R. J. Marks II"], "<a href="http://scholar.google.com.au/scholar?q=["Neural+Smithing:+Supervised+Learning+in+Feedforward+Artificial+Neural\n\tNetworks"]">["Neural Smithing: Supervised Learning in Feedforward Artificial Neural\n\tNetworks"]</a>", ["Mit Press"], ["1999"].</td>
+ <td>R. D. Reed and R. J. Marks II, "<a href="http://scholar.google.com.au/scholar?q=Neural+Smithing:+Supervised+Learning+in+Feedforward+Artificial+Neural\n\tNetworks">Neural Smithing: Supervised Learning in Feedforward Artificial Neural\n\tNetworks</a>", Mit Press, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rumelhart1986'>[Rumelhart1986]</a></td>
- <td>["D. E. Rumelhart and J. L. McClelland"], "<a href="http://scholar.google.com.au/scholar?q=["Parallel+distributed+processing:+explorations+in+the+microstructure\n\tof+cognition.+Foundations,+Volume+1"]">["Parallel distributed processing: explorations in the microstructure\n\tof cognition. Foundations, Volume 1"]</a>", ["MIT Press"], ["1986"].</td>
+ <td>D. E. Rumelhart and J. L. McClelland, "<a href="http://scholar.google.com.au/scholar?q=Parallel+distributed+processing:+explorations+in+the+microstructure\n\tof+cognition.+Foundations,+Volume+1">Parallel distributed processing: explorations in the microstructure\n\tof cognition. Foundations, Volume 1</a>", MIT Press, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rumelhart1986a'>[Rumelhart1986a]</a></td>
- <td>["D. E. Rumelhart and J. L. McClelland"], "<a href="http://scholar.google.com.au/scholar?q=["Parallel+distributed+processing:+Explorations+in+the+microstructure\n\tof+cognition.+Psychological+and+biological+models,+Volume+2"]">["Parallel distributed processing: Explorations in the microstructure\n\tof cognition. Psychological and biological models, Volume 2"]</a>", ["MIT Press"], ["1986"].</td>
+ <td>D. E. Rumelhart and J. L. McClelland, "<a href="http://scholar.google.com.au/scholar?q=Parallel+distributed+processing:+Explorations+in+the+microstructure\n\tof+cognition.+Psychological+and+biological+models,+Volume+2">Parallel distributed processing: Explorations in the microstructure\n\tof cognition. Psychological and biological models, Volume 2</a>", MIT Press, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rumelhart1986b'>[Rumelhart1986b]</a></td>
- <td>["D. E. Rumelhart and G. E. Hinton and R. J. Williams"], "<a href="http://scholar.google.com.au/scholar?q=["Learning+representations+by+back-propagating+errors"]">["Learning representations by back-propagating errors"]</a>", ["Nature"], ["1986"].</td>
+ <td>D. E. Rumelhart and G. E. Hinton and R. J. Williams, "<a href="http://scholar.google.com.au/scholar?q=Learning+representations+by+back-propagating+errors">Learning representations by back-propagating errors</a>", Nature, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rumelhart1986c'>[Rumelhart1986c]</a></td>
- <td>["D. E. Rumelhart and G. E. Hinton and R. J. Williams"], "<a href="http://scholar.google.com.au/scholar?q=["Learning+internal+representations+by+error+propagation"]">["Learning internal representations by error propagation"]</a>", in ["Parallel distributed processing: explorations in the microstructure\n\tof cognition, vol. 1"], pages ["318&ndash;362"], ["MIT Press"], ["1986"].</td>
+ <td>D. E. Rumelhart and G. E. Hinton and R. J. Williams, "<a href="http://scholar.google.com.au/scholar?q=Learning+internal+representations+by+error+propagation">Learning internal representations by error propagation</a>", in Parallel distributed processing: explorations in the microstructure\n\tof cognition, vol. 1, pages 318&ndash;362, MIT Press, 1986.</td>
  </tr>
 </table>
 

@@ -79,25 +79,25 @@ $Population_{size}$, <code>ProblemSize</code>, $N_{clones}$, $N_{random}$, <code
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, <code>ProblemSize</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Cost_{avg}$ $["\\leftarrow"]$ <code>CalculateAveragePopulationCost</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>CalculateAveragePopulationCost</code>(<code>Population</code>) &gt; $Cost_{avg}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Clones</code> $["\\leftarrow"]$ <code>CreateClones</code>($Cell_{i}$, $N_{clones}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Clone_{i}$ $["\\in"]$ <code>Clones</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Clone_{i}$ $["\\leftarrow"]$ <code>MutateRelativeToFitnessOfParent</code>($Clone_{i}$, $Cell_{i}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, <code>ProblemSize</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Cost_{avg}$ $\leftarrow$ <code>CalculateAveragePopulationCost</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>CalculateAveragePopulationCost</code>{<code>Population</code>} $>$ $Cost_{avg}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Clones</code> $\leftarrow$ <code>CreateClones</code>{$Cell_{i}$, $N_{clones}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Clone_{i}$ $\in$ <code>Clones</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Clone_{i}$ $\leftarrow$ <code>MutateRelativeToFitnessOfParent</code>{$Clone_{i}$, $Cell_{i}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Clones</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Clones</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Clones</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $\leftarrow$ <code>GetBestSolution</code>{<code>Clones</code>}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>SupressLowAffinityCells</code>(<code>Progeny</code>, <code>AffinityThreshold</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $["\\leftarrow"]$ <code>CreateRandomCells</code>($N_{random}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Progeny</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>SupressLowAffinityCells</code>{<code>Progeny</code>, <code>AffinityThreshold</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Progeny</code> $\leftarrow$ <code>CreateRandomCells</code>{$N_{random}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Progeny</code><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -274,51 +274,51 @@ The authors de Franca, Von Zuben, and de Castro proposed an extension to opt-aiN
 <table>
  <tr valign="top">
  <td><a name='Castro2000a'>[Castro2000a]</a></td>
- <td>["L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["An+evolutionary+immune+network+for+data+clustering"]">["An evolutionary immune network for data clustering"]</a>", in ["Proceedings Sixth Brazilian Symposium on Neural Networks"], ["2000"].</td>
+ <td>L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=An+evolutionary+immune+network+for+data+clustering">An evolutionary immune network for data clustering</a>", in Proceedings Sixth Brazilian Symposium on Neural Networks, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro2001'>[Castro2001]</a></td>
- <td>["L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["Chapter+XII:+aiNet:+An+Artificial+Immune+Network+for+Data+Analysis"]">["Chapter XII: aiNet: An Artificial Immune Network for Data Analysis"]</a>", in ["Data Mining: A Heuristic Approach"], pages ["231&ndash;259"], ["Idea Group Publishing"], ["2001"].</td>
+ <td>L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=Chapter+XII:+aiNet:+An+Artificial+Immune+Network+for+Data+Analysis">Chapter XII: aiNet: An Artificial Immune Network for Data Analysis</a>", in Data Mining: A Heuristic Approach, pages 231&ndash;259, Idea Group Publishing, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro2002c'>[Castro2002c]</a></td>
- <td>["L. N. de Castro and J. Timmis"], "<a href="http://scholar.google.com.au/scholar?q=["An+artificial+immune+network+for+multimodal+function+optimization"]">["An artificial immune network for multimodal function optimization"]</a>", in ["Proceedings of the 2002 Congress on Evolutionary Computation (CEC'02)"], ["2002"].</td>
+ <td>L. N. de Castro and J. Timmis, "<a href="http://scholar.google.com.au/scholar?q=An+artificial+immune+network+for+multimodal+function+optimization">An artificial immune network for multimodal function optimization</a>", in Proceedings of the 2002 Congress on Evolutionary Computation (CEC'02), 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Farmer1986'>[Farmer1986]</a></td>
- <td>J. D. ["Farmer and N. H. Packard and Alan S."] Perelson, "<a href="http://scholar.google.com.au/scholar?q=["The+immune+system,+adaptation,+and+machine+learning"]">["The immune system, adaptation, and machine learning"]</a>", ["Physica D"], ["1986"].</td>
+ <td>J. D. Farmer and N. H. Packard and Alan S. Perelson, "<a href="http://scholar.google.com.au/scholar?q=The+immune+system,+adaptation,+and+machine+learning">The immune system, adaptation, and machine learning</a>", Physica D, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Franca2005'>[Franca2005]</a></td>
- <td>["F. O. de Fran&amp;ccedil;a and L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["An+artificial+immune+network+for+multimodal+function+optimization\n\ton+dynamic+environments"]">["An artificial immune network for multimodal function optimization\n\ton dynamic environments"]</a>", in ["Genetic And Evolutionary Computation Conference"], ["2005"].</td>
+ <td>F. O. de Fran&amp;ccedil;a and L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=An+artificial+immune+network+for+multimodal+function+optimization\n\ton+dynamic+environments">An artificial immune network for multimodal function optimization\n\ton dynamic environments</a>", in Genetic And Evolutionary Computation Conference, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jerne1974'>[Jerne1974]</a></td>
- <td>N. K."] ["Jerne, "<a href="http://scholar.google.com.au/scholar?q=["Clonal+selection+in+a+lymphocyte+network"]">["Clonal selection in a lymphocyte network"]</a>", in ["Cellular Selection and Regulation in the Immune Response"], ["1974"].</td>
+ <td>N. K. Jerne, "<a href="http://scholar.google.com.au/scholar?q=Clonal+selection+in+a+lymphocyte+network">Clonal selection in a lymphocyte network</a>", in Cellular Selection and Regulation in the Immune Response, 1974.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jerne1974a'>[Jerne1974a]</a></td>
- <td>N. K."] ["Jerne, "<a href="http://scholar.google.com.au/scholar?q=["Towards+a+network+theory+of+the+immune+system"]">["Towards a network theory of the immune system"]</a>", ["Annales d'immunologie (Annals of Immunology), Institut Pasteur (Paris,\n\tFrance), Societe Francaise d'Immunologie"], ["1974"].</td>
+ <td>N. K. Jerne, "<a href="http://scholar.google.com.au/scholar?q=Towards+a+network+theory+of+the+immune+system">Towards a network theory of the immune system</a>", Annales d'immunologie (Annals of Immunology), Institut Pasteur (Paris,\n\tFrance), Societe Francaise d'Immunologie, 1974.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jerne1984'>[Jerne1984]</a></td>
- <td>N. K."] ["Jerne, "<a href="http://scholar.google.com.au/scholar?q=["Idiotypic+networks+and+other+preconceived+ideas"]">["Idiotypic networks and other preconceived ideas"]</a>", ["Immunological Reviews"], ["1984"].</td>
+ <td>N. K. Jerne, "<a href="http://scholar.google.com.au/scholar?q=Idiotypic+networks+and+other+preconceived+ideas">Idiotypic networks and other preconceived ideas</a>", Immunological Reviews, 1984.</td>
  </tr>
  <tr valign="top">
  <td><a name='Knight2001'>[Knight2001]</a></td>
- <td>T. ["Knight and J."] Timmis, "<a href="http://scholar.google.com.au/scholar?q=["AINE:+An+Immunological+Approach+to+Data+Mining"]">["AINE: An Immunological Approach to Data Mining"]</a>", in ["First IEEE International Conference on Data Mining (ICDM'01)"], ["2001"].</td>
+ <td>T. Knight and J. Timmis, "<a href="http://scholar.google.com.au/scholar?q=AINE:+An+Immunological+Approach+to+Data+Mining">AINE: An Immunological Approach to Data Mining</a>", in First IEEE International Conference on Data Mining (ICDM'01), 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Timmis2000'>[Timmis2000]</a></td>
- <td>J. ["Timmis and M. Neal and J."] Hunt, "<a href="http://scholar.google.com.au/scholar?q=["An+Artificial+Immune+System+for+Data+Analysis"]">["An Artificial Immune System for Data Analysis"]</a>", ["Biosystems"], ["2000"].</td>
+ <td>J. Timmis and M. Neal and J. Hunt, "<a href="http://scholar.google.com.au/scholar?q=An+Artificial+Immune+System+for+Data+Analysis">An Artificial Immune System for Data Analysis</a>", Biosystems, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Timmis2001'>[Timmis2001]</a></td>
- <td>J. ["Timmis and M. J."] Neal, "<a href="http://scholar.google.com.au/scholar?q=["A+resource+limited+artificial+immune+system+for+data+analysis"]">["A resource limited artificial immune system for data analysis"]</a>", ["Knowledge Based Systems Journal: Special Issue"], ["2001"].</td>
+ <td>J. Timmis and M. J. Neal, "<a href="http://scholar.google.com.au/scholar?q=A+resource+limited+artificial+immune+system+for+data+analysis">A resource limited artificial immune system for data analysis</a>", Knowledge Based Systems Journal: Special Issue, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Timmis2004'>[Timmis2004]</a></td>
- <td>J. ["Timmis and C."] Edmonds, "<a href="http://scholar.google.com.au/scholar?q=["A+Comment+on+opt&ndash;AINet:+An+Immune+Network+Algorithm+for+Optimisation"]">["A Comment on opt&ndash;AINet: An Immune Network Algorithm for Optimisation"]</a>", in ["Lecture Notes in Computer Science"], ["2004"].</td>
+ <td>J. Timmis and C. Edmonds, "<a href="http://scholar.google.com.au/scholar?q=A+Comment+on+opt&ndash;AINet:+An+Immune+Network+Algorithm+for+Optimisation">A Comment on opt&ndash;AINet: An Immune Network Algorithm for Optimisation</a>", in Lecture Notes in Computer Science, 2004.</td>
  </tr>
 </table>
 

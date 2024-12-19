@@ -74,31 +74,31 @@ $Problem_{size}$, $Bees_{num}$, $Sites_{num}$, $EliteSites_{num}$, $PatchSize_{i
 <strong><strong><code>Output</code></strong></strong>: 
 $Bee_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Bees_{num}$, $Problem_{size}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Bee_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Patch_{size}$ $["\\leftarrow"]$ ( $PatchSize_{init}$ $["\\times"]$ $PatchDecrease_{factor}$ )<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Sites_{best}$ $["\\leftarrow"]$ <code>SelectBestSites</code>(<code>Population</code>, $Sites_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Site_{i}$ $["\\in"]$ $Sites_{best}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($["i <"]$ $EliteSites_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $["\\leftarrow"]$ $EliteBees_{num}$<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Bees_{num}$, $Problem_{size}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Bee_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Patch_{size}$ $\leftarrow$ ( $PatchSize_{init}$ $\times$ $PatchDecrease_{factor}$ )<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Sites_{best}$ $\leftarrow$ <code>SelectBestSites</code>{<code>Population</code>, $Sites_{num}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Site_{i}$ $\in$ $Sites_{best}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($i <$ $EliteSites_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $\leftarrow$ $EliteBees_{num}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $["\\leftarrow"]$ $OtherBees_{num}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RecruitedBees_{num}$ $\leftarrow$ $OtherBees_{num}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["j"]$ <strong><code>To</code></strong> $RecruitedBees_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $["\\leftarrow"]$ <code>CreateNeighborhoodBee</code>($Site_{i}$, $Patch_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($j$ <strong><code>To</code></strong> $RecruitedBees_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $\leftarrow$ <code>CreateNeighborhoodBee</code>{$Site_{i}$, $Patch_{size}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Neighborhood</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $\leftarrow$ <code>GetBestSolution</code>{<code>Neighborhood</code>}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$RemainingBees_{num}$ $["\\leftarrow"]$ ($Bees_{num}$ - $Sites_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["j"]$ <strong><code>To</code></strong> $RemainingBees_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $["\\leftarrow"]$ <code>CreateRandomBee</code>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$RemainingBees_{num}$ $\leftarrow$ ($Bees_{num}$ - $Sites_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($j$ <strong><code>To</code></strong> $RemainingBees_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NextGeneration</code> $\leftarrow$ <code>CreateRandomBee</code>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>NextGeneration</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>NextGeneration</code><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($Bee_{best}$)<br />
 </div>
@@ -226,27 +226,27 @@ The following is a selection of popular application papers: the optimization of 
 <table>
  <tr valign="top">
  <td><a name='Guney2007'>[Guney2007]</a></td>
- <td>["K. Guney and M. Onay"], "<a href="http://scholar.google.com.au/scholar?q=["Amplitude-only+pattern+nulling+of+linear+antenna+arrays+with+the\n\tuse+of+bees+algorithm"]">["Amplitude-only pattern nulling of linear antenna arrays with the\n\tuse of bees algorithm"]</a>", ["Progress In Electromagnetics Research"], ["2007"].</td>
+ <td>K. Guney and M. Onay, "<a href="http://scholar.google.com.au/scholar?q=Amplitude-only+pattern+nulling+of+linear+antenna+arrays+with+the\n\tuse+of+bees+algorithm">Amplitude-only pattern nulling of linear antenna arrays with the\n\tuse of bees algorithm</a>", Progress In Electromagnetics Research, 2007.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pham2005'>[Pham2005]</a></td>
- <td>D. T. ["Pham and A. Ghanbarzadeh and E. Koc and S. Otri and \n\tS. Rahim and M."] Zaidi, "<a href="http://scholar.google.com.au/scholar?q=["The+Bees+Algorithm"]">["The Bees Algorithm"]</a>", ["Manufacturing Engineering Centre, Cardiff University"], ["2005"].</td>
+ <td>D. T. Pham and A. Ghanbarzadeh and E. Koc and S. Otri and \n\tS. Rahim and M. Zaidi, "<a href="http://scholar.google.com.au/scholar?q=The+Bees+Algorithm">The Bees Algorithm</a>", Manufacturing Engineering Centre, Cardiff University, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pham2006'>[Pham2006]</a></td>
- <td>["D. T. Pham and Ghanbarzadeh A. and Koc E. and Otri S. and Rahim S.\n\tand M.Zaidi"], "<a href="http://scholar.google.com.au/scholar?q=["The+Bees+Algorithm+-+A+Novel+Tool+for+Complex+Optimisation+Problems"]">["The Bees Algorithm - A Novel Tool for Complex Optimisation Problems"]</a>", in ["Proceedings of IPROMS 2006 Conference"], ["2006"].</td>
+ <td>D. T. Pham and Ghanbarzadeh A. and Koc E. and Otri S. and Rahim S.\n\tand M.Zaidi, "<a href="http://scholar.google.com.au/scholar?q=The+Bees+Algorithm+-+A+Novel+Tool+for+Complex+Optimisation+Problems">The Bees Algorithm - A Novel Tool for Complex Optimisation Problems</a>", in Proceedings of IPROMS 2006 Conference, 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pham2006a'>[Pham2006a]</a></td>
- <td>["D. T. Pham and S. Otri and A. Ghanbarzadeh and E. Koc"], "<a href="http://scholar.google.com.au/scholar?q=["Application+of+the+bees+algorithm+to+the+training+of+learning+vector\n\tquantisation+networks+for+control+chart+pattern+recognition"]">["Application of the bees algorithm to the training of learning vector\n\tquantisation networks for control chart pattern recognition"]</a>", in ["Proceedings of Information and Communication Technologies (ICTTA'06)"], ["2006"].</td>
+ <td>D. T. Pham and S. Otri and A. Ghanbarzadeh and E. Koc, "<a href="http://scholar.google.com.au/scholar?q=Application+of+the+bees+algorithm+to+the+training+of+learning+vector\n\tquantisation+networks+for+control+chart+pattern+recognition">Application of the bees algorithm to the training of learning vector\n\tquantisation networks for control chart pattern recognition</a>", in Proceedings of Information and Communication Technologies (ICTTA'06), 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pham2006b'>[Pham2006b]</a></td>
- <td>["D. T. Pham and A. J. Soroka and A. Ghanbarzadeh and E. Koc and S.\n\tOtri and M. Packianather"], "<a href="http://scholar.google.com.au/scholar?q=["Optimising+neural+networks+for+identification+of+wood+defects+using\n\tthe+bees+algorithm"]">["Optimising neural networks for identification of wood defects using\n\tthe bees algorithm"]</a>", in ["Proceedings of the 2006 IEEE International Conference on Industrial\n\tInformatics"], ["2006"].</td>
+ <td>D. T. Pham and A. J. Soroka and A. Ghanbarzadeh and E. Koc and S.\n\tOtri and M. Packianather, "<a href="http://scholar.google.com.au/scholar?q=Optimising+neural+networks+for+identification+of+wood+defects+using\n\tthe+bees+algorithm">Optimising neural networks for identification of wood defects using\n\tthe bees algorithm</a>", in Proceedings of the 2006 IEEE International Conference on Industrial\n\tInformatics, 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pham2007'>[Pham2007]</a></td>
- <td>["D. T. Pham and S. Otri and A. A. Afify and M. Mahmuddin and H. Al-Jabbouli"], "<a href="http://scholar.google.com.au/scholar?q=["Data+Clustering+Using+the+Bees+Algorithm"]">["Data Clustering Using the Bees Algorithm"]</a>", in ["Proc 40th CIRP International Manufacturing Systems Seminar"], ["2007"].</td>
+ <td>D. T. Pham and S. Otri and A. A. Afify and M. Mahmuddin and H. Al-Jabbouli, "<a href="http://scholar.google.com.au/scholar?q=Data+Clustering+Using+the+Bees+Algorithm">Data Clustering Using the Bees Algorithm</a>", in Proc 40th CIRP International Manufacturing Systems Seminar, 2007.</td>
  </tr>
 </table>
 

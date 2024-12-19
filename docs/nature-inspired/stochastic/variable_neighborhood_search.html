@@ -61,14 +61,14 @@ The Pseudocode shows that the systematic search of expanding neighborhoods for a
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{best}$ $["\\leftarrow"]$ <code>RandomSolution</code>()<br />
-<strong><code>While</code></strong> ($["\\neg"]$ <code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Neighborhood_{i}$ $["\\in"]$ <code>Neighborhoods</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Neighborhood_{curr}$ $["\\leftarrow"]$ <code>CalculateNeighborhood</code>($S_{best}$, $Neighborhood_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>RandomSolutionInNeighborhood</code>($Neighborhood_{curr}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>LocalSearch</code>($S_{candidate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{candidate}$) &lt; <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{candidate}$<br />
+$S_{best}$ $\leftarrow$ <code>RandomSolution</code>()<br />
+<strong><code>While</code></strong> ($\neg$ <code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Neighborhood_{i}$ $\in$ <code>Neighborhoods</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Neighborhood_{curr}$ $\leftarrow$ <code>CalculateNeighborhood</code>{$S_{best}$, $Neighborhood_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>RandomSolutionInNeighborhood</code>{$Neighborhood_{curr}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>LocalSearch</code>{$S_{candidate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{candidate}$} $<$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{candidate}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Break</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
@@ -222,31 +222,31 @@ There are many extensions to Variable Neighborhood Search. Some popular examples
 <table>
  <tr valign="top">
  <td><a name='Hansen1998'>[Hansen1998]</a></td>
- <td>["P. Hansen and N. Mladenovi&amp;#263;"], "<a href="http://scholar.google.com.au/scholar?q=["An+introduction+to+Variable+neighborhood+search"]">["An introduction to Variable neighborhood search"]</a>", in ["Meta-heuristics, Advances and trends in local search paradigms for\n\toptimization"], pages ["433&ndash;458"], ["Kluwer Academic Publishers"], ["1998"].</td>
+ <td>P. Hansen and N. Mladenovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=An+introduction+to+Variable+neighborhood+search">An introduction to Variable neighborhood search</a>", in Meta-heuristics, Advances and trends in local search paradigms for\n\toptimization, pages 433&ndash;458, Kluwer Academic Publishers, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hansen2001'>[Hansen2001]</a></td>
- <td>["P. Hansen and N. Mladenovi&amp;#263; and D. Perez&ndash;Britos"], "<a href="http://scholar.google.com.au/scholar?q=["Variable+Neighborhood+Decomposition+Search"]">["Variable Neighborhood Decomposition Search"]</a>", ["Journal of Heuristics"], ["2001"].</td>
+ <td>P. Hansen and N. Mladenovi&amp;#263; and D. Perez&ndash;Britos, "<a href="http://scholar.google.com.au/scholar?q=Variable+Neighborhood+Decomposition+Search">Variable Neighborhood Decomposition Search</a>", Journal of Heuristics, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hansen2001a'>[Hansen2001a]</a></td>
- <td>["P. Hansen and N. Mladenovi&amp;#263;"], "<a href="http://scholar.google.com.au/scholar?q=["Variable+neighborhood+search:+Principles+and+applications"]">["Variable neighborhood search: Principles and applications"]</a>", ["European Journal of Operational Research"], ["2001"].</td>
+ <td>P. Hansen and N. Mladenovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=Variable+neighborhood+search:+Principles+and+applications">Variable neighborhood search: Principles and applications</a>", European Journal of Operational Research, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hansen2002'>[Hansen2002]</a></td>
- <td>["P. Hansen and N. Mladenovi&amp;#263;"], "<a href="http://scholar.google.com.au/scholar?q=["Variable+neighbourhood+search"]">["Variable neighbourhood search"]</a>", in ["Handbook of Applied Optimization"], pages ["221&ndash;234"], ["Oxford University Press"], ["2002"].</td>
+ <td>P. Hansen and N. Mladenovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=Variable+neighbourhood+search">Variable neighbourhood search</a>", in Handbook of Applied Optimization, pages 221&ndash;234, Oxford University Press, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hansen2003'>[Hansen2003]</a></td>
- <td>["P. Hansen and N. Mladenovi&amp;#263;"], "<a href="http://scholar.google.com.au/scholar?q=["6:+Variable+Neighborhood+Search"]">["6: Variable Neighborhood Search"]</a>", in ["Handbook of Metaheuristics"], pages ["145&ndash;184"], ["Springer"], ["2003"].</td>
+ <td>P. Hansen and N. Mladenovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=6:+Variable+Neighborhood+Search">6: Variable Neighborhood Search</a>", in Handbook of Metaheuristics, pages 145&ndash;184, Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mladenovic1995'>[Mladenovic1995]</a></td>
- <td>["N. Mladenovi&amp;#263;"], "<a href="http://scholar.google.com.au/scholar?q=["A+variable+neighborhood+algorithm+-+A+new+metaheuristic+for+combinatorial\n\toptimization"]">["A variable neighborhood algorithm - A new metaheuristic for combinatorial\n\toptimization"]</a>", in ["Abstracts of papers presented at Optimization Days"], ["1995"].</td>
+ <td>N. Mladenovi&amp;#263;, "<a href="http://scholar.google.com.au/scholar?q=A+variable+neighborhood+algorithm+-+A+new+metaheuristic+for+combinatorial\n\toptimization">A variable neighborhood algorithm - A new metaheuristic for combinatorial\n\toptimization</a>", in Abstracts of papers presented at Optimization Days, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mladenovic1997'>[Mladenovic1997]</a></td>
- <td>["N. Mladenovi&amp;#263; and P. Hansen"], "<a href="http://scholar.google.com.au/scholar?q=["Variable+neighborhood+search"]">["Variable neighborhood search"]</a>", ["Computers \&amp; Operations Research"], ["1997"].</td>
+ <td>N. Mladenovi&amp;#263; and P. Hansen, "<a href="http://scholar.google.com.au/scholar?q=Variable+neighborhood+search">Variable neighborhood search</a>", Computers \&amp; Operations Research, 1997.</td>
  </tr>
 </table>
 

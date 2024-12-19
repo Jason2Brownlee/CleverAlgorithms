@@ -87,17 +87,17 @@ The neighborhood is typically square (called bubble) where all neighborhood node
 <strong><strong><code>Output</code></strong></strong>: 
 <code>CodebookVectors</code>
 <br />
-<code>CodebookVectors</code> $["\\leftarrow"]$ <code>InitializeCodebookVectors</code>($Grid_{width}$, $Grid_{height}$, <code>InputPatterns</code>)<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$learn_{rate}^{i}$ $["\\leftarrow"]$ <code>CalculateLearningRate</code>($["i"]$, $learn_{rate}^{init}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$neighborhood_{size}^{i}$ $["\\leftarrow"]$ <code>CalculateNeighborhoodSize</code>($["i"]$, $neighborhood_{size}^{init}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $["\\leftarrow"]$ <code>SelectInputPattern</code>(<code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_i$ $["\\leftarrow"]$ <code>SelectBestMatchingUnit</code>($Pattern_i$, <code>CodebookVectors</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $["\\leftarrow"]$ $Bmu_i$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $["\\leftarrow"]$ <code>SelectNeighbors</code>($Bmu_i$, <code>CodebookVectors</code>, $neighborhood_{size}^{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Vector_i$ $["\\in "]$<code>Neighborhood</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Vector_{i}^{attribute}$ $["\\in"]$ $Vector_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Vector_{i}^{attribute}$ $["\\leftarrow"]$ $Vector_{i}^{attribute}$ + $learn_{rate}^{i}$ $["\\times"]$ ($Pattern_{i}^{attribute}$ &ndash; $Vector_{i}^{attribute}$)<br />
+<code>CodebookVectors</code> $\leftarrow$ <code>InitializeCodebookVectors</code>{$Grid_{width}$, $Grid_{height}$, <code>InputPatterns</code>}<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$learn_{rate}^{i}$ $\leftarrow$ <code>CalculateLearningRate</code>{$i$, $learn_{rate}^{init}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$neighborhood_{size}^{i}$ $\leftarrow$ <code>CalculateNeighborhoodSize</code>{$i$, $neighborhood_{size}^{init}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $\leftarrow$ <code>SelectInputPattern</code>{<code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_i$ $\leftarrow$ <code>SelectBestMatchingUnit</code>{$Pattern_i$, <code>CodebookVectors</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $\leftarrow$ $Bmu_i$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Neighborhood</code> $\leftarrow$ <code>SelectNeighbors</code>{$Bmu_i$, <code>CodebookVectors</code>, $neighborhood_{size}^{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Vector_i$ $\in $<code>Neighborhood</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Vector_{i}^{attribute}$ $\in$ $Vector_i$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Vector_{i}^{attribute}$ $\leftarrow$ $Vector_{i}^{attribute}$ $+$ $learn_{rate}^{i}$ $\times$ ($Pattern_{i}^{attribute}$ $-$ $Vector_{i}^{attribute}$)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -275,27 +275,27 @@ The seminal book on the technique is &quot;Self-Organizing Maps&quot; by Kohonen
 <table>
  <tr valign="top">
  <td><a name='Kohonen1981'>[Kohonen1981]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["Automatic+formation+of+topological+maps+of+patterns+in+a+self-organizing\n\tsystem"]">["Automatic formation of topological maps of patterns in a self-organizing\n\tsystem"]</a>", in ["Proceedings of 2nd Scandinavian Conf. on Image Analysis"], ["1981"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Automatic+formation+of+topological+maps+of+patterns+in+a+self-organizing\n\tsystem">Automatic formation of topological maps of patterns in a self-organizing\n\tsystem</a>", in Proceedings of 2nd Scandinavian Conf. on Image Analysis, 1981.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1982'>[Kohonen1982]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["Self-organized+formation+of+topologically+correct+feature+maps"]">["Self-organized formation of topologically correct feature maps"]</a>", ["Biological Cybernetics"], ["1982"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Self-organized+formation+of+topologically+correct+feature+maps">Self-organized formation of topologically correct feature maps</a>", Biological Cybernetics, 1982.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1982b'>[Kohonen1982b]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["Clustering,+Taxonomy,+and+Topological+Maps+of+Patterns"]">["Clustering, Taxonomy, and Topological Maps of Patterns"]</a>", in ["International Conference on Pattern Recognition"], ["1982"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Clustering,+Taxonomy,+and+Topological+Maps+of+Patterns">Clustering, Taxonomy, and Topological Maps of Patterns</a>", in International Conference on Pattern Recognition, 1982.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1990a'>[Kohonen1990a]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["The+self-organizing+map"]">["The self-organizing map"]</a>", ["Proceedings of the IEEE"], ["1990"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=The+self-organizing+map">The self-organizing map</a>", Proceedings of the IEEE, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1995'>[Kohonen1995]</a></td>
- <td>["T. Kohonen"], "<a href="http://scholar.google.com.au/scholar?q=["Self-Organizing+Maps"]">["Self-Organizing Maps"]</a>", ["Springer"], ["1995"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Self-Organizing+Maps">Self-Organizing Maps</a>", Springer, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1996a'>[Kohonen1996a]</a></td>
- <td>["T. Kohonen and J. Hynninen and J. Kangas and J. Laaksonen"], "<a href="http://scholar.google.com.au/scholar?q=["SOM&ndash;PAK:+The+Self-Organizing+Map+Program+Package"]">["SOM&ndash;PAK: The Self-Organizing Map Program Package"]</a>", Technical Report ["A31"], ["Helsinki University of Technology, Laboratory of Computer and Information\n\tScience"], ["1996"].</td>
+ <td>T. Kohonen and J. Hynninen and J. Kangas and J. Laaksonen, "<a href="http://scholar.google.com.au/scholar?q=SOM&ndash;PAK:+The+Self-Organizing+Map+Program+Package">SOM&ndash;PAK: The Self-Organizing Map Program Package</a>", Technical Report A31, Helsinki University of Technology, Laboratory of Computer and Information\n\tScience, 1996.</td>
  </tr>
 </table>
 

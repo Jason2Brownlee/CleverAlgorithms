@@ -521,6 +521,7 @@ end
 # crunch text in bibtex fields to be human readable
 def process_bibtex(datum)
   datum = datum.to_s
+
   # replace newlines with spaces
   datum = datum.gsub("\n", " ")
   # umlats etc
@@ -533,6 +534,11 @@ def process_bibtex(datum)
   datum = datum.gsub("\\\'", "")
   # replace \- with nothing (hypenation suggestions)
   datum = datum.gsub("\\-", "")
+
+  # HACK to remove [" "]
+  datum = datum.gsub("[\"", "")
+  datum = datum.gsub("\"]", "")
+
   return datum
 end
 
@@ -545,7 +551,7 @@ def to_google_scholar(title)
 end
 
 
-# considerig editor (where we already have an author) later in the listing
+# considering editor (where we already have an author) later in the listing
 # assume ordering in http://en.wikipedia.org/wiki/BibTeX
 def generate_bib_entry(entry)
   s = ""
@@ -789,7 +795,7 @@ def replace_functions(map, line)
 end
 
 def basic_math_replace(current, replacement)
-	#puts "[#{current}], [#{replacement}]"
+	# puts "[#{current}], [#{replacement}]"
 	# don't do math where we don't have to
 	return "&gt;" if current.strip == "$>$"
 	return "&lt;" if current.strip == "$<$"
@@ -881,31 +887,31 @@ def process_pseudocode(lines, caption=nil)
         line = line[0...(line.index("\\Return"))] + "#{pseudocode_keyword("Return")} (#{content})"
       end
       # take out the math
-      math = []
-      line.scan(/\$([^$]+)\$/) {|m| math << m.to_s } # $$
-      # brackets
-      line = line.gsub("{", "(")
-			line = line.gsub("}", ")")
-      # put the math back
-      if !math.empty?
-        # process the math
-        math.each_index do |i|
-          math[i] = replace_data(datamap, math[i])
-          math[i] = replace_functions(funcmap, math[i])
-          # remove all sub-math
-          math[i] = math[i].gsub("$", "")
-          # remove html
-          math[i] = math[i].gsub("<code>", "")
-          math[i] = math[i].gsub("</code>", "")
-        end
-        # put the math back
-        index = 0
-        line = line.gsub(/\$([^$]+)\$/) do |m|
-          index += 1
-          #"$#{math[index - 1]}$"
-          basic_math_replace(m, math[index-1])
-        end
-      end
+      # math = []
+      # line.scan(/\$([^$]+)\$/) {|m| math << m.to_s } # $$
+      # # brackets
+      # line = line.gsub("{", "(")
+			# line = line.gsub("}", ")")
+      # # put the math back
+      # if !math.empty?
+      #   # process the math
+      #   math.each_index do |i|
+      #     math[i] = replace_data(datamap, math[i])
+      #     math[i] = replace_functions(funcmap, math[i])
+      #     # remove all sub-math
+      #     math[i] = math[i].gsub("$", "")
+      #     # remove html
+      #     math[i] = math[i].gsub("<code>", "")
+      #     math[i] = math[i].gsub("</code>", "")
+      #   end
+      #   # put the math back
+      #   index = 0
+      #   line = line.gsub(/\$([^$]+)\$/) do |m|
+      #     index += 1
+      #     #"$#{math[index - 1]}$"
+      #     basic_math_replace(m, math[index-1])
+      #   end
+      # end
       # replace data
       line = replace_data(datamap, line)
       # replace functions

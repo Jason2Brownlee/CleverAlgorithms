@@ -60,11 +60,11 @@ Algorithm (below) provides a pseudocode listing of the Random Search Algorithm f
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Best</code>
 <br />
-<code>Best</code> $["\\leftarrow \\emptyset"]$<br />
-<strong><code>For</code></strong> ($["iter_i \\in"]$ <code>NumIterations</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$["candidate_i"]$ $["\\leftarrow"]$ <code>RandomSolution</code>(<code>ProblemSize</code>, <code>SearchSpace</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($["candidate_i"]$) &lt; <code>Cost</code>(<code>Best</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Best</code> $["\\leftarrow"]$ $["candidate_i"]$<br />
+<code>Best</code> $\leftarrow \emptyset$<br />
+<strong><code>For</code></strong> ($iter_i \in$ <code>NumIterations</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$candidate_i$ $\leftarrow$ <code>RandomSolution</code>{<code>ProblemSize</code>, <code>SearchSpace</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$candidate_i$} $<$ <code>Cost</code>{<code>Best</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Best</code> $\leftarrow$ $candidate_i$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Best</code>)<br />
@@ -149,39 +149,39 @@ Spall provides a detailed overview of the field of Stochastic Optimization, incl
 <table>
  <tr valign="top">
  <td><a name='Brooks1958'>[Brooks1958]</a></td>
- <td>["S. H. Brooks"], "<a href="http://scholar.google.com.au/scholar?q=["A+Discussion+of+Random+Methods+for+Seeking+Maxima"]">["A Discussion of Random Methods for Seeking Maxima"]</a>", ["Operations Research"], ["1958"].</td>
+ <td>S. H. Brooks, "<a href="http://scholar.google.com.au/scholar?q=A+Discussion+of+Random+Methods+for+Seeking+Maxima">A Discussion of Random Methods for Seeking Maxima</a>", Operations Research, 1958.</td>
  </tr>
  <tr valign="top">
  <td><a name='Karnopp1963'>[Karnopp1963]</a></td>
- <td>["D. C. Karnopp"], "<a href="http://scholar.google.com.au/scholar?q=["Random+search+techniques+for+optimization+problems"]">["Random search techniques for optimization problems"]</a>", ["Automatica"], ["1963"].</td>
+ <td>D. C. Karnopp, "<a href="http://scholar.google.com.au/scholar?q=Random+search+techniques+for+optimization+problems">Random search techniques for optimization problems</a>", Automatica, 1963.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kulchitskii1976'>[Kulchitskii1976]</a></td>
- <td>["O. Y. Kul'chitskii"], "<a href="http://scholar.google.com.au/scholar?q=["Random-search+algorithm+for+extrema+in+functional+space+under+conditions\n\tof+partial+uncertainty"]">["Random-search algorithm for extrema in functional space under conditions\n\tof partial uncertainty"]</a>", ["Cybernetics and Systems Analysis"], ["1976"].</td>
+ <td>O. Y. Kul'chitskii, "<a href="http://scholar.google.com.au/scholar?q=Random-search+algorithm+for+extrema+in+functional+space+under+conditions\n\tof+partial+uncertainty">Random-search algorithm for extrema in functional space under conditions\n\tof partial uncertainty</a>", Cybernetics and Systems Analysis, 1976.</td>
  </tr>
  <tr valign="top">
  <td><a name='Solis1981'>[Solis1981]</a></td>
- <td>["F. J. Solis and J. B. Wets"], "<a href="http://scholar.google.com.au/scholar?q=["Minimization+by+Random+Search+Techniques"]">["Minimization by Random Search Techniques"]</a>", ["Mathematics of Operations Research"], ["1981"].</td>
+ <td>F. J. Solis and J. B. Wets, "<a href="http://scholar.google.com.au/scholar?q=Minimization+by+Random+Search+Techniques">Minimization by Random Search Techniques</a>", Mathematics of Operations Research, 1981.</td>
  </tr>
  <tr valign="top">
  <td><a name='Spall2003'>[Spall2003]</a></td>
- <td>["J. C. Spall"], "<a href="http://scholar.google.com.au/scholar?q=["Introduction+to+stochastic+search+and+optimization:+estimation,+simulation,\n\tand+control"]">["Introduction to stochastic search and optimization: estimation, simulation,\n\tand control"]</a>", ["John Wiley and Sons"], ["2003"].</td>
+ <td>J. C. Spall, "<a href="http://scholar.google.com.au/scholar?q=Introduction+to+stochastic+search+and+optimization:+estimation,+simulation,\n\tand+control">Introduction to stochastic search and optimization: estimation, simulation,\n\tand control</a>", John Wiley and Sons, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Spall2004'>[Spall2004]</a></td>
- <td>["J. C. Spall"], "<a href="http://scholar.google.com.au/scholar?q=["6.+Stochastic+Optimization"]">["6. Stochastic Optimization"]</a>", in ["Handbook of computational statistics: concepts and methods"], pages ["169-198"], ["Springer"], ["2004"].</td>
+ <td>J. C. Spall, "<a href="http://scholar.google.com.au/scholar?q=6.+Stochastic+Optimization">6. Stochastic Optimization</a>", in Handbook of computational statistics: concepts and methods, pages 169-198, Springer, 2004.</td>
  </tr>
  <tr valign="top">
  <td><a name='White1971'>[White1971]</a></td>
- <td>["R. C. White"], "<a href="http://scholar.google.com.au/scholar?q=["A+survey+of+random+methods+for+parameter+optimization"]">["A survey of random methods for parameter optimization"]</a>", ["Simulation"], ["1971"].</td>
+ <td>R. C. White, "<a href="http://scholar.google.com.au/scholar?q=A+survey+of+random+methods+for+parameter+optimization">A survey of random methods for parameter optimization</a>", Simulation, 1971.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zabinsky2003'>[Zabinsky2003]</a></td>
- <td>["Z. B. Zabinsky"], "<a href="http://scholar.google.com.au/scholar?q=["Stochastic+adaptive+search+for+global+optimization"]">["Stochastic adaptive search for global optimization"]</a>", ["Kluwer Academic Publishers"], ["2003"].</td>
+ <td>Z. B. Zabinsky, "<a href="http://scholar.google.com.au/scholar?q=Stochastic+adaptive+search+for+global+optimization">Stochastic adaptive search for global optimization</a>", Kluwer Academic Publishers, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zhigljavsky1991'>[Zhigljavsky1991]</a></td>
- <td>["A. A. Zhigljavsky"], "<a href="http://scholar.google.com.au/scholar?q=["Theory+of+Global+Random+Search"]">["Theory of Global Random Search"]</a>", ["Kluwer Academic"], ["1991"].</td>
+ <td>A. A. Zhigljavsky, "<a href="http://scholar.google.com.au/scholar?q=Theory+of+Global+Random+Search">Theory of Global Random Search</a>", Kluwer Academic, 1991.</td>
  </tr>
 </table>
 

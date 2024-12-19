@@ -72,20 +72,20 @@ $Population_{size}$, $Problem_{size}$, $P_{crossover}$, $P_{mutation}$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, $Problem_{size}$)<br />
-<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{1}$, $Parent_{2}$ $["\\in"]$ <code>Parents</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$, $Child_{2}$ $["\\leftarrow"]$ <code>Crossover</code>($Parent_{1}$, $Parent_{2}$, $P_{crossover}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ <code>Mutate</code>($Child_{1}$, $P_{mutation}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ <code>Mutate</code>($Child_{2}$, $P_{mutation}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, $Problem_{size}$}<br />
+<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{1}$, $Parent_{2}$ $\in$ <code>Parents</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{1}$, $Child_{2}$ $\leftarrow$ <code>Crossover</code>{$Parent_{1}$, $Parent_{2}$, $P_{crossover}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ <code>Mutate</code>{$Child_{1}$, $P_{mutation}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ <code>Mutate</code>{$Child_{2}$, $P_{mutation}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Replace</code>(<code>Population</code>, <code>Children</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Replace</code>{<code>Population</code>, <code>Children</code>}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -226,83 +226,83 @@ The classical book on genetic algorithms as an optimization and machine learning
 <table>
  <tr valign="top">
  <td><a name='Back1993'>[Back1993]</a></td>
- <td>["T. B\&amp;auml;ck"], "<a href="http://scholar.google.com.au/scholar?q=["Optimal+Mutation+Rates+in+Genetic+Search"]">["Optimal Mutation Rates in Genetic Search"]</a>", in ["Proceedings of the Fifth International Conference on Genetic Algorithms"], ["1993"].</td>
+ <td>T. B\&amp;auml;ck, "<a href="http://scholar.google.com.au/scholar?q=Optimal+Mutation+Rates+in+Genetic+Search">Optimal Mutation Rates in Genetic Search</a>", in Proceedings of the Fifth International Conference on Genetic Algorithms, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Bagley1967'>[Bagley1967]</a></td>
- <td>["J. D. Bagley"], "<a href="http://scholar.google.com.au/scholar?q=["The+behavior+of+adaptive+systems+which+employ+genetic+and+correlation\n\talgorithms"]">["The behavior of adaptive systems which employ genetic and correlation\n\talgorithms"]</a>", [PhD Thesis] ["University of Michigan"], ["1967"].</td>
+ <td>J. D. Bagley, "<a href="http://scholar.google.com.au/scholar?q=The+behavior+of+adaptive+systems+which+employ+genetic+and+correlation\n\talgorithms">The behavior of adaptive systems which employ genetic and correlation\n\talgorithms</a>", [PhD Thesis] University of Michigan, 1967.</td>
  </tr>
  <tr valign="top">
  <td><a name='Cavicchio1970'>[Cavicchio1970]</a></td>
- <td>["D. J. Cavicchio Jr."], "<a href="http://scholar.google.com.au/scholar?q=["Adaptive+Search+Using+Simulated+Evolution"]">["Adaptive Search Using Simulated Evolution"]</a>", [PhD Thesis] ["The University of Michigan"], ["1970"].</td>
+ <td>D. J. Cavicchio Jr., "<a href="http://scholar.google.com.au/scholar?q=Adaptive+Search+Using+Simulated+Evolution">Adaptive Search Using Simulated Evolution</a>", [PhD Thesis] The University of Michigan, 1970.</td>
  </tr>
  <tr valign="top">
  <td><a name='Frantz1972'>[Frantz1972]</a></td>
- <td>["D. R. Frantz"], "<a href="http://scholar.google.com.au/scholar?q=["Non-linearities+in+genetic+adaptive+search"]">["Non-linearities in genetic adaptive search"]</a>", [PhD Thesis] ["University of Michigan"], ["1972"].</td>
+ <td>D. R. Frantz, "<a href="http://scholar.google.com.au/scholar?q=Non-linearities+in+genetic+adaptive+search">Non-linearities in genetic adaptive search</a>", [PhD Thesis] University of Michigan, 1972.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goldberg1989'>[Goldberg1989]</a></td>
- <td>["D. E. Goldberg"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Algorithms+in+Search,+Optimization,+and+Machine+Learning"]">["Genetic Algorithms in Search, Optimization, and Machine Learning"]</a>", ["Addison-Wesley"], ["1989"].</td>
+ <td>D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Algorithms+in+Search,+Optimization,+and+Machine+Learning">Genetic Algorithms in Search, Optimization, and Machine Learning</a>", Addison-Wesley, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goldberg1992'>[Goldberg1992]</a></td>
- <td>["D. E. Goldberg and K. Deb and J. H. Clark"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Algorithms,+Noise,+and+the+Sizing+of+Populations"]">["Genetic Algorithms, Noise, and the Sizing of Populations"]</a>", ["Complex Systems"], ["1992"].</td>
+ <td>D. E. Goldberg and K. Deb and J. H. Clark, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Algorithms,+Noise,+and+the+Sizing+of+Populations">Genetic Algorithms, Noise, and the Sizing of Populations</a>", Complex Systems, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goldberg1994'>[Goldberg1994]</a></td>
- <td>["D. E. Goldberg"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+and+evolutionary+algorithms+come+of+age"]">["Genetic and evolutionary algorithms come of age"]</a>", ["Communications of the ACM"], ["1994"].</td>
+ <td>D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=Genetic+and+evolutionary+algorithms+come+of+age">Genetic and evolutionary algorithms come of age</a>", Communications of the ACM, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goldberg2002'>[Goldberg2002]</a></td>
- <td>["D. E. Goldberg"], "<a href="http://scholar.google.com.au/scholar?q=["The+design+of+innovation:+Lessons+from+and+for+competent+genetic\n\talgorithms"]">["The design of innovation: Lessons from and for competent genetic\n\talgorithms"]</a>", ["Springer"], ["2002"].</td>
+ <td>D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=The+design+of+innovation:+Lessons+from+and+for+competent+genetic\n\talgorithms">The design of innovation: Lessons from and for competent genetic\n\talgorithms</a>", Springer, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1962'>[Holland1962]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Outline+for+a+logical+theory+of+adaptive+systems"]">["Outline for a logical theory of adaptive systems"]</a>", ["Journal of the ACM (JACM)"], ["1962"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Outline+for+a+logical+theory+of+adaptive+systems">Outline for a logical theory of adaptive systems</a>", Journal of the ACM (JACM), 1962.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1962a'>[Holland1962a]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Information+processing+in+adaptive+systems"]">["Information processing in adaptive systems"]</a>", in ["Processing of Information in the Nervous System"], ["1962"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Information+processing+in+adaptive+systems">Information processing in adaptive systems</a>", in Processing of Information in the Nervous System, 1962.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1969'>[Holland1969]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Adaptive+plans+optimal+for+payoff-only+environments"]">["Adaptive plans optimal for payoff-only environments"]</a>", in ["Proceedings of the Second Hawaii Conference on Systems Sciences"], ["1969"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Adaptive+plans+optimal+for+payoff-only+environments">Adaptive plans optimal for payoff-only environments</a>", in Proceedings of the Second Hawaii Conference on Systems Sciences, 1969.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1975'>[Holland1975]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Adaptation+in+natural+and+artificial+systems:+An+introductory+analysis\n\twith+applications+to+biology,+control,+and+artificial+intelligence"]">["Adaptation in natural and artificial systems: An introductory analysis\n\twith applications to biology, control, and artificial intelligence"]</a>", ["University of Michigan Press"], ["1975"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Adaptation+in+natural+and+artificial+systems:+An+introductory+analysis\n\twith+applications+to+biology,+control,+and+artificial+intelligence">Adaptation in natural and artificial systems: An introductory analysis\n\twith applications to biology, control, and artificial intelligence</a>", University of Michigan Press, 1975.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hollstien1971'>[Hollstien1971]</a></td>
- <td>["R. B. Hollstien"], "<a href="http://scholar.google.com.au/scholar?q=["Artificial+genetic+adaptation+in+computer+control+systems"]">["Artificial genetic adaptation in computer control systems"]</a>", [PhD Thesis] ["The University of Michigan"], ["1971"].</td>
+ <td>R. B. Hollstien, "<a href="http://scholar.google.com.au/scholar?q=Artificial+genetic+adaptation+in+computer+control+systems">Artificial genetic adaptation in computer control systems</a>", [PhD Thesis] The University of Michigan, 1971.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jong1975'>[Jong1975]</a></td>
- <td>["K. A. De Jong"], "<a href="http://scholar.google.com.au/scholar?q=["An+analysis+of+the+behavior+of+a+class+of+genetic+adaptive+systems"]">["An analysis of the behavior of a class of genetic adaptive systems"]</a>", [PhD Thesis] ["University of Michigan Ann Arbor, MI, USA"], ["1975"].</td>
+ <td>K. A. De Jong, "<a href="http://scholar.google.com.au/scholar?q=An+analysis+of+the+behavior+of+a+class+of+genetic+adaptive+systems">An analysis of the behavior of a class of genetic adaptive systems</a>", [PhD Thesis] University of Michigan Ann Arbor, MI, USA, 1975.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jong1992'>[Jong1992]</a></td>
- <td>["K. A. De Jong"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+Algorithms+are+NOT+Function+Optimizers"]">["Genetic Algorithms are NOT Function Optimizers"]</a>", in ["Proceedings of the Second Workshop on Foundations of Genetic Algorithms"], ["1992"].</td>
+ <td>K. A. De Jong, "<a href="http://scholar.google.com.au/scholar?q=Genetic+Algorithms+are+NOT+Function+Optimizers">Genetic Algorithms are NOT Function Optimizers</a>", in Proceedings of the Second Workshop on Foundations of Genetic Algorithms, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mitchell1995'>[Mitchell1995]</a></td>
- <td>["M. Mitchell"], "<a href="http://scholar.google.com.au/scholar?q=["Genetic+algorithms:+An+overview"]">["Genetic algorithms: An overview"]</a>", ["Complexity"], ["1995"].</td>
+ <td>M. Mitchell, "<a href="http://scholar.google.com.au/scholar?q=Genetic+algorithms:+An+overview">Genetic algorithms: An overview</a>", Complexity, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mitchell1998'>[Mitchell1998]</a></td>
- <td>["M. Mitchell"], "<a href="http://scholar.google.com.au/scholar?q=["An+Introduction+to+Genetic+Algorithms"]">["An Introduction to Genetic Algorithms"]</a>", ["MIT Press"], ["1998"].</td>
+ <td>M. Mitchell, "<a href="http://scholar.google.com.au/scholar?q=An+Introduction+to+Genetic+Algorithms">An Introduction to Genetic Algorithms</a>", MIT Press, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Muhlenbein1992'>[Muhlenbein1992]</a></td>
- <td>["H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["How+Genetic+Algorithms+Really+Work:+I.+Mutation+and+Hillclimbing"]">["How Genetic Algorithms Really Work: I. Mutation and Hillclimbing"]</a>", in ["Parallel Problem Solving from Nature 2"], ["1992"].</td>
+ <td>H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=How+Genetic+Algorithms+Really+Work:+I.+Mutation+and+Hillclimbing">How Genetic Algorithms Really Work: I. Mutation and Hillclimbing</a>", in Parallel Problem Solving from Nature 2, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rosenberg1967'>[Rosenberg1967]</a></td>
- <td>["R. Rosenberg"], "<a href="http://scholar.google.com.au/scholar?q=["Simulation+of+genetic+populations+with+biochemical+properties"]">["Simulation of genetic populations with biochemical properties"]</a>", [PhD Thesis] ["University of Michigan"], ["1967"].</td>
+ <td>R. Rosenberg, "<a href="http://scholar.google.com.au/scholar?q=Simulation+of+genetic+populations+with+biochemical+properties">Simulation of genetic populations with biochemical properties</a>", [PhD Thesis] University of Michigan, 1967.</td>
  </tr>
  <tr valign="top">
  <td><a name='Whitley1994'>[Whitley1994]</a></td>
- <td>["D. Whitley"], "<a href="http://scholar.google.com.au/scholar?q=["A+Genetic+Algorithm+Tutorial"]">["A Genetic Algorithm Tutorial"]</a>", ["Statistics and Computing"], ["1994"].</td>
+ <td>D. Whitley, "<a href="http://scholar.google.com.au/scholar?q=A+Genetic+Algorithm+Tutorial">A Genetic Algorithm Tutorial</a>", Statistics and Computing, 1994.</td>
  </tr>
 </table>
 

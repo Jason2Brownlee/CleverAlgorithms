@@ -76,16 +76,16 @@ $Problem_{size}$, $Population_{num}$
 <strong><strong><code>Output</code></strong></strong>: 
 <code>KnowledgeBase</code>
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Problem_{size}$, $Population_{num}$)<br />
-<code>KnowledgeBase</code> $["\\leftarrow"]$ <code>InitializeKnowledgebase</code>($Problem_{size}$, $Population_{num}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Evaluate</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$SituationalKnowledge_{candidate}$ $["\\leftarrow"]$ <code>AcceptSituationalKnowledge</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateSituationalKnowledge</code>(<code>KnowledgeBase</code>, $SituationalKnowledge_{candidate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ <code>ReproduceWithInfluence</code>(<code>Population</code>, <code>KnowledgeBase</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Select</code>(<code>Children</code>, <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$NormativeKnowledge_{candidate}$ $["\\leftarrow"]$ <code>AcceptNormativeKnowledge</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateNormativeKnowledge</code>(<code>KnowledgeBase</code>, $NormativeKnowledge_{candidate}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Problem_{size}$, $Population_{num}$}<br />
+<code>KnowledgeBase</code> $\leftarrow$ <code>InitializeKnowledgebase</code>{$Problem_{size}$, $Population_{num}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Evaluate</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$SituationalKnowledge_{candidate}$ $\leftarrow$ <code>AcceptSituationalKnowledge</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateSituationalKnowledge</code>{<code>KnowledgeBase</code>, $SituationalKnowledge_{candidate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ <code>ReproduceWithInfluence</code>{<code>Population</code>, <code>KnowledgeBase</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Select</code>{<code>Children</code>, <code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$NormativeKnowledge_{candidate}$ $\leftarrow$ <code>AcceptNormativeKnowledge</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateNormativeKnowledge</code>{<code>KnowledgeBase</code>, $NormativeKnowledge_{candidate}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>KnowledgeBase</code>)<br />
 </div>
@@ -238,19 +238,19 @@ Coello Coello and Becerra proposed a variation of the Cultural Algorithm that us
 <table>
  <tr valign="top">
  <td><a name='Chung1996'>[Chung1996]</a></td>
- <td>["C.&ndash;J. Chung and R. G. Reynolds"], "<a href="http://scholar.google.com.au/scholar?q=["A+Testbed+for+Solving+Optimization+Problems+Using+Cultural+Algorithms"]">["A Testbed for Solving Optimization Problems Using Cultural Algorithms"]</a>", in ["Evolutionary Programming V: Proceedings of the Fifth Annual Conference\n\ton Evolutionary Programming"], ["1996"].</td>
+ <td>C.&ndash;J. Chung and R. G. Reynolds, "<a href="http://scholar.google.com.au/scholar?q=A+Testbed+for+Solving+Optimization+Problems+Using+Cultural+Algorithms">A Testbed for Solving Optimization Problems Using Cultural Algorithms</a>", in Evolutionary Programming V: Proceedings of the Fifth Annual Conference\n\ton Evolutionary Programming, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='CoelloCoello2003'>[CoelloCoello2003]</a></td>
- <td>C. A. ["Coello Coello and R. L."] Becerra, "<a href="http://scholar.google.com.au/scholar?q=["Evolutionary+multiobjective+optimization+using+a+cultural+algorithm"]">["Evolutionary multiobjective optimization using a cultural algorithm"]</a>", in ["Proceedings of the 2003 IEEE Swarm Intelligence Symposium"], ["2003"].</td>
+ <td>C. A. Coello Coello and R. L. Becerra, "<a href="http://scholar.google.com.au/scholar?q=Evolutionary+multiobjective+optimization+using+a+cultural+algorithm">Evolutionary multiobjective optimization using a cultural algorithm</a>", in Proceedings of the 2003 IEEE Swarm Intelligence Symposium, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Reynolds1994'>[Reynolds1994]</a></td>
- <td>["R. G. Reynolds"], "<a href="http://scholar.google.com.au/scholar?q=["An+Introduction+to+Cultural+Algorithms"]">["An Introduction to Cultural Algorithms"]</a>", in ["Proceedings of the 3rd Annual Conference on Evolutionary Programming"], ["1994"].</td>
+ <td>R. G. Reynolds, "<a href="http://scholar.google.com.au/scholar?q=An+Introduction+to+Cultural+Algorithms">An Introduction to Cultural Algorithms</a>", in Proceedings of the 3rd Annual Conference on Evolutionary Programming, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Reynolds1999'>[Reynolds1999]</a></td>
- <td>["R. G. Reynolds"], "<a href="http://scholar.google.com.au/scholar?q=["Cultural+Algorithms:+Theory+and+Applications"]">["Cultural Algorithms: Theory and Applications"]</a>", in ["New Ideas in Optimization"], pages ["367&ndash;378"], ["McGraw-Hill Ltd."], ["1999"].</td>
+ <td>R. G. Reynolds, "<a href="http://scholar.google.com.au/scholar?q=Cultural+Algorithms:+Theory+and+Applications">Cultural Algorithms: Theory and Applications</a>", in New Ideas in Optimization, pages 367&ndash;378, McGraw-Hill Ltd., 1999.</td>
  </tr>
 </table>
 

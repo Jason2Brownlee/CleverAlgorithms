@@ -60,22 +60,22 @@ $DiverseSet_{size}$, $ReferenceSet_{size}$
 <strong><strong><code>Output</code></strong></strong>: 
 <code>ReferenceSet</code>
 <br />
-<code>InitialSet</code> $["\\leftarrow"]$ <code>ConstructInitialSolution</code>($DiverseSet_{size}$)<br />
-<code>RefinedSet</code> $["\\leftarrow \\emptyset"]$<br />
-<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>InitialSet</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>RefinedSet</code> $["\\leftarrow"]$ <code>LocalSearch</code>($S_{i}$)<br />
+<code>InitialSet</code> $\leftarrow$ <code>ConstructInitialSolution</code>{$DiverseSet_{size}$}<br />
+<code>RefinedSet</code> $\leftarrow \emptyset$<br />
+<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>InitialSet</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>RefinedSet</code> $\leftarrow$ <code>LocalSearch</code>{$S_{i}$}<br />
 <strong><code>End</code></strong><br />
-<code>ReferenceSet</code> $["\\leftarrow"]$ <code>SelectInitialReferenceSet</code>($ReferenceSet_{size}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$ <code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Subsets</code> $["\\leftarrow"]$ <code>SelectSubset</code>(<code>ReferenceSet</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateSet</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Subset_{i}$ $["\\in"]$ <code>Subsets</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RecombinedCandidates</code> $["\\leftarrow"]$ <code>RecombineMembers</code>($Subset_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>RecombinedCandidates</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateSet</code> $["\\leftarrow"]$ <code>LocalSearch</code>($S_{i}$)<br />
+<code>ReferenceSet</code> $\leftarrow$ <code>SelectInitialReferenceSet</code>{$ReferenceSet_{size}$}<br />
+<strong><code>While</code></strong> ($\neg$ <code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Subsets</code> $\leftarrow$ <code>SelectSubset</code>{<code>ReferenceSet</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateSet</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Subset_{i}$ $\in$ <code>Subsets</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RecombinedCandidates</code> $\leftarrow$ <code>RecombineMembers</code>{$Subset_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>RecombinedCandidates</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateSet</code> $\leftarrow$ <code>LocalSearch</code>{$S_{i}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>ReferenceSet</code> $["\\leftarrow"]$ <code>Select</code>(<code>ReferenceSet</code>, <code>CandidateSet</code>, $ReferenceSet_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>ReferenceSet</code> $\leftarrow$ <code>Select</code>{<code>ReferenceSet</code>, <code>CandidateSet</code>, $ReferenceSet_{size}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>ReferenceSet</code>)<br />
 </div>
@@ -282,35 +282,35 @@ There are many review articles and chapters on Scatter Search that may be used t
 <table>
  <tr valign="top">
  <td><a name='Glover1977'>[Glover1977]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Heuristics+for+integer+programming+using+surrogate+constraints"]">["Heuristics for integer programming using surrogate constraints"]</a>", ["Decision Sciences"], ["1977"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Heuristics+for+integer+programming+using+surrogate+constraints">Heuristics for integer programming using surrogate constraints</a>", Decision Sciences, 1977.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1994a'>[Glover1994a]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+Search+for+Nonlinear+and+Parametric+Optimization+(with+Links\n\tto+Genetic+Algorithms)"]">["Tabu Search for Nonlinear and Parametric Optimization (with Links\n\tto Genetic Algorithms)"]</a>", ["Discrete Applied Mathematics"], ["1994"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Tabu+Search+for+Nonlinear+and+Parametric+Optimization+(with+Links\n\tto+Genetic+Algorithms)">Tabu Search for Nonlinear and Parametric Optimization (with Links\n\tto Genetic Algorithms)</a>", Discrete Applied Mathematics, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1998a'>[Glover1998a]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["A+Template+For+Scatter+Search+And+Path+Relinking"]">["A Template For Scatter Search And Path Relinking"]</a>", in ["Artificial Evolution"], pages ["13"], ["Sprinter"], ["1998"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=A+Template+For+Scatter+Search+And+Path+Relinking">A Template For Scatter Search And Path Relinking</a>", in Artificial Evolution, pages 13, Sprinter, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1999'>[Glover1999]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Scatter+search+and+path+relinking"]">["Scatter search and path relinking"]</a>", in ["New Ideas in Optimization"], pages ["297&ndash;316"], ["McGraw-Hill Ltd."], ["1999"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Scatter+search+and+path+relinking">Scatter search and path relinking</a>", in New Ideas in Optimization, pages 297&ndash;316, McGraw-Hill Ltd., 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover2000'>[Glover2000]</a></td>
- <td>["F. Glover and M. Laguna and R. Mart&amp;iacute;"], "<a href="http://scholar.google.com.au/scholar?q=["Fundamentals+of+Scatter+Search+and+Path+Relinking"]">["Fundamentals of Scatter Search and Path Relinking"]</a>", ["Control and Cybernetics"], ["2000"].</td>
+ <td>F. Glover and M. Laguna and R. Mart&amp;iacute;, "<a href="http://scholar.google.com.au/scholar?q=Fundamentals+of+Scatter+Search+and+Path+Relinking">Fundamentals of Scatter Search and Path Relinking</a>", Control and Cybernetics, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover2003b'>[Glover2003b]</a></td>
- <td>["F. Glover and M. Laguna and R. Mart&amp;iacute;"], "<a href="http://scholar.google.com.au/scholar?q=["Scatter+Search"]">["Scatter Search"]</a>", in ["Advances in Evolutionary Computation: Theory and Applications"], pages ["519&ndash;537"], ["Springer-Verlag"], ["2003"].</td>
+ <td>F. Glover and M. Laguna and R. Mart&amp;iacute;, "<a href="http://scholar.google.com.au/scholar?q=Scatter+Search">Scatter Search</a>", in Advances in Evolutionary Computation: Theory and Applications, pages 519&ndash;537, Springer-Verlag, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Laguna2003'>[Laguna2003]</a></td>
- <td>["M. Laguna and R. Mart&amp;iacute;"], "<a href="http://scholar.google.com.au/scholar?q=["Scatter+search:+methodology+and+implementations+in+C"]">["Scatter search: methodology and implementations in C"]</a>", ["Kluwer Academic Publishers"], ["2003"].</td>
+ <td>M. Laguna and R. Mart&amp;iacute;, "<a href="http://scholar.google.com.au/scholar?q=Scatter+search:+methodology+and+implementations+in+C">Scatter search: methodology and implementations in C</a>", Kluwer Academic Publishers, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Martia2006'>[Martia2006]</a></td>
- <td>["R. Mart&amp;iacute; and M. Laguna and F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Principles+of+Scatter+Search"]">["Principles of Scatter Search"]</a>", ["European Journal of Operational Research"], ["2006"].</td>
+ <td>R. Mart&amp;iacute; and M. Laguna and F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Principles+of+Scatter+Search">Principles of Scatter Search</a>", European Journal of Operational Research, 2006.</td>
  </tr>
 </table>
 

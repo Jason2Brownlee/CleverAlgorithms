@@ -79,30 +79,30 @@ where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"
 <strong><strong><code>Output</code></strong></strong>: 
 $Cells_{memory}$
 <br />
-$Cells_{memory}$ $["\\leftarrow"]$ <code>InitializeMemoryPool</code>(<code>InputPatterns</code>)<br />
-<strong><code>For</code></strong> ($InputPattern_i$ $["\\in"]$ <code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Stimulate</code>($Cells_{memory}$, <code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{best}$ $["\\leftarrow"]$ <code>GetMostStimulated</code>($InputPattern_i$, $Cells_{memory}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Cell_{best}^{class}$ $["\\neq"]$ $InputPattern_{i}^{class}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{memory}$ $["\\leftarrow"]$ <code>CreateNewMemoryCell</code>($InputPattern_i$)<br />
+$Cells_{memory}$ $\leftarrow$ <code>InitializeMemoryPool</code>{<code>InputPatterns</code>}<br />
+<strong><code>For</code></strong> ($InputPattern_i$ $\in$ <code>InputPatterns</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Stimulate</code>{$Cells_{memory}$, <code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{best}$ $\leftarrow$ <code>GetMostStimulated</code>{$InputPattern_i$, $Cells_{memory}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Cell_{best}^{class}$ $\neq$ $InputPattern_{i}^{class}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{memory}$ $\leftarrow$ <code>CreateNewMemoryCell</code>{$InputPattern_i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Clones_{num}$ $["\\leftarrow"]$ $Cell_{best}^{stim}$ $["\\times"]$ $clone_{rate}$ $["\\times"]$ $mutate_{rate}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $["\\leftarrow"]$ $Cell_{best}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i"]$ <strong><code>To</code></strong> $Clones_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $["\\leftarrow"]$ <code>CloneAndMutate</code>($Cell_{best}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Clones_{num}$ $\leftarrow$ $Cell_{best}^{stim}$ $\times$ $clone_{rate}$ $\times$ $mutate_{rate}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $\leftarrow$ $Cell_{best}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i$ <strong><code>To</code></strong> $Clones_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $\leftarrow$ <code>CloneAndMutate</code>{$Cell_{best}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>AverageStimulation</code>($Cells_{clones}$) $["\\leq"]$ $stim_{thresh}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_{i}$ $["\\in"]$ $Cells_{clones}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $["\\leftarrow"]$ <code>CloneAndMutate</code>($Cell_{i}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>AverageStimulation</code>{$Cells_{clones}$} $\leq$ $stim_{thresh}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_{i}$ $\in$ $Cells_{clones}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{clones}$ $\leftarrow$ <code>CloneAndMutate</code>{$Cell_{i}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Stimulate</code>($Cells_{clones}$, <code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ReducePoolToMaximumResources</code>($Cells_{clones}$, $resources_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Stimulate</code>{$Cells_{clones}$, <code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ReducePoolToMaximumResources</code>{$Cells_{clones}$, $resources_{max}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{c}$ $["\\leftarrow"]$ <code>GetMostStimulated</code>($InputPattern_i$, $Cells_{clones}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Cell_{c}^{stim}$ &gt; $Cell_{best}^{stim}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{memory}$ $["\\leftarrow"]$ $Cell_{c}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Affinity</code>($Cell_{c}$, $Cell_{best}$) $["\\leq"]$ $affinity_{thresh}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>DeleteCell</code>($Cell_{best}$, $Cells_{memory}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{c}$ $\leftarrow$ <code>GetMostStimulated</code>{$InputPattern_i$, $Cells_{clones}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Cell_{c}^{stim}$ $>$ $Cell_{best}^{stim}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cells_{memory}$ $\leftarrow$ $Cell_{c}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Affinity</code>{$Cell_{c}$, $Cell_{best}$} $\leq$ $affinity_{thresh}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>DeleteCell</code>{$Cell_{best}$, $Cells_{memory}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
@@ -310,47 +310,47 @@ Watkins et al. provide a detailed review of the technique and its application  [
 <table>
  <tr valign="top">
  <td><a name='Burnet1957'>[Burnet1957]</a></td>
- <td>["F. M. Burnet"], "<a href="http://scholar.google.com.au/scholar?q=["A+modification+of+Jerne's+theory+of+antibody+production+using+the\n\tconcept+of+clonal+selection"]">["A modification of Jerne's theory of antibody production using the\n\tconcept of clonal selection"]</a>", ["Australian Journal of Science"], ["1957"].</td>
+ <td>F. M. Burnet, "<a href="http://scholar.google.com.au/scholar?q=A+modification+of+Jerne's+theory+of+antibody+production+using+the\n\tconcept+of+clonal+selection">A modification of Jerne's theory of antibody production using the\n\tconcept of clonal selection</a>", Australian Journal of Science, 1957.</td>
  </tr>
  <tr valign="top">
  <td><a name='Burnet1959'>[Burnet1959]</a></td>
- <td>["F. M. Burnet"], "<a href="http://scholar.google.com.au/scholar?q=["The+clonal+selection+theory+of+acquired+immunity"]">["The clonal selection theory of acquired immunity"]</a>", ["Vanderbilt University Press"], ["1959"].</td>
+ <td>F. M. Burnet, "<a href="http://scholar.google.com.au/scholar?q=The+clonal+selection+theory+of+acquired+immunity">The clonal selection theory of acquired immunity</a>", Vanderbilt University Press, 1959.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goodman2002'>[Goodman2002]</a></td>
- <td>D. E. ["Goodman Jr. and L. Boggess and A."] Watkins, "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Immune+System+Classification+of+Multiple-Class+Problems"]">["Artificial Immune System Classification of Multiple-Class Problems"]</a>", in ["Fuzzy Logic, Evolutionary Programming, Complex Systems and Artificial\n\tLife"], ["2002"].</td>
+ <td>D. E. Goodman Jr. and L. Boggess and A. Watkins, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Immune+System+Classification+of+Multiple-Class+Problems">Artificial Immune System Classification of Multiple-Class Problems</a>", in Fuzzy Logic, Evolutionary Programming, Complex Systems and Artificial\n\tLife, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Goodman2003'>[Goodman2003]</a></td>
- <td>D. E. ["Goodman Jr. and L. Boggess and A."] Watkins, "<a href="http://scholar.google.com.au/scholar?q=["An+Investigation+into+the+Source+of+Power+for+AIRS,+an+Artificial\n\tImmune+Classification+Systems"]">["An Investigation into the Source of Power for AIRS, an Artificial\n\tImmune Classification Systems"]</a>", in ["Proceedings of the International Joint Conference on Neural Networks\n\t(IJCNN'03)"], ["2003"].</td>
+ <td>D. E. Goodman Jr. and L. Boggess and A. Watkins, "<a href="http://scholar.google.com.au/scholar?q=An+Investigation+into+the+Source+of+Power+for+AIRS,+an+Artificial\n\tImmune+Classification+Systems">An Investigation into the Source of Power for AIRS, an Artificial\n\tImmune Classification Systems</a>", in Proceedings of the International Joint Conference on Neural Networks\n\t(IJCNN'03), 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Marwah2002'>[Marwah2002]</a></td>
- <td>G. ["Marwah and L."] Boggess, "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Immune+Systems+for+classification:+Some+issues"]">["Artificial Immune Systems for classification: Some issues"]</a>", in ["First International Conference on Artificial Immune Systems"], ["2002"].</td>
+ <td>G. Marwah and L. Boggess, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Immune+Systems+for+classification:+Some+issues">Artificial Immune Systems for classification: Some issues</a>", in First International Conference on Artificial Immune Systems, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2001'>[Watkins2001]</a></td>
- <td>A. B."] ["Watkins, "<a href="http://scholar.google.com.au/scholar?q=["AIRS:+A+resource+limited+artificial+immune+classifiers"]">["AIRS: A resource limited artificial immune classifiers"]</a>", [Masters Thesis] ["Mississippi State University"], ["2001"].</td>
+ <td>A. B. Watkins, "<a href="http://scholar.google.com.au/scholar?q=AIRS:+A+resource+limited+artificial+immune+classifiers">AIRS: A resource limited artificial immune classifiers</a>", [Masters Thesis] Mississippi State University, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2002'>[Watkins2002]</a></td>
- <td>A. ["Watkins and L."] Boggess, "<a href="http://scholar.google.com.au/scholar?q=["A+New+Classifier+Based+on+Resource+Limited+Artificial+Immune+Systems"]">["A New Classifier Based on Resource Limited Artificial Immune Systems"]</a>", in ["Part of the 2002 IEEE World Congress on Computational Intelligence"], ["2002"].</td>
+ <td>A. Watkins and L. Boggess, "<a href="http://scholar.google.com.au/scholar?q=A+New+Classifier+Based+on+Resource+Limited+Artificial+Immune+Systems">A New Classifier Based on Resource Limited Artificial Immune Systems</a>", in Part of the 2002 IEEE World Congress on Computational Intelligence, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2002a'>[Watkins2002a]</a></td>
- <td>A. B. ["Watkins and L. C."] Boggess, "<a href="http://scholar.google.com.au/scholar?q=["A+Resource+Limited+Artificial+Immune+Classifier"]">["A Resource Limited Artificial Immune Classifier"]</a>", in ["Part of the 2002 IEEE World Congress on Computational Intelligence\n\theld in Honolulu"], ["2002"].</td>
+ <td>A. B. Watkins and L. C. Boggess, "<a href="http://scholar.google.com.au/scholar?q=A+Resource+Limited+Artificial+Immune+Classifier">A Resource Limited Artificial Immune Classifier</a>", in Part of the 2002 IEEE World Congress on Computational Intelligence\n\theld in Honolulu, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2002b'>[Watkins2002b]</a></td>
- <td>A. ["Watkins and J."] Timmis, "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Immune+Recognition+System+(AIRS):+Revisions+and+Refinements"]">["Artificial Immune Recognition System (AIRS): Revisions and Refinements"]</a>", in ["1st International Conference on Artificial Immune Systems (ICARIS2002)"], ["2002"].</td>
+ <td>A. Watkins and J. Timmis, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Immune+Recognition+System+(AIRS):+Revisions+and+Refinements">Artificial Immune Recognition System (AIRS): Revisions and Refinements</a>", in 1st International Conference on Artificial Immune Systems (ICARIS2002), 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2004'>[Watkins2004]</a></td>
- <td>A. ["Watkins and J."] Timmis, "<a href="http://scholar.google.com.au/scholar?q=["Exploiting+Parallelism+Inherent+in+AIRS,+an+Artificial+Immune+Classifier"]">["Exploiting Parallelism Inherent in AIRS, an Artificial Immune Classifier"]</a>", in ["Lecture Notes in Computer Science (LNCS)"], ["2004"].</td>
+ <td>A. Watkins and J. Timmis, "<a href="http://scholar.google.com.au/scholar?q=Exploiting+Parallelism+Inherent+in+AIRS,+an+Artificial+Immune+Classifier">Exploiting Parallelism Inherent in AIRS, an Artificial Immune Classifier</a>", in Lecture Notes in Computer Science (LNCS), 2004.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2004a'>[Watkins2004a]</a></td>
- <td>A. ["Watkins and J. Timmis and L."] Boggess, "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Immune+Recognition+System+(AIRS):+An+Immune-Inspired\n\tSupervised+Learning+Algorithms"]">["Artificial Immune Recognition System (AIRS): An Immune-Inspired\n\tSupervised Learning Algorithms"]</a>", ["Genetic Programming and Evolvable Machines"], ["2004"].</td>
+ <td>A. Watkins and J. Timmis and L. Boggess, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Immune+Recognition+System+(AIRS):+An+Immune-Inspired\n\tSupervised+Learning+Algorithms">Artificial Immune Recognition System (AIRS): An Immune-Inspired\n\tSupervised Learning Algorithms</a>", Genetic Programming and Evolvable Machines, 2004.</td>
  </tr>
 </table>
 

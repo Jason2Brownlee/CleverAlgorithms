@@ -82,25 +82,25 @@ $Problem_{size}$, $Cells_{num}$, $N_{ed}$, $N_{re}$, $N_{c}$, $N_{s}$, $Step_{si
 <strong><strong><code>Output</code></strong></strong>: 
 $Cell_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Cells_{num}$, $Problem_{size}$)<br />
-<strong><code>For</code></strong> ($["l=0"]$ <strong><code>To</code></strong> $N_{ed}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["k=0"]$ <strong><code>To</code></strong> $N_{re}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["j=0"]$ <strong><code>To</code></strong> $N_{c}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ChemotaxisAndSwim</code>(<code>Population</code>, $Problem_{size}$, $Cells_{num}$, $N_{s}$, $Step_{size}$, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> (<code>Cell</code> $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>(<code>Cell</code>) $["\\leq"]$ <code>Cost</code>($Cell_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{best}$ $["\\leftarrow"]$ <code>Cell</code><br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Cells_{num}$, $Problem_{size}$}<br />
+<strong><code>For</code></strong> ($l=0$ <strong><code>To</code></strong> $N_{ed}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($k=0$ <strong><code>To</code></strong> $N_{re}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($j=0$ <strong><code>To</code></strong> $N_{c}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ChemotaxisAndSwim</code>{<code>Population</code>, $Problem_{size}$, $Cells_{num}$, $N_{s}$, $Step_{size}$, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> (<code>Cell</code> $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{<code>Cell</code>} $\leq$ <code>Cost</code>{$Cell_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{best}$ $\leftarrow$ <code>Cell</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>SortByCellHealth</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $["\\leftarrow"]$ <code>SelectByCellHealth</code>(<code>Population</code>, $["\\frac{\Cells_{num}}{2}"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Selected</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Selected</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>SortByCellHealth</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $\leftarrow$ <code>SelectByCellHealth</code>{<code>Population</code>, $\frac{$Cells_{num}$}{2}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Selected</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Selected</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> (<code>Cell</code> $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $["\\leq"]$ $P_{ed}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Cell</code> $["\\leftarrow"]$ <code>CreateCellAtRandomLocation</code>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> (<code>Cell</code> $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $\leq$ $P_{ed}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Cell</code> $\leftarrow$ <code>CreateCellAtRandomLocation</code>()<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -112,19 +112,19 @@ $Cell_{best}$
 <strong><strong><code>Input</code></strong></strong>: 
 <code>Population</code>, $Problem_{size}$, $Cells_{num}$, $N_{s}$, $Step_{size}$, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$
 <br />
-<strong><code>For</code></strong> (<code>Cell</code> $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{fitness}$ $["\\leftarrow"]$ <code>Cost</code>(<code>Cell</code>) + <code>Interaction</code>(<code>Cell</code>, <code>Population</code>, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{health}$ $["\\leftarrow"]$ $Cell_{fitness}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Cell'$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=0"]$ <strong><code>To</code></strong> $N_{s}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RandomStepDirection</code> $["\\leftarrow"]$ <code>CreateStep</code>($Problem_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell'$ $["\\leftarrow"]$ <code>TakeStep</code>(<code>RandomStepDirection</code>, $Step_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Cell'}_{fitness}$ $["\\leftarrow"]$ <code>Cost</code>($Cell'$) + <code>Interaction</code>($Cell'$, <code>Population</code>, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (${Cell'}_{fitness}$ &gt; $Cell_{fitness}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$["i \\leftarrow"]$ $N_{s}$<br />
+<strong><code>For</code></strong> (<code>Cell</code> $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{fitness}$ $\leftarrow$ <code>Cost</code>{<code>Cell</code>} $+$ <code>Interaction</code>{<code>Cell</code>, <code>Population</code>, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{health}$ $\leftarrow$ $Cell_{fitness}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Cell'$ $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i=0$ <strong><code>To</code></strong> $N_{s}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RandomStepDirection</code> $\leftarrow$ <code>CreateStep</code>{$Problem_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell'$ $\leftarrow$ <code>TakeStep</code>{<code>RandomStepDirection</code>, $Step_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;${Cell'}_{fitness}$ $\leftarrow$ <code>Cost</code>{$Cell'$} + <code>Interaction</code>{$Cell'$, <code>Population</code>, $d_{attract}$, $w_{attract}$, $h_{repellant}$, $w_{repellant}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (${Cell'}_{fitness}$ $>$ $Cell_{fitness}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$i \leftarrow$ $N_{s}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Cell</code> $["\\leftarrow"]$ $Cell'$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{health}$ $["\\leftarrow"]$ $Cell_{health}$ + ${Cell'}_{fitness}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Cell</code> $\leftarrow$ $Cell'$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Cell_{health}$ $\leftarrow$ $Cell_{health}$ + ${Cell'}_{fitness}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -301,27 +301,27 @@ Das et al. present the algorithm and its inspiration, and go on to provide an in
 <table>
  <tr valign="top">
  <td><a name='Das2009'>[Das2009]</a></td>
- <td>["S. Das and A. Biswas and S. Dasgupta and A. Abraham"], "<a href="http://scholar.google.com.au/scholar?q=["Bacterial+Foraging+Optimization+Algorithm:+Theoretical+Foundations,\n\tAnalysis,+and+Applications"]">["Bacterial Foraging Optimization Algorithm: Theoretical Foundations,\n\tAnalysis, and Applications"]</a>", in ["Foundations of Computational Intelligence Volume 3: Global Optimization"], pages ["23&ndash;55"], ["Springer"], ["2009"].</td>
+ <td>S. Das and A. Biswas and S. Dasgupta and A. Abraham, "<a href="http://scholar.google.com.au/scholar?q=Bacterial+Foraging+Optimization+Algorithm:+Theoretical+Foundations,\n\tAnalysis,+and+Applications">Bacterial Foraging Optimization Algorithm: Theoretical Foundations,\n\tAnalysis, and Applications</a>", in Foundations of Computational Intelligence Volume 3: Global Optimization, pages 23&ndash;55, Springer, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='Liu2002'>[Liu2002]</a></td>
- <td>["Y. Liu and K. M. Passino"], "<a href="http://scholar.google.com.au/scholar?q=["Biomimicry+of+Social+Foraging+Bacteria+for+Distributed+Optimization:\n\tModels,+Principles,+and+Emergent+Behaviors"]">["Biomimicry of Social Foraging Bacteria for Distributed Optimization:\n\tModels, Principles, and Emergent Behaviors"]</a>", ["Journal of Optimization Theory and Applications"], ["2002"].</td>
+ <td>Y. Liu and K. M. Passino, "<a href="http://scholar.google.com.au/scholar?q=Biomimicry+of+Social+Foraging+Bacteria+for+Distributed+Optimization:\n\tModels,+Principles,+and+Emergent+Behaviors">Biomimicry of Social Foraging Bacteria for Distributed Optimization:\n\tModels, Principles, and Emergent Behaviors</a>", Journal of Optimization Theory and Applications, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Muller2002'>[Muller2002]</a></td>
- <td>["S. D. M\&amp;uuml;ller and J. Marchetto and S. Airaghi and P. Koumoutsakos"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+Based+on+Bacterial+Chemotaxis"]">["Optimization Based on Bacterial Chemotaxis"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2002"].</td>
+ <td>S. D. M\&amp;uuml;ller and J. Marchetto and S. Airaghi and P. Koumoutsakos, "<a href="http://scholar.google.com.au/scholar?q=Optimization+Based+on+Bacterial+Chemotaxis">Optimization Based on Bacterial Chemotaxis</a>", IEEE Transactions on Evolutionary Computation, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Passino2002'>[Passino2002]</a></td>
- <td>K. M."] ["Passino, "<a href="http://scholar.google.com.au/scholar?q=["Biomimicry+of+bacterial+foraging+for+distributed+optimization+and\n\tcontrol"]">["Biomimicry of bacterial foraging for distributed optimization and\n\tcontrol"]</a>", ["IEEE Control Systems Magazine"], ["2002"].</td>
+ <td>K. M. Passino, "<a href="http://scholar.google.com.au/scholar?q=Biomimicry+of+bacterial+foraging+for+distributed+optimization+and\n\tcontrol">Biomimicry of bacterial foraging for distributed optimization and\n\tcontrol</a>", IEEE Control Systems Magazine, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Passino2005'>[Passino2005]</a></td>
- <td>K. M."] ["Passino, "<a href="http://scholar.google.com.au/scholar?q=["Part+V:+Foraging"]">["Part V: Foraging"]</a>", in ["Biomimicry for Optimization, Control, and Automation"], ["Springer"], ["2005"].</td>
+ <td>K. M. Passino, "<a href="http://scholar.google.com.au/scholar?q=Part+V:+Foraging">Part V: Foraging</a>", in Biomimicry for Optimization, Control, and Automation, Springer, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Passino2010'>[Passino2010]</a></td>
- <td>K. M."] ["Passino, "<a href="http://scholar.google.com.au/scholar?q=["Bacterial+Foraging+Optimization"]">["Bacterial Foraging Optimization"]</a>", ["International Journal of Swarm Intelligence Research"], ["2010"].</td>
+ <td>K. M. Passino, "<a href="http://scholar.google.com.au/scholar?q=Bacterial+Foraging+Optimization">Bacterial Foraging Optimization</a>", International Journal of Swarm Intelligence Research, 2010.</td>
  </tr>
 </table>
 

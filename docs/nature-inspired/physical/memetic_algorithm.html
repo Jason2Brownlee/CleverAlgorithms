@@ -72,16 +72,16 @@ Algorithm (below) provides a pseudocode listing of the Memetic Algorithm for min
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>(<code>ProblemSize</code>, $Pop_{size}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{i}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{<code>ProblemSize</code>, $Pop_{size}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{i}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>StochasticGlobalSearch</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>MemeticPopulation</code> $["\\leftarrow"]$ <code>SelectMemeticPopulation</code>(<code>Population</code>, $MemePop_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>MemeticPopulation</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>LocalSearch</code>($S_{i}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>StochasticGlobalSearch</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>MemeticPopulation</code> $\leftarrow$ <code>SelectMemeticPopulation</code>{<code>Population</code>, $MemePop_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>MemeticPopulation</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>LocalSearch</code>{$S_{i}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -250,31 +250,31 @@ For a broader overview of the field, see the 2005 book &quot;Recent Advances in 
 <table>
  <tr valign="top">
  <td><a name='Dawkins1976'>[Dawkins1976]</a></td>
- <td>["R. Dawkins"], "<a href="http://scholar.google.com.au/scholar?q=["The+selfish+gene"]">["The selfish gene"]</a>", ["Oxford University Press"], ["1976"].</td>
+ <td>R. Dawkins, "<a href="http://scholar.google.com.au/scholar?q=The+selfish+gene">The selfish gene</a>", Oxford University Press, 1976.</td>
  </tr>
  <tr valign="top">
  <td><a name='Hart2005'>[Hart2005]</a></td>
- <td>W. E. ["Hart and N. Krasnogor and J. E."] Smith, "<a href="http://scholar.google.com.au/scholar?q=["Recent+Advances+in+Memetic+Algorithms"]">["Recent Advances in Memetic Algorithms"]</a>", ["Springer"], ["2005"].</td>
+ <td>W. E. Hart and N. Krasnogor and J. E. Smith, "<a href="http://scholar.google.com.au/scholar?q=Recent+Advances+in+Memetic+Algorithms">Recent Advances in Memetic Algorithms</a>", Springer, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Krasnogor2004'>[Krasnogor2004]</a></td>
- <td>["N. Krasnogor and S. Gustafson"], "<a href="http://scholar.google.com.au/scholar?q=["A+study+on+the+use+of+&quot;self-generation&quot;+in+memetic+algorithms"]">["A study on the use of &quot;self-generation&quot; in memetic algorithms"]</a>", ["Natural Computing"], ["2004"].</td>
+ <td>N. Krasnogor and S. Gustafson, "<a href="http://scholar.google.com.au/scholar?q=A+study+on+the+use+of+&quot;self-generation&quot;+in+memetic+algorithms">A study on the use of &quot;self-generation&quot; in memetic algorithms</a>", Natural Computing, 2004.</td>
  </tr>
  <tr valign="top">
  <td><a name='Krasnogor2005'>[Krasnogor2005]</a></td>
- <td>["N. Krasnogor and J. Smith"], "<a href="http://scholar.google.com.au/scholar?q=["A+Tutorial+for+Competent+Memetic+Algorithms:+Model,+Taxonomy+and\n\tDesign+Issues"]">["A Tutorial for Competent Memetic Algorithms: Model, Taxonomy and\n\tDesign Issues"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2005"].</td>
+ <td>N. Krasnogor and J. Smith, "<a href="http://scholar.google.com.au/scholar?q=A+Tutorial+for+Competent+Memetic+Algorithms:+Model,+Taxonomy+and\n\tDesign+Issues">A Tutorial for Competent Memetic Algorithms: Model, Taxonomy and\n\tDesign Issues</a>", IEEE Transactions on Evolutionary Computation, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Moscato1989'>[Moscato1989]</a></td>
- <td>["P. Moscato"], "<a href="http://scholar.google.com.au/scholar?q=["On+Evolution,+Search,+Optimization,+Genetic+Algorithms+and+Martial\n\tArts:+Towards+Memetic+Algorithms"]">["On Evolution, Search, Optimization, Genetic Algorithms and Martial\n\tArts: Towards Memetic Algorithms"]</a>", ["California Institute of Technology"], ["1989"].</td>
+ <td>P. Moscato, "<a href="http://scholar.google.com.au/scholar?q=On+Evolution,+Search,+Optimization,+Genetic+Algorithms+and+Martial\n\tArts:+Towards+Memetic+Algorithms">On Evolution, Search, Optimization, Genetic Algorithms and Martial\n\tArts: Towards Memetic Algorithms</a>", California Institute of Technology, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Moscato2003'>[Moscato2003]</a></td>
- <td>["P. Moscato and C. Cotta"], "<a href="http://scholar.google.com.au/scholar?q=["A+gentle+introduction+to+memetic+algorithms"]">["A gentle introduction to memetic algorithms"]</a>", in ["Handbook of Metaheuristics"], pages ["105&ndash;144"], ["Kluwer Academic Publishers"], ["2003"].</td>
+ <td>P. Moscato and C. Cotta, "<a href="http://scholar.google.com.au/scholar?q=A+gentle+introduction+to+memetic+algorithms">A gentle introduction to memetic algorithms</a>", in Handbook of Metaheuristics, pages 105&ndash;144, Kluwer Academic Publishers, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ong2006'>[Ong2006]</a></td>
- <td>["Y&ndash;S. Ong and M&ndash;H. Lim and N. Zhu and K&ndash;W. Wong"], "<a href="http://scholar.google.com.au/scholar?q=["Classification+of+Adaptive+Memetic+Algorithms:+A+Comparative+Study"]">["Classification of Adaptive Memetic Algorithms: A Comparative Study"]</a>", ["IEEE Transactions on Systems, Man, and Cybernetics-Part B: Cybernetics"], ["2006"].</td>
+ <td>Y&ndash;S. Ong and M&ndash;H. Lim and N. Zhu and K&ndash;W. Wong, "<a href="http://scholar.google.com.au/scholar?q=Classification+of+Adaptive+Memetic+Algorithms:+A+Comparative+Study">Classification of Adaptive Memetic Algorithms: A Comparative Study</a>", IEEE Transactions on Systems, Man, and Cybernetics-Part B: Cybernetics, 2006.</td>
  </tr>
 </table>
 

@@ -60,21 +60,21 @@ $TabuList_{size}$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{best}$ $["\\leftarrow"]$ <code>ConstructInitialSolution</code>()<br />
-<code>TabuList</code> $["\\leftarrow \\emptyset"]$<br />
-<strong><code>While</code></strong> ($["\\neg"]$ <code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{candidate}$ $["\\in"]$ $Sbest_{neighborhood}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($["\\neg"]$ <code>ContainsAnyFeatures</code>($S_{candidate}$, <code>TabuList</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $["\\leftarrow"]$ $S_{candidate}$<br />
+$S_{best}$ $\leftarrow$ <code>ConstructInitialSolution</code>()<br />
+<code>TabuList</code> $\leftarrow \emptyset$<br />
+<strong><code>While</code></strong> ($\neg$ <code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{candidate}$ $\in$ $Sbest_{neighborhood}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($\neg$ <code>ContainsAnyFeatures</code>{$S_{candidate}$, <code>TabuList</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>CandidateList</code> $\leftarrow$ $S_{candidate}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>LocateBestCandidate</code>(<code>CandidateList</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{candidate}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{candidate}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>TabuList</code> $["\\leftarrow"]$ <code>FeatureDifferences</code>($S_{candidate}$, $S_{best}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>TabuList</code> &gt; $TabuList_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>DeleteFeature</code>(<code>TabuList</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>LocateBestCandidate</code>{<code>CandidateList</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{candidate}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{candidate}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>TabuList</code> $\leftarrow$ <code>FeatureDifferences</code>{$S_{candidate}$, $S_{best}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>While</code></strong> (<code>TabuList</code> $>$ $TabuList_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>DeleteFeature</code>{<code>TabuList</code>}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -227,51 +227,51 @@ The approach appeared in Science, that considered a modification for its applica
 <table>
  <tr valign="top">
  <td><a name='Cvijovic1995'>[Cvijovic1995]</a></td>
- <td>["D. Cvijovic and J. Klinowski"], "<a href="http://scholar.google.com.au/scholar?q=["Taboo+Search:+An+Approach+to+the+Multiple+Minima+Problem"]">["Taboo Search: An Approach to the Multiple Minima Problem"]</a>", ["Science"], ["1995"].</td>
+ <td>D. Cvijovic and J. Klinowski, "<a href="http://scholar.google.com.au/scholar?q=Taboo+Search:+An+Approach+to+the+Multiple+Minima+Problem">Taboo Search: An Approach to the Multiple Minima Problem</a>", Science, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fiechter1994'>[Fiechter1994]</a></td>
- <td>["C&ndash;N. Fiechter"], "<a href="http://scholar.google.com.au/scholar?q=["A+parallel+tabu+search+algorithm+for+large+traveling+salesman+problems"]">["A parallel tabu search algorithm for large traveling salesman problems"]</a>", ["Discrete Applied Mathematics"], ["1994"].</td>
+ <td>C&ndash;N. Fiechter, "<a href="http://scholar.google.com.au/scholar?q=A+parallel+tabu+search+algorithm+for+large+traveling+salesman+problems">A parallel tabu search algorithm for large traveling salesman problems</a>", Discrete Applied Mathematics, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Gendreau2003'>[Gendreau2003]</a></td>
- <td>["M. Gendreau"], "<a href="http://scholar.google.com.au/scholar?q=["2:+An+Introduction+to+Tabu+Search"]">["2: An Introduction to Tabu Search"]</a>", in ["Handbook of Metaheuristics"], pages ["37&ndash;54"], ["Springer"], ["2003"].</td>
+ <td>M. Gendreau, "<a href="http://scholar.google.com.au/scholar?q=2:+An+Introduction+to+Tabu+Search">2: An Introduction to Tabu Search</a>", in Handbook of Metaheuristics, pages 37&ndash;54, Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1977'>[Glover1977]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Heuristics+for+integer+programming+using+surrogate+constraints"]">["Heuristics for integer programming using surrogate constraints"]</a>", ["Decision Sciences"], ["1977"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Heuristics+for+integer+programming+using+surrogate+constraints">Heuristics for integer programming using surrogate constraints</a>", Decision Sciences, 1977.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1986'>[Glover1986]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Future+paths+for+integer+programming+and+links+to+artificial+intelligence"]">["Future paths for integer programming and links to artificial intelligence"]</a>", ["Computers and Operations Research"], ["1986"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Future+paths+for+integer+programming+and+links+to+artificial+intelligence">Future paths for integer programming and links to artificial intelligence</a>", Computers and Operations Research, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1986a'>[Glover1986a]</a></td>
- <td>["F. Glover and C. McMillan"], "<a href="http://scholar.google.com.au/scholar?q=["The+general+employee+scheduling+problem:+an+integration+of+MS+and\n\tAI"]">["The general employee scheduling problem: an integration of MS and\n\tAI"]</a>", ["Computers and Operations Research"], ["1986"].</td>
+ <td>F. Glover and C. McMillan, "<a href="http://scholar.google.com.au/scholar?q=The+general+employee+scheduling+problem:+an+integration+of+MS+and\n\tAI">The general employee scheduling problem: an integration of MS and\n\tAI</a>", Computers and Operations Research, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1989'>[Glover1989]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+Search+&ndash;+Part+I"]">["Tabu Search &ndash; Part I"]</a>", ["ORSA Journal on Computing"], ["1989"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Tabu+Search+&ndash;+Part+I">Tabu Search &ndash; Part I</a>", ORSA Journal on Computing, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1990'>[Glover1990]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+Search+&ndash;+Part+II"]">["Tabu Search &ndash; Part II"]</a>", ["ORSA Journal on Computing"], ["1990"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Tabu+Search+&ndash;+Part+II">Tabu Search &ndash; Part II</a>", ORSA Journal on Computing, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1990a'>[Glover1990a]</a></td>
- <td>["F. Glover"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+Search:+A+Tutorial"]">["Tabu Search: A Tutorial"]</a>", ["Interfaces"], ["1990"].</td>
+ <td>F. Glover, "<a href="http://scholar.google.com.au/scholar?q=Tabu+Search:+A+Tutorial">Tabu Search: A Tutorial</a>", Interfaces, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1993'>[Glover1993]</a></td>
- <td>["F. Glover and E. Taillard"], "<a href="http://scholar.google.com.au/scholar?q=["A+user's+guide+to+tabu+search"]">["A user's guide to tabu search"]</a>", ["Annals of Operations Research"], ["1993"].</td>
+ <td>F. Glover and E. Taillard, "<a href="http://scholar.google.com.au/scholar?q=A+user's+guide+to+tabu+search">A user's guide to tabu search</a>", Annals of Operations Research, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Glover1998'>[Glover1998]</a></td>
- <td>["F. W. Glover and M. Laguna"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+Search"]">["Tabu Search"]</a>", ["Springer"], ["1998"].</td>
+ <td>F. W. Glover and M. Laguna, "<a href="http://scholar.google.com.au/scholar?q=Tabu+Search">Tabu Search</a>", Springer, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Knox1994'>[Knox1994]</a></td>
- <td>["J. Knox"], "<a href="http://scholar.google.com.au/scholar?q=["Tabu+search+performance+on+the+symmetric+traveling+salesman+problem"]">["Tabu search performance on the symmetric traveling salesman problem"]</a>", ["Computers \&amp; Operations Research"], ["1994"].</td>
+ <td>J. Knox, "<a href="http://scholar.google.com.au/scholar?q=Tabu+search+performance+on+the+symmetric+traveling+salesman+problem">Tabu search performance on the symmetric traveling salesman problem</a>", Computers \&amp; Operations Research, 1994.</td>
  </tr>
 </table>
 

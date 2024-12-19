@@ -57,15 +57,15 @@ Algorithm (below) provides a pseudocode listing of the Iterated Local Search alg
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{best}$ $["\\leftarrow"]$ <code>ConstructInitialSolution</code>()<br />
-$S_{best}$ $["\\leftarrow"]$ <code>LocalSearch</code>()<br />
-<code>SearchHistory</code> $["\\leftarrow"]$ $S_{best}$<br />
-<strong><code>While</code></strong> ($["\\neg"]$ <code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>Perturbation</code>($S_{best}$, <code>SearchHistory</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>LocalSearch</code>($S_{candidate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>SearchHistory</code> $["\\leftarrow"]$ $S_{candidate}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>AcceptanceCriterion</code>($S_{best}$, $S_{candidate}$, <code>SearchHistory</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{candidate}$<br />
+$S_{best}$ $\leftarrow$ <code>ConstructInitialSolution</code>()<br />
+$S_{best}$ $\leftarrow$ <code>LocalSearch</code>()<br />
+<code>SearchHistory</code> $\leftarrow$ $S_{best}$<br />
+<strong><code>While</code></strong> ($\neg$ <code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>Perturbation</code>{$S_{best}$, <code>SearchHistory</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>LocalSearch</code>{$S_{candidate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>SearchHistory</code> $\leftarrow$ $S_{candidate}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>AcceptanceCriterion</code>{$S_{best}$, $S_{candidate}$, <code>SearchHistory</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{candidate}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -218,51 +218,51 @@ The same author's also preset an authoritative summary of the approach and its a
 <table>
  <tr valign="top">
  <td><a name='Baum1986'>[Baum1986]</a></td>
- <td>["E. B. Baum"], "<a href="http://scholar.google.com.au/scholar?q=["Towards+practical+&quot;neural&quot;+computation+for+combinatorial+optimization\n\tproblems"]">["Towards practical &quot;neural&quot; computation for combinatorial optimization\n\tproblems"]</a>", in ["AIP conference proceedings: Neural Networks for Computing"], ["1986"].</td>
+ <td>E. B. Baum, "<a href="http://scholar.google.com.au/scholar?q=Towards+practical+&quot;neural&quot;+computation+for+combinatorial+optimization\n\tproblems">Towards practical &quot;neural&quot; computation for combinatorial optimization\n\tproblems</a>", in AIP conference proceedings: Neural Networks for Computing, 1986.</td>
  </tr>
  <tr valign="top">
  <td><a name='Baxter1981'>[Baxter1981]</a></td>
- <td>["J. Baxter"], "<a href="http://scholar.google.com.au/scholar?q=["Local+optima+avoidance+in+depot+location"]">["Local optima avoidance in depot location"]</a>", ["Journal of the Operational Research Society"], ["1981"].</td>
+ <td>J. Baxter, "<a href="http://scholar.google.com.au/scholar?q=Local+optima+avoidance+in+depot+location">Local optima avoidance in depot location</a>", Journal of the Operational Research Society, 1981.</td>
  </tr>
  <tr valign="top">
  <td><a name='Johnson1990'>[Johnson1990]</a></td>
- <td>["D. S. Johnson"], "<a href="http://scholar.google.com.au/scholar?q=["Local+optimization+and+the+travelling+salesman+problem"]">["Local optimization and the travelling salesman problem"]</a>", in ["Proceedings of the 17th Colloquium on Automata, Languages, and Programming"], ["1990"].</td>
+ <td>D. S. Johnson, "<a href="http://scholar.google.com.au/scholar?q=Local+optimization+and+the+travelling+salesman+problem">Local optimization and the travelling salesman problem</a>", in Proceedings of the 17th Colloquium on Automata, Languages, and Programming, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Johnson1997'>[Johnson1997]</a></td>
- <td>["D. S. Johnson and L. A. McGeoch"], "<a href="http://scholar.google.com.au/scholar?q=["The+travelling+salesman+problem:+A+case+study+in+local+optimization"]">["The travelling salesman problem: A case study in local optimization"]</a>", in ["Local Search in Combinatorial Optimization"], pages ["215&ndash;310"], ["John Wiley \&amp; Sons"], ["1997"].</td>
+ <td>D. S. Johnson and L. A. McGeoch, "<a href="http://scholar.google.com.au/scholar?q=The+travelling+salesman+problem:+A+case+study+in+local+optimization">The travelling salesman problem: A case study in local optimization</a>", in Local Search in Combinatorial Optimization, pages 215&ndash;310, John Wiley \&amp; Sons, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Lourenco2001'>[Lourenco2001]</a></td>
- <td>["H. R. Lourenco and O. Martin and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["A+Beginner’s+Introduction+to+Iterated+Local+Search"]">["A Beginner’s Introduction to Iterated Local Search"]</a>", in ["Proceedings 4th Metaheuristics International Conference (MIC’2001)"], ["2001"].</td>
+ <td>H. R. Lourenco and O. Martin and T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=A+Beginner’s+Introduction+to+Iterated+Local+Search">A Beginner’s Introduction to Iterated Local Search</a>", in Proceedings 4th Metaheuristics International Conference (MIC’2001), 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Martin1991'>[Martin1991]</a></td>
- <td>["O. Martin and S. W. Otto and E. W. Felten"], "<a href="http://scholar.google.com.au/scholar?q=["Large-step+Markov+chains+for+the+traveling+salesman+problems"]">["Large-step Markov chains for the traveling salesman problems"]</a>", ["Complex Systems"], ["1991"].</td>
+ <td>O. Martin and S. W. Otto and E. W. Felten, "<a href="http://scholar.google.com.au/scholar?q=Large-step+Markov+chains+for+the+traveling+salesman+problems">Large-step Markov chains for the traveling salesman problems</a>", Complex Systems, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Martin1996'>[Martin1996]</a></td>
- <td>["O. Martin and S. W. Otto"], "<a href="http://scholar.google.com.au/scholar?q=["Combining+simulated+annealing+with+local+search+heuristics"]">["Combining simulated annealing with local search heuristics"]</a>", ["Annals of Operations Research"], ["1996"].</td>
+ <td>O. Martin and S. W. Otto, "<a href="http://scholar.google.com.au/scholar?q=Combining+simulated+annealing+with+local+search+heuristics">Combining simulated annealing with local search heuristics</a>", Annals of Operations Research, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ramalhinho-Lourenco2003'>[Ramalhinho-Lourenco2003]</a></td>
- <td>["H. Ramalhinho&ndash;Lourenco and O. C. Martin and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Iterated+Local+Search"]">["Iterated Local Search"]</a>", in ["Handbook of Metaheuristics"], pages ["320&ndash;353"], ["Springer"], ["2003"].</td>
+ <td>H. Ramalhinho&ndash;Lourenco and O. C. Martin and T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Iterated+Local+Search">Iterated Local Search</a>", in Handbook of Metaheuristics, pages 320&ndash;353, Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stuetzle1999'>[Stuetzle1999]</a></td>
- <td>["T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Iterated+local+search+for+the+quadratic+assignment+problem"]">["Iterated local search for the quadratic assignment problem"]</a>", Technical Report ["AIDA-99-03"], ["FG Intellektik, FB Informatik, TU Darmstadt"], ["1999"].</td>
+ <td>T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Iterated+local+search+for+the+quadratic+assignment+problem">Iterated local search for the quadratic assignment problem</a>", Technical Report AIDA-99-03, FG Intellektik, FB Informatik, TU Darmstadt, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stutzle1998'>[Stutzle1998]</a></td>
- <td>["T. G. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Local+Search+Algorithms+for+Combinatorial+Problems:+Analysis,+Improvements,\n\tand+New+Applications"]">["Local Search Algorithms for Combinatorial Problems: Analysis, Improvements,\n\tand New Applications"]</a>", [PhD Thesis] ["Darmstadt University of Technology, Department of Computer Science"], ["1998"].</td>
+ <td>T. G. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Local+Search+Algorithms+for+Combinatorial+Problems:+Analysis,+Improvements,\n\tand+New+Applications">Local Search Algorithms for Combinatorial Problems: Analysis, Improvements,\n\tand New Applications</a>", [PhD Thesis] Darmstadt University of Technology, Department of Computer Science, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stutzle1998a'>[Stutzle1998a]</a></td>
- <td>["T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Applying+iterated+local+search+to+the+permutation+flow+shop+problem"]">["Applying iterated local search to the permutation flow shop problem"]</a>", Technical Report ["AIDA–98–04"], ["FG Intellektik, TU Darmstadt"], ["1998"].</td>
+ <td>T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Applying+iterated+local+search+to+the+permutation+flow+shop+problem">Applying iterated local search to the permutation flow shop problem</a>", Technical Report AIDA–98–04, FG Intellektik, TU Darmstadt, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stutzle1999'>[Stutzle1999]</a></td>
- <td>["T. St\&amp;uuml;tzle and H. H. Hoos"], "<a href="http://scholar.google.com.au/scholar?q=["Analyzing+the+run-time+behaviour+of+iterated+local+search+for+the\n\tTSP"]">["Analyzing the run-time behaviour of iterated local search for the\n\tTSP"]</a>", in ["Proceedings III Metaheuristics International Conference"], ["1999"].</td>
+ <td>T. St\&amp;uuml;tzle and H. H. Hoos, "<a href="http://scholar.google.com.au/scholar?q=Analyzing+the+run-time+behaviour+of+iterated+local+search+for+the\n\tTSP">Analyzing the run-time behaviour of iterated local search for the\n\tTSP</a>", in Proceedings III Metaheuristics International Conference, 1999.</td>
  </tr>
 </table>
 

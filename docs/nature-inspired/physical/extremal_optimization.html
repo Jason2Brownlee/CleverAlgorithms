@@ -73,18 +73,18 @@ Algorithm (below) provides a pseudocode listing of the Extremal Optimization alg
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{current}$ $["\\leftarrow"]$ <code>CreateInitialSolution</code>(<code>ProblemSize</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ $S_{current}$<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Component_{i}$ $["\\in"]$ $S_{current}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Component_{i}^{cost}$ $["\\leftarrow"]$ <code>Cost</code>($Component_{i}$, $S_{current}$)<br />
+$S_{current}$ $\leftarrow$ <code>CreateInitialSolution</code>{<code>ProblemSize</code>}<br />
+$S_{best}$ $\leftarrow$ $S_{current}$<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Component_{i}$ $\in$ $S_{current}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Component_{i}^{cost}$ $\leftarrow$ <code>Cost</code>{$Component_{i}$, $S_{current}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>RankedComponents</code> $["\\leftarrow"]$ <code>Rank</code>($Si_{components}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Component_{i}$ $["\\leftarrow"]$ <code>SelectWeakComponent</code>(<code>RankedComponents</code>, $Component_{i}$, $\tau$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Component_{j}$ $["\\leftarrow"]$ <code>SelectReplacementComponent</code>(<code>RankedComponents</code>, $\tau$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $["\\leftarrow"]$ <code>Replace</code>($S_{current}$, $Component_{i}$, $Component_{j}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{candidate}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{candidate}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>RankedComponents</code> $\leftarrow$ <code>Rank</code>{$Si_{components}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Component_{i}$ $\leftarrow$ <code>SelectWeakComponent</code>{<code>RankedComponents</code>, $Component_{i}$, $\tau$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Component_{j}$ $\leftarrow$ <code>SelectReplacementComponent</code>{<code>RankedComponents</code>, $\tau$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{candidate}$ $\leftarrow$ <code>Replace</code>{$S_{current}$, $Component_{i}$, $Component_{j}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{candidate}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{candidate}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -292,27 +292,27 @@ A number of detailed reviews of Extremal Optimization have been presented, inclu
 <table>
  <tr valign="top">
  <td><a name='Bak1987'>[Bak1987]</a></td>
- <td>["P. Bak and C. Tang and K. Wiesenfeld"], "<a href="http://scholar.google.com.au/scholar?q=["Self-organized+criticality:+An+explanation+of+the+1/f+noise"]">["Self-organized criticality: An explanation of the 1/f noise"]</a>", ["Physical Review Letters"], ["1987"].</td>
+ <td>P. Bak and C. Tang and K. Wiesenfeld, "<a href="http://scholar.google.com.au/scholar?q=Self-organized+criticality:+An+explanation+of+the+1/f+noise">Self-organized criticality: An explanation of the 1/f noise</a>", Physical Review Letters, 1987.</td>
  </tr>
  <tr valign="top">
  <td><a name='Bak1993'>[Bak1993]</a></td>
- <td>["P. Bak and K. Sneppen"], "<a href="http://scholar.google.com.au/scholar?q=["Punctuated+equilibrium+and+criticality+in+a+simple+model+of+evolution"]">["Punctuated equilibrium and criticality in a simple model of evolution"]</a>", ["Physical Review Letters"], ["1993"].</td>
+ <td>P. Bak and K. Sneppen, "<a href="http://scholar.google.com.au/scholar?q=Punctuated+equilibrium+and+criticality+in+a+simple+model+of+evolution">Punctuated equilibrium and criticality in a simple model of evolution</a>", Physical Review Letters, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Boettcher1999'>[Boettcher1999]</a></td>
- <td>["S. Boettcher and A. G. Percus"], "<a href="http://scholar.google.com.au/scholar?q=["Extremal+Optimization:+Methods+derived+from+Co-Evolution"]">["Extremal Optimization: Methods derived from Co-Evolution"]</a>", in ["Proceedings of the Genetic and Evolutionary Computation Conference"], ["1999"].</td>
+ <td>S. Boettcher and A. G. Percus, "<a href="http://scholar.google.com.au/scholar?q=Extremal+Optimization:+Methods+derived+from+Co-Evolution">Extremal Optimization: Methods derived from Co-Evolution</a>", in Proceedings of the Genetic and Evolutionary Computation Conference, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Boettcher2000'>[Boettcher2000]</a></td>
- <td>["S. Boettcher and A. Percus"], "<a href="http://scholar.google.com.au/scholar?q=["Nature’s+Way+of+Optimizing"]">["Nature’s Way of Optimizing"]</a>", ["Artificial Intelligence"], ["2000"].</td>
+ <td>S. Boettcher and A. Percus, "<a href="http://scholar.google.com.au/scholar?q=Nature’s+Way+of+Optimizing">Nature’s Way of Optimizing</a>", Artificial Intelligence, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Boettcher2000a'>[Boettcher2000a]</a></td>
- <td>S."] ["Boettcher, "<a href="http://scholar.google.com.au/scholar?q=["Extremal+optimization:+heuristics+via+coevolutionary+avalanches"]">["Extremal optimization: heuristics via coevolutionary avalanches"]</a>", ["Computing in Science \&amp; Engineering"], ["2000"].</td>
+ <td>S. Boettcher, "<a href="http://scholar.google.com.au/scholar?q=Extremal+optimization:+heuristics+via+coevolutionary+avalanches">Extremal optimization: heuristics via coevolutionary avalanches</a>", Computing in Science \&amp; Engineering, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Boettcher2001'>[Boettcher2001]</a></td>
- <td>["S. Boettcher and A. G. Percus"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+with+extremal+dynamics"]">["Optimization with extremal dynamics"]</a>", ["Phys. Rev. Lett."], ["2001"].</td>
+ <td>S. Boettcher and A. G. Percus, "<a href="http://scholar.google.com.au/scholar?q=Optimization+with+extremal+dynamics">Optimization with extremal dynamics</a>", Phys. Rev. Lett., 2001.</td>
  </tr>
 </table>
 

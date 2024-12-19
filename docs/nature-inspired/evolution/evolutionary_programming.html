@@ -73,27 +73,27 @@ $Population_{size}$, <code>ProblemSize</code>, <code>BoutSize</code>
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, <code>ProblemSize</code>)<br />
-<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{i}$ $["\\leftarrow"]$ <code>Mutate</code>($Parent_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $Child_{i}$<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, <code>ProblemSize</code>}<br />
+<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Child_{i}$ $\leftarrow$ <code>Mutate</code>{$Parent_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $Child_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Children</code>, $S_{best}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $["\\leftarrow"]$ <code>Population</code> + <code>Children</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["1"]$ <strong><code>To</code></strong> <code>BoutSize</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{j}$ $["\\leftarrow"]$ <code>RandomSelection</code>(<code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{i}$) &lt; <code>Cost</code>($S_{j}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{wins}$ $["\\leftarrow"]$ $Si_{wins}$ + 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Children</code>, $S_{best}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $\leftarrow$ <code>Population</code> $+$ <code>Children</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Union</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($1$ <strong><code>To</code></strong> <code>BoutSize</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{j}$ $\leftarrow$ <code>RandomSelection</code>{<code>Union</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{i}$} $<$ <code>Cost</code>{$S_{j}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{wins}$ $\leftarrow$ $Si_{wins}$ $+$ 1<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>SelectBestByWins</code>(<code>Union</code>, $Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>SelectBestByWins</code>{<code>Union</code>, $Population_{size}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -234,51 +234,51 @@ Yao et al. provide a seminal study of Evolutionary Programming proposing an exte
 <table>
  <tr valign="top">
  <td><a name='Fogel1962'>[Fogel1962]</a></td>
- <td>["L. J. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["Autonomous+automata"]">["Autonomous automata"]</a>", ["Industrial Research"], ["1962"].</td>
+ <td>L. J. Fogel, "<a href="http://scholar.google.com.au/scholar?q=Autonomous+automata">Autonomous automata</a>", Industrial Research, 1962.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1964'>[Fogel1964]</a></td>
- <td>["L. J. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["On+the+Organization+of+Intellect"]">["On the Organization of Intellect"]</a>", [PhD Thesis] ["UCLA"], ["1964"].</td>
+ <td>L. J. Fogel, "<a href="http://scholar.google.com.au/scholar?q=On+the+Organization+of+Intellect">On the Organization of Intellect</a>", [PhD Thesis] UCLA, 1964.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1966'>[Fogel1966]</a></td>
- <td>["L. J. Fogel and A. J. Owens and M. J. Walsh"], "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Intelligence+Through+Simulated+Evolution"]">["Artificial Intelligence Through Simulated Evolution"]</a>", ["Wiley"], ["1966"].</td>
+ <td>L. J. Fogel and A. J. Owens and M. J. Walsh, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Intelligence+Through+Simulated+Evolution">Artificial Intelligence Through Simulated Evolution</a>", Wiley, 1966.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1990'>[Fogel1990]</a></td>
- <td>["L. J. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["The+Future+of+Evolutionary+Programming"]">["The Future of Evolutionary Programming"]</a>", in ["Proceedings of the Conference on Signals, Systems and Computers"], ["1990"].</td>
+ <td>L. J. Fogel, "<a href="http://scholar.google.com.au/scholar?q=The+Future+of+Evolutionary+Programming">The Future of Evolutionary Programming</a>", in Proceedings of the Conference on Signals, Systems and Computers, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1991'>[Fogel1991]</a></td>
- <td>["D. B. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["System+Identification+Through+Simulated+Evolution:+A+Machine+Learning\n\tApproach+to+Modeling"]">["System Identification Through Simulated Evolution: A Machine Learning\n\tApproach to Modeling"]</a>", ["Needham Heights"], ["1991"].</td>
+ <td>D. B. Fogel, "<a href="http://scholar.google.com.au/scholar?q=System+Identification+Through+Simulated+Evolution:+A+Machine+Learning\n\tApproach+to+Modeling">System Identification Through Simulated Evolution: A Machine Learning\n\tApproach to Modeling</a>", Needham Heights, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1991a'>[Fogel1991a]</a></td>
- <td>["D. B. Fogel and L. J. Fogel and J. W. Atmar"], "<a href="http://scholar.google.com.au/scholar?q=["Meta-evolutionary+programming"]">["Meta-evolutionary programming"]</a>", in ["Proceedings 25th Asilomar Conf. Signals, Systems, and Computers"], ["1991"].</td>
+ <td>D. B. Fogel and L. J. Fogel and J. W. Atmar, "<a href="http://scholar.google.com.au/scholar?q=Meta-evolutionary+programming">Meta-evolutionary programming</a>", in Proceedings 25th Asilomar Conf. Signals, Systems, and Computers, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1992'>[Fogel1992]</a></td>
- <td>["D. B. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["Evolving+artificial+intelligence"]">["Evolving artificial intelligence"]</a>", [PhD Thesis] ["University of California, San Diego, CA, USA"], ["1992"].</td>
+ <td>D. B. Fogel, "<a href="http://scholar.google.com.au/scholar?q=Evolving+artificial+intelligence">Evolving artificial intelligence</a>", [PhD Thesis] University of California, San Diego, CA, USA, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1994'>[Fogel1994]</a></td>
- <td>["L. J. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["Evolutionary+Programming+in+Perspective:+the+Top-down+View"]">["Evolutionary Programming in Perspective: the Top-down View"]</a>", in ["Computational Intelligence: Imitating Life"], pages ["135&ndash;146"], ["IEEE Press"], ["1994"].</td>
+ <td>L. J. Fogel, "<a href="http://scholar.google.com.au/scholar?q=Evolutionary+Programming+in+Perspective:+the+Top-down+View">Evolutionary Programming in Perspective: the Top-down View</a>", in Computational Intelligence: Imitating Life, pages 135&ndash;146, IEEE Press, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Fogel1995'>[Fogel1995]</a></td>
- <td>["D. B. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["Evolutionary+computation:+Toward+a+new+philosophy+of+machine+intelligence"]">["Evolutionary computation: Toward a new philosophy of machine intelligence"]</a>", ["IEEE Press"], ["1995"].</td>
+ <td>D. B. Fogel, "<a href="http://scholar.google.com.au/scholar?q=Evolutionary+computation:+Toward+a+new+philosophy+of+machine+intelligence">Evolutionary computation: Toward a new philosophy of machine intelligence</a>", IEEE Press, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Porto2000'>[Porto2000]</a></td>
- <td>["V. W. Porto"], "<a href="http://scholar.google.com.au/scholar?q=["10:+Evolutionary+Programming"]">["10: Evolutionary Programming"]</a>", in ["Evolutionary Computation 1: Basic Algorithms and Operations"], pages ["89&ndash;102"], ["IoP Press"], ["2000"].</td>
+ <td>V. W. Porto, "<a href="http://scholar.google.com.au/scholar?q=10:+Evolutionary+Programming">10: Evolutionary Programming</a>", in Evolutionary Computation 1: Basic Algorithms and Operations, pages 89&ndash;102, IoP Press, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Sebald1990'>[Sebald1990]</a></td>
- <td>["A. V. Sebald and D. B. Fogel"], "<a href="http://scholar.google.com.au/scholar?q=["Design+of+SLAYR+neural+networks+using+evolutionary+programming"]">["Design of SLAYR neural networks using evolutionary programming"]</a>", in ["Proceedings of the 24th Asilomar Conference on Signals, Systems and\n\tComputers"], ["1990"].</td>
+ <td>A. V. Sebald and D. B. Fogel, "<a href="http://scholar.google.com.au/scholar?q=Design+of+SLAYR+neural+networks+using+evolutionary+programming">Design of SLAYR neural networks using evolutionary programming</a>", in Proceedings of the 24th Asilomar Conference on Signals, Systems and\n\tComputers, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Yao1999'>[Yao1999]</a></td>
- <td>["X. Yao and Y. Liu and G. Lin"], "<a href="http://scholar.google.com.au/scholar?q=["Evolutionary+programming+made+faster"]">["Evolutionary programming made faster"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["1999"].</td>
+ <td>X. Yao and Y. Liu and G. Lin, "<a href="http://scholar.google.com.au/scholar?q=Evolutionary+programming+made+faster">Evolutionary programming made faster</a>", IEEE Transactions on Evolutionary Computation, 1999.</td>
  </tr>
 </table>
 

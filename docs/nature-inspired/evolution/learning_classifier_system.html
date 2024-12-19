@@ -76,32 +76,32 @@ Algorithm (below) provides a pseudocode listing of the high-level processing loo
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Population</code>
 <br />
-<code>env</code> $["\\leftarrow"]$ <code>InitializeEnvironment</code>(<code>EnvironmentDetails</code>)<br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>()<br />
-$ActionSet_{t-1}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-$Input_{t-1}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-$Reward_{t-1}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Input_{t}$ $["\\leftarrow"]$ <code>env</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Matchset</code> $["\\leftarrow"]$ <code>GenerateMatchSet</code>(<code>Population</code>, $Input_{t}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Prediction</code> $["\\leftarrow"]$ <code>GeneratePrediction</code>(<code>Matchset</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Action</code> $["\\leftarrow"]$ <code>SelectionAction</code>(<code>Prediction</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t}$ $["\\leftarrow"]$ <code>GenerateActionSet</code>(<code>Action</code>, <code>Matchset</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Reward_{t}$ $["\\leftarrow"]$ <code>ExecuteAction</code>(<code>Action</code>, <code>env</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($ActionSet_{t-1}$ $["\\neq"]$ $["\\emptyset"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Payoff_{t}$ $["\\leftarrow"]$ <code>CalculatePayoff</code>($Reward_{t-1}$, <code>Prediction</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PerformLearning</code>($ActionSet_{t-1}$, $Payoff_{t}$, <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RunGeneticAlgorithm</code>($ActionSet_{t-1}$, $Input_{t-1}$, <code>Population</code>)<br />
+<code>env</code> $\leftarrow$ <code>InitializeEnvironment</code>{<code>EnvironmentDetails</code>}<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>()<br />
+$ActionSet_{t-1}$ $\leftarrow$ $\emptyset$<br />
+$Input_{t-1}$ $\leftarrow$ $\emptyset$<br />
+$Reward_{t-1}$ $\leftarrow$ $\emptyset$<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Input_{t}$ $\leftarrow$ <code>env</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Matchset</code> $\leftarrow$ <code>GenerateMatchSet</code>{<code>Population</code>, $Input_{t}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Prediction</code> $\leftarrow$ <code>GeneratePrediction</code>{<code>Matchset</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Action</code> $\leftarrow$ <code>SelectionAction</code>{<code>Prediction</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t}$ $\leftarrow$ <code>GenerateActionSet</code>{<code>Action</code>, <code>Matchset</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Reward_{t}$ $\leftarrow$ <code>ExecuteAction</code>{<code>Action</code>, <code>env</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($ActionSet_{t-1}$ $\neq$ $\emptyset$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Payoff_{t}$ $\leftarrow$ <code>CalculatePayoff</code>{$Reward_{t-1}$, <code>Prediction</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PerformLearning</code>{$ActionSet_{t-1}$, $Payoff_{t}$, <code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RunGeneticAlgorithm</code>{$ActionSet_{t-1}$, $Input_{t-1}$, <code>Population</code>}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>LastStepOfTask</code>(<code>env</code>, <code>Action</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Payoff_{t}$ $["\\leftarrow"]$ $Reward_{t}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PerformLearning</code>($ActionSet_{t}$, $Payoff_{t}$, <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RunGeneticAlgorithm</code>($ActionSet_{t}$, $Input_{t}$, <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t-1}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>LastStepOfTask</code>{<code>env</code>, <code>Action</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Payoff_{t}$ $\leftarrow$ $Reward_{t}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PerformLearning</code>{$ActionSet_{t}$, $Payoff_{t}$, <code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RunGeneticAlgorithm</code>{$ActionSet_{t}$, $Input_{t}$, <code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t-1}$ $\leftarrow$ $\emptyset$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t-1}$ $["\\leftarrow"]$ $ActionSet_{t}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Input_{t-1}$ $["\\leftarrow"]$ $Input_{t}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Reward_{t-1}$ $["\\leftarrow"]$ $Reward_{t}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$ActionSet_{t-1}$ $\leftarrow$ $ActionSet_{t}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Input_{t-1}$ $\leftarrow$ $Input_{t}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Reward_{t-1}$ $\leftarrow$ $Reward_{t}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 </div>
@@ -443,67 +443,67 @@ Bull and Kovacs provide a second book introductory book to the field focusing on
 <table>
  <tr valign="top">
  <td><a name='Booker1989'>[Booker1989]</a></td>
- <td>["L. B. Booker and D. E. Goldberg and J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Classifier+systems+and+genetic+algorithms"]">["Classifier systems and genetic algorithms"]</a>", ["Artificial Intelligence"], ["1989"].</td>
+ <td>L. B. Booker and D. E. Goldberg and J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Classifier+systems+and+genetic+algorithms">Classifier systems and genetic algorithms</a>", Artificial Intelligence, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Bull2005'>[Bull2005]</a></td>
- <td>["L. Bull and T. Kovacs"], "<a href="http://scholar.google.com.au/scholar?q=["Foundations+of+learning+classifier+systems"]">["Foundations of learning classifier systems"]</a>", ["Springer"], ["2005"].</td>
+ <td>L. Bull and T. Kovacs, "<a href="http://scholar.google.com.au/scholar?q=Foundations+of+learning+classifier+systems">Foundations of learning classifier systems</a>", Springer, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Butz2002a'>[Butz2002a]</a></td>
- <td>["M. V. Butz and S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["An+algorithmic+description+of+XCS"]">["An algorithmic description of XCS"]</a>", ["Journal of Soft Computing"], ["2002"].</td>
+ <td>M. V. Butz and S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=An+algorithmic+description+of+XCS">An algorithmic description of XCS</a>", Journal of Soft Computing, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1976'>[Holland1976]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Adaptation"]">["Adaptation"]</a>", in ["Progress in Theoretical Biology IV"], pages ["263&ndash;293"], ["Academic Press"], ["1976"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Adaptation">Adaptation</a>", in Progress in Theoretical Biology IV, pages 263&ndash;293, Academic Press, 1976.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1977'>[Holland1977]</a></td>
- <td>["J. H. Holland and J. S. Reitman"], "<a href="http://scholar.google.com.au/scholar?q=["Cognitive+systems+based+on+adaptive+algorithms"]">["Cognitive systems based on adaptive algorithms"]</a>", ["ACM SIGART Bulletin"], ["1977"].</td>
+ <td>J. H. Holland and J. S. Reitman, "<a href="http://scholar.google.com.au/scholar?q=Cognitive+systems+based+on+adaptive+algorithms">Cognitive systems based on adaptive algorithms</a>", ACM SIGART Bulletin, 1977.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland1980'>[Holland1980]</a></td>
- <td>["J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["Adaptive+algorithms+for+discovering+and+using+general+patterns+in\n\tgrowing+knowledge-bases"]">["Adaptive algorithms for discovering and using general patterns in\n\tgrowing knowledge-bases"]</a>", ["International Journal of Policy Analysis and Information Systems"], ["1980"].</td>
+ <td>J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=Adaptive+algorithms+for+discovering+and+using+general+patterns+in\n\tgrowing+knowledge-bases">Adaptive algorithms for discovering and using general patterns in\n\tgrowing knowledge-bases</a>", International Journal of Policy Analysis and Information Systems, 1980.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holland2000'>[Holland2000]</a></td>
- <td>["J. H. Holland and L. B. Booker and M. Colombetti and M. Dorigo and\n\tD. E. Goldberg and S. Forrest and R. L. Riolo and R. E. Smith and\n\tP. L. Lanzi and W. Stolzmann and S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["What+is+a+learning+classifier+system?"]">["What is a learning classifier system?"]</a>", in ["Learning classifier systems: from foundations to applications"], pages ["3&ndash;32"], ["Springer"], ["2000"].</td>
+ <td>J. H. Holland and L. B. Booker and M. Colombetti and M. Dorigo and\n\tD. E. Goldberg and S. Forrest and R. L. Riolo and R. E. Smith and\n\tP. L. Lanzi and W. Stolzmann and S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=What+is+a+learning+classifier+system?">What is a learning classifier system?</a>", in Learning classifier systems: from foundations to applications, pages 3&ndash;32, Springer, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Holmes2002'>[Holmes2002]</a></td>
- <td>["J. H. Holmes and P. L. Lanzi and W. Stolzmann and S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["Learning+classifier+systems:+New+models,+successful+applications"]">["Learning classifier systems: New models, successful applications"]</a>", ["Information Processing Letters"], ["2002"].</td>
+ <td>J. H. Holmes and P. L. Lanzi and W. Stolzmann and S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=Learning+classifier+systems:+New+models,+successful+applications">Learning classifier systems: New models, successful applications</a>", Information Processing Letters, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Jong1988'>[Jong1988]</a></td>
- <td>["K. De Jong"], "<a href="http://scholar.google.com.au/scholar?q=["Learning+with+Genetic+Algorithms:+An+Overview"]">["Learning with Genetic Algorithms: An Overview"]</a>", ["Machine Learning"], ["1988"].</td>
+ <td>K. De Jong, "<a href="http://scholar.google.com.au/scholar?q=Learning+with+Genetic+Algorithms:+An+Overview">Learning with Genetic Algorithms: An Overview</a>", Machine Learning, 1988.</td>
  </tr>
  <tr valign="top">
  <td><a name='Lanzi2000a'>[Lanzi2000a]</a></td>
- <td>["P. L. Lanzi and R. L. Riolo"], "<a href="http://scholar.google.com.au/scholar?q=["A+Roadmap+to+the+Last+Decade+of+Learning+Classifier+System+Research"]">["A Roadmap to the Last Decade of Learning Classifier System Research"]</a>", in ["Learning classifier systems: from foundations to applications"], pages ["33-62"], ["Springer"], ["2000"].</td>
+ <td>P. L. Lanzi and R. L. Riolo, "<a href="http://scholar.google.com.au/scholar?q=A+Roadmap+to+the+Last+Decade+of+Learning+Classifier+System+Research">A Roadmap to the Last Decade of Learning Classifier System Research</a>", in Learning classifier systems: from foundations to applications, pages 33-62, Springer, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Smith1980'>[Smith1980]</a></td>
- <td>["S. F. Smith"], "<a href="http://scholar.google.com.au/scholar?q=["A+learning+system+based+on+genetic+adaptive+algorithms"]">["A learning system based on genetic adaptive algorithms"]</a>", [PhD Thesis] ["Department of Computer Science, University of Pittsburgh"], ["1980"].</td>
+ <td>S. F. Smith, "<a href="http://scholar.google.com.au/scholar?q=A+learning+system+based+on+genetic+adaptive+algorithms">A learning system based on genetic adaptive algorithms</a>", [PhD Thesis] Department of Computer Science, University of Pittsburgh, 1980.</td>
  </tr>
  <tr valign="top">
  <td><a name='Smith1983'>[Smith1983]</a></td>
- <td>["S. Smith"], "<a href="http://scholar.google.com.au/scholar?q=["Flexible+Learning+of+Problem+Solving+Heuristics+Through+Adaptive\n\tSearch"]">["Flexible Learning of Problem Solving Heuristics Through Adaptive\n\tSearch"]</a>", in ["Proceedings 8th International Joint Conference on Artificial Intelligence"], ["1983"].</td>
+ <td>S. Smith, "<a href="http://scholar.google.com.au/scholar?q=Flexible+Learning+of+Problem+Solving+Heuristics+Through+Adaptive\n\tSearch">Flexible Learning of Problem Solving Heuristics Through Adaptive\n\tSearch</a>", in Proceedings 8th International Joint Conference on Artificial Intelligence, 1983.</td>
  </tr>
  <tr valign="top">
  <td><a name='Wilson1989'>[Wilson1989]</a></td>
- <td>["S. W. Wilson and D. E. Goldberg"], "<a href="http://scholar.google.com.au/scholar?q=["A+critical+review+of+classifier+systems"]">["A critical review of classifier systems"]</a>", in ["Proceedings of the third international conference on Genetic algorithms"], ["1989"].</td>
+ <td>S. W. Wilson and D. E. Goldberg, "<a href="http://scholar.google.com.au/scholar?q=A+critical+review+of+classifier+systems">A critical review of classifier systems</a>", in Proceedings of the third international conference on Genetic algorithms, 1989.</td>
  </tr>
  <tr valign="top">
  <td><a name='Wilson1994'>[Wilson1994]</a></td>
- <td>["S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["ZCS:+A+Zeroth+Level+Classifier+Systems"]">["ZCS: A Zeroth Level Classifier Systems"]</a>", ["Evolutionary Computation"], ["1994"].</td>
+ <td>S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=ZCS:+A+Zeroth+Level+Classifier+Systems">ZCS: A Zeroth Level Classifier Systems</a>", Evolutionary Computation, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Wilson1995'>[Wilson1995]</a></td>
- <td>["S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["Classifier+Fitness+Based+on+Accuracy"]">["Classifier Fitness Based on Accuracy"]</a>", ["Evolutionary Computation"], ["1995"].</td>
+ <td>S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=Classifier+Fitness+Based+on+Accuracy">Classifier Fitness Based on Accuracy</a>", Evolutionary Computation, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Wilson1998'>[Wilson1998]</a></td>
- <td>["S. W. Wilson"], "<a href="http://scholar.google.com.au/scholar?q=["Generalization+in+the+XCS+classifier+systems"]">["Generalization in the XCS classifier systems"]</a>", in ["Genetic Programming 1998: Proceedings of the Third Annual Conference"], ["1998"].</td>
+ <td>S. W. Wilson, "<a href="http://scholar.google.com.au/scholar?q=Generalization+in+the+XCS+classifier+systems">Generalization in the XCS classifier systems</a>", in Genetic Programming 1998: Proceedings of the Third Annual Conference, 1998.</td>
  </tr>
 </table>
 

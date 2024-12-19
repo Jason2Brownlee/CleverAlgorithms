@@ -62,22 +62,22 @@ $Population_{size}$, $Problem_{size}$, $Weighting_{factor}$, $Crossover_{rate}$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, $Problem_{size}$)<br />
-<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ( $["\\neg"]$ <code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($P_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>NewSample</code>($P_{i}$, <code>Population</code>, $Problem_{size}$, $Weighting_{factor}$, $Crossover_{rate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{i}$) $["\\leq"]$ <code>Cost</code>($P_{i}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $["\\leftarrow"]$ $S_{i}$<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, $Problem_{size}$}<br />
+<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ( $\neg$ <code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($P_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>NewSample</code>{$P_{i}$, <code>Population</code>, $Problem_{size}$, $Weighting_{factor}$, $Crossover_{rate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{i}$} $\leq$ <code>Cost</code>{$P_{i}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $["\\leftarrow"]$ $P_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>NewPopulation</code> $\leftarrow$ $P_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>NewPopulation</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>NewPopulation</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -91,24 +91,24 @@ $P_{0}$, <code>Population</code>, <code>NP</code>, <code>F</code>, <code>CR</cod
 $S$
 <br />
 <strong><code>Repeat</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{1}$ $["\\leftarrow"]$ <code>RandomMember</code>(<code>Population</code>)<br />
-<strong><code>Until</code></strong> $P_{1}$ $["\\neq"]$ $P_{0}$
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{1}$ $\leftarrow$ <code>RandomMember</code>{<code>Population</code>}<br />
+<strong><code>Until</code></strong> $P_{1}$ $\neq$ $P_{0}$
 <br />
 <strong><code>Repeat</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{2}$ $["\\leftarrow"]$ <code>RandomMember</code>(<code>Population</code>)<br />
-<strong><code>Until</code></strong> $P_{2}$ $["\\neq"]$ $P_{0}$ $["\\vee"]$ $P_{2}$ $["\\neq"]$ $P_{1}$
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{2}$ $\leftarrow$ <code>RandomMember</code>{<code>Population</code>}<br />
+<strong><code>Until</code></strong> $P_{2}$ $\neq$ $P_{0}$ $\vee$ $P_{2}$ $\neq$ $P_{1}$
 <br />
 <strong><code>Repeat</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{3}$ $["\\leftarrow"]$ <code>RandomMember</code>(<code>Population</code>)<br />
-<strong><code>Until</code></strong> $P_{3}$ $["\\neq"]$ $P_{0}$ $["\\vee"]$ $P_{3}$ $["\\neq"]$ $P_{1}$ $["\\vee"]$ $P_{3}$ $["\\neq"]$ $P_{2}$
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{3}$ $\leftarrow$ <code>RandomMember</code>{<code>Population</code>}<br />
+<strong><code>Until</code></strong> $P_{3}$ $\neq$ $P_{0}$ $\vee$ $P_{3}$ $\neq$ $P_{1}$ $\vee$ $P_{3}$ $\neq$ $P_{2}$
 <br />
-<code>CutPoint</code> $["\\leftarrow"]$ <code>RandomPosition</code>(<code>NP</code>)<br />
-$S$ $["\\leftarrow0"]$<br />
-<strong><code>For</code></strong> ($["i"]$ $["\<strong><code>To</code></strong>"]$ <code>NP</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($["i \\equiv"]$  <code>CutPoint</code> $["\\wedge"]$ <code>Rand</code>() &lt; <code>CR</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ $P_{3_i}$ + <code>F</code> $["\\times"]$ ($P_{1_i}$ - $P_{2_i}$)<br />
+<code>CutPoint</code> $\leftarrow$ <code>RandomPosition</code>{<code>NP</code>}<br />
+$S$ $\leftarrow0$<br />
+<strong><code>For</code></strong> ($i$ <strong><code>To</code></strong> <code>NP</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($i \equiv$  <code>CutPoint</code> $\wedge$ <code>Rand</code>() $<$ <code>CR</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ $P_{3_i}$ + <code>F</code> $\times$ ($P_{1_i}$ - $P_{2_i}$)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ $P_{0_i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ $P_{0_i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S$)<br />
@@ -238,39 +238,39 @@ Price, Storn, and Lampinen released a contemporary book dedicated to Differentia
 <table>
  <tr valign="top">
  <td><a name='Chakraborty2008'>[Chakraborty2008]</a></td>
- <td>["U. K. Chakraborty"], "<a href="http://scholar.google.com.au/scholar?q=["Advances+in+Differential+Evolution"]">["Advances in Differential Evolution"]</a>", ["Springer"], ["2008"].</td>
+ <td>U. K. Chakraborty, "<a href="http://scholar.google.com.au/scholar?q=Advances+in+Differential+Evolution">Advances in Differential Evolution</a>", Springer, 2008.</td>
  </tr>
  <tr valign="top">
  <td><a name='Price1997'>[Price1997]</a></td>
- <td>["K. Price and R. Storn"], "<a href="http://scholar.google.com.au/scholar?q=["Differential+Evolution:+Numerical+Optimization+Made+Easy"]">["Differential Evolution: Numerical Optimization Made Easy"]</a>", ["Dr. Dobb's Journal"], ["1997"].</td>
+ <td>K. Price and R. Storn, "<a href="http://scholar.google.com.au/scholar?q=Differential+Evolution:+Numerical+Optimization+Made+Easy">Differential Evolution: Numerical Optimization Made Easy</a>", Dr. Dobb's Journal, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Price1999'>[Price1999]</a></td>
- <td>["K. V. Price"], "<a href="http://scholar.google.com.au/scholar?q=["An+introduction+to+differential+evolution"]">["An introduction to differential evolution"]</a>", in ["New Ideas in Optimization"], pages ["79&ndash;108"], ["McGraw-Hill Ltd., UK"], ["1999"].</td>
+ <td>K. V. Price, "<a href="http://scholar.google.com.au/scholar?q=An+introduction+to+differential+evolution">An introduction to differential evolution</a>", in New Ideas in Optimization, pages 79&ndash;108, McGraw-Hill Ltd., UK, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Price2005'>[Price2005]</a></td>
- <td>["K. V. Price and R. M. Storn and J. A. Lampinen"], "<a href="http://scholar.google.com.au/scholar?q=["Differential+evolution:+A+practical+approach+to+global+optimization"]">["Differential evolution: A practical approach to global optimization"]</a>", ["Springer"], ["2005"].</td>
+ <td>K. V. Price and R. M. Storn and J. A. Lampinen, "<a href="http://scholar.google.com.au/scholar?q=Differential+evolution:+A+practical+approach+to+global+optimization">Differential evolution: A practical approach to global optimization</a>", Springer, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Storn1995'>[Storn1995]</a></td>
- <td>["R. Storn and K. Price"], "<a href="http://scholar.google.com.au/scholar?q=["Differential+Evolution:+A+Simple+and+Efficient+Adaptive+Scheme+for\n\tGlobal+Optimization+over+Continuous+Spaces"]">["Differential Evolution: A Simple and Efficient Adaptive Scheme for\n\tGlobal Optimization over Continuous Spaces"]</a>", Technical Report ["TR-95-012"], ["International Computer Science Institute, Berkeley, CA"], ["1995"].</td>
+ <td>R. Storn and K. Price, "<a href="http://scholar.google.com.au/scholar?q=Differential+Evolution:+A+Simple+and+Efficient+Adaptive+Scheme+for\n\tGlobal+Optimization+over+Continuous+Spaces">Differential Evolution: A Simple and Efficient Adaptive Scheme for\n\tGlobal Optimization over Continuous Spaces</a>", Technical Report TR-95-012, International Computer Science Institute, Berkeley, CA, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Storn1996'>[Storn1996]</a></td>
- <td>["R. Storn"], "<a href="http://scholar.google.com.au/scholar?q=["On+the+Usage+of+Differential+Evolution+for+Function+Optimization"]">["On the Usage of Differential Evolution for Function Optimization"]</a>", in ["Proceedings Fuzzy Information Processing Society, 1996 Biennial Conference\n\tof the North American"], ["1996"].</td>
+ <td>R. Storn, "<a href="http://scholar.google.com.au/scholar?q=On+the+Usage+of+Differential+Evolution+for+Function+Optimization">On the Usage of Differential Evolution for Function Optimization</a>", in Proceedings Fuzzy Information Processing Society, 1996 Biennial Conference\n\tof the North American, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Storn1996a'>[Storn1996a]</a></td>
- <td>["R. Storn"], "<a href="http://scholar.google.com.au/scholar?q=["Differential+evolution+design+of+an+IIR-filter"]">["Differential evolution design of an IIR-filter"]</a>", in ["Proceedings IEEE Conference Evolutionary Computation"], ["1996"].</td>
+ <td>R. Storn, "<a href="http://scholar.google.com.au/scholar?q=Differential+evolution+design+of+an+IIR-filter">Differential evolution design of an IIR-filter</a>", in Proceedings IEEE Conference Evolutionary Computation, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Storn1996b'>[Storn1996b]</a></td>
- <td>["R. Storn and K. Price"], "<a href="http://scholar.google.com.au/scholar?q=["Minimizing+the+real+functions+of+the+ICEC'96+contest+by+differential\n\tevolution"]">["Minimizing the real functions of the ICEC'96 contest by differential\n\tevolution"]</a>", in ["Proceedings of IEEE International Conference on Evolutionary Computation"], ["1996"].</td>
+ <td>R. Storn and K. Price, "<a href="http://scholar.google.com.au/scholar?q=Minimizing+the+real+functions+of+the+ICEC'96+contest+by+differential\n\tevolution">Minimizing the real functions of the ICEC'96 contest by differential\n\tevolution</a>", in Proceedings of IEEE International Conference on Evolutionary Computation, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Storn1997'>[Storn1997]</a></td>
- <td>["R. Storn and K. Price"], "<a href="http://scholar.google.com.au/scholar?q=["Differential+evolution:+A+simple+and+efficient+heuristic+for+global\n\toptimization+over+continuous+spaces"]">["Differential evolution: A simple and efficient heuristic for global\n\toptimization over continuous spaces"]</a>", ["Journal of Global Optimization"], ["1997"].</td>
+ <td>R. Storn and K. Price, "<a href="http://scholar.google.com.au/scholar?q=Differential+evolution:+A+simple+and+efficient+heuristic+for+global\n\toptimization+over+continuous+spaces">Differential evolution: A simple and efficient heuristic for global\n\toptimization over continuous spaces</a>", Journal of Global Optimization, 1997.</td>
  </tr>
 </table>
 

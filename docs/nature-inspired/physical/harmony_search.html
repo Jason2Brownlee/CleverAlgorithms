@@ -76,25 +76,25 @@ $Pitch_{num}$, $Pitch_{bounds}$, $Memory_{size}$, $Consolidation_{rate}$, $Pitch
 <strong><strong><code>Output</code></strong></strong>: 
 $Harmony_{best}$
 <br />
-<code>Harmonies</code> $["\\leftarrow"]$ <code>InitializeHarmonyMemory</code>($Pitch_{num}$, $Pitch_{bounds}$, $Memory_{size}$)<br />
-<code>EvaluateHarmonies</code>(<code>Harmonies</code>)<br />
-<strong><code>For</code></strong> ($["i"]$ <strong><code>To</code></strong> $Improvisation_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Harmony$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Pitch_{i}$ $["\\in"]$ $Pitch_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $["\\leq"]$ $Consolidation_{rate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RandomHarmony_{pitch}^i$ $["\\leftarrow"]$ <code>SelectRandomHarmonyPitch</code>(<code>Harmonies</code>, $Pitch_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $["\\leq"]$ $PitchAdjust_{rate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $["\\leftarrow"]$ <code>AdjustPitch</code>($RandomHarmony_{pitch}^i$)<br />
+<code>Harmonies</code> $\leftarrow$ <code>InitializeHarmonyMemory</code>{$Pitch_{num}$, $Pitch_{bounds}$, $Memory_{size}$}<br />
+<code>EvaluateHarmonies</code>{<code>Harmonies</code>}<br />
+<strong><code>For</code></strong> ($i$ <strong><code>To</code></strong> $Improvisation_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Harmony$ $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Pitch_{i}$ $\in$ $Pitch_{num}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $\leq$ $Consolidation_{rate}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$RandomHarmony_{pitch}^i$ $\leftarrow$ <code>SelectRandomHarmonyPitch</code>{<code>Harmonies</code>, $Pitch_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Rand</code>() $\leq$ $PitchAdjust_{rate}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $\leftarrow$ <code>AdjustPitch</code>{$RandomHarmony_{pitch}^i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $["\\leftarrow"]$ $RandomHarmony_{pitch}^i$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $\leftarrow$ $RandomHarmony_{pitch}^i$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $["\\leftarrow"]$ <code>RandomPitch</code>($Pitch_{bounds}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Harmony_{pitch}^i$ $\leftarrow$ <code>RandomPitch</code>{$Pitch_{bounds}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateHarmonies</code>($Harmony$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($Harmony$) $["\\leq"]$ <code>Cost</code>(<code>Worst</code>(<code>Harmonies</code>)))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Worst</code>(<code>Harmonies</code>) $["\\leftarrow"]$ $Harmony$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluateHarmonies</code>{$Harmony$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$Harmony$} $\leq$ <code>Cost</code>{<code>Worst</code>{<code>Harmonies</code>}})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Worst</code>{<code>Harmonies</code>} $\leftarrow$ $Harmony$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($Harmony_{best}$)<br />
@@ -218,31 +218,31 @@ A book on Harmony Search, edited by Geem provides a collection of papers on the 
 <table>
  <tr valign="top">
  <td><a name='Geem2001'>[Geem2001]</a></td>
- <td>Z. W. ["Geem and J. H. Kim and G. V."] Loganathan, "<a href="http://scholar.google.com.au/scholar?q=["A+New+Heuristic+Optimization+Algorithm:+Harmony+Search"]">["A New Heuristic Optimization Algorithm: Harmony Search"]</a>", ["Simulation"], ["2001"].</td>
+ <td>Z. W. Geem and J. H. Kim and G. V. Loganathan, "<a href="http://scholar.google.com.au/scholar?q=A+New+Heuristic+Optimization+Algorithm:+Harmony+Search">A New Heuristic Optimization Algorithm: Harmony Search</a>", Simulation, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Geem2009'>[Geem2009]</a></td>
- <td>["Z. W. Geem"] (editors), "<a href="http://scholar.google.com.au/scholar?q=["Music-Inspired+Harmony+Search+Algorithm:+Theory+and+Applications"]">["Music-Inspired Harmony Search Algorithm: Theory and Applications"]</a>", ["Springer"], ["2009"].</td>
+ <td>Z. W. Geem (editors), "<a href="http://scholar.google.com.au/scholar?q=Music-Inspired+Harmony+Search+Algorithm:+Theory+and+Applications">Music-Inspired Harmony Search Algorithm: Theory and Applications</a>", Springer, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='Geem2009a'>[Geem2009a]</a></td>
- <td>["Z. W. Geem"], "<a href="http://scholar.google.com.au/scholar?q=["Optimal+Design+of+Water+Distribution+Networks+Using+Harmony+Search"]">["Optimal Design of Water Distribution Networks Using Harmony Search"]</a>", ["Lap Lambert Academic Publishing"], ["2009"].</td>
+ <td>Z. W. Geem, "<a href="http://scholar.google.com.au/scholar?q=Optimal+Design+of+Water+Distribution+Networks+Using+Harmony+Search">Optimal Design of Water Distribution Networks Using Harmony Search</a>", Lap Lambert Academic Publishing, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='Geem2009b'>[Geem2009b]</a></td>
- <td>["Z. W. Geem"] (editors), "<a href="http://scholar.google.com.au/scholar?q=["Harmony+Search+Algorithms+for+Structural+Design+Optimization"]">["Harmony Search Algorithms for Structural Design Optimization"]</a>", ["Springer"], ["2009"].</td>
+ <td>Z. W. Geem (editors), "<a href="http://scholar.google.com.au/scholar?q=Harmony+Search+Algorithms+for+Structural+Design+Optimization">Harmony Search Algorithms for Structural Design Optimization</a>", Springer, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='Geem2010'>[Geem2010]</a></td>
- <td>["Z. W. Geem"] (editors), "<a href="http://scholar.google.com.au/scholar?q=["Recent+Advances+in+Harmony+Search+Algorithms"]">["Recent Advances in Harmony Search Algorithms"]</a>", ["Springer"], ["2010"].</td>
+ <td>Z. W. Geem (editors), "<a href="http://scholar.google.com.au/scholar?q=Recent+Advances+in+Harmony+Search+Algorithms">Recent Advances in Harmony Search Algorithms</a>", Springer, 2010.</td>
  </tr>
  <tr valign="top">
  <td><a name='Geem2010a'>[Geem2010a]</a></td>
- <td>["Z. W. Geem"], "<a href="http://scholar.google.com.au/scholar?q=["State-of-the-Art+in+the+Structure+of+Harmony+Search+Algorithm"]">["State-of-the-Art in the Structure of Harmony Search Algorithm"]</a>", in ["Recent Advances In Harmony Search Algorithms"], pages ["1&ndash;10"], ["Springer"], ["2010"].</td>
+ <td>Z. W. Geem, "<a href="http://scholar.google.com.au/scholar?q=State-of-the-Art+in+the+Structure+of+Harmony+Search+Algorithm">State-of-the-Art in the Structure of Harmony Search Algorithm</a>", in Recent Advances In Harmony Search Algorithms, pages 1&ndash;10, Springer, 2010.</td>
  </tr>
  <tr valign="top">
  <td><a name='Yang2009'>[Yang2009]</a></td>
- <td>["X&ndash;S. Yang"], "<a href="http://scholar.google.com.au/scholar?q=["Harmony+Search+as+a+Metaheuristic"]">["Harmony Search as a Metaheuristic"]</a>", in ["Music-Inspired Harmony Search Algorithm: Theory and Applications"], pages ["1&ndash;14"], ["Springer"], ["2009"].</td>
+ <td>X&ndash;S. Yang, "<a href="http://scholar.google.com.au/scholar?q=Harmony+Search+as+a+Metaheuristic">Harmony Search as a Metaheuristic</a>", in Music-Inspired Harmony Search Algorithm: Theory and Applications, pages 1&ndash;14, Springer, 2009.</td>
  </tr>
 </table>
 

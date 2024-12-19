@@ -78,12 +78,12 @@ where $["w_i"]$ is the $["i^{th}"]$ weight at time $["t"]$ and $["t+1"]$, $["\\a
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Weights</code>
 <br />
-<code>Weights</code> $["\\leftarrow"]$ <code>InitializeWeights</code>(<code>ProblemSize</code>)<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $["\\leftarrow"]$ <code>SelectInputPattern</code>(<code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Activation_i$ $["\\leftarrow"]$ <code>ActivateNetwork</code>($Pattern_i$, <code>Weights</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Output_i$ $["\\leftarrow"]$ <code>TransferActivation</code>($Activation_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateWeights</code>($Pattern_i$, $Output_i$, $learn_{rate}$)<br />
+<code>Weights</code> $\leftarrow$ <code>InitializeWeights</code>{<code>ProblemSize</code>}<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $\leftarrow$ <code>SelectInputPattern</code>{<code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Activation_i$ $\leftarrow$ <code>ActivateNetwork</code>{$Pattern_i$, <code>Weights</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Output_i$ $\leftarrow$ <code>TransferActivation</code>{$Activation_i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateWeights</code>{$Pattern_i$, $Output_i$, $learn_{rate}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Weights</code>)<br />
 </div>
@@ -218,15 +218,15 @@ Minsky and Papert wrote the classical text titled &quot;Perceptrons&quot; in 196
 <table>
  <tr valign="top">
  <td><a name='Minsky1969'>[Minsky1969]</a></td>
- <td>M. L. ["Minsky and S. A."] Papert, "<a href="http://scholar.google.com.au/scholar?q=["Perceptrons"]">["Perceptrons"]</a>", ["MIT Press"], ["1969"].</td>
+ <td>M. L. Minsky and S. A. Papert, "<a href="http://scholar.google.com.au/scholar?q=Perceptrons">Perceptrons</a>", MIT Press, 1969.</td>
  </tr>
  <tr valign="top">
  <td><a name='Novikoff1962'>[Novikoff1962]</a></td>
- <td>A. B."] ["Novikoff, "<a href="http://scholar.google.com.au/scholar?q=["On+convergence+proofs+on+perceptrons"]">["On convergence proofs on perceptrons"]</a>", ["Symposium on the Mathematical Theory of Automata"], ["1962"].</td>
+ <td>A. B. Novikoff, "<a href="http://scholar.google.com.au/scholar?q=On+convergence+proofs+on+perceptrons">On convergence proofs on perceptrons</a>", Symposium on the Mathematical Theory of Automata, 1962.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rosenblatt1958'>[Rosenblatt1958]</a></td>
- <td>F."] ["Rosenblatt, "<a href="http://scholar.google.com.au/scholar?q=["The+Perceptron:+A+Probabilistic+Model+for+Information+Storage+and\n\tOrganization+in+the+Brain"]">["The Perceptron: A Probabilistic Model for Information Storage and\n\tOrganization in the Brain"]</a>", ["Cornell Aeronautical Laboratory, Psychological Review"], ["1958"].</td>
+ <td>F. Rosenblatt, "<a href="http://scholar.google.com.au/scholar?q=The+Perceptron:+A+Probabilistic+Model+for+Information+Storage+and\n\tOrganization+in+the+Brain">The Perceptron: A Probabilistic Model for Information Storage and\n\tOrganization in the Brain</a>", Cornell Aeronautical Laboratory, Psychological Review, 1958.</td>
  </tr>
 </table>
 

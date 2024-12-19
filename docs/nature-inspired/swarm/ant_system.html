@@ -84,23 +84,23 @@ where $["\\eta_{i,j}"]$ is the maximizing contribution to the overall score of s
 <strong><strong><code>Output</code></strong></strong>: 
 $P_{best}$
 <br />
-$P_{best}$ $["\\leftarrow"]$ <code>CreateHeuristicSolution</code>(<code>ProblemSize</code>)<br />
-$Pbest_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{h}$)<br />
-<code>Pheromone</code> $["\\leftarrow"]$ <code>InitializePheromone</code>($Pbest_{cost}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidates</code> $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=1"]$ $["\<strong><code>To</code></strong>"]$ $m$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>ProbabilisticStepwiseConstruction</code>(<code>Pheromone</code>, <code>ProblemSize</code>, $\alpha$, $\beta$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Si_{cost}$ $["\\leq"]$ $Pbest_{cost}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Pbest_{cost}$ $["\\leftarrow"]$ $Si_{cost}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{best}$ $["\\leftarrow"]$ $S_{i}$<br />
+$P_{best}$ $\leftarrow$ <code>CreateHeuristicSolution</code>{<code>ProblemSize</code>}<br />
+$Pbest_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{h}$}<br />
+<code>Pheromone</code> $\leftarrow$ <code>InitializePheromone</code>{$Pbest_{cost}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidates</code> $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $m$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>ProbabilisticStepwiseConstruction</code>{<code>Pheromone</code>, <code>ProblemSize</code>, $\alpha$, $\beta$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Si_{cost}$ $\leq$ $Pbest_{cost}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Pbest_{cost}$ $\leftarrow$ $Si_{cost}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{best}$ $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidates</code> $["\\leftarrow"]$ $S_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidates</code> $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>DecayPheromone</code>(<code>Pheromone</code>, $\rho$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Candidates</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdatePheromone</code>(<code>Pheromone</code>, $S_{i}$, $Si_{cost}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>DecayPheromone</code>{<code>Pheromone</code>, $\rho$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Candidates</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdatePheromone</code>{<code>Pheromone</code>, $S_{i}$, $Si_{cost}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($P_{best}$)<br />
@@ -274,23 +274,23 @@ The seminal book on Ant Colony Optimization in general with a detailed treatment
 <table>
  <tr valign="top">
  <td><a name='Bonabeau1999'>[Bonabeau1999]</a></td>
- <td>["E. Bonabeau and M. Dorigo and G. Theraulaz"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence:+From+Natural+to+Artificial+Systems"]">["Swarm Intelligence: From Natural to Artificial Systems"]</a>", ["Oxford University Press US"], ["1999"].</td>
+ <td>E. Bonabeau and M. Dorigo and G. Theraulaz, "<a href="http://scholar.google.com.au/scholar?q=Swarm+Intelligence:+From+Natural+to+Artificial+Systems">Swarm Intelligence: From Natural to Artificial Systems</a>", Oxford University Press US, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1991'>[Dorigo1991]</a></td>
- <td>["M. Dorigo and V. Maniezzo and A. Colorni"], "<a href="http://scholar.google.com.au/scholar?q=["Positive+Feedback+as+a+Search+Strategy"]">["Positive Feedback as a Search Strategy"]</a>", ["ipartimento di Elettronica, Politecnico di Milano"], ["1991"].</td>
+ <td>M. Dorigo and V. Maniezzo and A. Colorni, "<a href="http://scholar.google.com.au/scholar?q=Positive+Feedback+as+a+Search+Strategy">Positive Feedback as a Search Strategy</a>", ipartimento di Elettronica, Politecnico di Milano, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1992'>[Dorigo1992]</a></td>
- <td>["M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization,+Learning+and+Natural+Algorithms+(in+Italian)"]">["Optimization, Learning and Natural Algorithms (in Italian)"]</a>", [PhD Thesis] ["Dipartimento di Elettronica, Politecnico di Milano, Milan, Italy"], ["1992"].</td>
+ <td>M. Dorigo, "<a href="http://scholar.google.com.au/scholar?q=Optimization,+Learning+and+Natural+Algorithms+(in+Italian)">Optimization, Learning and Natural Algorithms (in Italian)</a>", [PhD Thesis] Dipartimento di Elettronica, Politecnico di Milano, Milan, Italy, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1996'>[Dorigo1996]</a></td>
- <td>["M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["The+Ant+System:+Optimization+by+a+colony+of+cooperating+agents"]">["The Ant System: Optimization by a colony of cooperating agents"]</a>", ["IEEE Transactions on Systems, Man, and Cybernetics–Part B"], ["1996"].</td>
+ <td>M. Dorigo, "<a href="http://scholar.google.com.au/scholar?q=The+Ant+System:+Optimization+by+a+colony+of+cooperating+agents">The Ant System: Optimization by a colony of cooperating agents</a>", IEEE Transactions on Systems, Man, and Cybernetics–Part B, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo2004'>[Dorigo2004]</a></td>
- <td>["M. Dorigo and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+Optimization"]">["Ant Colony Optimization"]</a>", ["MIT Press"], ["2004"].</td>
+ <td>M. Dorigo and T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Ant+Colony+Optimization">Ant Colony Optimization</a>", MIT Press, 2004.</td>
  </tr>
 </table>
 

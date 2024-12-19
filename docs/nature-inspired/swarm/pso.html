@@ -83,24 +83,24 @@ Algorithm (below) provides a pseudocode listing of the Particle Swarm Optimizati
 <strong><strong><code>Output</code></strong></strong>: 
 $P_{g\_best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ $["\\emptyset"]$<br />
-$P_{g\_best}$ $["\\leftarrow"]$ $["\\emptyset"]$<br />
-<strong><code>For</code></strong> ($["i=1"]$ $["\<strong><code>To</code></strong>"]$ $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{velocity}$ $["\\leftarrow"]$ <code>RandomVelocity</code>()<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{position}$ $["\\leftarrow"]$ <code>RandomPosition</code>($Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_{p\_best}$ $["\\leftarrow"]$ $P_{position}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($P_{p\_best}$) $["\\leq"]$ <code>Cost</code>($P_{g\_best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{g\_best}$ $["\\leftarrow"]$ $P_{p\_best}$<br />
+<code>Population</code> $\leftarrow$ $\emptyset$<br />
+$P_{g\_best}$ $\leftarrow$ $\emptyset$<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{velocity}$ $\leftarrow$ <code>RandomVelocity</code>()<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{position}$ $\leftarrow$ <code>RandomPosition</code>{$Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$P_{p\_best}$ $\leftarrow$ $P_{position}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$P_{p\_best}$} $\leq$ <code>Cost</code>{$P_{g\_best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{g\_best}$ $\leftarrow$ $P_{p\_best}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($P$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{velocity}$ $["\\leftarrow"]$ <code>UpdateVelocity</code>($P_{velocity}$, $P_{g\_best}$, $P_{p\_best}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{position}$ $["\\leftarrow"]$ <code>UpdatePosition</code>($P_{position}$, $P_{velocity}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($P_{position}$) $["\\leq"]$ <code>Cost</code>($P_{p\_best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{p\_best}$ $["\\leftarrow"]$ $P_{position}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($P_{p\_best}$) $["\\leq"]$ <code>Cost</code>($P_{g\_best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{g\_best}$ $["\\leftarrow"]$ $P_{p\_best}$<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($P$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{velocity}$ $\leftarrow$ <code>UpdateVelocity</code>{$P_{velocity}$, $P_{g\_best}$, $P_{p\_best}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{position}$ $\leftarrow$ <code>UpdatePosition</code>{$P_{position}$, $P_{velocity}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$P_{position}$} $\leq$ <code>Cost</code>{$P_{p\_best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{p\_best}$ $\leftarrow$ $P_{position}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$P_{p\_best}$} $\leq$ <code>Cost</code>{$P_{g\_best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{g\_best}$ $\leftarrow$ $P_{p\_best}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
@@ -246,35 +246,35 @@ An excellent book on Swarm Intelligence in general with detailed coverage of Par
 <table>
  <tr valign="top">
  <td><a name='Eberhart1995'>[Eberhart1995]</a></td>
- <td>R. C. ["Eberhart and J."] Kennedy, "<a href="http://scholar.google.com.au/scholar?q=["A+new+optimizer+using+particle+swarm+theory"]">["A new optimizer using particle swarm theory"]</a>", in ["Proceedings of the sixth international symposium on micro machine\n\tand human science"], ["1995"].</td>
+ <td>R. C. Eberhart and J. Kennedy, "<a href="http://scholar.google.com.au/scholar?q=A+new+optimizer+using+particle+swarm+theory">A new optimizer using particle swarm theory</a>", in Proceedings of the sixth international symposium on micro machine\n\tand human science, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kennedy1995'>[Kennedy1995]</a></td>
- <td>J. ["Kennedy and R. C."] Eberhart, "<a href="http://scholar.google.com.au/scholar?q=["Particle+swarm+optimization"]">["Particle swarm optimization"]</a>", in ["Proceedings of the IEEE International Conference on Neural Networks"], ["1995"].</td>
+ <td>J. Kennedy and R. C. Eberhart, "<a href="http://scholar.google.com.au/scholar?q=Particle+swarm+optimization">Particle swarm optimization</a>", in Proceedings of the IEEE International Conference on Neural Networks, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kennedy1999'>[Kennedy1999]</a></td>
- <td>J."] ["Kennedy, "<a href="http://scholar.google.com.au/scholar?q=["Small+Worlds+and+Mega-Minds:+Effects+of+Neighborhood+Topology+on\n\tParticle+Swarm+Performance"]">["Small Worlds and Mega-Minds: Effects of Neighborhood Topology on\n\tParticle Swarm Performance"]</a>", in ["Proceedings of the 1999 Congress on Evolutionary Computation"], ["1999"].</td>
+ <td>J. Kennedy, "<a href="http://scholar.google.com.au/scholar?q=Small+Worlds+and+Mega-Minds:+Effects+of+Neighborhood+Topology+on\n\tParticle+Swarm+Performance">Small Worlds and Mega-Minds: Effects of Neighborhood Topology on\n\tParticle Swarm Performance</a>", in Proceedings of the 1999 Congress on Evolutionary Computation, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kennedy2001'>[Kennedy2001]</a></td>
- <td>["J. Kennedy and R. C. Eberhart and Y. Shi"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence"]">["Swarm Intelligence"]</a>", ["Morgan Kaufmann"], ["2001"].</td>
+ <td>J. Kennedy and R. C. Eberhart and Y. Shi, "<a href="http://scholar.google.com.au/scholar?q=Swarm+Intelligence">Swarm Intelligence</a>", Morgan Kaufmann, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Poli2007'>[Poli2007]</a></td>
- <td>["R. Poli and J. Kennedy and T. Blackwell"], "<a href="http://scholar.google.com.au/scholar?q=["Particle+swarm+optimization+An+overview"]">["Particle swarm optimization An overview"]</a>", ["Swarm Intelligence"], ["2007"].</td>
+ <td>R. Poli and J. Kennedy and T. Blackwell, "<a href="http://scholar.google.com.au/scholar?q=Particle+swarm+optimization+An+overview">Particle swarm optimization An overview</a>", Swarm Intelligence, 2007.</td>
  </tr>
  <tr valign="top">
  <td><a name='Poli2008a'>[Poli2008a]</a></td>
- <td>R."] ["Poli, "<a href="http://scholar.google.com.au/scholar?q=["Analysis+of+the+publications+on+the+applications+of+particle+swarm\n\toptimisation"]">["Analysis of the publications on the applications of particle swarm\n\toptimisation"]</a>", ["Journal of Artificial Evolution and Applications"], ["2008"].</td>
+ <td>R. Poli, "<a href="http://scholar.google.com.au/scholar?q=Analysis+of+the+publications+on+the+applications+of+particle+swarm\n\toptimisation">Analysis of the publications on the applications of particle swarm\n\toptimisation</a>", Journal of Artificial Evolution and Applications, 2008.</td>
  </tr>
  <tr valign="top">
  <td><a name='Reynolds1987'>[Reynolds1987]</a></td>
- <td>["C. W. Reynolds"], "<a href="http://scholar.google.com.au/scholar?q=["Flocks,+herds+and+schools:+A+distributed+behavioral+model"]">["Flocks, herds and schools: A distributed behavioral model"]</a>", in ["Proceedings of the 14th annual conference on Computer graphics and\n\tinteractive techniques"], ["1987"].</td>
+ <td>C. W. Reynolds, "<a href="http://scholar.google.com.au/scholar?q=Flocks,+herds+and+schools:+A+distributed+behavioral+model">Flocks, herds and schools: A distributed behavioral model</a>", in Proceedings of the 14th annual conference on Computer graphics and\n\tinteractive techniques, 1987.</td>
  </tr>
  <tr valign="top">
  <td><a name='Shi1998'>[Shi1998]</a></td>
- <td>Y. ["Shi and R. C."] Eberhart, "<a href="http://scholar.google.com.au/scholar?q=["A+Modified+Particle+Swarm+Optimizers"]">["A Modified Particle Swarm Optimizers"]</a>", in ["Proceedings of the IEEE International Conference on Evolutionary\n\tComputation"], ["1998"].</td>
+ <td>Y. Shi and R. C. Eberhart, "<a href="http://scholar.google.com.au/scholar?q=A+Modified+Particle+Swarm+Optimizers">A Modified Particle Swarm Optimizers</a>", in Proceedings of the IEEE International Conference on Evolutionary\n\tComputation, 1998.</td>
  </tr>
 </table>
 

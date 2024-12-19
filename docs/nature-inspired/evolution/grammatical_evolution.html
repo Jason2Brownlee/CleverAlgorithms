@@ -77,30 +77,30 @@ Algorithm (below) provides a pseudocode listing of the Grammatical Evolution alg
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, $Codon_{numbits}$)<br />
-<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Si_{integers}$ $["\\leftarrow"]$ <code>Decode</code>($Si_{bitstring}$, $Codon_{numbits}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $["\\leftarrow"]$ <code>Map</code>($Si_{integers}$, <code>Grammar</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Execute</code>($Si_{program}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, $Codon_{numbits}$}<br />
+<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Si_{integers}$ $\leftarrow$ <code>Decode</code>{$Si_{bitstring}$, $Codon_{numbits}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $\leftarrow$ <code>Map</code>{$Si_{integers}$, <code>Grammar</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Execute</code>{$Si_{program}$}<br />
 <strong><code>End</code></strong><br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{i}$, $Parent_{j}$ $["\\in"]$ <code>Parents</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>Crossover</code>($Parent_{i}$, $Parent_{j}$, $P_{crossover}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $["\\leftarrow"]$ <code>CodonDeletion</code>($Si_{bitstring}$, $P_{delete}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $["\\leftarrow"]$ <code>CodonDuplication</code>($Si_{bitstring}$, $P_{duplicate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $["\\leftarrow"]$ <code>Mutate</code>($Si_{bitstring}$, $P_{mutation}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $S_{i}$<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{i}$, $Parent_{j}$ $\in$ <code>Parents</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>Crossover</code>{$Parent_{i}$, $Parent_{j}$, $P_{crossover}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $\leftarrow$ <code>CodonDeletion</code>{$Si_{bitstring}$, $P_{delete}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $\leftarrow$ <code>CodonDuplication</code>{$Si_{bitstring}$, $P_{duplicate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{bitstring}$ $\leftarrow$ <code>Mutate</code>{$Si_{bitstring}$, $P_{mutation}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{integers}$ $["\\leftarrow"]$ <code>Decode</code>($Si_{bitstring}$, $Codon_{numbits}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $["\\leftarrow"]$ <code>Map</code>($Si_{integers}$, <code>Grammar</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Execute</code>($Si_{program}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Children</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{integers}$ $\leftarrow$ <code>Decode</code>{$Si_{bitstring}$, $Codon_{numbits}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $\leftarrow$ <code>Map</code>{$Si_{integers}$, <code>Grammar</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Execute</code>{$Si_{program}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Replace</code>(<code>Population</code>, <code>Children</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Replace</code>{<code>Population</code>, <code>Children</code>}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -323,35 +323,35 @@ O'Neill and Ryan present a seminal reference for Grammatical Evolution in their 
 <table>
  <tr valign="top">
  <td><a name='Dempsey2009'>[Dempsey2009]</a></td>
- <td>["I. Dempsey and M. O'Neill and A. Brabazon"], "<a href="http://scholar.google.com.au/scholar?q=["Foundations+in+Grammatical+Evolution+for+Dynamic+Environments"]">["Foundations in Grammatical Evolution for Dynamic Environments"]</a>", ["Springer"], ["2009"].</td>
+ <td>I. Dempsey and M. O'Neill and A. Brabazon, "<a href="http://scholar.google.com.au/scholar?q=Foundations+in+Grammatical+Evolution+for+Dynamic+Environments">Foundations in Grammatical Evolution for Dynamic Environments</a>", Springer, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='ONeill1998'>[ONeill1998]</a></td>
- <td>["M. O'Neill and C. Ryan"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution:+A+Steady+State+approach"]">["Grammatical Evolution: A Steady State approach"]</a>", in ["Proceedings of the Second International Workshop on Frontiers in\n\tEvolutionary Algorithms"], ["1998"].</td>
+ <td>M. O'Neill and C. Ryan, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution:+A+Steady+State+approach">Grammatical Evolution: A Steady State approach</a>", in Proceedings of the Second International Workshop on Frontiers in\n\tEvolutionary Algorithms, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='ONeill1998a'>[ONeill1998a]</a></td>
- <td>["M. O'Neill and C. Ryan"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution:+A+Steady+State+approach"]">["Grammatical Evolution: A Steady State approach"]</a>", in ["Late Breaking Papers at the Genetic Programming 1998 Conference"], ["1998"].</td>
+ <td>M. O'Neill and C. Ryan, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution:+A+Steady+State+approach">Grammatical Evolution: A Steady State approach</a>", in Late Breaking Papers at the Genetic Programming 1998 Conference, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='ONeill1999'>[ONeill1999]</a></td>
- <td>["M. O'Neill and C. Ryan"], "<a href="http://scholar.google.com.au/scholar?q=["Under+the+Hood+of+Grammatical+Evolution"]">["Under the Hood of Grammatical Evolution"]</a>", in ["Proceedings of the Genetic and Evolutionary Computation Conference"], ["1999"].</td>
+ <td>M. O'Neill and C. Ryan, "<a href="http://scholar.google.com.au/scholar?q=Under+the+Hood+of+Grammatical+Evolution">Under the Hood of Grammatical Evolution</a>", in Proceedings of the Genetic and Evolutionary Computation Conference, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='ONeill2001'>[ONeill2001]</a></td>
- <td>["M. O'Neill and C. Ryan"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution"]">["Grammatical Evolution"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2001"].</td>
+ <td>M. O'Neill and C. Ryan, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution">Grammatical Evolution</a>", IEEE Transactions on Evolutionary Computation, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='ONeill2003'>[ONeill2003]</a></td>
- <td>["M. O'Neill and C. Ryan"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution:+Evolutionary+Automatic+Programming+in+an+Arbitrary\n\tLanguage"]">["Grammatical Evolution: Evolutionary Automatic Programming in an Arbitrary\n\tLanguage"]</a>", ["Springer"], ["2003"].</td>
+ <td>M. O'Neill and C. Ryan, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution:+Evolutionary+Automatic+Programming+in+an+Arbitrary\n\tLanguage">Grammatical Evolution: Evolutionary Automatic Programming in an Arbitrary\n\tLanguage</a>", Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ryan1998'>[Ryan1998]</a></td>
- <td>["C. Ryan and J. J. Collins and M. O'Neill"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution:+Solving+Trigonometric+Identities"]">["Grammatical Evolution: Solving Trigonometric Identities"]</a>", in ["Proceedings of Mendel 1998: 4th International Mendel Conference on\n\tGenetic Algorithms, Optimisation Problems, Fuzzy Logic, Neural Networks,\n\tRough Sets."], ["1998"].</td>
+ <td>C. Ryan and J. J. Collins and M. O'Neill, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution:+Solving+Trigonometric+Identities">Grammatical Evolution: Solving Trigonometric Identities</a>", in Proceedings of Mendel 1998: 4th International Mendel Conference on\n\tGenetic Algorithms, Optimisation Problems, Fuzzy Logic, Neural Networks,\n\tRough Sets., 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ryan1998a'>[Ryan1998a]</a></td>
- <td>["C. Ryan and J. J. Collins and M. O'Neill"], "<a href="http://scholar.google.com.au/scholar?q=["Grammatical+Evolution:+Evolving+Programs+for+an+Arbitrary+Language"]">["Grammatical Evolution: Evolving Programs for an Arbitrary Language"]</a>", in ["Lecture Notes in Computer Science 1391. First European Workshop on\n\tGenetic Programming"], ["1998"].</td>
+ <td>C. Ryan and J. J. Collins and M. O'Neill, "<a href="http://scholar.google.com.au/scholar?q=Grammatical+Evolution:+Evolving+Programs+for+an+Arbitrary+Language">Grammatical Evolution: Evolving Programs for an Arbitrary Language</a>", in Lecture Notes in Computer Science 1391. First European Workshop on\n\tGenetic Programming, 1998.</td>
  </tr>
 </table>
 

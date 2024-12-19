@@ -66,14 +66,14 @@ $Iter_{max}$, $\lambda$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$f_{penalties}$ $["\\leftarrow \\emptyset"]$<br />
-$S_{best}$ $["\\leftarrow"]$ <code>RandomSolution</code>()<br />
-<strong><code>For</code></strong> ($Iter_{i}$ $["\\in"]$ $Iter_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $["\\leftarrow"]$ <code>LocalSearch</code>($S_{best}$, $\lambda$, $f_{penalties}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$f_{utilities}$ $["\\leftarrow"]$ <code>CalculateFeatureUtilities</code>($S_{curr}$, $f_{penalties}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$f_{penalties}$ $["\\leftarrow"]$ <code>UpdateFeaturePenalties</code>($S_{curr}$, $f_{penalties}$, $f_{utilities}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{curr}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{curr}$<br />
+$f_{penalties}$ $\leftarrow \emptyset$<br />
+$S_{best}$ $\leftarrow$ <code>RandomSolution</code>()<br />
+<strong><code>For</code></strong> ($Iter_{i}$ $\in$ $Iter_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{curr}$ $\leftarrow$ <code>LocalSearch</code>{$S_{best}$, $\lambda$, $f_{penalties}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$f_{utilities}$ $\leftarrow$ <code>CalculateFeatureUtilities</code>{$S_{curr}$, $f_{penalties}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$f_{penalties}$ $\leftarrow$ <code>UpdateFeaturePenalties</code>{$S_{curr}$, $f_{penalties}$, $f_{utilities}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{curr}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{curr}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -243,55 +243,55 @@ Lau and Tsang further extended the approach by integrating it with a Genetic Alg
 <table>
  <tr valign="top">
  <td><a name='Glover2003a'>[Glover2003a]</a></td>
- <td>["C. Voudouris and E. P. K. Tsang"], "<a href="http://scholar.google.com.au/scholar?q=["7:+Guided+Local+Search"]">["7: Guided Local Search"]</a>", in ["Handbook of Metaheuristics"], pages ["185-218"], ["Springer"], ["2003"].</td>
+ <td>C. Voudouris and E. P. K. Tsang, "<a href="http://scholar.google.com.au/scholar?q=7:+Guided+Local+Search">7: Guided Local Search</a>", in Handbook of Metaheuristics, pages 185-218, Springer, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Lau1998'>[Lau1998]</a></td>
- <td>T. L. ["Lau and E. P. K."] Tsang, "<a href="http://scholar.google.com.au/scholar?q=["The+guided+genetic+algorithm+and+its+application+to+the+general+assignment\n\tproblems"]">["The guided genetic algorithm and its application to the general assignment\n\tproblems"]</a>", in ["IEEE 10th International Conference on Tools with Artificial Intelligence\n\t(ICTAI'98)"], ["1998"].</td>
+ <td>T. L. Lau and E. P. K. Tsang, "<a href="http://scholar.google.com.au/scholar?q=The+guided+genetic+algorithm+and+its+application+to+the+general+assignment\n\tproblems">The guided genetic algorithm and its application to the general assignment\n\tproblems</a>", in IEEE 10th International Conference on Tools with Artificial Intelligence\n\t(ICTAI'98), 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Lau1999'>[Lau1999]</a></td>
- <td>["L. T. Lau"], "<a href="http://scholar.google.com.au/scholar?q=["Guided+Genetic+Algorithm"]">["Guided Genetic Algorithm"]</a>", [PhD Thesis] ["Department of Computer Science, University of Essex"], ["1999"].</td>
+ <td>L. T. Lau, "<a href="http://scholar.google.com.au/scholar?q=Guided+Genetic+Algorithm">Guided Genetic Algorithm</a>", [PhD Thesis] Department of Computer Science, University of Essex, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mills2002'>[Mills2002]</a></td>
- <td>["P. Mills"], "<a href="http://scholar.google.com.au/scholar?q=["Extensions+to+Guided+Local+Search"]">["Extensions to Guided Local Search"]</a>", [PhD Thesis] ["Department of Computer Science, University of Essex"], ["2002"].</td>
+ <td>P. Mills, "<a href="http://scholar.google.com.au/scholar?q=Extensions+to+Guided+Local+Search">Extensions to Guided Local Search</a>", [PhD Thesis] Department of Computer Science, University of Essex, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mills2003'>[Mills2003]</a></td>
- <td>["P. Mills and E. Tsang and J. Ford"], "<a href="http://scholar.google.com.au/scholar?q=["Applying+an+Extended+Guided+Local+Search+on+the+Quadratic+Assignment\n\tProblem"]">["Applying an Extended Guided Local Search on the Quadratic Assignment\n\tProblem"]</a>", ["Annals of Operations Research"], ["2003"].</td>
+ <td>P. Mills and E. Tsang and J. Ford, "<a href="http://scholar.google.com.au/scholar?q=Applying+an+Extended+Guided+Local+Search+on+the+Quadratic+Assignment\n\tProblem">Applying an Extended Guided Local Search on the Quadratic Assignment\n\tProblem</a>", Annals of Operations Research, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='Tsang1992'>[Tsang1992]</a></td>
- <td>["E. P. K. Tsang and C. J. Wang"], "<a href="http://scholar.google.com.au/scholar?q=["A+Generic+Neural+Network+Approach+For+Constraint+Satisfaction+Problems"]">["A Generic Neural Network Approach For Constraint Satisfaction Problems"]</a>", in ["Neural network applications"], ["1992"].</td>
+ <td>E. P. K. Tsang and C. J. Wang, "<a href="http://scholar.google.com.au/scholar?q=A+Generic+Neural+Network+Approach+For+Constraint+Satisfaction+Problems">A Generic Neural Network Approach For Constraint Satisfaction Problems</a>", in Neural network applications, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1994'>[Voudouris1994]</a></td>
- <td>["C. Voudouris and E. Tsang"], "<a href="http://scholar.google.com.au/scholar?q=["The+Tunneling+Algorithm+for+Partial+CSPs+and+Combinatorial+Optimization\n\tProblems"]">["The Tunneling Algorithm for Partial CSPs and Combinatorial Optimization\n\tProblems"]</a>", Technical Report ["CSM-213"], ["Department of Computer Science, University of Essex, Colchester,\n\tC04 3SQ, UK"], ["1994"].</td>
+ <td>C. Voudouris and E. Tsang, "<a href="http://scholar.google.com.au/scholar?q=The+Tunneling+Algorithm+for+Partial+CSPs+and+Combinatorial+Optimization\n\tProblems">The Tunneling Algorithm for Partial CSPs and Combinatorial Optimization\n\tProblems</a>", Technical Report CSM-213, Department of Computer Science, University of Essex, Colchester,\n\tC04 3SQ, UK, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1995'>[Voudouris1995]</a></td>
- <td>["C. Voudouris and E. Tsang"], "<a href="http://scholar.google.com.au/scholar?q=["Guided+Local+Search"]">["Guided Local Search"]</a>", Technical Report ["CSM-247"], ["Department of Computer Science, University of Essex, Colchester,\n\tC04 3SQ, UK"], ["1995"].</td>
+ <td>C. Voudouris and E. Tsang, "<a href="http://scholar.google.com.au/scholar?q=Guided+Local+Search">Guided Local Search</a>", Technical Report CSM-247, Department of Computer Science, University of Essex, Colchester,\n\tC04 3SQ, UK, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1995a'>[Voudouris1995a]</a></td>
- <td>["C. Voudouris and E. Tsang"], "<a href="http://scholar.google.com.au/scholar?q=["Function+Optimization+using+Guided+Local+Search"]">["Function Optimization using Guided Local Search"]</a>", Technical Report ["CSM-249"], ["Department of Computer Science University of Essex Colchester, CO4\n\t3SQ, UK"], ["1995"].</td>
+ <td>C. Voudouris and E. Tsang, "<a href="http://scholar.google.com.au/scholar?q=Function+Optimization+using+Guided+Local+Search">Function Optimization using Guided Local Search</a>", Technical Report CSM-249, Department of Computer Science University of Essex Colchester, CO4\n\t3SQ, UK, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1995b'>[Voudouris1995b]</a></td>
- <td>["E. Tsang and C. Voudouris"], "<a href="http://scholar.google.com.au/scholar?q=["Fast+Local+Search+and+Guided+Local+Search+and+Their+Application+to\n\tBritish+Telecom's+Workforce+Scheduling+Problem"]">["Fast Local Search and Guided Local Search and Their Application to\n\tBritish Telecom's Workforce Scheduling Problem"]</a>", Technical Report ["CSM-246"], ["Department of Computer Science University of Essex Colchester CO4\n\t3SQ"], ["1995"].</td>
+ <td>E. Tsang and C. Voudouris, "<a href="http://scholar.google.com.au/scholar?q=Fast+Local+Search+and+Guided+Local+Search+and+Their+Application+to\n\tBritish+Telecom's+Workforce+Scheduling+Problem">Fast Local Search and Guided Local Search and Their Application to\n\tBritish Telecom's Workforce Scheduling Problem</a>", Technical Report CSM-246, Department of Computer Science University of Essex Colchester CO4\n\t3SQ, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1997'>[Voudouris1997]</a></td>
- <td>C."] ["Voudouris, "<a href="http://scholar.google.com.au/scholar?q=["Guided+local+search+for+combinatorial+optimisation+problems"]">["Guided local search for combinatorial optimisation problems"]</a>", [PhD Thesis] ["Department of Computer Science, University of Essex, Colchester,\n\tUK"], ["1997"].</td>
+ <td>C. Voudouris, "<a href="http://scholar.google.com.au/scholar?q=Guided+local+search+for+combinatorial+optimisation+problems">Guided local search for combinatorial optimisation problems</a>", [PhD Thesis] Department of Computer Science, University of Essex, Colchester,\n\tUK, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Voudouris1998'>[Voudouris1998]</a></td>
- <td>C. ["Voudouris and E. P. K."] Tsang, "<a href="http://scholar.google.com.au/scholar?q=["Guided+local+search+joins+the+elite+in+discrete+optimisation"]">["Guided local search joins the elite in discrete optimisation"]</a>", in ["Proceedings, DIMACS Workshop on Constraint Programming and Large\n\tScale Discrete Optimisation"], ["1998"].</td>
+ <td>C. Voudouris and E. P. K. Tsang, "<a href="http://scholar.google.com.au/scholar?q=Guided+local+search+joins+the+elite+in+discrete+optimisation">Guided local search joins the elite in discrete optimisation</a>", in Proceedings, DIMACS Workshop on Constraint Programming and Large\n\tScale Discrete Optimisation, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Wang1991'>[Wang1991]</a></td>
- <td>C. J. ["Wang and E. P. K. "] Tsang, "<a href="http://scholar.google.com.au/scholar?q=["Solving+constraint+satisfaction+problems+using+neural+networks"]">["Solving constraint satisfaction problems using neural networks"]</a>", in ["Proceedings Second International Conference on Artificial Neural\n\tNetworks"], ["1991"].</td>
+ <td>C. J. Wang and E. P. K. Tsang, "<a href="http://scholar.google.com.au/scholar?q=Solving+constraint+satisfaction+problems+using+neural+networks">Solving constraint satisfaction problems using neural networks</a>", in Proceedings Second International Conference on Artificial Neural\n\tNetworks, 1991.</td>
  </tr>
 </table>
 

@@ -75,23 +75,23 @@ $Population_{size}$, $Selection_{size}$, $Problem_{size}$, $RandomCells_{num}$, 
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Population</code>
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>CreateRandomCells</code>($Population_{size}$, $Problem_{size}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["p_i \\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Affinity</code>($["p_i"]$)<br />
+<code>Population</code> $\leftarrow$ <code>CreateRandomCells</code>{$Population_{size}$, $Problem_{size}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($p_i \in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Affinity</code>{$p_i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$["Population_{select} \\leftarrow"]$ <code>Select</code>(<code>Population</code>, $Selection_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$["Population_{clones} \\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["p_i \\in Population_{select}"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$["Population_{clones} \\leftarrow"]$ <code>Clone</code>($["p_i"]$, $Clone_{rate}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Population_{select} \leftarrow$ <code>Select</code>{<code>Population</code>, $Selection_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Population_{clones} \leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($p_i \in Population_{select}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Population_{clones} \leftarrow$ <code>Clone</code>{$p_i$, $Clone_{rate}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["p_i \\in Population_{clones}"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Hypermutate</code>($["p_i"]$, $Mutation_{rate}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Affinity</code>($["p_i"]$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($p_i \in Population_{clones}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Hypermutate</code>{$p_i$, $Mutation_{rate}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Affinity</code>{$p_i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Select</code>(<code>Population</code>, $["Population_{clones}"]$, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$["Population_{rand} \\leftarrow"]$ <code>CreateRandomCells</code>($RandomCells_{num}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Replace</code>(<code>Population</code>, $["Population_{rand}"]$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Select</code>{<code>Population</code>, $Population_{clones}$, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Population_{rand} \leftarrow$ <code>CreateRandomCells</code>{$RandomCells_{num}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Replace</code>{<code>Population</code>, $Population_{rand}$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Population</code>)<br />
 </div>
@@ -259,47 +259,47 @@ Brownlee provides a review of Clonal Selection algorithms providing a taxonomy, 
 <table>
  <tr valign="top">
  <td><a name='Brownlee2007b'>[Brownlee2007b]</a></td>
- <td>["J. Brownlee"], "<a href="http://scholar.google.com.au/scholar?q=["Clonal+Selection+Algorithms"]">["Clonal Selection Algorithms"]</a>", Technical Report ["070209A"], ["Complex Intelligent Systems Laboratory (CIS), Centre for Information\n\tTechnology Research (CITR), Faculty of Information and Communication\n\tTechnologies (ICT), Swinburne University of Technology"], ["2007"].</td>
+ <td>J. Brownlee, "<a href="http://scholar.google.com.au/scholar?q=Clonal+Selection+Algorithms">Clonal Selection Algorithms</a>", Technical Report 070209A, Complex Intelligent Systems Laboratory (CIS), Centre for Information\n\tTechnology Research (CITR), Faculty of Information and Communication\n\tTechnologies (ICT), Swinburne University of Technology, 2007.</td>
  </tr>
  <tr valign="top">
  <td><a name='Burnet1957'>[Burnet1957]</a></td>
- <td>["F. M. Burnet"], "<a href="http://scholar.google.com.au/scholar?q=["A+modification+of+Jerne's+theory+of+antibody+production+using+the\n\tconcept+of+clonal+selection"]">["A modification of Jerne's theory of antibody production using the\n\tconcept of clonal selection"]</a>", ["Australian Journal of Science"], ["1957"].</td>
+ <td>F. M. Burnet, "<a href="http://scholar.google.com.au/scholar?q=A+modification+of+Jerne's+theory+of+antibody+production+using+the\n\tconcept+of+clonal+selection">A modification of Jerne's theory of antibody production using the\n\tconcept of clonal selection</a>", Australian Journal of Science, 1957.</td>
  </tr>
  <tr valign="top">
  <td><a name='Burnet1959'>[Burnet1959]</a></td>
- <td>["F. M. Burnet"], "<a href="http://scholar.google.com.au/scholar?q=["The+clonal+selection+theory+of+acquired+immunity"]">["The clonal selection theory of acquired immunity"]</a>", ["Vanderbilt University Press"], ["1959"].</td>
+ <td>F. M. Burnet, "<a href="http://scholar.google.com.au/scholar?q=The+clonal+selection+theory+of+acquired+immunity">The clonal selection theory of acquired immunity</a>", Vanderbilt University Press, 1959.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro1999'>[Castro1999]</a></td>
- <td>["L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Immune+Systems+-+Part+I:+Basic+Theory+and+Applications"]">["Artificial Immune Systems - Part I: Basic Theory and Applications"]</a>", Technical Report ["TR DCA 01/99"], ["Department of Computer Engineering and Industrial Automation, School\n\tof Electrical and Computer Engineering, State University of Campinas,\n\tBrazil"], ["1999"].</td>
+ <td>L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Immune+Systems+-+Part+I:+Basic+Theory+and+Applications">Artificial Immune Systems - Part I: Basic Theory and Applications</a>", Technical Report TR DCA 01/99, Department of Computer Engineering and Industrial Automation, School\n\tof Electrical and Computer Engineering, State University of Campinas,\n\tBrazil, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro2000'>[Castro2000]</a></td>
- <td>["L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["The+Clonal+Selection+Algorithm+with+Engineering+Applications"]">["The Clonal Selection Algorithm with Engineering Applications"]</a>", in ["Proceedings of the Genetic and Evolutionary Computation Conference\n\t(GECCO '00), Workshop on Artificial Immune Systems and Their Applications"], ["2000"].</td>
+ <td>L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=The+Clonal+Selection+Algorithm+with+Engineering+Applications">The Clonal Selection Algorithm with Engineering Applications</a>", in Proceedings of the Genetic and Evolutionary Computation Conference\n\t(GECCO '00), Workshop on Artificial Immune Systems and Their Applications, 2000.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro2002a'>[Castro2002a]</a></td>
- <td>["L. N. de Castro and F. J. Von Zuben"], "<a href="http://scholar.google.com.au/scholar?q=["Learning+and+optimization+using+the+clonal+selection+principle"]">["Learning and optimization using the clonal selection principle"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2002"].</td>
+ <td>L. N. de Castro and F. J. Von Zuben, "<a href="http://scholar.google.com.au/scholar?q=Learning+and+optimization+using+the+clonal+selection+principle">Learning and optimization using the clonal selection principle</a>", IEEE Transactions on Evolutionary Computation, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Castro2002b'>[Castro2002b]</a></td>
- <td>["L. N. de Castro and J. Timmis"], "<a href="http://scholar.google.com.au/scholar?q=["Artificial+immune+systems:+a+new+computational+intelligence+approach"]">["Artificial immune systems: a new computational intelligence approach"]</a>", ["Springer"], ["2002"].</td>
+ <td>L. N. de Castro and J. Timmis, "<a href="http://scholar.google.com.au/scholar?q=Artificial+immune+systems:+a+new+computational+intelligence+approach">Artificial immune systems: a new computational intelligence approach</a>", Springer, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Cutello2005'>[Cutello2005]</a></td>
- <td>["V. Cutello and G. Nicosia"], "<a href="http://scholar.google.com.au/scholar?q=["Chapter+VI.+The+Clonal+Selection+Principle+for+In+Silico+and+In+Vivo\n\tComputing"]">["Chapter VI. The Clonal Selection Principle for In Silico and In Vivo\n\tComputing"]</a>", in ["Recent Developments in Biologically Inspired Computing"], pages ["104&ndash;146"], ["Idea Group Publishing"], ["2005"].</td>
+ <td>V. Cutello and G. Nicosia, "<a href="http://scholar.google.com.au/scholar?q=Chapter+VI.+The+Clonal+Selection+Principle+for+In+Silico+and+In+Vivo\n\tComputing">Chapter VI. The Clonal Selection Principle for In Silico and In Vivo\n\tComputing</a>", in Recent Developments in Biologically Inspired Computing, pages 104&ndash;146, Idea Group Publishing, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Garrett2004'>[Garrett2004]</a></td>
- <td>["S. M. Garrett"], "<a href="http://scholar.google.com.au/scholar?q=["Parameter-free,+adaptive+clonal+selection"]">["Parameter-free, adaptive clonal selection"]</a>", in ["Congress on Evolutionary Computing (CEC 2004)"], ["2004"].</td>
+ <td>S. M. Garrett, "<a href="http://scholar.google.com.au/scholar?q=Parameter-free,+adaptive+clonal+selection">Parameter-free, adaptive clonal selection</a>", in Congress on Evolutionary Computing (CEC 2004), 2004.</td>
  </tr>
  <tr valign="top">
  <td><a name='Watkins2003'>[Watkins2003]</a></td>
- <td>["A. Watkins and X. Bi and A. Phadke"], "<a href="http://scholar.google.com.au/scholar?q=["Parallelizing+an+Immune-Inspired+Algorithm+for+Efficient+Pattern\n\tRecognition"]">["Parallelizing an Immune-Inspired Algorithm for Efficient Pattern\n\tRecognition"]</a>", in ["Intelligent Engineering Systems through Artificial Neural Networks:\n\tSmart Engineering System Design: Neural Networks"], ["2003"].</td>
+ <td>A. Watkins and X. Bi and A. Phadke, "<a href="http://scholar.google.com.au/scholar?q=Parallelizing+an+Immune-Inspired+Algorithm+for+Efficient+Pattern\n\tRecognition">Parallelizing an Immune-Inspired Algorithm for Efficient Pattern\n\tRecognition</a>", in Intelligent Engineering Systems through Artificial Neural Networks:\n\tSmart Engineering System Design: Neural Networks, 2003.</td>
  </tr>
  <tr valign="top">
  <td><a name='White2003'>[White2003]</a></td>
- <td>["J. White and S. M. Garrett"], "<a href="http://scholar.google.com.au/scholar?q=["Improved+Pattern+Recognition+with+Artificial+Clonal+Selection?"]">["Improved Pattern Recognition with Artificial Clonal Selection?"]</a>", in ["Proceedings Artificial Immune Systems: Second International Conference,\n\tICARIS 2003"], ["2003"].</td>
+ <td>J. White and S. M. Garrett, "<a href="http://scholar.google.com.au/scholar?q=Improved+Pattern+Recognition+with+Artificial+Clonal+Selection?">Improved Pattern Recognition with Artificial Clonal Selection?</a>", in Proceedings Artificial Immune Systems: Second International Conference,\n\tICARIS 2003, 2003.</td>
  </tr>
 </table>
 

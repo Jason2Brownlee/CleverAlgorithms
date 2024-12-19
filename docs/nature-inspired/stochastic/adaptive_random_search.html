@@ -62,31 +62,31 @@ $Iter_{max}$, $Problem_{size}$, <code>SearchSpace</code>, $StepSize_{factor}^{in
 <strong><strong><code>Output</code></strong></strong>: 
 $S$
 <br />
-$NoChange_{count}$ $["\\leftarrow"]$ 0<br />
-$StepSize_{i}$ $["\\leftarrow"]$ <code>InitializeStepSize</code>(<code>SearchSpace</code>, $StepSize_{factor}^{init}$)<br />
-$S$ $["\\leftarrow"]$ <code>RandomSolution</code>($Problem_{size}$, <code>SearchSpace</code>)<br />
-<strong><code>For</code></strong> ($["i=0"]$ <strong><code>To</code></strong> $Iter_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_1$ $["\\leftarrow"]$ <code>TakeStep</code>(<code>SearchSpace</code>, $S$, $StepSize_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $["\\leftarrow"]$ 0<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($["i"]$ $["\\bmod{\StepSize_{factor}^{iter}}"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $["\\leftarrow"]$ $StepSize_{i}$ $["\\times"]$ $StepSize_{factor}^{large}$<br />
+$NoChange_{count}$ $\leftarrow$ 0<br />
+$StepSize_{i}$ $\leftarrow$ <code>InitializeStepSize</code>{<code>SearchSpace</code>, $StepSize_{factor}^{init}$}<br />
+$S$ $\leftarrow$ <code>RandomSolution</code>{$Problem_{size}$, <code>SearchSpace</code>}<br />
+<strong><code>For</code></strong> ($i=0$ <strong><code>To</code></strong> $Iter_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_1$ $\leftarrow$ <code>TakeStep</code>{<code>SearchSpace</code>, $S$, $StepSize_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $\leftarrow$ 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($i$ $\bmod{$StepSize_{factor}^{iter}$}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $\leftarrow$ $StepSize_{i}$ $\times$ $StepSize_{factor}^{large}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $["\\leftarrow"]$ $StepSize_{i}$ $["\\times"]$ $StepSize_{factor}^{small}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}^{large}$ $\leftarrow$ $StepSize_{i}$ $\times$ $StepSize_{factor}^{small}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_2$ $["\\leftarrow"]$ <code>TakeStep</code>(<code>SearchSpace</code>, $S$, $StepSize_{i}^{large}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_1$)$["\\leq"]$<code>Cost</code>($S$) || <code>Cost</code>($S_2$)$["\\leq"]$<code>Cost</code>($S$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_2$)&lt;<code>Cost</code>($S_1$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S$ $["\\leftarrow"]$ $S_2$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}$ $["\\leftarrow"]$ $StepSize_{i}^{large}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_2$ $\leftarrow$ <code>TakeStep</code>{<code>SearchSpace</code>, $S$, $StepSize_{i}^{large}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_1$}$\leq$<code>Cost</code>{$S$} || <code>Cost</code>{$S_2$}$\leq$<code>Cost</code>{$S$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_2$}$<$<code>Cost</code>{$S_1$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S$ $\leftarrow$ $S_2$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}$ $\leftarrow$ $StepSize_{i}^{large}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S$ $["\\leftarrow"]$ $S_1$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S$ $\leftarrow$ $S_1$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $["\\leftarrow"]$ 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $\leftarrow$ 0<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $["\\leftarrow"]$ $NoChange_{count}$ + 1<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($NoChange_{count}$ &gt; $NoChange_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $["\\leftarrow"]$ 0<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}$ $["\\leftarrow"]$ $["\\frac{\StepSize_{i}}{\StepSize_{factor}^{small}}"]$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $\leftarrow$ $NoChange_{count}$ $+$ 1<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($NoChange_{count}$ $>$ $NoChange_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$NoChange_{count}$ $\leftarrow$ 0<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$StepSize_{i}$ $\leftarrow$ $\frac{$StepSize_{i}$}{$StepSize_{factor}^{small}$}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -217,31 +217,31 @@ Masri et al. describe an adaptive random search strategy that alternates between
 <table>
  <tr valign="top">
  <td><a name='Karnopp1963'>[Karnopp1963]</a></td>
- <td>["D. C. Karnopp"], "<a href="http://scholar.google.com.au/scholar?q=["Random+search+techniques+for+optimization+problems"]">["Random search techniques for optimization problems"]</a>", ["Automatica"], ["1963"].</td>
+ <td>D. C. Karnopp, "<a href="http://scholar.google.com.au/scholar?q=Random+search+techniques+for+optimization+problems">Random search techniques for optimization problems</a>", Automatica, 1963.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kregting1971'>[Kregting1971]</a></td>
- <td>["J. Kregting and R. C. White"], "<a href="http://scholar.google.com.au/scholar?q=["Adaptive+random+search"]">["Adaptive random search"]</a>", Technical Report ["TH-Report 71-E-24"], ["Eindhoven University of Technology, Eindhoven, Netherlands"], ["1971"].</td>
+ <td>J. Kregting and R. C. White, "<a href="http://scholar.google.com.au/scholar?q=Adaptive+random+search">Adaptive random search</a>", Technical Report TH-Report 71-E-24, Eindhoven University of Technology, Eindhoven, Netherlands, 1971.</td>
  </tr>
  <tr valign="top">
  <td><a name='Masri1980'>[Masri1980]</a></td>
- <td>["S. F. Masri and G. A. Bekey and F. B. Safford"], "<a href="http://scholar.google.com.au/scholar?q=["Global+Optimization+Algorithm+Using+Adaptive+Random+Search"]">["Global Optimization Algorithm Using Adaptive Random Search"]</a>", ["Applied Mathematics and Computation"], ["1980"].</td>
+ <td>S. F. Masri and G. A. Bekey and F. B. Safford, "<a href="http://scholar.google.com.au/scholar?q=Global+Optimization+Algorithm+Using+Adaptive+Random+Search">Global Optimization Algorithm Using Adaptive Random Search</a>", Applied Mathematics and Computation, 1980.</td>
  </tr>
  <tr valign="top">
  <td><a name='Rastrigin1963'>[Rastrigin1963]</a></td>
- <td>["L. A. Rastrigin"], "<a href="http://scholar.google.com.au/scholar?q=["The+Convergence+of+the+Random+Search+Method+in+the+Extremal+Control\n\tof+a+Many+Parameter+System"]">["The Convergence of the Random Search Method in the Extremal Control\n\tof a Many Parameter System"]</a>", ["Automation and Remote Control"], ["1963"].</td>
+ <td>L. A. Rastrigin, "<a href="http://scholar.google.com.au/scholar?q=The+Convergence+of+the+Random+Search+Method+in+the+Extremal+Control\n\tof+a+Many+Parameter+System">The Convergence of the Random Search Method in the Extremal Control\n\tof a Many Parameter System</a>", Automation and Remote Control, 1963.</td>
  </tr>
  <tr valign="top">
  <td><a name='Schrack1976'>[Schrack1976]</a></td>
- <td>["G. Schrack and M. Choit"], "<a href="http://scholar.google.com.au/scholar?q=["Optimized+relative+step+size+random+searches"]">["Optimized relative step size random searches"]</a>", ["Mathematical Programming"], ["1976"].</td>
+ <td>G. Schrack and M. Choit, "<a href="http://scholar.google.com.au/scholar?q=Optimized+relative+step+size+random+searches">Optimized relative step size random searches</a>", Mathematical Programming, 1976.</td>
  </tr>
  <tr valign="top">
  <td><a name='Schumer1968'>[Schumer1968]</a></td>
- <td>M. ["Schumer and K. "] Steiglitz, "<a href="http://scholar.google.com.au/scholar?q=["Adaptive+step+size+random+search"]">["Adaptive step size random search"]</a>", ["IEEE Transactions on Automatic Control"], ["1968"].</td>
+ <td>M. Schumer and K. Steiglitz, "<a href="http://scholar.google.com.au/scholar?q=Adaptive+step+size+random+search">Adaptive step size random search</a>", IEEE Transactions on Automatic Control, 1968.</td>
  </tr>
  <tr valign="top">
  <td><a name='White1971'>[White1971]</a></td>
- <td>["R. C. White"], "<a href="http://scholar.google.com.au/scholar?q=["A+survey+of+random+methods+for+parameter+optimization"]">["A survey of random methods for parameter optimization"]</a>", ["Simulation"], ["1971"].</td>
+ <td>R. C. White, "<a href="http://scholar.google.com.au/scholar?q=A+survey+of+random+methods+for+parameter+optimization">A survey of random methods for parameter optimization</a>", Simulation, 1971.</td>
  </tr>
 </table>
 

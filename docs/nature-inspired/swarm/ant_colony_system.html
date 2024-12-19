@@ -91,21 +91,21 @@ where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) 
 <strong><strong><code>Output</code></strong></strong>: 
 $P_{best}$
 <br />
-$P_{best}$ $["\\leftarrow"]$ <code>CreateHeuristicSolution</code>(<code>ProblemSize</code>)<br />
-$Pbest_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{h}$)<br />
-$Pheromone_{init}$ $["\\leftarrow"]$ $["\\frac{1.0}{<code>ProblemSize</code> \\times \Pbest_{cost}}"]$<br />
-<code>Pheromone</code> $["\\leftarrow"]$ <code>InitializePheromone</code>($Pheromone_{init}$)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i=1"]$ $["\<strong><code>To</code></strong>"]$ $m$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>ConstructSolution</code>(<code>Pheromone</code>, <code>ProblemSize</code>, $\beta$, $q0$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Cost</code>($S_{i}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Si_{cost}$ $["\\leq"]$ $Pbest_{cost}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Pbest_{cost}$ $["\\leftarrow"]$ $Si_{cost}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{best}$ $["\\leftarrow"]$ $S_{i}$<br />
+$P_{best}$ $\leftarrow$ <code>CreateHeuristicSolution</code>{<code>ProblemSize</code>}<br />
+$Pbest_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{h}$}<br />
+$Pheromone_{init}$ $\leftarrow$ $\frac{1.0}{<code>ProblemSize</code> \times $Pbest_{cost}$}$<br />
+<code>Pheromone</code> $\leftarrow$ <code>InitializePheromone</code>{$Pheromone_{init}$}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $m$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>ConstructSolution</code>{<code>Pheromone</code>, <code>ProblemSize</code>, $\beta$, $q0$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{i}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Si_{cost}$ $\leq$ $Pbest_{cost}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Pbest_{cost}$ $\leftarrow$ $Si_{cost}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$P_{best}$ $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>LocalUpdateAndDecayPheromone</code>(<code>Pheromone</code>, $S_{i}$, $Si_{cost}$, $\sigma$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>LocalUpdateAndDecayPheromone</code>{<code>Pheromone</code>, $S_{i}$, $Si_{cost}$, $\sigma$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>GlobalUpdateAndDecayPheromone</code>(<code>Pheromone</code>, $P_{best}$, $Pbest_{cost}$, $\rho$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>GlobalUpdateAndDecayPheromone</code>{<code>Pheromone</code>, $P_{best}$, $Pbest_{cost}$, $\rho$}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($P_{best}$)<br />
 </div>
@@ -284,27 +284,27 @@ The seminal book on Ant Colony Optimization in general with a detailed treatment
 <table>
  <tr valign="top">
  <td><a name='Bonabeau1999'>[Bonabeau1999]</a></td>
- <td>["E. Bonabeau and M. Dorigo and G. Theraulaz"], "<a href="http://scholar.google.com.au/scholar?q=["Swarm+Intelligence:+From+Natural+to+Artificial+Systems"]">["Swarm Intelligence: From Natural to Artificial Systems"]</a>", ["Oxford University Press US"], ["1999"].</td>
+ <td>E. Bonabeau and M. Dorigo and G. Theraulaz, "<a href="http://scholar.google.com.au/scholar?q=Swarm+Intelligence:+From+Natural+to+Artificial+Systems">Swarm Intelligence: From Natural to Artificial Systems</a>", Oxford University Press US, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1996a'>[Dorigo1996a]</a></td>
- <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["A+study+of+some+properties+of+Ant-Q"]">["A study of some properties of Ant-Q"]</a>", in ["Proceedings of PPSN IV–Fourth International Conference on Parallel\n\tProblem Solving From Nature"], ["1996"].</td>
+ <td>M. Dorigo and L. M. Gambardella, "<a href="http://scholar.google.com.au/scholar?q=A+study+of+some+properties+of+Ant-Q">A study of some properties of Ant-Q</a>", in Proceedings of PPSN IV–Fourth International Conference on Parallel\n\tProblem Solving From Nature, 1996.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1997'>[Dorigo1997]</a></td>
- <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+System+:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problem"]">["Ant Colony System : A Cooperative Learning Approach to the Traveling\n\tSalesman Problem"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["1997"].</td>
+ <td>M. Dorigo and L. M. Gambardella, "<a href="http://scholar.google.com.au/scholar?q=Ant+Colony+System+:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problem">Ant Colony System : A Cooperative Learning Approach to the Traveling\n\tSalesman Problem</a>", IEEE Transactions on Evolutionary Computation, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo1997a'>[Dorigo1997a]</a></td>
- <td>["M. Dorigo and L. M. Gambardella"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+System:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problems"]">["Ant Colony System: A Cooperative Learning Approach to the Traveling\n\tSalesman Problems"]</a>", Technical Report ["TR/IRIDIA/1996-5"], ["IRIDIA, Universit&amp;eacute; Libre de Bruxelles"], ["1997"].</td>
+ <td>M. Dorigo and L. M. Gambardella, "<a href="http://scholar.google.com.au/scholar?q=Ant+Colony+System:+A+Cooperative+Learning+Approach+to+the+Traveling\n\tSalesman+Problems">Ant Colony System: A Cooperative Learning Approach to the Traveling\n\tSalesman Problems</a>", Technical Report TR/IRIDIA/1996-5, IRIDIA, Universit&amp;eacute; Libre de Bruxelles, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Dorigo2004'>[Dorigo2004]</a></td>
- <td>["M. Dorigo and T. St\&amp;uuml;tzle"], "<a href="http://scholar.google.com.au/scholar?q=["Ant+Colony+Optimization"]">["Ant Colony Optimization"]</a>", ["MIT Press"], ["2004"].</td>
+ <td>M. Dorigo and T. St\&amp;uuml;tzle, "<a href="http://scholar.google.com.au/scholar?q=Ant+Colony+Optimization">Ant Colony Optimization</a>", MIT Press, 2004.</td>
  </tr>
  <tr valign="top">
  <td><a name='Gambardella1995'>[Gambardella1995]</a></td>
- <td>["L. Gambardella and M. Dorigo"], "<a href="http://scholar.google.com.au/scholar?q=["Ant&ndash;Q:+A+reinforcement+learning+approach+to+the+traveling+salesman\n\tproblems"]">["Ant&ndash;Q: A reinforcement learning approach to the traveling salesman\n\tproblems"]</a>", in ["Proceedings of ML-95, Twelfth International Conference on Machine\n\tLearning"], ["1995"].</td>
+ <td>L. Gambardella and M. Dorigo, "<a href="http://scholar.google.com.au/scholar?q=Ant&ndash;Q:+A+reinforcement+learning+approach+to+the+traveling+salesman\n\tproblems">Ant&ndash;Q: A reinforcement learning approach to the traveling salesman\n\tproblems</a>", in Proceedings of ML-95, Twelfth International Conference on Machine\n\tLearning, 1995.</td>
  </tr>
 </table>
 

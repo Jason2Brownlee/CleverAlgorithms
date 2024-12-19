@@ -67,28 +67,28 @@ $Population_{size}$, $Archive_{size}$, <code>ProblemSize</code>, $P_{crossover}$
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Archive</code>
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, <code>ProblemSize</code>)<br />
-<code>Archive</code> $["\\leftarrow \\emptyset"]$<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_i$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{objectives}$ $["\\leftarrow"]$ <code>CalculateObjectives</code>($S_i$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, <code>ProblemSize</code>}<br />
+<code>Archive</code> $\leftarrow \emptyset$<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_i$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{objectives}$ $\leftarrow$ <code>CalculateObjectives</code>{$S_i$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $["\\leftarrow"]$ <code>Population</code> + <code>Archive</code><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_i$ $["\\in"]$ <code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{raw}$ $["\\leftarrow"]$ <code>CalculateRawFitness</code>($S_i$, <code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{density}$ $["\\leftarrow"]$ <code>CalculateSolutionDensity</code>($S_i$, <code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{fitness}$ $["\\leftarrow"]$ $Si_{raw}$ + $Si_{density}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Union</code> $\leftarrow$ <code>Population</code> $+$ <code>Archive</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_i$ $\in$ <code>Union</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{raw}$ $\leftarrow$ <code>CalculateRawFitness</code>{$S_i$, <code>Union</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{density}$ $\leftarrow$ <code>CalculateSolutionDensity</code>{$S_i$, <code>Union</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{fitness}$ $\leftarrow$ $Si_{raw}$ $+$ $Si_{density}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Archive</code> $["\\leftarrow"]$ <code>GetNonDominated</code>(<code>Union</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>(<code>Archive</code>) &lt; $Archive_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PopulateWithRemainingBest</code>(<code>Union</code>, <code>Archive</code>, $Archive_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Size</code>(<code>Archive</code>) &gt; $Archive_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RemoveMostSimilar</code>(<code>Archive</code>, $Archive_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Archive</code> $\leftarrow$ <code>GetNonDominated</code>{<code>Union</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Size</code>{<code>Archive</code>} $<$ $Archive_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>PopulateWithRemainingBest</code>{<code>Union</code>, <code>Archive</code>, $Archive_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Size</code>{<code>Archive</code>} $>$ $Archive_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RemoveMostSimilar</code>{<code>Archive</code>, $Archive_{size}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $["\\leftarrow"]$ <code>SelectParents</code>(<code>Archive</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>CrossoverAndMutation</code>(<code>Selected</code>, $P_{crossover}$, $P_{mutation}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $\leftarrow$ <code>SelectParents</code>{<code>Archive</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>CrossoverAndMutation</code>{<code>Selected</code>, $P_{crossover}$, $P_{mutation}$}<br />
 <strong><code>End</code></strong><br />
-<strong><code>Return</code></strong> (GetNonDominated(<code>Archive</code>))<br />
+<strong><code>Return</code></strong> (GetNonDominated{<code>Archive</code>})<br />
 </div>
 <div class='caption'>Pseudocode for SPEA2.</div>
 
@@ -318,31 +318,31 @@ Zitzler, Laumanns, and Bleuler provide a tutorial on SPEA2 as a book chapter tha
 <table>
  <tr valign="top">
  <td><a name='Deb2002'>[Deb2002]</a></td>
- <td>["K. Deb and A. Pratap and S. Agarwal and T. Meyarivan"], "<a href="http://scholar.google.com.au/scholar?q=["A+Fast+and+Elitist+Multiobjective+Genetic+Algorithm:+NSGA&ndash;II"]">["A Fast and Elitist Multiobjective Genetic Algorithm: NSGA&ndash;II"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["2002"].</td>
+ <td>K. Deb and A. Pratap and S. Agarwal and T. Meyarivan, "<a href="http://scholar.google.com.au/scholar?q=A+Fast+and+Elitist+Multiobjective+Genetic+Algorithm:+NSGA&ndash;II">A Fast and Elitist Multiobjective Genetic Algorithm: NSGA&ndash;II</a>", IEEE Transactions on Evolutionary Computation, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler1998'>[Zitzler1998]</a></td>
- <td>["E. Zitzler and L. Thiele"], "<a href="http://scholar.google.com.au/scholar?q=["An+evolutionary+algorithm+for+multiobjective+optimization:+The+strength\n\tpareto+approach"]">["An evolutionary algorithm for multiobjective optimization: The strength\n\tpareto approach"]</a>", Technical Report ["43"], ["Computer Engineering and Networks Laboratory (TIK), Swiss Federal\n\tInstitute of Technology (ETH) Zurich"], ["1998"].</td>
+ <td>E. Zitzler and L. Thiele, "<a href="http://scholar.google.com.au/scholar?q=An+evolutionary+algorithm+for+multiobjective+optimization:+The+strength\n\tpareto+approach">An evolutionary algorithm for multiobjective optimization: The strength\n\tpareto approach</a>", Technical Report 43, Computer Engineering and Networks Laboratory (TIK), Swiss Federal\n\tInstitute of Technology (ETH) Zurich, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler1999'>[Zitzler1999]</a></td>
- <td>["E. Zitzler and L. Thiele"], "<a href="http://scholar.google.com.au/scholar?q=["Multiobjective+evolutionary+algorithms:+A+comparative+case+study\n\tand+the+strength+pareto+approach"]">["Multiobjective evolutionary algorithms: A comparative case study\n\tand the strength pareto approach"]</a>", ["IEEE Transactions on Evolutionary Computation"], ["1999"].</td>
+ <td>E. Zitzler and L. Thiele, "<a href="http://scholar.google.com.au/scholar?q=Multiobjective+evolutionary+algorithms:+A+comparative+case+study\n\tand+the+strength+pareto+approach">Multiobjective evolutionary algorithms: A comparative case study\n\tand the strength pareto approach</a>", IEEE Transactions on Evolutionary Computation, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler1999a'>[Zitzler1999a]</a></td>
- <td>["E. Zitzler"], "<a href="http://scholar.google.com.au/scholar?q=["Evolutionary+Algorithms+for+Multiobjective+Optimization:+Methods\n\tand+Applications"]">["Evolutionary Algorithms for Multiobjective Optimization: Methods\n\tand Applications"]</a>", [PhD Thesis] ["Shaker Verlag, Aachen, Germany"], ["1999"].</td>
+ <td>E. Zitzler, "<a href="http://scholar.google.com.au/scholar?q=Evolutionary+Algorithms+for+Multiobjective+Optimization:+Methods\n\tand+Applications">Evolutionary Algorithms for Multiobjective Optimization: Methods\n\tand Applications</a>", [PhD Thesis] Shaker Verlag, Aachen, Germany, 1999.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler2001'>[Zitzler2001]</a></td>
- <td>["E. Zitzler and M. Laumanns and L. Thiele"], "<a href="http://scholar.google.com.au/scholar?q=["SPEA2:+Improving+the+strength+Pareto+evolutionary+algorithm"]">["SPEA2: Improving the strength Pareto evolutionary algorithm"]</a>", Technical Report ["103"], ["Computer Engineering and Networks Laboratory (TIK), Swiss Federal\n\tInstitute of Technology (ETH) Zurich"], ["2001"].</td>
+ <td>E. Zitzler and M. Laumanns and L. Thiele, "<a href="http://scholar.google.com.au/scholar?q=SPEA2:+Improving+the+strength+Pareto+evolutionary+algorithm">SPEA2: Improving the strength Pareto evolutionary algorithm</a>", Technical Report 103, Computer Engineering and Networks Laboratory (TIK), Swiss Federal\n\tInstitute of Technology (ETH) Zurich, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler2002'>[Zitzler2002]</a></td>
- <td>["E. Zitzler and M. Laumanns and L. Thiele"], "<a href="http://scholar.google.com.au/scholar?q=["SPEA2:+Improving+the+strength+pareto+evolutionary+algorithm+for\n\tmultiobjective+optimization"]">["SPEA2: Improving the strength pareto evolutionary algorithm for\n\tmultiobjective optimization"]</a>", in ["Evolutionary Methods for Design, Optimisation and Control with Application\n\tto Industrial Problems (EUROGEN 2001)"], ["2002"].</td>
+ <td>E. Zitzler and M. Laumanns and L. Thiele, "<a href="http://scholar.google.com.au/scholar?q=SPEA2:+Improving+the+strength+pareto+evolutionary+algorithm+for\n\tmultiobjective+optimization">SPEA2: Improving the strength pareto evolutionary algorithm for\n\tmultiobjective optimization</a>", in Evolutionary Methods for Design, Optimisation and Control with Application\n\tto Industrial Problems (EUROGEN 2001), 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Zitzler2004'>[Zitzler2004]</a></td>
- <td>["E. Zitzler and M. Laumanns and S. Bleuler"], "<a href="http://scholar.google.com.au/scholar?q=["A+Tutorial+on+Evolutionary+Multiobjective+Optimization"]">["A Tutorial on Evolutionary Multiobjective Optimization"]</a>", in ["Metaheuristics for Multiobjective Optimisation"], pages ["3&ndash;37"], ["Springer"], ["2004"].</td>
+ <td>E. Zitzler and M. Laumanns and S. Bleuler, "<a href="http://scholar.google.com.au/scholar?q=A+Tutorial+on+Evolutionary+Multiobjective+Optimization">A Tutorial on Evolutionary Multiobjective Optimization</a>", in Metaheuristics for Multiobjective Optimisation, pages 3&ndash;37, Springer, 2004.</td>
  </tr>
 </table>
 

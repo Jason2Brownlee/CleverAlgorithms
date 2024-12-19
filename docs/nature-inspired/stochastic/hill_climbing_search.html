@@ -60,11 +60,11 @@ $Iter_{max}$, <code>ProblemSize</code>
 <strong><strong><code>Output</code></strong></strong>: 
 <code>Current</code>
 <br />
-<code>Current</code> $["\\leftarrow"]$ <code>RandomSolution</code>(<code>ProblemSize</code>)<br />
-<strong><code>For</code></strong> ($["iter_i \\in"]$ $Iter_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidate</code> $["\\leftarrow"]$ <code>RandomNeighbor</code>(<code>Current</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>(<code>Candidate</code>) $["\\geq"]$ <code>Cost</code>(<code>Current</code>))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Current</code> $["\\leftarrow"]$ <code>Candidate</code><br />
+<code>Current</code> $\leftarrow$ <code>RandomSolution</code>{<code>ProblemSize</code>}<br />
+<strong><code>For</code></strong> ($iter_i \in$ $Iter_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Candidate</code> $\leftarrow$ <code>RandomNeighbor</code>{<code>Current</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{<code>Candidate</code>} $\geq$ <code>Cost</code>{<code>Current</code>})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Current</code> $\leftarrow$ <code>Candidate</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> (<code>Current</code>)<br />
@@ -159,35 +159,35 @@ The Stochastic Hill Climbing algorithm is related to the genetic algorithm witho
 <table>
  <tr valign="top">
  <td><a name='Back1993'>[Back1993]</a></td>
- <td>["T. B\&amp;auml;ck"], "<a href="http://scholar.google.com.au/scholar?q=["Optimal+Mutation+Rates+in+Genetic+Search"]">["Optimal Mutation Rates in Genetic Search"]</a>", in ["Proceedings of the Fifth International Conference on Genetic Algorithms"], ["1993"].</td>
+ <td>T. B\&amp;auml;ck, "<a href="http://scholar.google.com.au/scholar?q=Optimal+Mutation+Rates+in+Genetic+Search">Optimal Mutation Rates in Genetic Search</a>", in Proceedings of the Fifth International Conference on Genetic Algorithms, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Davis1991'>[Davis1991]</a></td>
- <td>["L. Davis"], "<a href="http://scholar.google.com.au/scholar?q=["Bit-climbing,+representational+bias,+and+test+suite+design"]">["Bit-climbing, representational bias, and test suite design"]</a>", in ["Proceedings of the fourth international conference on genetic algorithms"], ["1991"].</td>
+ <td>L. Davis, "<a href="http://scholar.google.com.au/scholar?q=Bit-climbing,+representational+bias,+and+test+suite+design">Bit-climbing, representational bias, and test suite design</a>", in Proceedings of the fourth international conference on genetic algorithms, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Forrest1993'>[Forrest1993]</a></td>
- <td>["S. Forrest and M. Mitchell"], "<a href="http://scholar.google.com.au/scholar?q=["Relative+building-block+fitness+and+the+building-block+hypothesis"]">["Relative building-block fitness and the building-block hypothesis"]</a>", in ["Foundations of Genetic Algorithms 2"], ["1993"].</td>
+ <td>S. Forrest and M. Mitchell, "<a href="http://scholar.google.com.au/scholar?q=Relative+building-block+fitness+and+the+building-block+hypothesis">Relative building-block fitness and the building-block hypothesis</a>", in Foundations of Genetic Algorithms 2, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Juels1994'>[Juels1994]</a></td>
- <td>["A. Juels and M. Wattenberg"], "<a href="http://scholar.google.com.au/scholar?q=["Stochastic+hill+climbing+as+a+baseline+method+for+evaluating+genetic\n\talgorithms"]">["Stochastic hill climbing as a baseline method for evaluating genetic\n\talgorithms"]</a>", ["University of California, Berkeley"], ["1994"].</td>
+ <td>A. Juels and M. Wattenberg, "<a href="http://scholar.google.com.au/scholar?q=Stochastic+hill+climbing+as+a+baseline+method+for+evaluating+genetic\n\talgorithms">Stochastic hill climbing as a baseline method for evaluating genetic\n\talgorithms</a>", University of California, Berkeley, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Mitchell1993'>[Mitchell1993]</a></td>
- <td>["M. Mitchell and J. H. Holland"], "<a href="http://scholar.google.com.au/scholar?q=["When+Will+a+Genetic+Algorithm+Outperform+Hill+Climbing?"]">["When Will a Genetic Algorithm Outperform Hill Climbing?"]</a>", in ["Proceedings of the 5th International Conference on Genetic Algorithms"], ["1993"].</td>
+ <td>M. Mitchell and J. H. Holland, "<a href="http://scholar.google.com.au/scholar?q=When+Will+a+Genetic+Algorithm+Outperform+Hill+Climbing?">When Will a Genetic Algorithm Outperform Hill Climbing?</a>", in Proceedings of the 5th International Conference on Genetic Algorithms, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Muhlenbein1991'>[Muhlenbein1991]</a></td>
- <td>["H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["Evolution+in+time+and+space+-+the+parallel+genetic+algorithm"]">["Evolution in time and space - the parallel genetic algorithm"]</a>", in ["Foundations of Genetic Algorithms"], ["1991"].</td>
+ <td>H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=Evolution+in+time+and+space+-+the+parallel+genetic+algorithm">Evolution in time and space - the parallel genetic algorithm</a>", in Foundations of Genetic Algorithms, 1991.</td>
  </tr>
  <tr valign="top">
  <td><a name='Muhlenbein1992'>[Muhlenbein1992]</a></td>
- <td>["H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["How+Genetic+Algorithms+Really+Work:+I.+Mutation+and+Hillclimbing"]">["How Genetic Algorithms Really Work: I. Mutation and Hillclimbing"]</a>", in ["Parallel Problem Solving from Nature 2"], ["1992"].</td>
+ <td>H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=How+Genetic+Algorithms+Really+Work:+I.+Mutation+and+Hillclimbing">How Genetic Algorithms Really Work: I. Mutation and Hillclimbing</a>", in Parallel Problem Solving from Nature 2, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Skalak1994'>[Skalak1994]</a></td>
- <td>["D. B. Skalak"], "<a href="http://scholar.google.com.au/scholar?q=["Prototype+and+Feature+Selection+by+Sampling+and+Random+Mutation+Hill\n\tClimbing+Algorithms"]">["Prototype and Feature Selection by Sampling and Random Mutation Hill\n\tClimbing Algorithms"]</a>", in ["Proceedings of the eleventh international conference on machine learning"], ["1994"].</td>
+ <td>D. B. Skalak, "<a href="http://scholar.google.com.au/scholar?q=Prototype+and+Feature+Selection+by+Sampling+and+Random+Mutation+Hill\n\tClimbing+Algorithms">Prototype and Feature Selection by Sampling and Random Mutation Hill\n\tClimbing Algorithms</a>", in Proceedings of the eleventh international conference on machine learning, 1994.</td>
  </tr>
 </table>
 

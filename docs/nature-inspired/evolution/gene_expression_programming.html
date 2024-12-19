@@ -78,26 +78,26 @@ Algorithm (below) provides a pseudocode listing of the Gene Expression Programmi
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Population_{size}$, <code>Grammar</code>, $Head_{length}$, $Tail_{length}$)<br />
-<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Population</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $["\\leftarrow"]$ <code>DecodeBreadthFirst</code>($Si_{genome}$, <code>Grammar</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Execute</code>($Si_{program}$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Population_{size}$, <code>Grammar</code>, $Head_{length}$, $Tail_{length}$}<br />
+<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Population</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $\leftarrow$ <code>DecodeBreadthFirst</code>{$Si_{genome}$, <code>Grammar</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Execute</code>{$Si_{program}$}<br />
 <strong><code>End</code></strong><br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $["\\leftarrow"]$ <code>SelectParents</code>(<code>Population</code>, $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow \\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{1}$, $Parent_{2}$ $["\\in"]$ <code>Parents</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{genome}$ $["\\leftarrow"]$ <code>Crossover</code>($Parent_{1}$, $Parent_{2}$, $P_{crossover}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{genome}$ $["\\leftarrow"]$ <code>Mutate</code>($Si_{genome}$, $P_{mutation}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $["\\leftarrow"]$ $S_{i}$<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Parents</code> $\leftarrow$ <code>SelectParents</code>{<code>Population</code>, $Population_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow \emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Parent_{1}$, $Parent_{2}$ $\in$ <code>Parents</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{genome}$ $\leftarrow$ <code>Crossover</code>{$Parent_{1}$, $Parent_{2}$, $P_{crossover}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{genome}$ $\leftarrow$ <code>Mutate</code>{$Si_{genome}$, $P_{mutation}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Children</code> $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $["\\in"]$ <code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $["\\leftarrow"]$ <code>DecodeBreadthFirst</code>($Si_{genome}$, <code>Grammar</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $["\\leftarrow"]$ <code>Execute</code>($Si_{program}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($S_{i}$ $\in$ <code>Children</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{program}$ $\leftarrow$ <code>DecodeBreadthFirst</code>{$Si_{genome}$, <code>Grammar</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Si_{cost}$ $\leftarrow$ <code>Execute</code>{$Si_{program}$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Replace</code>(<code>Population</code>, <code>Children</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Children</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Replace</code>{<code>Population</code>, <code>Children</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Children</code>}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -292,19 +292,19 @@ Ferreira published a book on the approach in 2002 covering background, the algor
 <table>
  <tr valign="top">
  <td><a name='Ferreira2001'>[Ferreira2001]</a></td>
- <td>["C. Ferreira"], "<a href="http://scholar.google.com.au/scholar?q=["Gene+Expression+Programming:+A+New+Adaptive+Algorithm+for+Solving\n\tProblems"]">["Gene Expression Programming: A New Adaptive Algorithm for Solving\n\tProblems"]</a>", ["Complex Systems"], ["2001"].</td>
+ <td>C. Ferreira, "<a href="http://scholar.google.com.au/scholar?q=Gene+Expression+Programming:+A+New+Adaptive+Algorithm+for+Solving\n\tProblems">Gene Expression Programming: A New Adaptive Algorithm for Solving\n\tProblems</a>", Complex Systems, 2001.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ferreira2002'>[Ferreira2002]</a></td>
- <td>["C. Ferreira"], "<a href="http://scholar.google.com.au/scholar?q=["Gene+Expression+Programming+in+Problem+Solving"]">["Gene Expression Programming in Problem Solving"]</a>", in ["Soft Computing and Industry: Recent Applications"], pages ["635&ndash;654"], ["Springer-Verlag"], ["2002"].</td>
+ <td>C. Ferreira, "<a href="http://scholar.google.com.au/scholar?q=Gene+Expression+Programming+in+Problem+Solving">Gene Expression Programming in Problem Solving</a>", in Soft Computing and Industry: Recent Applications, pages 635&ndash;654, Springer-Verlag, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ferreira2005'>[Ferreira2005]</a></td>
- <td>["C. Ferreira"], "<a href="http://scholar.google.com.au/scholar?q=["Gene+Expression+Programming+and+the+Evolution+of+computer+programs"]">["Gene Expression Programming and the Evolution of computer programs"]</a>", in ["Recent Developments in Biologically Inspired Computing"], pages ["82&ndash;103"], ["Idea Group Publishing"], ["2005"].</td>
+ <td>C. Ferreira, "<a href="http://scholar.google.com.au/scholar?q=Gene+Expression+Programming+and+the+Evolution+of+computer+programs">Gene Expression Programming and the Evolution of computer programs</a>", in Recent Developments in Biologically Inspired Computing, pages 82&ndash;103, Idea Group Publishing, 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ferreira2006'>[Ferreira2006]</a></td>
- <td>["C. Ferreira"], "<a href="http://scholar.google.com.au/scholar?q=["Gene+expression+programming:+Mathematical+modeling+by+an+artificial\n\tintelligence"]">["Gene expression programming: Mathematical modeling by an artificial\n\tintelligence"]</a>", ["Springer-Verlag"], ["2006"].</td>
+ <td>C. Ferreira, "<a href="http://scholar.google.com.au/scholar?q=Gene+expression+programming:+Mathematical+modeling+by+an+artificial\n\tintelligence">Gene expression programming: Mathematical modeling by an artificial\n\tintelligence</a>", Springer-Verlag, 2006.</td>
  </tr>
 </table>
 

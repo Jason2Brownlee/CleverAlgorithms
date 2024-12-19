@@ -67,19 +67,19 @@ $Bits_{num}$, $Population_{size}$, $Selection_{size}$
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-<code>Population</code> $["\\leftarrow"]$ <code>InitializePopulation</code>($Bits_{num}$, $Population_{size}$)<br />
-<code>EvaluatePopulation</code>(<code>Population</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Population</code>)<br />
-<strong><code>While</code></strong> ($["\\neg"]$<code>StopCondition</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $["\\leftarrow"]$ <code>SelectFitSolutions</code>(<code>Population</code>, $Selection_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$V$ $["\\leftarrow"]$ <code>CalculateFrequencyOfComponents</code>(<code>Selected</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Offspring</code> $["\\leftarrow"]$ $["\\emptyset"]$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($["i"]$ <strong><code>To</code></strong> $Population_{size}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Offspring</code> $["\\leftarrow"]$ <code>ProbabilisticallyConstructSolution</code>($V$)<br />
+<code>Population</code> $\leftarrow$ <code>InitializePopulation</code>{$Bits_{num}$, $Population_{size}$}<br />
+<code>EvaluatePopulation</code>{<code>Population</code>}<br />
+$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br />
+<strong><code>While</code></strong> ($\neg$<code>StopCondition</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Selected</code> $\leftarrow$ <code>SelectFitSolutions</code>{<code>Population</code>, $Selection_{size}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$V$ $\leftarrow$ <code>CalculateFrequencyOfComponents</code>{<code>Selected</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Offspring</code> $\leftarrow$ $\emptyset$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($i$ <strong><code>To</code></strong> $Population_{size}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>Offspring</code> $\leftarrow$ <code>ProbabilisticallyConstructSolution</code>{$V$}<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>(<code>Offspring</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ <code>GetBestSolution</code>(<code>Offspring</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $["\\leftarrow"]$ <code>Offspring</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>EvaluatePopulation</code>{<code>Offspring</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Offspring</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<code>Population</code> $\leftarrow$ <code>Offspring</code><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
@@ -190,19 +190,19 @@ Pelikan and M&uuml;hlenbein extended the approach to cover problems that have de
 <table>
  <tr valign="top">
  <td><a name='Baluja1994'>[Baluja1994]</a></td>
- <td>S."] ["Baluja, "<a href="http://scholar.google.com.au/scholar?q=["Population-Based+Incremental+Learning:+A+Method+for+Integrating+Genetic\n\tSearch+Based+Function+Optimization+and+Competitive+Learning"]">["Population-Based Incremental Learning: A Method for Integrating Genetic\n\tSearch Based Function Optimization and Competitive Learning"]</a>", Technical Report ["CMU-CS-94-163"], ["School of Computer Science, Carnegie Mellon University"], ["1994"].</td>
+ <td>S. Baluja, "<a href="http://scholar.google.com.au/scholar?q=Population-Based+Incremental+Learning:+A+Method+for+Integrating+Genetic\n\tSearch+Based+Function+Optimization+and+Competitive+Learning">Population-Based Incremental Learning: A Method for Integrating Genetic\n\tSearch Based Function Optimization and Competitive Learning</a>", Technical Report CMU-CS-94-163, School of Computer Science, Carnegie Mellon University, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Muhlenbein1997'>[Muhlenbein1997]</a></td>
- <td>["H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["The+equation+for+response+to+selection+and+its+use+for+prediction"]">["The equation for response to selection and its use for prediction"]</a>", ["Evolutionary Computation"], ["1997"].</td>
+ <td>H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=The+equation+for+response+to+selection+and+its+use+for+prediction">The equation for response to selection and its use for prediction</a>", Evolutionary Computation, 1997.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pelikan1998'>[Pelikan1998]</a></td>
- <td>["M. Pelikan and H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["Marginal+distributions+in+evolutionary+algorithms"]">["Marginal distributions in evolutionary algorithms"]</a>", in ["Proceedings of the International Conference on Genetic Algorithms\n\tMendel"], ["1998"].</td>
+ <td>M. Pelikan and H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=Marginal+distributions+in+evolutionary+algorithms">Marginal distributions in evolutionary algorithms</a>", in Proceedings of the International Conference on Genetic Algorithms\n\tMendel, 1998.</td>
  </tr>
  <tr valign="top">
  <td><a name='Pelikan1999'>[Pelikan1999]</a></td>
- <td>["M. Pelikan and H. M\&amp;uuml;hlenbein"], "<a href="http://scholar.google.com.au/scholar?q=["The+Bivariate+Marginal+Distribution+Algorithm"]">["The Bivariate Marginal Distribution Algorithm"]</a>", in ["Advances in Soft Computing: Engineering Design and Manufacturing"], pages ["521&ndash;535"], ["Springer"], ["1999"].</td>
+ <td>M. Pelikan and H. M\&amp;uuml;hlenbein, "<a href="http://scholar.google.com.au/scholar?q=The+Bivariate+Marginal+Distribution+Algorithm">The Bivariate Marginal Distribution Algorithm</a>", in Advances in Soft Computing: Engineering Design and Manufacturing, pages 521&ndash;535, Springer, 1999.</td>
  </tr>
 </table>
 

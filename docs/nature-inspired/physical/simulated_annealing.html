@@ -72,18 +72,18 @@ Algorithm (below) provides a pseudocode listing of the main Simulated Annealing 
 <strong><strong><code>Output</code></strong></strong>: 
 $S_{best}$
 <br />
-$S_{current}$ $["\\leftarrow"]$ <code>CreateInitialSolution</code>(<code>ProblemSize</code>)<br />
-$S_{best}$ $["\\leftarrow"]$ $S_{current}$<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $["\\leftarrow"]$ <code>CreateNeighborSolution</code>($S_{current}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$temp_{curr}$ $["\\leftarrow"]$ <code>CalculateTemperature</code>($["i"]$, $temp_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{i}$) $["\\leq"]$ <code>Cost</code>($S_{current}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $["\\leftarrow"]$ $S_{i}$<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>($S_{i}$) $["\\leq"]$ <code>Cost</code>($S_{best}$))<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $["\\leftarrow"]$ $S_{i}$<br />
+$S_{current}$ $\leftarrow$ <code>CreateInitialSolution</code>{<code>ProblemSize</code>}<br />
+$S_{best}$ $\leftarrow$ $S_{current}$<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$S_{i}$ $\leftarrow$ <code>CreateNeighborSolution</code>{$S_{current}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$temp_{curr}$ $\leftarrow$ <code>CalculateTemperature</code>{$i$, $temp_{max}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{i}$} $\leq$ <code>Cost</code>{$S_{current}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $\leftarrow$ $S_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> (<code>Cost</code>{$S_{i}$} $\leq$ <code>Cost</code>{$S_{best}$})<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{best}$ $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Exp</code>( $["\\frac{<code>Cost</code>{\S_{current}} - <code>Cost</code>{\S_{i}}}{\temp_{curr}}"]$ ) &gt; <code>Rand</code>())<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $["\\leftarrow"]$ $S_{i}$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> (<code>Exp</code>{ $\frac{<code>Cost</code>{$S_{current}$} - <code>Cost</code>{$S_{i}$}}{$temp_{curr}$}$ } $>$ <code>Rand</code>())<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$S_{current}$ $\leftarrow$ $S_{i}$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
@@ -221,31 +221,31 @@ There are books dedicated to Simulated Annealing, applications and variations. T
 <table>
  <tr valign="top">
  <td><a name='Azencott1992'>[Azencott1992]</a></td>
- <td>["R. Azencott"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+annealing:+parallelization+techniques"]">["Simulated annealing: parallelization techniques"]</a>", ["Wiley"], ["1992"].</td>
+ <td>R. Azencott, "<a href="http://scholar.google.com.au/scholar?q=Simulated+annealing:+parallelization+techniques">Simulated annealing: parallelization techniques</a>", Wiley, 1992.</td>
  </tr>
  <tr valign="top">
  <td><a name='Granville1994'>[Granville1994]</a></td>
- <td>["V. Granville and M. Krivanek and J&ndash;P. Rasson"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+annealing:+A+proof+of+convergence"]">["Simulated annealing: A proof of convergence"]</a>", ["IEEE Transactions on Pattern Analysis and Machine Intelligence"], ["1994"].</td>
+ <td>V. Granville and M. Krivanek and J&ndash;P. Rasson, "<a href="http://scholar.google.com.au/scholar?q=Simulated+annealing:+A+proof+of+convergence">Simulated annealing: A proof of convergence</a>", IEEE Transactions on Pattern Analysis and Machine Intelligence, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Ingber1993'>[Ingber1993]</a></td>
- <td>["L. Ingber"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+Annealing:+Practice+versus+theory"]">["Simulated Annealing: Practice versus theory"]</a>", ["Math. Comput. Modelling"], ["1993"].</td>
+ <td>L. Ingber, "<a href="http://scholar.google.com.au/scholar?q=Simulated+Annealing:+Practice+versus+theory">Simulated Annealing: Practice versus theory</a>", Math. Comput. Modelling, 1993.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kirkpatrick1983'>[Kirkpatrick1983]</a></td>
- <td>["S. Kirkpatrick and C. D. Gelatt and M. P. Vecchi"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+by+Simulated+Annealing"]">["Optimization by Simulated Annealing"]</a>", ["Science"], ["1983"].</td>
+ <td>S. Kirkpatrick and C. D. Gelatt and M. P. Vecchi, "<a href="http://scholar.google.com.au/scholar?q=Optimization+by+Simulated+Annealing">Optimization by Simulated Annealing</a>", Science, 1983.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kirkpatrick1983a'>[Kirkpatrick1983a]</a></td>
- <td>["S. Kirkpatrick"], "<a href="http://scholar.google.com.au/scholar?q=["Optimization+by+simulated+annealing:+Quantitative+studies"]">["Optimization by simulated annealing: Quantitative studies"]</a>", ["Journal of Statistical Physics"], ["1983"].</td>
+ <td>S. Kirkpatrick, "<a href="http://scholar.google.com.au/scholar?q=Optimization+by+simulated+annealing:+Quantitative+studies">Optimization by simulated annealing: Quantitative studies</a>", Journal of Statistical Physics, 1983.</td>
  </tr>
  <tr valign="top">
  <td><a name='Laarhoven1988'>[Laarhoven1988]</a></td>
- <td>["P. J. M. van Laarhoven and E. H. L. Aarts"], "<a href="http://scholar.google.com.au/scholar?q=["Simulated+Annealing:+Theory+and+Applications"]">["Simulated Annealing: Theory and Applications"]</a>", ["Springer"], ["1988"].</td>
+ <td>P. J. M. van Laarhoven and E. H. L. Aarts, "<a href="http://scholar.google.com.au/scholar?q=Simulated+Annealing:+Theory+and+Applications">Simulated Annealing: Theory and Applications</a>", Springer, 1988.</td>
  </tr>
  <tr valign="top">
  <td><a name='Vecchi1983'>[Vecchi1983]</a></td>
- <td>M. P. ["Vecchi and S."] Kirkpatrick, "<a href="http://scholar.google.com.au/scholar?q=["Global+wiring+by+simulated+annealing"]">["Global wiring by simulated annealing"]</a>", ["IEEE Transactions on Computer-Aided Design of Integrated Circuits\n\tand Systems"], ["1983"].</td>
+ <td>M. P. Vecchi and S. Kirkpatrick, "<a href="http://scholar.google.com.au/scholar?q=Global+wiring+by+simulated+annealing">Global wiring by simulated annealing</a>", IEEE Transactions on Computer-Aided Design of Integrated Circuits\n\tand Systems, 1983.</td>
  </tr>
 </table>
 

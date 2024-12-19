@@ -77,15 +77,15 @@ where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"
 <strong><strong><code>Output</code></strong></strong>: 
 <code>CodebookVectors</code>
 <br />
-<code>CodebookVectors</code> $["\\leftarrow"]$ <code>InitializeCodebookVectors</code>($CodebookVectors_{num}$, <code>ProblemSize</code>)<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $["\\leftarrow"]$ <code>SelectInputPattern</code>(<code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_i$ $["\\leftarrow"]$ <code>SelectBestMatchingUnit</code>($Pattern_i$, <code>CodebookVectors</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Bmu_{i}^{attribute}$ $["\\in"]$ $Bmu_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Bmu_{i}^{class}$ $["\\equiv"]$ $Pattern_{i}^{class}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_{i}^{attribute}$ $["\\leftarrow"]$ $Bmu_{i}^{attribute}$ + $learn_{rate}$ $["\\times"]$ ($Pattern_{i}^{attribute}$ &ndash; $Bmu_{i}^{attribute}$)<br />
+<code>CodebookVectors</code> $\leftarrow$ <code>InitializeCodebookVectors</code>{$CodebookVectors_{num}$, <code>ProblemSize</code>}<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Pattern_i$ $\leftarrow$ <code>SelectInputPattern</code>{<code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_i$ $\leftarrow$ <code>SelectBestMatchingUnit</code>{$Pattern_i$, <code>CodebookVectors</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Bmu_{i}^{attribute}$ $\in$ $Bmu_i$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Bmu_{i}^{class}$ $\equiv$ $Pattern_{i}^{class}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_{i}^{attribute}$ $\leftarrow$ $Bmu_{i}^{attribute}$ $+$ $learn_{rate}$ $\times$ ($Pattern_{i}^{attribute}$ $-$ $Bmu_{i}^{attribute}$)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_{i}^{attribute}$ $["\\leftarrow"]$ $Bmu_{i}^{attribute}$ &ndash; $learn_{rate}$ $["\\times"]$ ($Pattern_{i}^{attribute}$ &ndash; $Bmu_{i}^{attribute}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Bmu_{i}^{attribute}$ $\leftarrow$ $Bmu_{i}^{attribute}$ $-$ $learn_{rate}$ $\times$ ($Pattern_{i}^{attribute}$ $-$ $Bmu_{i}^{attribute}$)<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -236,27 +236,27 @@ The seminal book on Learning Vector Quantization and the Self-Organizing Map is 
 <table>
  <tr valign="top">
  <td><a name='Kohonen1988'>[Kohonen1988]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["Learning+Vector+Quantization"]">["Learning Vector Quantization"]</a>", ["Neural Networks"], ["1988"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Learning+Vector+Quantization">Learning Vector Quantization</a>", Neural Networks, 1988.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1988a'>[Kohonen1988a]</a></td>
- <td>["T. Kohonen"], "<a href="http://scholar.google.com.au/scholar?q=["An+introduction+to+neural+computing"]">["An introduction to neural computing"]</a>", ["Neural Networks"], ["1988"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=An+introduction+to+neural+computing">An introduction to neural computing</a>", Neural Networks, 1988.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1988b'>[Kohonen1988b]</a></td>
- <td>T. ["Kohonen and G. Barna and R."] Chrisley, "<a href="http://scholar.google.com.au/scholar?q=["Statistical+pattern+recognition+with+neural+networks:+benchmarking\n\tstudies"]">["Statistical pattern recognition with neural networks: benchmarking\n\tstudies"]</a>", in ["IEEE International Conference on Neural Networks"], ["1988"].</td>
+ <td>T. Kohonen and G. Barna and R. Chrisley, "<a href="http://scholar.google.com.au/scholar?q=Statistical+pattern+recognition+with+neural+networks:+benchmarking\n\tstudies">Statistical pattern recognition with neural networks: benchmarking\n\tstudies</a>", in IEEE International Conference on Neural Networks, 1988.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1990'>[Kohonen1990]</a></td>
- <td>T."] ["Kohonen, "<a href="http://scholar.google.com.au/scholar?q=["Improved+versions+of+learning+vector+quantization"]">["Improved versions of learning vector quantization"]</a>", in ["IJCNN International Joint Conference on Neural Networks"], ["1990"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Improved+versions+of+learning+vector+quantization">Improved versions of learning vector quantization</a>", in IJCNN International Joint Conference on Neural Networks, 1990.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1995'>[Kohonen1995]</a></td>
- <td>["T. Kohonen"], "<a href="http://scholar.google.com.au/scholar?q=["Self-Organizing+Maps"]">["Self-Organizing Maps"]</a>", ["Springer"], ["1995"].</td>
+ <td>T. Kohonen, "<a href="http://scholar.google.com.au/scholar?q=Self-Organizing+Maps">Self-Organizing Maps</a>", Springer, 1995.</td>
  </tr>
  <tr valign="top">
  <td><a name='Kohonen1996'>[Kohonen1996]</a></td>
- <td>["T. Kohonen and J. Hynninen and J. Kangas and J. Laaksonen and K.\n\tTorkkola"], "<a href="http://scholar.google.com.au/scholar?q=["LVQ&ndash;PAK:+The+Learning+Vector+Quantization+Program+Package"]">["LVQ&ndash;PAK: The Learning Vector Quantization Program Package"]</a>", Technical Report ["A30"], ["Helsinki University of Technology, Laboratory of Computer and Information\n\tScience, Rakentajanaukio"], ["1996"].</td>
+ <td>T. Kohonen and J. Hynninen and J. Kangas and J. Laaksonen and K.\n\tTorkkola, "<a href="http://scholar.google.com.au/scholar?q=LVQ&ndash;PAK:+The+Learning+Vector+Quantization+Program+Package">LVQ&ndash;PAK: The Learning Vector Quantization Program Package</a>", Technical Report A30, Helsinki University of Technology, Laboratory of Computer and Information\n\tScience, Rakentajanaukio, 1996.</td>
  </tr>
 </table>
 

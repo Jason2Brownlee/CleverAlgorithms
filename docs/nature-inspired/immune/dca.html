@@ -69,26 +69,26 @@ The resulting migrated cells can then be used to classify input patterns as norm
 <strong><strong><code>Output</code></strong></strong>: 
 <code>MigratedCells</code>
 <br />
-<code>ImmatureCells</code> $["\\leftarrow"]$ <code>InitializeCells</code>($cells_{num}$, $MigrationThresh_{bounds}$)<br />
-<code>MigratedCells</code> $["\\leftarrow"]$ $["\\emptyset"]$<br />
-<strong><code>For</code></strong> ($["i=1"]$ <strong><code>To</code></strong> $iterations_{max}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$P_i$ $["\\leftarrow"]$ <code>SelectInputPattern</code>(<code>InputPatterns</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$k_i$ $["\\leftarrow"]$ ($Pi_{danger}$ &ndash; 2 $["\\times"]$ $Pi_{safe}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;$cms_i$ $["\\leftarrow"]$ ($Pi_{danger}$ + $Pi_{safe}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_i$ $["\\in"]$ <code>ImmatureCells</code>)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateCellOutputSignals</code>($Cell_i$, $k_i$, $cms_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>StoreAntigen</code>($Cell_i$, $Pi_{antigen}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Celli_{lifespan}$ $["\\leq"]$ $["0"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ReInitializeCell</code>($Cell_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> ($Celli_{csm}$ $["\\geq"]$ $Celli_{thresh}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RemoveCell</code>(<code>ImmatureCells</code>, $Cell_i$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ImmatureCells</code> $["\\leftarrow"]$ <code>CreateNewCell</code>($MigrationThresh_{bounds}$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Celli_{k}$ &lt; $["0"]$)<br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Celli_{type}$ $["\\leftarrow"]$ <code>Mature</code><br />
+<code>ImmatureCells</code> $\leftarrow$ <code>InitializeCells</code>{$cells_{num}$, $MigrationThresh_{bounds}$}<br />
+<code>MigratedCells</code> $\leftarrow$ $\emptyset$<br />
+<strong><code>For</code></strong> ($i=1$ <strong><code>To</code></strong> $iterations_{max}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$P_i$ $\leftarrow$ <code>SelectInputPattern</code>{<code>InputPatterns</code>}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$k_i$ $\leftarrow$ ($Pi_{danger}$ $-$ 2 $\times$ $Pi_{safe}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;$cms_i$ $\leftarrow$ ($Pi_{danger}$ + $Pi_{safe}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>For</code></strong> ($Cell_i$ $\in$ <code>ImmatureCells</code>)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>UpdateCellOutputSignals</code>{$Cell_i$, $k_i$, $cms_i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>StoreAntigen</code>{$Cell_i$, $Pi_{antigen}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Celli_{lifespan}$ $\leq$ $0$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ReInitializeCell</code>{$Cell_i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>ElseIf</code></strong> ($Celli_{csm}$ $\geq$ $Celli_{thresh}$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>RemoveCell</code>{<code>ImmatureCells</code>, $Cell_i$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>ImmatureCells</code> $\leftarrow$ <code>CreateNewCell</code>{$MigrationThresh_{bounds}$}<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>If</code></strong> ($Celli_{k}$ $<$ $0$)<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Celli_{type}$ $\leftarrow$ <code>Mature</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>Else</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Celli_{type}$ $["\\leftarrow"]$ <code>Semimature</code><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;$Celli_{type}$ $\leftarrow$ <code>Semimature</code><br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>MigratedCells</code> $["\\leftarrow"]$ $Cell_i$<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<code>MigratedCells</code> $\leftarrow$ $Cell_i$<br />
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 &nbsp;&nbsp;&nbsp;&nbsp;<strong><code>End</code></strong><br />
 <strong><code>End</code></strong><br />
@@ -291,39 +291,39 @@ Greensmith and Aickelin provide a detailed overview of the Dendritic Cell Algori
 <table>
  <tr valign="top">
  <td><a name='Greensmith2005'>[Greensmith2005]</a></td>
- <td>["J. Greensmith and U. Aickelin and S. Cayzer"], "<a href="http://scholar.google.com.au/scholar?q=["Introducing+dendritic+cells+as+a+novel+immune-inspired+algorithm\n\tfor+anomaly+detection"]">["Introducing dendritic cells as a novel immune-inspired algorithm\n\tfor anomaly detection"]</a>", in ["Proceedings of the Fourth International Conference on Artificial\n\tImmune Systems (ICARIS 2005)"], ["2005"].</td>
+ <td>J. Greensmith and U. Aickelin and S. Cayzer, "<a href="http://scholar.google.com.au/scholar?q=Introducing+dendritic+cells+as+a+novel+immune-inspired+algorithm\n\tfor+anomaly+detection">Introducing dendritic cells as a novel immune-inspired algorithm\n\tfor anomaly detection</a>", in Proceedings of the Fourth International Conference on Artificial\n\tImmune Systems (ICARIS 2005), 2005.</td>
  </tr>
  <tr valign="top">
  <td><a name='Greensmith2006'>[Greensmith2006]</a></td>
- <td>["J. Greensmith and J. Twycross and U. Aickelin"], "<a href="http://scholar.google.com.au/scholar?q=["Dendritic+Cells+for+Anomaly+Detection"]">["Dendritic Cells for Anomaly Detection"]</a>", in ["Proceedings of the IEEE Congress on Evolutionary Computation (CEC2006)"], ["2006"].</td>
+ <td>J. Greensmith and J. Twycross and U. Aickelin, "<a href="http://scholar.google.com.au/scholar?q=Dendritic+Cells+for+Anomaly+Detection">Dendritic Cells for Anomaly Detection</a>", in Proceedings of the IEEE Congress on Evolutionary Computation (CEC2006), 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Greensmith2006a'>[Greensmith2006a]</a></td>
- <td>["J. Greensmith and U. Aickelin and J. Twycross"], "<a href="http://scholar.google.com.au/scholar?q=["Articulation+and+Clarification+of+the+Dendritic+Cell+Algorithm"]">["Articulation and Clarification of the Dendritic Cell Algorithm"]</a>", in ["Proceedings of the 5th International Conference on Artificial Immune\n\tSystems (ICARIS 2006)"], ["2006"].</td>
+ <td>J. Greensmith and U. Aickelin and J. Twycross, "<a href="http://scholar.google.com.au/scholar?q=Articulation+and+Clarification+of+the+Dendritic+Cell+Algorithm">Articulation and Clarification of the Dendritic Cell Algorithm</a>", in Proceedings of the 5th International Conference on Artificial Immune\n\tSystems (ICARIS 2006), 2006.</td>
  </tr>
  <tr valign="top">
  <td><a name='Greensmith2007'>[Greensmith2007]</a></td>
- <td>["J. Greensmith"], "<a href="http://scholar.google.com.au/scholar?q=["The+Dendritic+Cell+Algorithm"]">["The Dendritic Cell Algorithm"]</a>", [PhD Thesis] ["University of Nottingham"], ["2007"].</td>
+ <td>J. Greensmith, "<a href="http://scholar.google.com.au/scholar?q=The+Dendritic+Cell+Algorithm">The Dendritic Cell Algorithm</a>", [PhD Thesis] University of Nottingham, 2007.</td>
  </tr>
  <tr valign="top">
  <td><a name='Greensmith2008'>[Greensmith2008]</a></td>
- <td>["J. Greensmith and U. Aickelin"], "<a href="http://scholar.google.com.au/scholar?q=["The+Deterministic+Dendritic+Cell+Algorithm"]">["The Deterministic Dendritic Cell Algorithm"]</a>", in ["Proceedings of the 7th International Conference on Artificial Immune\n\tSystems (ICARIS 2007)"], ["2008"].</td>
+ <td>J. Greensmith and U. Aickelin, "<a href="http://scholar.google.com.au/scholar?q=The+Deterministic+Dendritic+Cell+Algorithm">The Deterministic Dendritic Cell Algorithm</a>", in Proceedings of the 7th International Conference on Artificial Immune\n\tSystems (ICARIS 2007), 2008.</td>
  </tr>
  <tr valign="top">
  <td><a name='Greensmith2009'>[Greensmith2009]</a></td>
- <td>J. ["Greensmith and U."] Aickelin, "<a href="http://scholar.google.com.au/scholar?q=["Artificial+Dendritic+Cells:+Multi-faceted+Perspectives"]">["Artificial Dendritic Cells: Multi-faceted Perspectives"]</a>", in ["Human-Centric Information Processing Through Granular Modelling"], pages ["375&ndash;395"], ["Springer"], ["2009"].</td>
+ <td>J. Greensmith and U. Aickelin, "<a href="http://scholar.google.com.au/scholar?q=Artificial+Dendritic+Cells:+Multi-faceted+Perspectives">Artificial Dendritic Cells: Multi-faceted Perspectives</a>", in Human-Centric Information Processing Through Granular Modelling, pages 375&ndash;395, Springer, 2009.</td>
  </tr>
  <tr valign="top">
  <td><a name='Matzinger1994'>[Matzinger1994]</a></td>
- <td>P."] ["Matzinger, "<a href="http://scholar.google.com.au/scholar?q=["Tolerance,+danger,+and+the+extended+family"]">["Tolerance, danger, and the extended family"]</a>", ["Annual Review of Immunology"], ["1994"].</td>
+ <td>P. Matzinger, "<a href="http://scholar.google.com.au/scholar?q=Tolerance,+danger,+and+the+extended+family">Tolerance, danger, and the extended family</a>", Annual Review of Immunology, 1994.</td>
  </tr>
  <tr valign="top">
  <td><a name='Matzinger2002'>[Matzinger2002]</a></td>
- <td>P."] ["Matzinger, "<a href="http://scholar.google.com.au/scholar?q=["The+Danger+Model:+A+Renewed+Sense+of+Self"]">["The Danger Model: A Renewed Sense of Self"]</a>", ["Science"], ["2002"].</td>
+ <td>P. Matzinger, "<a href="http://scholar.google.com.au/scholar?q=The+Danger+Model:+A+Renewed+Sense+of+Self">The Danger Model: A Renewed Sense of Self</a>", Science, 2002.</td>
  </tr>
  <tr valign="top">
  <td><a name='Stibor2009'>[Stibor2009]</a></td>
- <td>["T. Stibor and R. Oates and G. Kendall and J. M. Garibaldi"], "<a href="http://scholar.google.com.au/scholar?q=["Geometrical+insights+into+the+dendritic+cell+algorithms"]">["Geometrical insights into the dendritic cell algorithms"]</a>", in ["Proceedings of the 11th Annual conference on Genetic and evolutionary\n\tcomputation"], ["2009"].</td>
+ <td>T. Stibor and R. Oates and G. Kendall and J. M. Garibaldi, "<a href="http://scholar.google.com.au/scholar?q=Geometrical+insights+into+the+dendritic+cell+algorithms">Geometrical insights into the dendritic cell algorithms</a>", in Proceedings of the 11th Annual conference on Genetic and evolutionary\n\tcomputation, 2009.</td>
  </tr>
 </table>
 
