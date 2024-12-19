@@ -1,6 +1,6 @@
 h1. Clever Algorithms: Nature-Inspired Programming Recipes
 
-!https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/cover_3d.jpg!
+!release/cover_3d.jpg!
 
 h2. Overview
 
@@ -15,7 +15,10 @@ h3. Book Details
 h3. Download
 
 * "PDF":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms.pdf
-* "Source Code":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms-src.zip
+* "Source Code (.zip)":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms-src.zip
+* "Read Online (Google Books)":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
+* "Amazon (paperback, kindle)":https://www.goodreads.com/book/show/10321060-clever-algorithms
+* "Reviews (GoodReads)":https://www.goodreads.com/book/show/10321060-clever-algorithms
 
 h3. Blurb
 
@@ -94,7 +97,7 @@ h2. Project
 h3. How to Build
 
 # Assumes a POSIX workstation with LaTex installed.
-# <code>git clone https://github.com/clever-algorithms/CleverAlgorithms.git</code>
+# <code>git clone https://github.com/Jason2Brownlee/CleverAlgorithms.git</code>
 # @cd CleverAlgorithms@
 # @make dist@
 
@@ -105,7 +108,7 @@ I no longer have the capacity to support this project and the paperback book is 
 
 h2. License
 
-(c) Copyright 2011-2020 Jason Brownlee. Some Rights Reserved.
+(c) Copyright 2011-2024 Jason Brownlee. Some Rights Reserved.
 This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/au/">Creative Commons Attribution-Noncommercial-Share Alike 2.5 Australia License</a>.
 <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/2.5/au/">
 <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by-nc-sa/2.5/au/88x31.png" />
