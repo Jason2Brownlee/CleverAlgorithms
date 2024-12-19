@@ -20,10 +20,10 @@ def header(title)
   str = "<html>
           <head>
             <title>#{title} | Clever Algorithms</title>"
-  str <<  '<link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+  str <<  '<link href="https://cleveralgorithms.com/nature-inspired/clever.css" media="screen" rel="stylesheet" type="text/css"/>
           <!-- support to display ruby source nicely -->
-            <link href="prettify.css" type="text/css" rel="stylesheet"/>
-            <script type="text/javascript" src="prettify.js"></script>
+            <link href="https://cleveralgorithms.com/nature-inspired/prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="https://cleveralgorithms.com/nature-inspired/prettify.js"></script>
           </head>
         <!-- call to display ruby source nicely -->
         <body onload="prettyPrint()">'
@@ -430,7 +430,7 @@ def final_pretty_code_listing(lines, caption=nil, ruby_filename=nil)
     add_line(s, "<div class='caption'>#{caption}</div>")
   end
   if !ruby_filename.nil?
-	  add_line(s, "<div class='download_src'>Download: <a href='#{ruby_filename}'>#{ruby_filename}</a>. Unit test available in the <%=natureinspired_dev_url(\"github project\")%></div>")
+	  add_line(s, "<div class='download_src'>Download: <a href='#{ruby_filename}'>#{ruby_filename}</a>.</div>")
 	end
   return s
 end

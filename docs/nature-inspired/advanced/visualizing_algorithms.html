@@ -1,9 +1,9 @@
 <html>
           <head>
-            <title>Visualizing Algorithms | Clever Algorithms</title><link href="clever.css" media="screen" rel="stylesheet" type="text/css"/>
+            <title>Visualizing Algorithms | Clever Algorithms</title><link href="https://cleveralgorithms.com/nature-inspired/clever.css" media="screen" rel="stylesheet" type="text/css"/>
           <!-- support to display ruby source nicely -->
-            <link href="prettify.css" type="text/css" rel="stylesheet"/>
-            <script type="text/javascript" src="prettify.js"></script>
+            <link href="https://cleveralgorithms.com/nature-inspired/prettify.css" type="text/css" rel="stylesheet"/>
+            <script type="text/javascript" src="https://cleveralgorithms.com/nature-inspired/prettify.js"></script>
           </head>
         <!-- call to display ruby source nicely -->
         <body onload="prettyPrint()"><!-- Start Header -->
@@ -75,7 +75,7 @@ Similarly, the range of each variable input to the function may be large. This m
 <p>
 Figure (below) provides an example of the Basin function in one dimension. The Basin function is a  continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$. The optimal solution for this function is $["(v_0,\\ldots,v_{n-1})=0.0"]$. Listing (below) provides the Gnuplot script used to prepare the plot ($["n=1"]$).
 </p>
-<img src='/images/basin1.png' align='middle' alt='Plot of the Basin function in one-dimension.' class='book_image'>
+<img src='basin1.png' align='middle' alt='Plot of the Basin function in one-dimension.' class='book_image'>
 <br />
 <div class='caption'>Plot of the Basin function in one-dimension.</div>
 
@@ -88,7 +88,7 @@ plot x*x
 <p>
 Figure (below) provides an example of the basin function in two-dimensions as a three-dimensional surface plot. Listing (below) provides the Gnuplot script used to prepare the surface plot.
 </p>
-<img src='/images/basin2.png' align='middle' alt='Plot of the Basin function in two-dimensions.' class='book_image'>
+<img src='basin2.png' align='middle' alt='Plot of the Basin function in two-dimensions.' class='book_image'>
 <br />
 <div class='caption'>Plot of the Basin function in two-dimensions.</div>
 
@@ -115,7 +115,7 @@ A second possible visualization is to prepare a distance matrix (distance betwee
 <p>
 Figure (below) provides a scatter plot of the Berlin52 TSP used through out the algorithm descriptions in this book. The Berlin52 problem seeks a permutation of the order to visit cities (called a tour) that minimize the total distance traveled. The optimal tour distance for Berlin52 is 7542 units.
 </p>
-<img src='/images/tsp1.png' align='middle' alt='Plot of the cities of the Berlin52 TSP.' class='book_image'>
+<img src='tsp1.png' align='middle' alt='Plot of the cities of the Berlin52 TSP.' class='book_image'>
 <br />
 <div class='caption'>Plot of the cities of the Berlin52 TSP.</div>
 
@@ -160,7 +160,7 @@ The performance of an algorithm over the course of a single run can easily be vi
 <p>
 Figure (below) provides an example line graph, showing the quality of the best candidate solution located by the Genetic Algorithm each generation for a single run applied to a 64-bit OneMax problem. Listing (below) provides the Gnuplot script used to prepare the plot, where <code>ga1.txt</code> is a text file that provides the fitness of the best solution each algorithm iteration on a new line. Listing (below) provides a snippet of the first five lines of the <code>ga1.txt</code> file.
 </p>
-<img src='/images/ga1.png' align='middle' alt='Line graph of the best solution found by the Genetic Algorithm.' class='book_image'>
+<img src='ga1.png' align='middle' alt='Line graph of the best solution found by the Genetic Algorithm.' class='book_image'>
 <br />
 <div class='caption'>Line graph of the best solution found by the Genetic Algorithm.</div>
 
@@ -189,7 +189,7 @@ Multiple algorithm runs can provide insight into the tendency of an algorithm or
 <p>
 Figure (below) provides a histogram plot showing the best solutions found and the number of times they were located by Genetic Algorithm over 100 runs on a 300-bit OneMax function.
 </p>
-<img src='/images/ga2.png' align='middle' alt='Histogram of the best solutions found by a Genetic Algorithm.' class='book_image'>
+<img src='ga2.png' align='middle' alt='Histogram of the best solutions found by a Genetic Algorithm.' class='book_image'>
 <br />
 <div class='caption'>Histogram of the best solutions found by a Genetic Algorithm.</div>
 
@@ -228,7 +228,7 @@ A compact way for representing a distribution is to use a box-and-whisker plot t
 <p>
 Figure (below) provides box-and-whisker plots of the best score distribution of 100 runs for the Genetic Algorithm applied to a 300-bit OneMax problem with three different mutation configurations. The measure collected from each run was the quality of the best candidate solution found.
 </p>
-<img src='/images/ga3.png' align='middle' alt='Box-and-whisker plots of the Genetic Algorithm's performance.' class='book_image'>
+<img src='ga3.png' align='middle' alt='Box-and-whisker plots of the Genetic Algorithm's performance.' class='book_image'>
 <br />
 <div class='caption'>Box-and-whisker plots of the Genetic Algorithm's performance.</div>
 
@@ -266,7 +266,7 @@ Figure (below) provides a plot of the best solution found each iteration by the 
 Listing (below) provides the Gnuplot script used to prepare the plot, where <code>pso1.txt</code> is a file that contains the coordinates of the best solution found by the algorithm, with one coordinate per line separated by a space.
 Listing (below) provides a snippet of the first five lines of the <code>pso1.txt</code> file.
 </p>
-<img src='/images/pso1.png' align='middle' alt='Heat map plot showing selected samples in the domain.' class='book_image'>
+<img src='pso1.png' align='middle' alt='Heat map plot showing selected samples in the domain.' class='book_image'>
 <br />
 <div class='caption'>Heat map plot showing selected samples in the domain.</div>
 
@@ -304,7 +304,7 @@ Candidate solutions for the TSP are easily visualized as tours (order of city vi
 <p>
 Figure (below) provides a plot of an example Nearest-Neighbor solution for the Berlin52 TSP. A Nearest-Neighbor solution is constructed by randomly selecting the first city in the tour then selecting the next city in the tour with the minimum distance to the current city until a complete tour is created.
 </p>
-<img src='/images/tsp3.png' align='middle' alt='Plot of a Nearest-Neighbor tour for the Berlin52 TSP.' class='book_image'>
+<img src='tsp3.png' align='middle' alt='Plot of a Nearest-Neighbor tour for the Berlin52 TSP.' class='book_image'>
 <br />
 <div class='caption'>Plot of a Nearest-Neighbor tour for the Berlin52 TSP.</div>
 
@@ -330,7 +330,7 @@ plot "berlin52.nn.tour" with linespoints
 <p>
 Figure (below) provides a plot of the known optimal solution for the Berlin52 Traveling Salesman problem.
 </p>
-<img src='/images/tsp2.png' align='middle' alt='Plot of the optimal tour for the Berlin52 TSP.' class='book_image'>
+<img src='tsp2.png' align='middle' alt='Plot of the optimal tour for the Berlin52 TSP.' class='book_image'>
 <br />
 <div class='caption'>Plot of the optimal tour for the Berlin52 TSP.</div>
 
