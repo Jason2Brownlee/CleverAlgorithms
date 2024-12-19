@@ -24,8 +24,17 @@ def header(title)
           <!-- support to display ruby source nicely -->
             <link href="https://cleveralgorithms.com/nature-inspired/prettify.css" type="text/css" rel="stylesheet"/>
             <script type="text/javascript" src="https://cleveralgorithms.com/nature-inspired/prettify.js"></script>
-          </head>
-        <!-- call to display ruby source nicely -->
+          </head>'
+  str << '<!-- Google tag (gtag.js) -->
+          <script async src="https://www.googletagmanager.com/gtag/js?id=G-H2HN1W0V21"></script>'
+  str +=  "<script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-H2HN1W0V21');
+          </script>"
+  str << '<!-- call to display ruby source nicely -->
         <body onload="prettyPrint()"><div class="container">'
   str << '<!-- Start Header -->
           <center>
