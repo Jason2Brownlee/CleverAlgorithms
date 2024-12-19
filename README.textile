@@ -12,13 +12,13 @@ h3. Book Details
 | Author | Jason Brownlee |
 | Release |  Revision 2. 16th June 2012  |
 
-h3. Download
+h3. Links
 
-* "PDF":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms.pdf
-* "Source Code (.zip)":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms-src.zip
-* "Read Online (Google Books)":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
-* "Amazon (paperback, kindle)":https://www.goodreads.com/book/show/10321060-clever-algorithms
-* "Reviews (GoodReads)":https://www.goodreads.com/book/show/10321060-clever-algorithms
+* "Download PDF":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms.pdf
+* "Download Source Code":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms-src.zip
+* "Read on Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
+* "Get the Paperback or Kindle version on Amazon":https://www.goodreads.com/book/show/10321060-clever-algorithms
+* "Read Reviews on GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms
 
 h3. Blurb
 
@@ -100,10 +100,6 @@ h3. How to Build
 # <code>git clone https://github.com/Jason2Brownlee/CleverAlgorithms.git</code>
 # @cd CleverAlgorithms@
 # @make dist@
-
-h3. Status
-
-I no longer have the capacity to support this project and the paperback book is no longer for sale.
 
 
 h2. License
