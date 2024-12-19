@@ -34,6 +34,7 @@ def header(title)
 
           <p>
             <a href="/">Home</a> |
+            <a href="/nature-inspired/">Read Online</a> |
             <a href="https://amzn.to/4iKM9uc">Amazon</a> |
             <a href="https://www.goodreads.com/book/show/10321060-clever-algorithms">GoodReads</a> |
             <a href="https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC">Google Books</a> |
