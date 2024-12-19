@@ -14,6 +14,7 @@ h3. Book Details
 
 h3. Links
 
+* "Read Online":https://cleveralgorithms.com/nature-inspired/index.html
 * "Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf
 * "Download Source Code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip
 * "Read on Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
