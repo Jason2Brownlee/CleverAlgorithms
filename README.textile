@@ -14,10 +14,10 @@ h3. Book Details
 
 h3. Links
 
-* "Download PDF":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms.pdf
-* "Download Source Code":https://raw.githubusercontent.com/clever-algorithms/CleverAlgorithms/master/release/clever_algorithms-src.zip
+* "Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf
+* "Download Source Code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip
 * "Read on Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
-* "Get the Paperback or Kindle version on Amazon":https://www.goodreads.com/book/show/10321060-clever-algorithms
+* "Get the Paperback or Kindle version on Amazon":https://amzn.to/4iKM9uc
 * "Read Reviews on GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms
 
 h3. Blurb
