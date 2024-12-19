@@ -1,4 +1,18 @@
 
+body {
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+}
+
+.container {
+    width: 880px; /* Set the width of your content */
+    max-width: 100%; /* Ensures responsiveness for smaller screens */
+    margin: 0 auto; /* Center the container horizontally */
+    padding: 20px; /* Optional: Add some padding if needed */
+    box-sizing: border-box; /* Ensure padding doesn't affect width */
+}
+
+
 /* centre and bold captions for code listings */
 .caption {
 	text-align: center;

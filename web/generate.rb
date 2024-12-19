@@ -26,7 +26,7 @@ def header(title)
             <script type="text/javascript" src="https://cleveralgorithms.com/nature-inspired/prettify.js"></script>
           </head>
         <!-- call to display ruby source nicely -->
-        <body onload="prettyPrint()">'
+        <body onload="prettyPrint()"><div class="container">'
   str << '<!-- Start Header -->
           <center>
           <h1>Clever Algorithms: Nature-Inspired Programming Recipes</h1>
@@ -1184,7 +1184,7 @@ def footer()
   return '<!-- generate math images from latex math snippets -->
     <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
     <script type="text/javascript">replaceMath(document.body);</script>
-        </body>
+        </div></body>
           </html>'
 end
 
