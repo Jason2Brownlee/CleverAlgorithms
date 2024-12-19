@@ -98,7 +98,7 @@ $S_{best}$ $\leftarrow$ $S_{current}$<br />
 <li> The convergence proof suggests that with a long enough cooling period, the system will always converge to the global optimum. The downside of this theoretical finding is that the number of samples taken for optimum convergence to occur on some problems may be more than a complete enumeration of the search space.</li>
 <li> Performance improvements can be given with the selection of a candidate move generation scheme (neighborhood) that is less likely to generate candidates of significantly higher cost.</li>
 <li> Restarting the cooling schedule using the best found solution so far can lead to an improved outcome on some problems.</li>
-<li> A common acceptance method is to always accept improving solutions and accept worse solutions with a probability of $["P(accept) \\leftarrow \\exp(\\frac{e-e'}{T})"]$, where $["T"]$ is the current temperature, $["e"]$ is the energy (or cost) of the current solution and $["e'"]$ is the energy of a candidate solution being considered.</li>
+<li> A common acceptance method is to always accept improving solutions and accept worse solutions with a probability of $P(accept) \leftarrow \exp(\frac{e-e'}{T})$, where $T$ is the current temperature, $e$ is the energy (or cost) of the current solution and $e'$ is the energy of a candidate solution being considered.</li>
 <li> The size of the neighborhood considered in generating candidate solutions may also change over time or be influenced by the temperature, starting initially broad and narrowing with the execution of the algorithm.</li>
 <li> A problem specific heuristic method can be used to provide the starting point for the search.</li>
 </ul>
@@ -110,7 +110,7 @@ Listing (below) provides an example of the Simulated Annealing algorithm impleme
 The algorithm is applied to the Berlin52 instance of the Traveling Salesman Problem (TSP), taken from the TSPLIB. The problem seeks a permutation of the order to visit cities (called a tour) that minimizes the total distance traveled. The optimal tour distance for Berlin52 instance is 7542 units.
 </p>
 <p>
-The algorithm implementation uses a two-opt procedure for the neighborhood function and the classical $["P(accept) \\leftarrow \\exp(\\frac{e-e'}{T})"]$ as the acceptance function. A simple linear cooling regime is used with a large initial temperature which is decreased each iteration.
+The algorithm implementation uses a two-opt procedure for the neighborhood function and the classical $P(accept) \leftarrow \exp(\frac{e-e'}{T})$ as the acceptance function. A simple linear cooling regime is used with a large initial temperature which is decreased each iteration.
 </p>
 <pre class='prettyprint lang-rb'>
 def euc_2d(c1, c2)

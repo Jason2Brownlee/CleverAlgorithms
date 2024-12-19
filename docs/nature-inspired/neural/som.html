@@ -68,14 +68,14 @@ Codebook vectors are initialized to small floating point values, or sampled from
 </p>
 $dist(x,c) = \sum_{i=1}^{n} (x_i - c_i)^2$
 <p>
-where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"]$ is a given codebook vector.
+where $n$ is the number of attributes, $x$ is the input vector and $c$ is a given codebook vector.
 </p>
 <p>
 The neighbors of the BMU in the topological structure of the network are selected using a neighborhood size that is linearly decreased during the training of the network. The BMU and all selected neighbors are then adjusted toward the input vector using a learning rate that too is decreased linearly with the training cycles:
 </p>
 $c_i(t+1) = learn_{rate}(t) \times (c_i(t) - x_i)$
 <p>
-where $["c_i(t)"]$ is the $["i^{th}"]$ attribute of a codebook vector at time $["t"]$, $["learn_{rate}"]$ is the current learning rate, an $["x_i"]$ is the $["i^{th}"]$ attribute of a input vector.
+where $c_i(t)$ is the $i^{th}$ attribute of a codebook vector at time $t$, $learn_{rate}$ is the current learning rate, an $x_i$ is the $i^{th}$ attribute of a input vector.
 </p>
 <p>
 The neighborhood is typically square (called bubble) where all neighborhood nodes are updated using the same learning rate for the iteration, or Gaussian where the learning rate is proportional to the neighborhood distance using a Gaussian distribution (neighbors further away from the BMU are updated less).
@@ -111,7 +111,7 @@ The neighborhood is typically square (called bubble) where all neighborhood node
 <ul>
 <li> The Self-Organizing Map was designed for unsupervised learning problems such as feature extraction, visualization and clustering. Some extensions of the approach can label the prepared codebook vectors which can be used for classification.</li>
 <li> SOM is non-parametric, meaning that it does not rely on assumptions about that structure of the function that it is approximating.</li>
-<li> Real-values in input vectors should be normalized such that $["x \\in [0,1)"]$.</li>
+<li> Real-values in input vectors should be normalized such that $x \in [0,1)$.</li>
 <li> Euclidean distance is commonly used to measure the distance between real-valued vectors, although other distance measures may be used (such as dot product), and data specific distance measures may be required for non-scalar attributes.</li>
 <li> There should be sufficient training iterations to expose all the training data to the model multiple times.</li>
 <li> The more complex the class distribution, the more codebook vectors that will be required, some problems may need thousands.</li>
@@ -126,10 +126,10 @@ The neighborhood is typically square (called bubble) where all neighborhood node
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Self-Organizing Map algorithm implemented in the Ruby Programming Language.
-The problem is a feature detection problem, where the network is expected to learn a predefined shape based on being exposed to samples in the domain. The domain is two-dimensional $["x,y \\in [0,1]"]$, where a shape is pre-defined as a square in the middle of the domain $["x,y \\in [0.3,0.6]"]$. The system is initialized to vectors within the domain although is only exposed to samples within the pre-defined shape during training. The expectation is that the system will model the shape based on the observed samples.
+The problem is a feature detection problem, where the network is expected to learn a predefined shape based on being exposed to samples in the domain. The domain is two-dimensional $x,y \in [0,1]$, where a shape is pre-defined as a square in the middle of the domain $x,y \in [0.3,0.6]$. The system is initialized to vectors within the domain although is only exposed to samples within the pre-defined shape during training. The expectation is that the system will model the shape based on the observed samples.
 </p>
 <p>
-The algorithm is an implementation of the basic Self-Organizing Map algorithm based on the description in Chapter 3 of the seminal book on the technique  [<a href='#Kohonen1995'>Kohonen1995</a>]. The implementation is configured with a $["4 \\times 5"]$ grid of nodes, the Euclidean distance measure is used to determine the BMU and neighbors, a Bubble neighborhood function is used. Error rates are presented to the console, and the codebook vectors themselves are described before and after training. The learning process is incremental rather than batch, for simplicity.
+The algorithm is an implementation of the basic Self-Organizing Map algorithm based on the description in Chapter 3 of the seminal book on the technique  [<a href='#Kohonen1995'>Kohonen1995</a>]. The implementation is configured with a $4 \times 5$ grid of nodes, the Euclidean distance measure is used to determine the BMU and neighbors, a Bubble neighborhood function is used. Error rates are presented to the console, and the codebook vectors themselves are described before and after training. The learning process is incremental rather than batch, for simplicity.
 </p>
 <p>
 An extension to this implementation would be to visualize the resulting network structure in the domain - shrinking from a mesh that covers the whole domain, down to a mesh that only covers the pre-defined shape within the domain.

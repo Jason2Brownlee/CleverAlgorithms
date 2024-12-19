@@ -123,9 +123,9 @@ $S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br
 <li> A program may respond to zero or more input values and may produce one or more outputs.</li>
 <li> All functions used in the function node set must return a usable result. For example, the division function must return a sensible value (such as zero or one) when a division by zero occurs.</li>
 <li> All genetic operations ensure (or should ensure) that syntactically valid and executable programs are produced as a result of their application.</li>
-<li> The Genetic Programming algorithm is commonly configured with a high-probability of crossover ($["\\geq 90\\%"]$) and a low-probability of mutation ($["\\leq 1\\%"]$). Other operators such as reproduction and architecture alterations are used with moderate-level probabilities and fill in the probabilistic gap.</li>
+<li> The Genetic Programming algorithm is commonly configured with a high-probability of crossover ($\geq 90%$) and a low-probability of mutation ($\leq 1%$). Other operators such as reproduction and architecture alterations are used with moderate-level probabilities and fill in the probabilistic gap.</li>
 <li> Architecture altering operations are not limited to the duplication and deletion of sub-structures of a given program.</li>
-<li> The crossover genetic operator in the algorithm is commonly configured to select a function as a the cross-point with a high-probability ($["\\geq 90\\%"]$) and low-probability of selecting a terminal as a cross-point ($["\\leq 10\\%"]$).</li>
+<li> The crossover genetic operator in the algorithm is commonly configured to select a function as a the cross-point with a high-probability ($\geq 90%$) and low-probability of selecting a terminal as a cross-point ($\leq 10%$).</li>
 <li> The function set may also include control structures such as conditional statements and loop constructs.</li>
 <li> The Genetic Programing algorithm can be realized as a stack-based virtual machine as opposed to a call graph  [<a href='#Perkis1994'>Perkis1994</a>].</li>
 <li> The Genetic Programming algorithm can make use of Automatically Defined Functions (ADFs) that are sub-graphs and are promoted to the status of functions for reuse and are co-evolved with the programs.</li>
@@ -138,10 +138,10 @@ $S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br
 Listing (below) provides an example of the Genetic Programming algorithm implemented in the Ruby Programming Language based on Koza and Poli's tutorial  [<a href='#Koza2005'>Koza2005</a>].
 </p>
 <p>
-The demonstration problem is an instance of a symbolic regression, where a function must be devised to match a set of observations. In this case the target function is a quadratic polynomial $["x^2+x+1"]$ where $["x \\in [-1,1]"]$. The observations are generated directly from the target function without noise for the purposes of this example. In practical problems, if one knew and had access to the target function then the genetic program would not be required.
+The demonstration problem is an instance of a symbolic regression, where a function must be devised to match a set of observations. In this case the target function is a quadratic polynomial $x^2+x+1$ where $x \in [-1,1]$. The observations are generated directly from the target function without noise for the purposes of this example. In practical problems, if one knew and had access to the target function then the genetic program would not be required.
 </p>
 <p>
-The algorithm is configured to search for a program with the function set $["\\{ +, -, \\times, \\div \\}"]$ and the terminal set $["\\{ X, R \\}"]$, where $["X"]$ is the input value, and $["R"]$ is a static random variable generated for a program $["X \\in [-5,5]"]$. A division by zero returns a value of one.
+The algorithm is configured to search for a program with the function set ${ +, -, \times, \div }$ and the terminal set ${ X, R }$, where $X$ is the input value, and $R$ is a static random variable generated for a program $X \in [-5,5]$. A division by zero returns a value of one.
 The fitness of a candidate solution is calculated by evaluating the program on range of random input values and calculating the Root Mean Squared Error (RMSE).
 The algorithm is configured with a 90% probability of crossover, 8% probability of reproduction (copying), and a 2% probability of mutation.
 For brevity, the algorithm does not implement the architecture altering genetic operation and does not bias crossover points towards functions over terminals.

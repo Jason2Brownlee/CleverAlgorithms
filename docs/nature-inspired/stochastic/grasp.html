@@ -73,7 +73,7 @@ $S_{best}$ $\leftarrow$ <code>ConstructRandomSolution</code>()<br />
 <div class='caption'>Pseudocode for the GRASP.</div>
 
 <p>
-Algorithm (below) provides the pseudocode the Greedy Randomized Construction function. The function involves the step-wise construction of a candidate solution using a stochastically greedy construction process. The function works by building a Restricted Candidate List (RCL) that constraints the components of a solution (features) that may be selected from each cycle. The RCL may be constrained by an explicit size, or by using a threshold ($["\\alpha \\in [0,1]"]$) on the cost of adding each feature to the current candidate solution.
+Algorithm (below) provides the pseudocode the Greedy Randomized Construction function. The function involves the step-wise construction of a candidate solution using a stochastically greedy construction process. The function works by building a Restricted Candidate List (RCL) that constraints the components of a solution (features) that may be selected from each cycle. The RCL may be constrained by an explicit size, or by using a threshold ($\alpha \in [0,1]$) on the cost of adding each feature to the current candidate solution.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -106,8 +106,8 @@ $S_{candidate}$ $\leftarrow \emptyset$<br />
 
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
-<li> The $["\\alpha"]$ threshold defines the amount of greediness of the construction mechanism, where values close to 0 may be too greedy, and values close to 1 may be too generalized.</li>
-<li> As an alternative to using the $["\\alpha"]$ threshold, the RCL can be constrained to the top $["n\\%"]$ of candidate features that may be selected from each construction cycle.</li>
+<li> The $\alpha$ threshold defines the amount of greediness of the construction mechanism, where values close to 0 may be too greedy, and values close to 1 may be too generalized.</li>
+<li> As an alternative to using the $\alpha$ threshold, the RCL can be constrained to the top $n%$ of candidate features that may be selected from each construction cycle.</li>
 <li> The technique was designed for discrete problem classes such as combinatorial optimization problems.</li>
 </ul>
 
@@ -224,8 +224,8 @@ An early application was by Feo, Venkatraman and Bard for a machine scheduling p
 <h3><a name='learn_more'>Learn More</a></h3>
 <p>
 There are a vast number of review, application, and extension papers for GRASP.
-Pitsoulis and Resende provide an extensive contemporary overview of the field as a review chapter  [<a href='#Pitsoulis2002'>Pitsoulis2002</a>], as does Resende and Ribeiro that includes a clear presentation of the use of the $["\\alpha"]$ threshold parameter instead of a fixed size for the RCL  [<a href='#Resende2003'>Resende2003</a>]. Festa and Resende provide an annotated bibliography as a review chapter that provides some needed insight into large amount of study that has gone into the approach  [<a href='#Festa2002'>Festa2002</a>].
-There are numerous extensions to GRASP, not limited to the popular Reactive GRASP for adapting $["\\alpha"]$  [<a href='#Prais2000'>Prais2000</a>], the use of long term memory to allow the technique to learn from candidate solutions discovered in previous iterations, and parallel implementations of the procedure such as 'Parallel GRASP'  [<a href='#Pardalos1995'>Pardalos1995</a>].
+Pitsoulis and Resende provide an extensive contemporary overview of the field as a review chapter  [<a href='#Pitsoulis2002'>Pitsoulis2002</a>], as does Resende and Ribeiro that includes a clear presentation of the use of the $\alpha$ threshold parameter instead of a fixed size for the RCL  [<a href='#Resende2003'>Resende2003</a>]. Festa and Resende provide an annotated bibliography as a review chapter that provides some needed insight into large amount of study that has gone into the approach  [<a href='#Festa2002'>Festa2002</a>].
+There are numerous extensions to GRASP, not limited to the popular Reactive GRASP for adapting $\alpha$  [<a href='#Prais2000'>Prais2000</a>], the use of long term memory to allow the technique to learn from candidate solutions discovered in previous iterations, and parallel implementations of the procedure such as 'Parallel GRASP'  [<a href='#Pardalos1995'>Pardalos1995</a>].
 </p>
 
 

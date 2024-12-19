@@ -70,42 +70,42 @@ The weights of the network can be learned via a one-shot method (one-iteration t
 </p>
 $w_{i,j} = \sum_{k=1}^{N} v_k^i\times v_k^j$
 <p>
-where $["w_{i,j}"]$ is the weight between neuron $["i"]$ and $["j"]$, $["N"]$ is the number of input patterns, $["v"]$ is the input pattern and $["v_k^i"]$ is the $["i^{th}"]$ attribute on the $["k^{th}"]$ input pattern.
+where $w_{i,j}$ is the weight between neuron $i$ and $j$, $N$ is the number of input patterns, $v$ is the input pattern and $v_k^i$ is the $i^{th}$ attribute on the $k^{th}$ input pattern.
 </p>
 <p>
 The propagation of the information through the network can be asynchronous where a random node is selected each iteration, or synchronously, where the output is calculated for each node before being applied to the whole network. Propagation of the information continues until no more changes are made or until a maximum number of iterations has completed, after which the output pattern from the network can be read. The activation for a single node is calculated as follows:
 </p>
 $n_i = \sum_{j=1}^n w_{i,j}\times n_j$
 <p>
-where $["n_i"]$ is the activation of the $["i^{th}"]$ neuron, $["w_{i,j}"]$ with the weight between the nodes $["i"]$ and $["j"]$, and $["n_j"]$ is the output of the $["j^{th}"]$ neuron. The activation is transferred into an output using a transfer function, typically a step function as follows:
+where $n_i$ is the activation of the $i^{th}$ neuron, $w_{i,j}$ with the weight between the nodes $i$ and $j$, and $n_j$ is the output of the $j^{th}$ neuron. The activation is transferred into an output using a transfer function, typically a step function as follows:
 </p>
 <p>
-\[["transfer(n_i) = \\left\\{ \\begin{array}{l l} 1 & \\quad if \\geq \\theta \\\\ -1 & \\quad if < \\theta \\\\ \\end{array} \\right. "]\]
+\[transfer(n_i) = \left{ \begin{array}{l l} 1 & \quad if \geq \theta \ -1 & \quad if < \theta \ \end{array} \right. \]
 </p>
 <p>
-where the threshold $["\\theta"]$ is typically fixed at 0.
+where the threshold $\theta$ is typically fixed at 0.
 </p>
 
 
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Hopfield network may be used to solve the recall problem of matching cues for an input pattern to an associated pre-learned pattern.</li>
-<li> The transfer function for turning the activation of a neuron into an output is typically a step function $["f(a) \\in \\{-1,1\\}"]$ (preferred), or more traditionally $["f(a) \\in \\{0,1\\}"]$.</li>
-<li> The input vectors are typically normalized to boolean values $["x \\in [-1,1]"]$.</li>
+<li> The transfer function for turning the activation of a neuron into an output is typically a step function $f(a) \in {-1,1}$ (preferred), or more traditionally $f(a) \in {0,1}$.</li>
+<li> The input vectors are typically normalized to boolean values $x \in [-1,1]$.</li>
 <li> The network can be propagated asynchronously (where a random node is selected and output generated), or synchronously (where the output for all nodes are calculated before being applied).</li>
 <li> Weights can be learned in a one-shot or incremental method based on how much information is known about the patterns to be learned.</li>
 <li> All neurons in the network are typically both input and output neurons, although other network topologies have been investigated (such as the designation of input and output neurons).</li>
-<li> A Hopfield network has limits on the patterns it can store and retrieve accurately from memory, described by $["N<0.15\\times n"]$ where $["N"]$ is the number of patterns that can be stored and retrieved and $["n"]$ is the number of nodes in the network.</li>
+<li> A Hopfield network has limits on the patterns it can store and retrieve accurately from memory, described by $N<0.15\times n$ where $N$ is the number of patterns that can be stored and retrieved and $n$ is the number of nodes in the network.</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Hopfield Network algorithm implemented in the Ruby Programming Language.
-The problem is an instance of a recall problem where patters are described in terms of a $["3 \\times 3"]$ matrix of binary values ($["\\in \\{-1,1\\}"]$). Once the network has learned the patterns, the system is exposed to perturbed versions of the patterns (with errors introduced) and must respond with the correct pattern. Two patterns are used in this example, specifically 'T', and 'U'.
+The problem is an instance of a recall problem where patters are described in terms of a $3 \times 3$ matrix of binary values ($\in {-1,1}$). Once the network has learned the patterns, the system is exposed to perturbed versions of the patterns (with errors introduced) and must respond with the correct pattern. Two patterns are used in this example, specifically 'T', and 'U'.
 </p>
 <p>
-The algorithm is an implementation of the Hopfield Network with a one-shot training method for the network weights, given that all patterns are already known. The information is propagated through the network using an asynchronous method, which is repeated for a fixed number of iterations. The patterns are displayed to the console during the testing of the network, with the outputs converted from $["\\{-1,1\\}"]$ to $["\\{0,1\\}"]$ for readability.
+The algorithm is an implementation of the Hopfield Network with a one-shot training method for the network weights, given that all patterns are already known. The information is propagated through the network using an asynchronous method, which is repeated for a fixed number of iterations. The patterns are displayed to the console during the testing of the network, with the outputs converted from ${-1,1}$ to ${0,1}$ for readability.
 </p>
 <pre class='prettyprint lang-rb'>
 def random_vector(minmax)

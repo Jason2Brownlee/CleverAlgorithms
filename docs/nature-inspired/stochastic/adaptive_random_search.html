@@ -109,7 +109,7 @@ $S$ $\leftarrow$ <code>RandomSolution</code>{$Problem_{size}$, <code>SearchSpace
 <p>
 Listing (below) provides an example of the Adaptive Random Search Algorithm implemented in the Ruby Programming Language, based on the specification for 'Adaptive Step-Size Random Search' by Schummer and Steiglitz  [<a href='#Schumer1968'>Schumer1968</a>].
 In the example, the algorithm runs for a fixed number of iterations and returns the best candidate solution discovered.
-The example problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0 < x_i < 5.0"]$ and $["n=2"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The example problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0 < x_i < 5.0$ and $n=2$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 </p>
 <pre class='prettyprint lang-rb'>
 def objective_function(vector)

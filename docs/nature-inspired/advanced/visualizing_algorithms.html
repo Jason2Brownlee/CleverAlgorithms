@@ -64,7 +64,7 @@ This section provides examples of visualizing problems from the fields of contin
 
 <h3><a name='continuous_function_optimization'>Continuous Function Optimization</a></h3>
 <p>
-A continuous function optimization problem is typically visualized in two dimensions as a line where $["x=input, y=f(input)"]$ or three dimensions as a surface where $["x,y=input, z=f(input)"]$.
+A continuous function optimization problem is typically visualized in two dimensions as a line where $x=input, y=f(input)$ or three dimensions as a surface where $x,y=input, z=f(input)$.
 </p>
 <p>
 Some functions may have many more dimensions, which if the function is linearly separable can be visualized in lower dimensions. Functions that are not linearly-separable may be able to make use of projection techniques such as Principle Component Analysis (PCA). For example, preparing a stratified sample of the search space as vectors with associated cost function value and using PCA to project the vectors onto a two-dimensional plane for visualization.
@@ -73,7 +73,7 @@ Some functions may have many more dimensions, which if the function is linearly 
 Similarly, the range of each variable input to the function may be large. This may mean that some of the complexity or detail may be lost when the function is visualized as a line or surface. An indication of this detail may be achieved by creating spot-sample plots of narrow sub-sections of the function.
 </p>
 <p>
-Figure (below) provides an example of the Basin function in one dimension. The Basin function is a  continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$. The optimal solution for this function is $["(v_0,\\ldots,v_{n-1})=0.0"]$. Listing (below) provides the Gnuplot script used to prepare the plot ($["n=1"]$).
+Figure (below) provides an example of the Basin function in one dimension. The Basin function is a  continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$. The optimal solution for this function is $(v_0,\ldots,v_{n-1})=0.0$. Listing (below) provides the Gnuplot script used to prepare the plot ($n=1$).
 </p>
 <img src='basin1.png' align='middle' alt='Plot of the Basin function in one-dimension.' class='book_image'>
 <br />
@@ -101,7 +101,7 @@ splot x*x+y*y
 <div class='caption'>Gnuplot script for plotting a function in two-dimensions</div>
 
 <p>
-Both plots show the optimum in the center of the domain at $["x=0.0"]$ in one-dimension and $["x,y=0.0"]$ in two-dimensions.
+Both plots show the optimum in the center of the domain at $x=0.0$ in one-dimension and $x,y=0.0$ in two-dimensions.
 </p>
 
 

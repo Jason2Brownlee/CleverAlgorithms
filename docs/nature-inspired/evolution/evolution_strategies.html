@@ -58,8 +58,8 @@ The objective was classically achieved through the adoption of dynamic variation
 
 <h2><a name='procedure'>Procedure</a></h2>
 <p>
-Instances of Evolution Strategies algorithms may be concisely described with a custom terminology in the form $["(\\mu,\\lambda)-ES"]$, where $["\\mu"]$ is number of candidate solutions in the parent generation, and $["\\lambda"]$ is the number of candidate solutions generated from the parent generation. In this configuration, the best $["\\mu"]$ are kept if $["\\lambda > \\mu"]$, where $["\\lambda"]$ must be great or equal to $["\\mu"]$. In addition to the so-called comma-selection Evolution Strategies algorithm, a plus-selection variation may be defined $["(\\mu + \\lambda)-ES"]$, where the best members of the union of the $["\\mu"]$ and $["\\lambda"]$ generations compete based on objective fitness for a position in the next generation. The simplest configuration is the $["(1+1)-ES"]$, which is a type of greedy hill climbing algorithm.
-Algorithm (below) provides a pseudocode listing of the $["(\\mu,\\lambda)-ES"]$ algorithm for minimizing a cost function. The algorithm shows the adaptation of candidate solutions that co-adapt their own strategy parameters that influence the amount of mutation applied to a candidate solutions descendants.
+Instances of Evolution Strategies algorithms may be concisely described with a custom terminology in the form $(\mu,\lambda)-ES$, where $\mu$ is number of candidate solutions in the parent generation, and $\lambda$ is the number of candidate solutions generated from the parent generation. In this configuration, the best $\mu$ are kept if $\lambda > \mu$, where $\lambda$ must be great or equal to $\mu$. In addition to the so-called comma-selection Evolution Strategies algorithm, a plus-selection variation may be defined $(\mu + \lambda)-ES$, where the best members of the union of the $\mu$ and $\lambda$ generations compete based on objective fitness for a position in the next generation. The simplest configuration is the $(1+1)-ES$, which is a type of greedy hill climbing algorithm.
+Algorithm (below) provides a pseudocode listing of the $(\mu,\lambda)-ES$ algorithm for minimizing a cost function. The algorithm shows the adaptation of candidate solutions that co-adapt their own strategy parameters that influence the amount of mutation applied to a candidate solutions descendants.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -86,17 +86,17 @@ $S_{best}$ $\leftarrow$ <code>GetBest</code>{<code>Population</code>, 1}<br />
 <strong><code>End</code></strong><br />
 <strong><code>Return</code></strong> ($S_{best}$)<br />
 </div>
-<div class='caption'>Pseudocode for $["(\\mu,\\lambda)"]$ Evolution Strategies.</div>
+<div class='caption'>Pseudocode for $(\mu,\lambda)$ Evolution Strategies.</div>
 
 
 
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> Evolution Strategies uses problem specific representations, such as real values for continuous function optimization.</li>
-<li> The algorithm is commonly configured such that $["1 \\leq \\mu \\leq \\lambda"]$.</li>
-<li> The ratio of $["\\mu"]$ to $["\\lambda"]$ influences the amount of selection pressure (greediness) exerted by the algorithm.</li>
-<li> A contemporary update to the algorithms notation includes a $["\\rho"]$ as $["(\\mu/\\rho,\\lambda)-ES"]$ that specifies the number of parents that will contribute to each new candidate solution using a recombination operator.</li>
-<li> A classical rule used to govern the amount of mutation (standard deviation used in mutation for continuous function optimization) was the $["\\frac{1}{5}"]$-rule, where the ratio of successful mutations should be $["\\frac{1}{5}"]$ of all mutations. If it is greater the variance is increased, otherwise if the ratio is is less, the variance is decreased.</li>
+<li> The algorithm is commonly configured such that $1 \leq \mu \leq \lambda$.</li>
+<li> The ratio of $\mu$ to $\lambda$ influences the amount of selection pressure (greediness) exerted by the algorithm.</li>
+<li> A contemporary update to the algorithms notation includes a $\rho$ as $(\mu/\rho,\lambda)-ES$ that specifies the number of parents that will contribute to each new candidate solution using a recombination operator.</li>
+<li> A classical rule used to govern the amount of mutation (standard deviation used in mutation for continuous function optimization) was the $\frac{1}{5}$-rule, where the ratio of successful mutations should be $\frac{1}{5}$ of all mutations. If it is greater the variance is increased, otherwise if the ratio is is less, the variance is decreased.</li>
 <li> The comma-selection variation of the algorithm can be good for dynamic problem instances given its capability for continued exploration of the search space, whereas the plus-selection variation can be good for refinement and convergence.</li>
 </ul>
 
@@ -104,9 +104,9 @@ $S_{best}$ $\leftarrow$ <code>GetBest</code>{<code>Population</code>, 1}<br />
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Evolution Strategies algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=2"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=2$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is a implementation of Evolution Strategies based on simple version described by B&auml;ck and Schwefel  [<a href='#Back1993b'>Back1993b</a>], which was also used as the basis of a detailed empirical study  [<a href='#Yao1997'>Yao1997</a>].
-The algorithm is an $["(30+20)-ES"]$ that adapts both the problem and strategy (standard deviations) variables.
+The algorithm is an $(30+20)-ES$ that adapts both the problem and strategy (standard deviations) variables.
 More contemporary implementations may modify the strategy variables differently, and include an additional set of adapted strategy parameters to influence the direction of mutation (see  [<a href='#Rudolph2000'>Rudolph2000</a>] for a concise description).
 </p>
 <pre class='prettyprint lang-rb'>

@@ -111,9 +111,9 @@ $Population_{size}$, <code>ProblemSize</code>, $P_{crossover}$, $P_{mutation}$
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Non-dominated Sorting Genetic Algorithm II (NSGA-II) implemented in the Ruby Programming Language.
-The demonstration problem is an instance of continuous multiple objective function optimization called SCH (problem one in  [<a href='#Deb2002'>Deb2002</a>]). The problem seeks the minimum of two functions: $["f1=\\sum_{i=1}^n x_{i}^2"]$ and $["f2=\\sum_{i=1}^n (x_{i}-2)^2"]$, $["-10\\leq x_i \\leq 10"]$ and $["n=1"]$. The optimal solution for this function are $["x \\in [0,2]"]$.
+The demonstration problem is an instance of continuous multiple objective function optimization called SCH (problem one in  [<a href='#Deb2002'>Deb2002</a>]). The problem seeks the minimum of two functions: $f1=\sum_{i=1}^n x_{i}^2$ and $f2=\sum_{i=1}^n (x_{i}-2)^2$, $-10\leq x_i \leq 10$ and $n=1$. The optimal solution for this function are $x \in [0,2]$.
 The algorithm is an implementation of NSGA-II based on the presentation by Deb et al.  [<a href='#Deb2002'>Deb2002</a>].
-The algorithm uses a binary string representation (16 bits per objective function parameter) that is decoded and rescaled to the function domain. The implementation uses a uniform crossover operator and point mutations with a fixed mutation rate of $["\\frac{1}{L}"]$, where $["L"]$ is the number of bits in a solution's binary string.
+The algorithm uses a binary string representation (16 bits per objective function parameter) that is decoded and rescaled to the function domain. The implementation uses a uniform crossover operator and point mutations with a fixed mutation rate of $\frac{1}{L}$, where $L$ is the number of bits in a solution's binary string.
 </p>
 <pre class='prettyprint lang-rb'>
 def objective1(vector)
@@ -321,7 +321,7 @@ end
 <h3><a name='primary_sources'>Primary Sources</a></h3>
 <p>
 Srinivas and Deb proposed the NSGA inspired by Goldberg's notion of a non-dominated sorting procedure  [<a href='#Srinivas1994'>Srinivas1994</a>]. Goldberg proposed a non-dominated sorting procedure in his book in considering the biases in the Pareto optimal solutions provided by VEGA  [<a href='#Goldberg1989'>Goldberg1989</a>]. Srinivas and Deb's NSGA used the sorting procedure as a ranking selection method, and a fitness sharing niching method to maintain stable sub-populations across the Pareto front.
-Deb et al. later extended NSGA to address three criticism of the approach: the $["O(mN^3)"]$ time complexity, the lack of elitism, and the need for a sharing parameter for the fitness sharing niching method  [<a href='#Deb2000'>Deb2000</a>] [<a href='#Deb2002'>Deb2002</a>].
+Deb et al. later extended NSGA to address three criticism of the approach: the $O(mN^3)$ time complexity, the lack of elitism, and the need for a sharing parameter for the fitness sharing niching method  [<a href='#Deb2000'>Deb2000</a>] [<a href='#Deb2002'>Deb2002</a>].
 </p>
 
 

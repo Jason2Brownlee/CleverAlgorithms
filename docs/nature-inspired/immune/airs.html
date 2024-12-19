@@ -70,7 +70,7 @@ An affinity (distance) measure between input patterns must be defined. For real-
 </p>
 $dist(x,c) = \sum_{i=1}^{n} (x_i - c_i)^2$
 <p>
-where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"]$ is a given cell vector. The variation of cells during cloning (somatic hypermutation) occurs inversely proportional to the stimulation of a given cell to an input pattern.
+where $n$ is the number of attributes, $x$ is the input vector and $c$ is a given cell vector. The variation of cells during cloning (somatic hypermutation) occurs inversely proportional to the stimulation of a given cell to an input pattern.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -117,20 +117,20 @@ $Cells_{memory}$ $\leftarrow$ <code>InitializeMemoryPool</code>{<code>InputPatte
 <ul>
 <li> The AIRS was designed as a supervised algorithm for classification problem domains.</li>
 <li> The AIRS is non-parametric, meaning that it does not rely on assumptions about that structure of the function that is is approximating.</li>
-<li> Real-values in input vectors should be normalized such that $["x \\in [0,1)"]$.</li>
+<li> Real-values in input vectors should be normalized such that $x \in [0,1)$.</li>
 <li> Euclidean distance is commonly used to measure the distance between real-valued vectors (affinity calculation), although other distance measures may be used (such as dot product), and data specific distance measures may be required for non-scalar attributes.</li>
 <li> Cells may be initialized with small random values or more commonly with values from instances in the training set.</li>
-<li> A cell's affinity is typically minimizing, where as a cells stimulation is maximizing and typically $["\\in [0,1]"]$.</li>
+<li> A cell's affinity is typically minimizing, where as a cells stimulation is maximizing and typically $\in [0,1]$.</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Artificial Immune Recognition System implemented in the Ruby Programming Language.
-The problem is a contrived classification problem in a 2-dimensional domain $["x\\in[0,1], y\\in[0,1]"]$ with two classes: 'A' ($["x\\in[0,0.4999999], y\\in[0,0.4999999]"]$) and 'B' ($["x\\in[0.5,1], y\\in[0.5,1]"]$).
+The problem is a contrived classification problem in a 2-dimensional domain $x\in[0,1], y\in[0,1]$ with two classes: 'A' ($x\in[0,0.4999999], y\in[0,0.4999999]$) and 'B' ($x\in[0.5,1], y\in[0.5,1]$).
 </p>
 <p>
-The algorithm is an implementation of the AIRS2 algorithm  [<a href='#Watkins2002b'>Watkins2002b</a>]. An initial pool of memory cells is created, one cell for each class. Euclidean distance divided by the maximum possible distance in the domain is taken as the affinity and stimulation is taken as $["1.0-affinity"]$. The meta-dynamics for memory cells (competition for input patterns) is not performed and may be added into the implementation as an extension.
+The algorithm is an implementation of the AIRS2 algorithm  [<a href='#Watkins2002b'>Watkins2002b</a>]. An initial pool of memory cells is created, one cell for each class. Euclidean distance divided by the maximum possible distance in the domain is taken as the affinity and stimulation is taken as $1.0-affinity$. The meta-dynamics for memory cells (competition for input patterns) is not performed and may be added into the implementation as an extension.
 </p>
 <pre class='prettyprint lang-rb'>
 def random_vector(minmax)

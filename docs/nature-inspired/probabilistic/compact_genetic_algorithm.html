@@ -59,7 +59,7 @@ This is achieved by maintaining a vector that specifies the probability of inclu
 <h2><a name='procedure'>Procedure</a></h2>
 <p>
 The Compact Genetic Algorithm maintains a real-valued prototype vector that represents the probability of each component being expressed in a candidate solution.
-Algorithm (below) provides a pseudocode listing of the Compact Genetic Algorithm for maximizing a cost function. The parameter $["n"]$ indicates the amount to update probabilities for conflicting bits in each algorithm iteration.
+Algorithm (below) provides a pseudocode listing of the Compact Genetic Algorithm for maximizing a cost function. The parameter $n$ indicates the amount to update probabilities for conflicting bits in each algorithm iteration.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -95,10 +95,10 @@ $S_{best}$ $\leftarrow$ $\emptyset$<br />
 
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
-<li> The vector update parameter ($["n"]$) influences the amount that the probabilities are updated each algorithm iteration.</li>
-<li> The vector update parameter ($["n"]$) may be considered to be comparable to the population size parameter in the Genetic Algorithm.</li>
+<li> The vector update parameter ($n$) influences the amount that the probabilities are updated each algorithm iteration.</li>
+<li> The vector update parameter ($n$) may be considered to be comparable to the population size parameter in the Genetic Algorithm.</li>
 <li> Early results demonstrate that the cGA may be comparable to a standard Genetic Algorithm on classical binary string optimization problems (such as OneMax).</li>
-<li> The algorithm may be considered to have converged if the vector probabilities are all either $["0"]$ or $["1"]$.</li>
+<li> The algorithm may be considered to have converged if the vector probabilities are all either $0$ or $1$.</li>
 </ul>
 
 

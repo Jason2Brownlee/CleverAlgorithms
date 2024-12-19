@@ -67,7 +67,7 @@ Algorithm (below) provides a high-level pseudocode for preparing a network using
 </p>
 $activation = \bigg(\sum_{k=1}^{n} w_{k} \times x_{ki}\bigg) + w_{bias} \times 1.0$
 <p>
-where $["n"]$ is the number of weights and inputs, $["x_{ki}"]$ is the $["k^{th}"]$ attribute on the $["i^{th}"]$ input pattern, and $["w_{bias}"]$ is the bias weight. A logistic transfer function (sigmoid) is used to calculate the output for a neuron $["\\in [0,1]"]$ and provide nonlinearities between in the input and output signals: $["\\frac{1}{1+exp(-a)}"]$, where $["a"]$ represents the neuron activation.
+where $n$ is the number of weights and inputs, $x_{ki}$ is the $k^{th}$ attribute on the $i^{th}$ input pattern, and $w_{bias}$ is the bias weight. A logistic transfer function (sigmoid) is used to calculate the output for a neuron $\in [0,1]$ and provide nonlinearities between in the input and output signals: $\frac{1}{1+exp(-a)}$, where $a$ represents the neuron activation.
 </p>
 <p>
 The weight updates use the delta rule, specifically a modified delta rule where error is backwardly propagated through the network, starting at the output layer and weighted back through the previous layers. The following describes the back-propagation of error and weight updates for a single pattern.
@@ -77,25 +77,25 @@ An error signal is calculated for each node and propagated back through the netw
 </p>
 $es_i = (c_i - o_i) \times td_i$
 <p>
-where $["es_i"]$ is the error signal for the $["i^{th}"]$ node, $["c_i"]$ is the expected output and $["o_i"]$ is the actual output for the $["i^{th}"]$ node. The $["td"]$ term is the derivative of the output of the $["i^{th}"]$ node. If the sigmod transfer function is used, $["td_i"]$ would be $["o_i \\times (1-o_i)"]$ For the hidden nodes, the error signal is the sum of the weighted error signals from the next layer.
+where $es_i$ is the error signal for the $i^{th}$ node, $c_i$ is the expected output and $o_i$ is the actual output for the $i^{th}$ node. The $td$ term is the derivative of the output of the $i^{th}$ node. If the sigmod transfer function is used, $td_i$ would be $o_i \times (1-o_i)$ For the hidden nodes, the error signal is the sum of the weighted error signals from the next layer.
 </p>
 $es_i = \bigg(\sum_{k=1}^n (w_{ik} \times es_k)\bigg) \times td_i$
 <p>
-where $["es_i"]$ is the error signal for the $["i^{th}"]$ node, $["w_{ik}"]$ is the weight between the $["i^{th}"]$ and the $["k^{th}"]$ nodes, and $["es_k"]$ is the error signal of the $["k_th"]$ node.
+where $es_i$ is the error signal for the $i^{th}$ node, $w_{ik}$ is the weight between the $i^{th}$ and the $k^{th}$ nodes, and $es_k$ is the error signal of the $k_th$ node.
 </p>
 <p>
 The error derivatives for each weight are calculated by combining the input to each node and the error signal for the node.
 </p>
 $ed_i = \sum_{k=1}^n es_i \times x_k$
 <p>
-where $["ed_i"]$ is the error derivative for the $["i^{th}"]$ node, $["es_i"]$ is the error signal for the $["i^{th}"]$ node and $["x_k"]$ is the input from the $["k^{th}"]$ node in the previous layer. This process include the bias input that has a constant value.
+where $ed_i$ is the error derivative for the $i^{th}$ node, $es_i$ is the error signal for the $i^{th}$ node and $x_k$ is the input from the $k^{th}$ node in the previous layer. This process include the bias input that has a constant value.
 </p>
 <p>
-Weights are updated in a direction that reduces the error derivative $["ed_i"]$ (error assigned to the weight), metered by a learning coefficient.
+Weights are updated in a direction that reduces the error derivative $ed_i$ (error assigned to the weight), metered by a learning coefficient.
 </p>
 $w_i(t+1) = w_i(t) + (ed_k \times learn_{rate})$
 <p>
-where $["w_i(t+1)"]$ is the updated $["i^{th}"]$ weight, $["ed_k"]$ is the error derivative for the $["k^{th}"]$ node and $["learn_{rate}"]$ is an update coefficient parameter.
+where $w_i(t+1)$ is the updated $i^{th}$ weight, $ed_k$ is the error derivative for the $k^{th}$ node and $learn_{rate}$ is an update coefficient parameter.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -121,12 +121,12 @@ $Network_{weights}$ $\leftarrow$ <code>InitializeWeights</code>{<code>Network</c
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Back-propagation algorithm can be used to train a multi-layer network to approximate arbitrary non-linear functions and can be used for regression or classification problems.</li>
-<li> Input and output values should be normalized such that $["x \\in [0,1)"]$.</li>
+<li> Input and output values should be normalized such that $x \in [0,1)$.</li>
 <li> The weights can be updated in an online manner (after the exposure to each input pattern) or in batch (after a fixed number of patterns have been observed).</li>
 <li> Batch updates are expected to be more stable than online updates for some complex problems.</li>
 <li> A logistic (sigmoid) transfer function is commonly used to transfer the activation to a binary output value, although other transfer functions can be used such as the hyperbolic tangent (tanh), Gaussian, and softmax.</li>
 <li> It is good practice to expose the system to input patterns in a different random order each enumeration through the input set.</li>
-<li> The initial weights are typically small random values $["\\in [0, 0.5]"]$.</li>
+<li> The initial weights are typically small random values $\in [0, 0.5]$.</li>
 <li> Typically a small number of layers are used such as 2-4 given that the increase in layers result in an increase in the complexity of the system and the time required to train the weights.</li>
 <li> The learning rate can be varied during training, and it is common to introduce a momentum term to limit the rate of change.</li>
 <li> The weights of a given network can be initialized with a global optimization method before being refined using the Back-propagation algorithm.</li>

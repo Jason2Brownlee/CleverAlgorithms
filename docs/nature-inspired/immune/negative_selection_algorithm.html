@@ -109,7 +109,7 @@ Algorithm (below) provides a pseudocode listing of the detector generation proce
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Negative Selection Algorithm was designed for change detection, novelty detection, intrusion detection and similar pattern recognition and two-class classification problem domains.</li>
-<li> Traditional negative selection algorithms used binary representations and binary matching rules such as Hamming distance, and $["r"]$-contiguous bits.</li>
+<li> Traditional negative selection algorithms used binary representations and binary matching rules such as Hamming distance, and $r$-contiguous bits.</li>
 <li> A data representation should be selected that is most suitable for a given problem domain, and a matching rule is in turn selected or tailored to the data representation.</li>
 <li> Detectors can be prepared with no prior knowledge of the problem domain other than the known (normal or self) dataset.</li>
 <li> The algorithm can be configured to balance between detector convergence (quality of the matches) and the space complexity (number of detectors).</li>
@@ -120,7 +120,7 @@ Algorithm (below) provides a pseudocode listing of the detector generation proce
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Negative Selection Algorithm implemented in the Ruby Programming Language.
-The demonstration problem is a two-class classification problem where samples are drawn from a two-dimensional domain, where $["x_i \\in [0,1]"]$. Those samples in $["1.0>x_i>0.5"]$ are classified as self and the rest of the space belongs to the non-self class. Samples are drawn from the self class and presented to the algorithm for the preparation of pattern detectors for classifying unobserved samples from the non-self class.
+The demonstration problem is a two-class classification problem where samples are drawn from a two-dimensional domain, where $x_i \in [0,1]$. Those samples in $1.0>x_i>0.5$ are classified as self and the rest of the space belongs to the non-self class. Samples are drawn from the self class and presented to the algorithm for the preparation of pattern detectors for classifying unobserved samples from the non-self class.
 The algorithm creates a set of detectors that do not match the self data, and are then applied to a set of randomly generated samples from the domain. The algorithm uses a real-valued representation. The Euclidean distance function is used during matching and a minimum distance value is specified as a user parameter for approximate matches between patterns. The algorithm includes the additional computationally expensive check for duplicates in the preparation of the self dataset and the detector set.
 </p>
 <pre class='prettyprint lang-rb'>

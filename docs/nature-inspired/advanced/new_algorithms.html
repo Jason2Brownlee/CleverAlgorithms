@@ -51,7 +51,7 @@ Holland proposed a formalism in his seminal work on adaptive systems that provid
 
 <h3><a name='adaptive_systems_formalism'>Adaptive Systems Formalism</a></h3>
 <p>
-This section presents a brief review of Holland's adaptive systems formalism described in  [<a href='#Holland1975'>Holland1975</a>] (Chapter 2). This presentation focuses particularly on the terms and their description, and has been hybridized with the concise presentation of the formalism by De Jong  [<a href='#Jong1975'>Jong1975</a>] (page 6). The formalism is divided into sections: 1) <em>Primary Objects</em> summarized in Table (below), and 2) <em>Secondary Objects</em> summarized in Table (below). Primary Objects are the conventional objects of an adaptive system: the environment $["e"]$, the strategy or adaptive plan that creates solutions in the environment $["s"]$, and the utility assigned to created solutions $["U"]$.
+This section presents a brief review of Holland's adaptive systems formalism described in  [<a href='#Holland1975'>Holland1975</a>] (Chapter 2). This presentation focuses particularly on the terms and their description, and has been hybridized with the concise presentation of the formalism by De Jong  [<a href='#Jong1975'>Jong1975</a>] (page 6). The formalism is divided into sections: 1) <em>Primary Objects</em> summarized in Table (below), and 2) <em>Secondary Objects</em> summarized in Table (below). Primary Objects are the conventional objects of an adaptive system: the environment $e$, the strategy or adaptive plan that creates solutions in the environment $s$, and the utility assigned to created solutions $U$.
 </p>
 <table border='1'>
 <tr>
@@ -60,25 +60,25 @@ This section presents a brief review of Holland's adaptive systems formalism des
 <td><strong>Description</strong> <br /></td>
 </tr>
 <tr>
-<td>$["e"]$</td>
+<td>$e$</td>
 <td>Environment</td>
 <td>The environment of the system undergoing adaptation. <br /></td>
 </tr>
 <tr>
-<td>$["s"]$</td>
+<td>$s$</td>
 <td>Strategy</td>
 <td>The adaptive plan which determines successive structural modifications in response to the environment. <br /></td>
 </tr>
 <tr>
-<td>$["U"]$</td>
+<td>$U$</td>
 <td>Utility</td>
-<td>A measure of performance or payoff of different structures in the environment. Maps a given solution ($["A"]$) to a real number evaluation. <br /></td>
+<td>A measure of performance or payoff of different structures in the environment. Maps a given solution ($A$) to a real number evaluation. <br /></td>
 </tr>
 <caption align="bottom">Primary Objects in the adaptive systems formalism.</caption>
 </table>
 
 <p>
-Secondary Objects extend beyond the primary objects providing the detail of the formalism. These objects suggest a broader context than that of the instance specific primary objects, permitting the evaluation and comparison of sets of objects such as plans ($["S"]$), environments ($["E"]$), search spaces ($["A"]$), and operators ($["O"]$).
+Secondary Objects extend beyond the primary objects providing the detail of the formalism. These objects suggest a broader context than that of the instance specific primary objects, permitting the evaluation and comparison of sets of objects such as plans ($S$), environments ($E$), search spaces ($A$), and operators ($O$).
 </p>
 <table border='1'>
 <tr>
@@ -87,45 +87,45 @@ Secondary Objects extend beyond the primary objects providing the detail of the 
 <td><strong>Description</strong> <br /></td>
 </tr>
 <tr>
-<td>$["A"]$</td>
+<td>$A$</td>
 <td>Search Space</td>
 <td>The set of attainable structures, solutions, and the domain of action for an adaptive plan. <br /></td>
 </tr>
 <tr>
-<td>$["E"]$</td>
+<td>$E$</td>
 <td>Environments</td>
-<td>The range of different environments, where $["e"]$ is an instance. It may also represent the unknowns of the strategy about the environment.  <br /></td>
+<td>The range of different environments, where $e$ is an instance. It may also represent the unknowns of the strategy about the environment.  <br /></td>
 </tr>
 <tr>
-<td>$["O"]$</td>
+<td>$O$</td>
 <td>Operators</td>
-<td>Set of operators applied to an instance of $["A"]$ at time $["t"]$ ($["A_t"]$) to transform it into $["A_{t+1}"]$. <br /></td>
+<td>Set of operators applied to an instance of $A$ at time $t$ ($A_t$) to transform it into $A_{t+1}$. <br /></td>
 </tr>
 <tr>
-<td>$["S"]$</td>
+<td>$S$</td>
 <td>Strategies</td>
-<td>Set of plans applicable for a given environment (where $["s"]$ is an instance), that use operators from the set $["O"]$.  <br /></td>
+<td>Set of plans applicable for a given environment (where $s$ is an instance), that use operators from the set $O$.  <br /></td>
 </tr>
 <tr>
-<td>$["X"]$</td>
+<td>$X$</td>
 <td>Criterion</td>
-<td>Used to compare strategies (in the set $["S"]$), under the set of environments ($["E"]$). Takes into account the efficiency of a plan in different environments. <br /></td>
+<td>Used to compare strategies (in the set $S$), under the set of environments ($E$). Takes into account the efficiency of a plan in different environments. <br /></td>
 </tr>
 <tr>
-<td>$["I"]$</td>
+<td>$I$</td>
 <td>Feedback</td>
-<td>Set of possible environmental inputs and signals providing dynamic information to the system about the performance of a particular solution $["A"]$ in a particular environment $["E"]$. <br /></td>
+<td>Set of possible environmental inputs and signals providing dynamic information to the system about the performance of a particular solution $A$ in a particular environment $E$. <br /></td>
 </tr>
 <tr>
-<td>$["M"]$</td>
+<td>$M$</td>
 <td>Memory</td>
-<td>The memory or retained parts of the input history ($["I"]$) for a solution ($["A"]$). <br /></td>
+<td>The memory or retained parts of the input history ($I$) for a solution ($A$). <br /></td>
 </tr>
 <caption align="bottom">Secondary Objects in the adaptive systems formalism.</caption>
 </table>
 
 <p>
-A given adaptive plan acts in discrete time $["t"]$, which is a useful simplification for analysis and computer simulation. A framework for a given adaptive system requires the definition of a set of strategies $["S"]$, a set of environments $["E"]$, and criterion for ranking strategies $["X"]$. A given adaptive plan is specified within this framework given the following set of objects: a search space $["A"]$, a set of operators $["O"]$, and feedback from the environment $["I"]$. Holland proposed a series of fundamental questions when considering the definition for an adaptive system, which he rephrases within the context of the formalism (see Table (below)).
+A given adaptive plan acts in discrete time $t$, which is a useful simplification for analysis and computer simulation. A framework for a given adaptive system requires the definition of a set of strategies $S$, a set of environments $E$, and criterion for ranking strategies $X$. A given adaptive plan is specified within this framework given the following set of objects: a search space $A$, a set of operators $O$, and feedback from the environment $I$. Holland proposed a series of fundamental questions when considering the definition for an adaptive system, which he rephrases within the context of the formalism (see Table (below)).
 </p>
 <table border='1'>
 <tr>
@@ -134,31 +134,31 @@ A given adaptive plan acts in discrete time $["t"]$, which is a useful simplific
 </tr>
 <tr>
 <td>To what parts of its environment is the organism (system, organization) adapting?</td>
-<td>What is $["E"]$? <br /></td>
+<td>What is $E$? <br /></td>
 </tr>
 <tr>
 <td>How does the environment act upon the adapting organism (system, organization)?</td>
-<td>What is $["I"]$? <br /></td>
+<td>What is $I$? <br /></td>
 </tr>
 <tr>
 <td>What structures are undergoing adaptation?</td>
-<td>What is $["A"]$? <br /></td>
+<td>What is $A$? <br /></td>
 </tr>
 <tr>
 <td>What are the mechanisms of adaptation?</td>
-<td>What is $["O"]$? <br /></td>
+<td>What is $O$? <br /></td>
 </tr>
 <tr>
 <td>What part of the history of its interaction with the environment does the organism (system, organization) retain in addition to that summarized in the structure tested?</td>
-<td>What is $["M"]$? <br /></td>
+<td>What is $M$? <br /></td>
 </tr>
 <tr>
 <td>What limits are there to the adaptive process?</td>
-<td>What is $["S"]$? <br /></td>
+<td>What is $S$? <br /></td>
 </tr>
 <tr>
 <td>How are different (hypotheses about) adaptive processes to be compared?</td>
-<td>What is $["X"]$? <br /></td>
+<td>What is $X$? <br /></td>
 </tr>
 <caption align="bottom">Questions when investigating adaptive systems, taken from \cite{Holland1975} (pg. 29).</caption>
 </table>
@@ -173,18 +173,18 @@ Holland provides a series of illustrations rephrasing common adaptive systems in
 From working within the formalism, Holland makes six observations regarding obstacles that may be encountered whilst investigating adaptive systems  [<a href='#Holland1975'>Holland1975</a>] (pages 159-160):
 </p>
 <ul>
-<li> <em>High cardinality of $["A"]$</em>: makes searches long and storage of relevant data difficult.</li>
+<li> <em>High cardinality of $A$</em>: makes searches long and storage of relevant data difficult.</li>
 <li> <em>Appropriateness of credit</em>: knowledge of the properties about 'successful' structures is incomplete, making it hard to predict good future structures from past structures.</li>
-<li> <em>High dimensionality of $["U"]$ on an $["e"]$</em>: performance is a function of a large number of variables which is difficult for classical optimization methods.</li>
-<li> <em>Non-linearity of $["U"]$ on an $["e"]$</em>: many false optima or false peaks, resulting in the potential for a lot of wasted computation.</li>
+<li> <em>High dimensionality of $U$ on an $e$</em>: performance is a function of a large number of variables which is difficult for classical optimization methods.</li>
+<li> <em>Non-linearity of $U$ on an $e$</em>: many false optima or false peaks, resulting in the potential for a lot of wasted computation.</li>
 <li> <em>Mutual interference of search and exploitation</em>: the exploration (acquisition of new information), exploitation (application of known information) trade-off.</li>
 <li> <em>Relevant non-payoff information</em>: the environment may provide a lot more information in addition to payoff, some of which may be relevant to improved performance.</li>
 </ul>
 <p>
-Cavicchio provides perhaps one of the first applications of the formalism (after Holland) in his dissertation investigating Holland's reproductive plans  [<a href='#Cavicchio1970'>Cavicchio1970</a>] (and to a lesser extent in  [<a href='#Cavicchio1972'>Cavicchio1972</a>]). The work summarizes the formalism, presenting essentially the same framework, although he provides a specialization of the search space $["A"]$. The search space is broken down into a representation (codes), solutions (devices), and a mapping function from representation to solutions. The variation highlights the restriction the representation and mapping have on the designs available to the adaptive plan. Further, such mappings may not be one-to-one, there may be many instances in the representation space that map to the same solution (or the reverse).
+Cavicchio provides perhaps one of the first applications of the formalism (after Holland) in his dissertation investigating Holland's reproductive plans  [<a href='#Cavicchio1970'>Cavicchio1970</a>] (and to a lesser extent in  [<a href='#Cavicchio1972'>Cavicchio1972</a>]). The work summarizes the formalism, presenting essentially the same framework, although he provides a specialization of the search space $A$. The search space is broken down into a representation (codes), solutions (devices), and a mapping function from representation to solutions. The variation highlights the restriction the representation and mapping have on the designs available to the adaptive plan. Further, such mappings may not be one-to-one, there may be many instances in the representation space that map to the same solution (or the reverse).
 </p>
 <p>
-Although not explicitly defined, Holland's specification of structures $["A"]$ is clear in pointing out that the structures are not bound to a level of abstraction; the definition covers structures at all levels. Nevertheless, Cavicchio's specialization for a representation-solution mapping was demonstrated to be useful in his exploration of reproductive plans (early Genetic Algorithms). He proposed that an adaptive system is <em>first order</em> if the utility function $["U"]$ for structures on an environment encompasses feedback $["I"]$.
+Although not explicitly defined, Holland's specification of structures $A$ is clear in pointing out that the structures are not bound to a level of abstraction; the definition covers structures at all levels. Nevertheless, Cavicchio's specialization for a representation-solution mapping was demonstrated to be useful in his exploration of reproductive plans (early Genetic Algorithms). He proposed that an adaptive system is <em>first order</em> if the utility function $U$ for structures on an environment encompasses feedback $I$.
 </p>
 <p>
 Cavicchio described the potential independence (component-wise) and linearity of the utility function with respect to the representation used. De Jong also employed the formalism to investigate reproductive plans in his dissertation research  [<a href='#Jong1975'>Jong1975</a>]. He indicated that the formalism covers the essential characteristics of adaptation, where the performance of a solution is a function of its characteristics and its environment. Adaptation is defined as a strategy for generating better-performing solutions to a problem by reducing initial uncertainty about the environment via feedback from the evaluation of individual solutions. De Jong used the formalism to define a series of genetic reproductive plans, which he investigated in the context of function optimization.

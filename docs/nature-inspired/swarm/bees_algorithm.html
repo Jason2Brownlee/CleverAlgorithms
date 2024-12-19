@@ -109,16 +109,16 @@ $Bee_{best}$
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Bees Algorithm was developed to be used with continuous and combinatorial function optimization problems.</li>
-<li> The $["Patch_{size}"]$ variable is used as the neighborhood size. For example, in a continuous function optimization problem, each dimension of a site would be sampled as $["x_i \\pm (rand() \\times Patch_{size})"]$.</li>
-<li> The $["Patch_{size}"]$ variable is decreased each iteration, typically by a constant amount (such as 0.95).</li>
-<li> The number of elite sites ($["EliteSites_{num}"]$) must be $["<"]$ the number of sites ($["Sites_{num}"]$), and the number of elite bees ($["EliteBees_{num}"]$) is traditionally $["<"]$ the number of other bees ($["OtherBees_{num}"]$).</li>
+<li> The $Patch_{size}$ variable is used as the neighborhood size. For example, in a continuous function optimization problem, each dimension of a site would be sampled as $x_i \pm (rand \times Patch_{size})$.</li>
+<li> The $Patch_{size}$ variable is decreased each iteration, typically by a constant amount (such as 0.95).</li>
+<li> The number of elite sites ($EliteSites_{num}$) must be $<$ the number of sites ($Sites_{num}$), and the number of elite bees ($EliteBees_{num}$) is traditionally $<$ the number of other bees ($OtherBees_{num}$).</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Bees Algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=3"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=3$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is an implementation of the Bees Algorithm as described in the seminal paper  [<a href='#Pham2006'>Pham2006</a>]. A fixed patch size decrease factor of 0.95 was applied each iteration.
 </p>
 <pre class='prettyprint lang-rb'>

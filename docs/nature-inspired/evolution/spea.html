@@ -55,9 +55,9 @@ This is achieved by using an evolutionary process (with surrogate procedures for
 <p>
 Algorithm (below) provides a pseudocode listing of the Strength Pareto Evolutionary Algorithm 2 (SPEA2) for minimizing a cost function.
 The <code>CalculateRawFitness</code> function calculates the raw fitness as the sum of the strength values of the solutions that dominate a given candidate, where strength is the number of solutions that a give solution dominate.
-The <code>CandidateDensity</code> function estimates the density of an area of the Pareto front as $["\\frac{1.0}{\\sigma^k + 2}"]$ where $["\\sigma^k"]$ is the Euclidean distance of the objective values between a given solution the $["k"]$th nearest neighbor of the solution, and $["k"]$ is the square root of the size of the population and archive combined.
+The <code>CandidateDensity</code> function estimates the density of an area of the Pareto front as $\frac{1.0}{\sigma^k + 2}$ where $\sigma^k$ is the Euclidean distance of the objective values between a given solution the $k$th nearest neighbor of the solution, and $k$ is the square root of the size of the population and archive combined.
 The <code>PopulateWithRemainingBest</code> function iteratively fills the archive with the remaining candidate solutions in order of fitness.
-The <code>RemoveMostSimilar</code> function truncates the archive population removing those members with the smallest $["\\sigma^k"]$ values as calculated against the archive.
+The <code>RemoveMostSimilar</code> function truncates the archive population removing those members with the smallest $\sigma^k$ values as calculated against the archive.
 The <code>SelectParents</code> function selects parents from a population using a Genetic Algorithm selection method such as binary tournament selection. The <code>CrossoverAndMutation</code> function performs the crossover and mutation genetic operators from the Genetic Algorithm.
 </p>
 <div class='pseudocode'>
@@ -98,7 +98,7 @@ $Population_{size}$, $Archive_{size}$, <code>ProblemSize</code>, $P_{crossover}$
 <ul>
 <li> SPEA was designed for and is suited to combinatorial and continuous function multiple objective optimization problem instances.</li>
 <li> A binary representation can be used for continuous function optimization problems in conjunction with classical genetic operators such as one-point crossover and point mutation.</li>
-<li> A $["k"]$ value of 1 may be used for efficiency whilst still providing useful results.</li>
+<li> A $k$ value of 1 may be used for efficiency whilst still providing useful results.</li>
 <li> The size of the archive is commonly smaller than the size of the population.</li>
 <li> There is a lot of room for implementation optimization in density and Pareto dominance calculations.</li>
 </ul>
@@ -107,9 +107,9 @@ $Population_{size}$, $Archive_{size}$, <code>ProblemSize</code>, $P_{crossover}$
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Strength Pareto Evolutionary Algorithm 2 (SPEA2) implemented in the Ruby Programming Language.
-The demonstration problem is an instance of continuous multiple objective function optimization called SCH (problem one in  [<a href='#Deb2002'>Deb2002</a>]). The problem seeks the minimum of two functions: $["f1=\\sum_{i=1}^n x_{i}^2"]$ and $["f2=\\sum_{i=1}^n (x_{i}-2)^2"]$, $["-10\\leq x_i \\leq 10"]$ and $["n=1"]$. The optimal solutions for this function are $["x \\in [0,2]"]$.
+The demonstration problem is an instance of continuous multiple objective function optimization called SCH (problem one in  [<a href='#Deb2002'>Deb2002</a>]). The problem seeks the minimum of two functions: $f1=\sum_{i=1}^n x_{i}^2$ and $f2=\sum_{i=1}^n (x_{i}-2)^2$, $-10\leq x_i \leq 10$ and $n=1$. The optimal solutions for this function are $x \in [0,2]$.
 The algorithm is an implementation of SPEA2 based on the presentation by Zitzler, Laumanns, and Thiele  [<a href='#Zitzler2002'>Zitzler2002</a>].
-The algorithm uses a binary string representation (16 bits per objective function parameter) that is decoded and rescaled to the function domain. The implementation uses a uniform crossover operator and point mutations with a fixed mutation rate of $["\\frac{1}{L}"]$, where $["L"]$ is the number of bits in a solution's binary string.
+The algorithm uses a binary string representation (16 bits per objective function parameter) that is decoded and rescaled to the function domain. The implementation uses a uniform crossover operator and point mutations with a fixed mutation rate of $\frac{1}{L}$, where $L$ is the number of bits in a solution's binary string.
 </p>
 <pre class='prettyprint lang-rb'>
 def objective1(vector)

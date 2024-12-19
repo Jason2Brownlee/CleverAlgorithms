@@ -65,11 +65,11 @@ Algorithm (below) provides a pseudocode for training the Perceptron. A weight is
 </p>
 $activation \leftarrow \sum_{k=1}^{n}\big( w_{k} \times x_{ki}\big) + w_{bias} \times 1.0$
 <p>
-where $["n"]$ is the number of weights and inputs, $["x_{ki}"]$ is the $["k^{th}"]$ attribute on the $["i^{th}"]$ input pattern, and $["w_{bias}"]$ is the bias weight. The weights are updated as follows:
+where $n$ is the number of weights and inputs, $x_{ki}$ is the $k^{th}$ attribute on the $i^{th}$ input pattern, and $w_{bias}$ is the bias weight. The weights are updated as follows:
 </p>
 $w_{i}(t+1) = w_{i}(t) + \alpha \times (e(t)-a(t)) \times x_{i}(t)$
 <p>
-where $["w_i"]$ is the $["i^{th}"]$ weight at time $["t"]$ and $["t+1"]$, $["\\alpha"]$ is the learning rate, $["e(t)"]$ and $["a(t)"]$ are the expected and actual output at time $["t"]$, and $["x_i"]$ is the $["i^{th}"]$ input. This update process is applied to each weight in turn (as well as the bias weight with its contact input).
+where $w_i$ is the $i^{th}$ weight at time $t$ and $t+1$, $\alpha$ is the learning rate, $e(t)$ and $a(t)$ are the expected and actual output at time $t$, and $x_i$ is the $i^{th}$ input. This update process is applied to each weight in turn (as well as the bias weight with its contact input).
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -95,14 +95,14 @@ where $["w_i"]$ is the $["i^{th}"]$ weight at time $["t"]$ and $["t+1"]$, $["\\a
 <ul>
 <li> The Perceptron can be used to approximate arbitrary linear functions and can be used for regression or classification problems.</li>
 <li> The Perceptron cannot learn a non-linear mapping between the input and output attributes. The XOR problem is a classical example of a problem that the Perceptron cannot learn.</li>
-<li> Input and output values should be normalized such that $["x \\in [0,1)"]$.</li>
-<li> The learning rate ($["\\alpha \\in [0,1]"]$) controls the amount of change each error has on the system, lower learning rages are common such as 0.1.</li>
+<li> Input and output values should be normalized such that $x \in [0,1)$.</li>
+<li> The learning rate ($\alpha \in [0,1]$) controls the amount of change each error has on the system, lower learning rages are common such as 0.1.</li>
 <li> The weights can be updated in an online manner (after the exposure to each input pattern) or in batch (after a fixed number of patterns have been observed).</li>
 <li> Batch updates are expected to be more stable than online updates for some complex problems.</li>
 <li> A bias weight is used with a constant input signal to provide stability to the learning process.</li>
-<li> A step transfer function is commonly used to transfer the activation to a binary output value $["1 \\leftarrow activation \\geq 0"]$, otherwise $["0"]$.</li>
+<li> A step transfer function is commonly used to transfer the activation to a binary output value $1 \leftarrow activation \geq 0$, otherwise $0$.</li>
 <li> It is good practice to expose the system to input patterns in a different random order each enumeration through the input set.</li>
-<li> The initial weights are typically small random values, typically $["\\in [0, 0.5]"]$.</li>
+<li> The initial weights are typically small random values, typically $\in [0, 0.5]$.</li>
 </ul>
 
 
@@ -112,7 +112,7 @@ Listing (below) provides an example of the Perceptron algorithm implemented in t
 The problem is the classical OR boolean problem, where the inputs of the boolean truth table are provided as the two inputs and the result of the boolean OR operation is expected as output.
 </p>
 <p>
-The algorithm was implemented using an online learning method, meaning the weights are updated after each input pattern is observed. A step transfer function is used to convert the activation into a binary output $["\\in\\{0,1\\}"]$. Random samples are taken from the domain to train the weights, and similarly, random samples are drawn from the domain to demonstrate what the network has learned. A bias weight is used for stability with a constant input of 1.0.
+The algorithm was implemented using an online learning method, meaning the weights are updated after each input pattern is observed. A step transfer function is used to convert the activation into a binary output $\in{0,1}$. Random samples are taken from the domain to train the weights, and similarly, random samples are drawn from the domain to demonstrate what the network has learned. A bias weight is used for stability with a constant input of 1.0.
 </p>
 <pre class='prettyprint lang-rb'>
 def random_vector(minmax)

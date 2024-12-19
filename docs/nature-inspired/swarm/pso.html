@@ -67,7 +67,7 @@ The Particle Swarm Optimization algorithm is comprised of a collection of partic
 </p>
 $v_{i}(t+1) = v_{i}(t) + \big( c_1 \times rand() \times (p_{i}^{best} - p_{i}(t)) \big) +   \big( c_2 \times rand() \times (p_{gbest} - p_{i}(t)) \big)$
 <p>
-where $["v_{i}(t+1)"]$ is the new velocity for the $["i^{th}"]$ particle, $["c_1"]$ and $["c_2"]$ are the weighting coefficients for the personal best and global best positions respectively, $["p_{i}(t)"]$ is the $["i^{th}"]$ particle's position at time $["t"]$, $["p_{i}^{best}"]$ is the $["i^{th}"]$ particle's best known position, and $["p_{gbest}"]$ is the best position known to the swarm. The $["rand()"]$ function generate a uniformly random variable $["\\in [0,1]"]$. Variants on this update equation consider best positions within a particles local neighborhood at time $["t"]$.
+where $v_{i}(t+1)$ is the new velocity for the $i^{th}$ particle, $c_1$ and $c_2$ are the weighting coefficients for the personal best and global best positions respectively, $p_{i}(t)$ is the $i^{th}$ particle's position at time $t$, $p_{i}^{best}$ is the $i^{th}$ particle's best known position, and $p_{gbest}$ is the best position known to the swarm. The $rand$ function generate a uniformly random variable $\in [0,1]$. Variants on this update equation consider best positions within a particles local neighborhood at time $t$.
 </p>
 <p>
 A particle's position is updated using:
@@ -125,7 +125,7 @@ $P_{g\_best}$ $\leftarrow$ $\emptyset$<br />
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Particle Swarm Optimization algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=3"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=3$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is a conservative version of Particle Swarm Optimization based on the seminal papers. The implementation limits the velocity at a pre-defined maximum, and bounds particles to the search space, reflecting their movement and velocity if the bounds of the space are exceeded. Particles are influenced by the best position found as well as their own personal best position. Natural extensions may consider limiting velocity with an inertia coefficient and including a neighborhood function for the particles.
 </p>
 <pre class='prettyprint lang-rb'>

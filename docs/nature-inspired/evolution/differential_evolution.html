@@ -120,8 +120,8 @@ $S$ $\leftarrow0$<br />
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> Differential evolution was designed for nonlinear, non-differentiable continuous function optimization.</li>
-<li> The weighting factor $["F \\in [0,2]"]$ controls the amplification of differential variation, a value of 0.8 is suggested.</li>
-<li> the crossover weight $["CR \\in [0,1]"]$ probabilistically controls the amount of recombination, a value of 0.9 is suggested.</li>
+<li> The weighting factor $F \in [0,2]$ controls the amplification of differential variation, a value of 0.8 is suggested.</li>
+<li> the crossover weight $CR \in [0,1]$ probabilistically controls the amount of recombination, a value of 0.9 is suggested.</li>
 <li> The initial population of candidate solutions should be randomly generated from within the space of valid solutions.</li>
 <li> The popular configurations are DE/rand/1/* and DE/best/2/*.</li>
 </ul>
@@ -130,7 +130,7 @@ $S$ $\leftarrow0$<br />
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Differential Evolution algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=3"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=3$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is an implementation of Differential Evolution with the DE/rand/1/bin configuration proposed by Storn and Price  [<a href='#Storn1997'>Storn1997</a>]. <br />
 </p>
 <pre class='prettyprint lang-rb'>

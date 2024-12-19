@@ -95,15 +95,15 @@ $S_{best}$ $\leftarrow$ $\emptyset$<br />
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Cross-Entropy Method was adapted for combinatorial optimization problems, although has been applied to continuous function optimization as well as noisy simulation problems.</li>
-<li> A alpha ($["\\alpha"]$) parameter or learning rate $["\\in [0.1]"]$ is typically set high, such as 0.7.</li>
-<li> A smoothing function can be used to further control the updates the summaries of the distribution(s) of samples from the problem space. For example, in continuous function optimization a $["\\beta"]$ parameter may replace $["\\alpha"]$ for updating the standard deviation, calculated at time $["t"]$ as $["\\beta_{t} = \\beta - \\beta \\times (1-\\frac{1}{t})^q"]$, where $["\\beta"]$ is initially set high $["\\in [0.8, 0.99]"]$ and $["q"]$ is a small integer $["\\in [5, 10]"]$.</li>
+<li> A alpha ($\alpha$) parameter or learning rate $\in [0.1]$ is typically set high, such as 0.7.</li>
+<li> A smoothing function can be used to further control the updates the summaries of the distribution(s) of samples from the problem space. For example, in continuous function optimization a $\beta$ parameter may replace $\alpha$ for updating the standard deviation, calculated at time $t$ as $\beta_{t} = \beta - \beta \times (1-\frac{1}{t})^q$, where $\beta$ is initially set high $\in [0.8, 0.99]$ and $q$ is a small integer $\in [5, 10]$.</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Cross-Entropy Method algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization problem that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=3"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization problem that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=3$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 </p>
 <p>
 The algorithm was implemented based on a description of the Cross-Entropy Method algorithm for continuous function optimization by Rubinstein and Kroese in Chapter 5 and Appendix A of their book on the method  [<a href='#Rubinstein2004'>Rubinstein2004</a>]. The algorithm maintains means and standard deviations of the distribution of samples for convenience. The means and standard deviations are initialized based on random positions in the problem space and the bounds of the whole problem space respectively. A smoothing parameter is not used on the standard deviations.

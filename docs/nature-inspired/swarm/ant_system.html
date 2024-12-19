@@ -68,14 +68,14 @@ The pheromone update process is described by a single equation that combines the
 </p>
 $\tau_{i,j} \leftarrow (1-\rho) \times \tau_{i,j} + \sum_{k=1}^m \Delta_{i,j}^k$
 <p>
-where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) ($["i,j"]$), $["\\rho"]$ is the decay factor, $["m"]$ is the number of ants, and  $["\\sum_{k=1}^m \\Delta_{i,j}^k "]$ is the sum of $["\\frac{1}{S_{cost}} "]$ (maximizing solution cost) for those solutions that include component $["i,j"]$. The Pseudocode listing shows this equation as an equivalent as a two step process of decay followed by update for simplicity.
+where $\tau_{i,j}$ represents the pheromone for the component (graph edge) ($i,j$), $\rho$ is the decay factor, $m$ is the number of ants, and  $\sum_{k=1}^m \Delta_{i,j}^k $ is the sum of $\frac{1}{S_{cost}} $ (maximizing solution cost) for those solutions that include component $i,j$. The Pseudocode listing shows this equation as an equivalent as a two step process of decay followed by update for simplicity.
 </p>
 <p>
-The probabilistic step-wise construction of solution makes use of both history (pheromone) and problem-specific heuristic information to incrementally construction a solution piece-by-piece. Each component can only be selected if it has not already been chosen (for most combinatorial problems), and for those components that can  be selected from (given the current component $["i"]$), their probability for selection is defined as:
+The probabilistic step-wise construction of solution makes use of both history (pheromone) and problem-specific heuristic information to incrementally construction a solution piece-by-piece. Each component can only be selected if it has not already been chosen (for most combinatorial problems), and for those components that can  be selected from (given the current component $i$), their probability for selection is defined as:
 </p>
 $P_{i,j} \leftarrow \frac{\tau_{i,j}^{\alpha} \times \eta_{i,j}^{\beta}}{\sum_{k=1}^c \tau_{i,k}^{\alpha} \times \eta_{i,k}^{\beta}}$
 <p>
-where $["\\eta_{i,j}"]$ is the maximizing contribution to the overall score of selecting the component (such as $["\\frac{1.0}{distance_{i,j}}"]$ for the Traveling Salesman Problem), $["\\alpha"]$ is the heuristic coefficient, $["\\tau_{i,j}"]$ is the pheromone value for the component, $["\\beta"]$ is the history coefficient, and $["c"]$ is the set of usable components.
+where $\eta_{i,j}$ is the maximizing contribution to the overall score of selecting the component (such as $\frac{1.0}{distance_{i,j}}$ for the Traveling Salesman Problem), $\alpha$ is the heuristic coefficient, $\tau_{i,j}$ is the pheromone value for the component, $\beta$ is the history coefficient, and $c$ is the set of usable components.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -112,10 +112,10 @@ $Pbest_{cost}$ $\leftarrow$ <code>Cost</code>{$S_{h}$}<br />
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Ant Systems algorithm was designed for use with combinatorial problems such as the TSP, knapsack problem, quadratic assignment problems, graph coloring problems and many others.</li>
-<li> The history coefficient ($["\\alpha"]$) controls the amount of contribution history plays in a components probability of selection and is commonly set to 1.0.</li>
-<li> The heuristic coefficient ($["\\beta"]$) controls the amount of contribution problem-specific heuristic information plays in a components probability of selection and is commonly between 2 and 5, such as 2.5.</li>
-<li> The decay factor ($["\\rho"]$) controls the rate at which historic information is lost and is commonly set to 0.5.</li>
-<li> The total number of ants ($["m"]$) is commonly set to the number of components in the problem, such as the number of cities in the TSP.</li>
+<li> The history coefficient ($\alpha$) controls the amount of contribution history plays in a components probability of selection and is commonly set to 1.0.</li>
+<li> The heuristic coefficient ($\beta$) controls the amount of contribution problem-specific heuristic information plays in a components probability of selection and is commonly between 2 and 5, such as 2.5.</li>
+<li> The decay factor ($\rho$) controls the rate at which historic information is lost and is commonly set to 0.5.</li>
+<li> The total number of ants ($m$) is commonly set to the number of components in the problem, such as the number of cities in the TSP.</li>
 </ul>
 
 

@@ -67,7 +67,7 @@ This is achieved through an iterative process with surrogates of evolutionary me
 <h2><a name='procedure'>Procedure</a></h2>
 <p>
 A grammar is defined in Backus Normal Form (BNF), which is a context free grammar expressed as a series of production rules comprised of terminals and non-terminals.
-A variable-length binary string representation is used for the optimization process. Bits are read from the a candidate solutions genome in blocks of 8 called a codon, and decoded to an integer (in the range between 0 and $["2^{8}-1"]$). If the end of the binary string is reached when reading integers, the reading process loops back to the start of the string, effectively creating a circular genome. The integers are mapped to expressions from the BNF until a complete syntactically correct expression is formed. This may not use a solutions entire genome, or use the decoded genome more than once given it's circular nature.
+A variable-length binary string representation is used for the optimization process. Bits are read from the a candidate solutions genome in blocks of 8 called a codon, and decoded to an integer (in the range between 0 and $2^{8}-1$). If the end of the binary string is reached when reading integers, the reading process loops back to the start of the string, effectively creating a circular genome. The integers are mapped to expressions from the BNF until a complete syntactically correct expression is formed. This may not use a solutions entire genome, or use the decoded genome more than once given it's circular nature.
 Algorithm (below) provides a pseudocode listing of the Grammatical Evolution algorithm for minimizing a cost function.
 </p>
 <div class='pseudocode'>
@@ -112,7 +112,7 @@ $S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br
 <ul>
 <li> Grammatical Evolution was designed to optimize programs (such as mathematical equations) to specific cost functions.</li>
 <li> Classical genetic operators used by the Genetic Algorithm may be used in the Grammatical Evolution algorithm, such as point mutations and one-point crossover.</li>
-<li> Codons (groups of bits mapped to an integer) are commonly fixed at 8 bits, proving a range of integers $["\\in [0,2^{8}-1]"]$ that is scaled to the range of rules using a modulo function.</li>
+<li> Codons (groups of bits mapped to an integer) are commonly fixed at 8 bits, proving a range of integers $\in [0,2^{8}-1]$ that is scaled to the range of rules using a modulo function.</li>
 <li> Additional genetic operators may be used with variable-length representations such as codon segments, duplication (add to the end), number of codons selected at random, and deletion.</li>
 </ul>
 
@@ -120,25 +120,25 @@ $S_{best}$ $\leftarrow$ <code>GetBestSolution</code>{<code>Population</code>}<br
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Grammatical Evolution algorithm implemented in the Ruby Programming Language based on the version described by O'Neill and Ryan  [<a href='#ONeill2001'>ONeill2001</a>].
-The demonstration problem is an instance of symbolic regression $["f(x)=x^4+x^3+x^2+x"]$, where $["x\\in[1,10]"]$.
+The demonstration problem is an instance of symbolic regression $f(x)=x^4+x^3+x^2+x$, where $x\in[1,10]$.
 The grammar used in this problem is:
 </p>
 <ul>
-<li> Non-terminals: $["N=\\{expr,op,pre\\_op\\}"]$</li>
-<li> Terminals: $["T=\\{+, -, \\div, \\times, x, 1.0\\}"]$</li>
-<li> Expression (program): $["S="]$<code>&lt;expr&gt;</code></li>
+<li> Non-terminals: $N={expr,op,pre_op}$</li>
+<li> Terminals: $T={+, -, \div, \times, x, 1.0}$</li>
+<li> Expression (program): $S=$<code>&lt;expr&gt;</code></li>
 </ul>
 <p>
 The production rules for the grammar in BNF are:
 </p>
 <ul>
-<li> <code>&lt;expr&gt;</code> $["::="]$ <code>&lt;expr&gt;&lt;op&gt;&lt;expr&gt;</code> , <code>(&lt;expr&gt;&lt;op&gt;&lt;expr&gt;)</code>, <code>&lt;pre_op&gt;(&lt;expr&gt;)</code>, <code>&lt;var&gt;</code></li>
-<li> <code>&lt;op&gt;</code> $["::="]$ $["+, -, \\div, \\times"]$</li>
-<li> <code>&lt;var&gt;</code> $["::="]$ x, 1.0</li>
+<li> <code>&lt;expr&gt;</code> $::=$ <code>&lt;expr&gt;&lt;op&gt;&lt;expr&gt;</code> , <code>(&lt;expr&gt;&lt;op&gt;&lt;expr&gt;)</code>, <code>&lt;pre_op&gt;(&lt;expr&gt;)</code>, <code>&lt;var&gt;</code></li>
+<li> <code>&lt;op&gt;</code> $::=$ $+, -, \div, \times$</li>
+<li> <code>&lt;var&gt;</code> $::=$ x, 1.0</li>
 </ul>
 <p>
 The algorithm uses point mutation and a codon-respecting one-point crossover operator. Binary tournament selection is used to determine the parent population's contribution to the subsequent generation.
-Binary strings are decoded to integers using an unsigned binary. Candidate solutions are then mapped directly into executable Ruby code and executed. A given candidate solution is evaluated by comparing its output against the target function and taking the sum of the absolute errors over a number of trials. The probabilities of point mutation, codon deletion, and codon duplication are hard coded as relative probabilities to each solution, although should be parameters of the algorithm. In this case they are heuristically defined as $["\\frac{1.0}{L}"]$, $["\\frac{0.5}{NC}"]$ and $["\\frac{1.0}{NC}"]$ respectively, where $["L"]$ is the total number of bits, and $["NC"]$ is the number of codons in a given candidate solution.
+Binary strings are decoded to integers using an unsigned binary. Candidate solutions are then mapped directly into executable Ruby code and executed. A given candidate solution is evaluated by comparing its output against the target function and taking the sum of the absolute errors over a number of trials. The probabilities of point mutation, codon deletion, and codon duplication are hard coded as relative probabilities to each solution, although should be parameters of the algorithm. In this case they are heuristically defined as $\frac{1.0}{L}$, $\frac{0.5}{NC}$ and $\frac{1.0}{NC}$ respectively, where $L$ is the total number of bits, and $NC$ is the number of codons in a given candidate solution.
 </p>
 <p>
 Solutions are evaluated by generating a number of random samples from the domain and calculating the mean error of the program to the expected outcome. Programs that contain a single term or those that return an invalid (NaN) or infinite result are penalized with an enormous error value.

@@ -325,9 +325,9 @@ end
 # sucks i know
 def post_process_text(s)
   # extract math
-  math, arrays = [], []
-  s.scan(/\$([^$]+)\$/) {|m| math << m } # $$
-  s.scan(/\\\[([^$]+)\\\]/) {|m| arrays << m } #  \[ \]
+  # math, arrays = [], []
+  # s.scan(/\$([^$]+)\$/) {|m| math << m } # $$
+  # s.scan(/\\\[([^$]+)\\\]/) {|m| arrays << m } #  \[ \]
   # citations
   s = replace_citations(s)
   # listings, algorithms, tables
@@ -392,21 +392,23 @@ def post_process_text(s)
   # finally switch ` for ' (late in the subs)
   s = s.gsub("`", "'")
 
-  # put the math back
-  if !math.empty?
-    index = 0
-    s = s.gsub(/\$([^$]+)\$/) do |m|
-      index += 1
-      "$#{math[index - 1]}$"
-    end
-  end
-  if !arrays.empty?
-    index = 0
-    s = s.gsub(/\\\[([^$]+)\\\]/) do |m|
-      index += 1
-      "\\[#{arrays[index - 1]}\\]"
-    end
-  end
+
+  # # put the math back
+  # if !math.empty?
+  #   index = 0
+  #   s = s.gsub(/\$([^$]+)\$/) do |m|
+  #     index += 1
+  #     "$#{math[index - 1]}$"
+  #   end
+  # end
+  # puts(s)
+  # if !arrays.empty?
+  #   index = 0
+  #   s = s.gsub(/\\\[([^$]+)\\\]/) do |m|
+  #     index += 1
+  #     "\\[#{arrays[index - 1]}\\]"
+  #   end
+  # end
   return s
 end
 
@@ -1552,7 +1554,7 @@ def create_sitemap
 	add_line(s, "<?xml version=\"1.0\" encoding=\"UTF-8\"?>")
 	add_line(s, "<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:image=\"http://www.google.com/schemas/sitemap-image/1.1\" xmlns:codesearch=\"http://www.google.com/codesearch/schemas/sitemap/1.0\">")
 	# html
-	host = "http://www.cleveralgorithms.com"
+	host = "http://cleveralgorithms.com"
 	dir = "nature-inspired"
 	# all pages
 	Dir.entries(OUTPUT_DIR).each do |file|

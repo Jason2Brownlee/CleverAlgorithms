@@ -64,25 +64,25 @@ Solutions are constructed one discrete piece at a time in a probabilistic step-w
 <h2><a name='procedure'>Procedure</a></h2>
 <p>
 Algorithm (below) provides a pseudocode listing of the main Ant Colony System algorithm for minimizing a cost function.
-The probabilistic step-wise construction of solution makes use of both history (pheromone) and problem-specific heuristic information to incrementally construct a solution piece-by-piece. Each component can only be selected if it has not already been chosen (for most combinatorial problems), and for those components that can  be selected from given the current component $["i"]$, their probability for selection is defined as:
+The probabilistic step-wise construction of solution makes use of both history (pheromone) and problem-specific heuristic information to incrementally construct a solution piece-by-piece. Each component can only be selected if it has not already been chosen (for most combinatorial problems), and for those components that can  be selected from given the current component $i$, their probability for selection is defined as:
 </p>
 $P_{i,j} \leftarrow \frac{\tau_{i,j}^{\alpha} \times \eta_{i,j}^{\beta}}{\sum_{k=1}^c \tau_{i,k}^{\alpha} \times \eta_{i,k}^{\beta}}$
 <p>
-where $["\\eta_{i,j}"]$ is the maximizing contribution to the overall score of selecting the component (such as $["\\frac{1.0}{distance_{i,j}}"]$ for the Traveling Salesman Problem), $["\\beta"]$ is the heuristic coefficient (commonly fixed at 1.0), $["\\tau_{i,j}"]$ is the pheromone value for the component, $["\\alpha"]$ is the history coefficient, and $["c"]$ is the set of usable components. A greediness factor ($["q0"]$) is used to influence when to use the above probabilistic component selection and when to greedily select the best possible component.
+where $\eta_{i,j}$ is the maximizing contribution to the overall score of selecting the component (such as $\frac{1.0}{distance_{i,j}}$ for the Traveling Salesman Problem), $\beta$ is the heuristic coefficient (commonly fixed at 1.0), $\tau_{i,j}$ is the pheromone value for the component, $\alpha$ is the history coefficient, and $c$ is the set of usable components. A greediness factor ($q0$) is used to influence when to use the above probabilistic component selection and when to greedily select the best possible component.
 </p>
 <p>
 A local pheromone update is performed for each solution that is constructed to dissuade following solutions to use the same components in the same order, as follows:
 </p>
 $\tau_{i,j} \leftarrow (1-\sigma) \times \tau_{i,j} + \sigma \times \tau_{i,j}^{0}$
 <p>
-where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) ($["i,j"]$), $["\\sigma"]$ is the local pheromone factor, and $["\\tau_{i,j}^{0}"]$ is the initial pheromone value.
+where $\tau_{i,j}$ represents the pheromone for the component (graph edge) ($i,j$), $\sigma$ is the local pheromone factor, and $\tau_{i,j}^{0}$ is the initial pheromone value.
 </p>
 <p>
 At the end of each iteration, the pheromone is updated and decayed using the best candidate solution found thus far (or the best candidate solution found for the iteration), as follows:
 </p>
 $\tau_{i,j} \leftarrow (1-\rho) \times \tau_{i,j} + \rho \times \Delta\tau{i,j}$
 <p>
-where $["\\tau_{i,j}"]$ represents the pheromone for the component (graph edge) ($["i,j"]$), $["\\rho"]$ is the decay factor, and $["\\Delta\\tau{i,j}"]$ is the maximizing solution cost for the best solution found so far if the component $["ij"]$ is used in the globally best known solution, otherwise it is 0.
+where $\tau_{i,j}$ represents the pheromone for the component (graph edge) ($i,j$), $\rho$ is the decay factor, and $\Delta\tau{i,j}$ is the maximizing solution cost for the best solution found so far if the component $ij$ is used in the globally best known solution, otherwise it is 0.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -116,11 +116,11 @@ $Pheromone_{init}$ $\leftarrow$ $\frac{1.0}{<code>ProblemSize</code> \times $Pbe
 <h2><a name='heuristics'>Heuristics</a></h2>
 <ul>
 <li> The Ant Colony System algorithm was designed for use with combinatorial problems such as the TSP, knapsack problem, quadratic assignment problems, graph coloring problems and many others.</li>
-<li> The local pheromone (history) coefficient ($["\\sigma"]$) controls the amount of contribution history plays in a components probability of selection and is commonly set to 0.1.</li>
-<li> The heuristic coefficient ($["\\beta"]$) controls the amount of contribution problem-specific heuristic information plays in a components probability of selection and is commonly between 2 and 5, such as 2.5.</li>
-<li> The decay factor ($["\\rho"]$) controls the rate at which historic information is lost and is commonly set to 0.1.</li>
-<li> The greediness factor ($["q0"]$) is commonly set to 0.9.</li>
-<li> The total number of ants ($["m"]$) is commonly set low, such as 10.</li>
+<li> The local pheromone (history) coefficient ($\sigma$) controls the amount of contribution history plays in a components probability of selection and is commonly set to 0.1.</li>
+<li> The heuristic coefficient ($\beta$) controls the amount of contribution problem-specific heuristic information plays in a components probability of selection and is commonly between 2 and 5, such as 2.5.</li>
+<li> The decay factor ($\rho$) controls the rate at which historic information is lost and is commonly set to 0.1.</li>
+<li> The greediness factor ($q0$) is commonly set to 0.9.</li>
+<li> The total number of ants ($m$) is commonly set low, such as 10.</li>
 </ul>
 
 

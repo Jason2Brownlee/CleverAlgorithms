@@ -68,7 +68,7 @@ Codebook vectors are initialized to small floating point values, or sampled from
 </p>
 $dist(x,c) = \sum_{i=1}^{n} (x_i - c_i)^2$
 <p>
-where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"]$ is a given codebook vector.
+where $n$ is the number of attributes, $x$ is the input vector and $c$ is a given codebook vector.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -99,7 +99,7 @@ where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"
 <ul>
 <li> Learning Vector Quantization was designed for classification problems that have existing data sets that can be used to supervise the learning by the system. The algorithm does not support regression problems.</li>
 <li> LVQ is non-parametric, meaning that it does not rely on assumptions about that structure of the function that it is approximating.</li>
-<li> Real-values in input vectors should be normalized such that $["x \\in [0,1)"]$.</li>
+<li> Real-values in input vectors should be normalized such that $x \in [0,1)$.</li>
 <li> Euclidean distance is commonly used to measure the distance between real-valued vectors, although other distance measures may be used (such as dot product), and data specific distance measures may be required for non-scalar attributes.</li>
 <li> There should be sufficient training iterations to expose all the training data to the model multiple times.</li>
 <li> The learning rate is typically linearly decayed over the training period from an initial value to close to zero.</li>
@@ -111,7 +111,7 @@ where $["n"]$ is the number of attributes, $["x"]$ is the input vector and $["c"
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Learning Vector Quantization algorithm implemented in the Ruby Programming Language.
-The problem is a contrived classification problem in a 2-dimensional domain $["x\\in[0,1], y\\in[0,1]"]$ with two classes: 'A' ($["x\\in[0,0.4999999], y\\in[0,0.4999999]"]$) and 'B' ($["x\\in[0.5,1], y\\in[0.5,1]"]$).
+The problem is a contrived classification problem in a 2-dimensional domain $x\in[0,1], y\in[0,1]$ with two classes: 'A' ($x\in[0,0.4999999], y\in[0,0.4999999]$) and 'B' ($x\in[0.5,1], y\in[0.5,1]$).
 </p>
 <p>
 The algorithm was implemented using the LVQ1 variant where the best matching codebook vector is located and moved toward the input vector if it is the same class, or away if the classes differ. A linear decay was used for the learning rate that was updated after each pattern was exposed to the model. The implementation can easily be extended to the other variants of the method.

@@ -112,8 +112,8 @@ $S_{best}$
 <li> The addition of random cells each iteration adds a random-restart like capability to the algorithms.</li>
 <li> Suppression based on cell similarity provides a mechanism for reducing redundancy.</li>
 <li> The population size is dynamic, and if it continues to grow it may be an indication of a problem with many local optima or that the affinity threshold may needs to be increased.</li>
-<li> Affinity proportionate mutation is performed using $["c' = c + \\alpha \\times N(1,0)"]$ where $["\\alpha = \\frac{1}{\\beta} \\times exp(-f)"]$, $["N"]$ is a Guassian random number, and $["f"]$ is the fitness of the parent cell, $["\\beta"]$ controls the decay of the function and can be set to 100.</li>
-<li> The affinity threshold is problem and representation specific, for example a $["AffinityThreshold"]$ may be set to an arbitrary value such as 0.1 on a continuous function domain, or calculated as a percentage of the size of the problem space.</li>
+<li> Affinity proportionate mutation is performed using $c' = c + \alpha \times N(1,0)$ where $\alpha = \frac{1}{\beta} \times exp(-f)$, $N$ is a Guassian random number, and $f$ is the fitness of the parent cell, $\beta$ controls the decay of the function and can be set to 100.</li>
+<li> The affinity threshold is problem and representation specific, for example a $AffinityThreshold$ may be set to an arbitrary value such as 0.1 on a continuous function domain, or calculated as a percentage of the size of the problem space.</li>
 <li> The number of random cells inserted may be 40% of the population size.</li>
 <li> The number of clones created for a cell may be small, such as 10.</li>
 </ul>
@@ -122,7 +122,7 @@ $S_{best}$
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Optimization Artificial Immune Network (opt-aiNet) implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=2"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=2$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is an implementation based on the specification by de Castro and Von Zuben  [<a href='#Castro2002c'>Castro2002c</a>].
 </p>
 <pre class='prettyprint lang-rb'>

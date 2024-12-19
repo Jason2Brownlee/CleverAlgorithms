@@ -66,14 +66,14 @@ This is achieved through a series of three processes on a population of simulate
 <h2><a name='procedure'>Procedure</a></h2>
 <p>
 Algorithm (below) provides a pseudocode listing of the Bacterial Foraging Optimization Algorithm for minimizing a cost function. Algorithm (below) provides the pseudocode listing for the chemotaxis and swing behaviour of the BFOA algorithm.
-A bacteria cost is derated by its interaction with other cells. This interaction function ($["g()"]$) is calculated as follows:
+A bacteria cost is derated by its interaction with other cells. This interaction function ($g$) is calculated as follows:
 </p>
 $g(cell_k) = \sum_{i=1}^S\bigg[-d_{attr}\times exp\bigg(-w_{attr}\times \sum_{m=1}^P (cell_m^k - other_m^i)^2 \bigg) \bigg] +  \sum_{i=1}^S\bigg[h_{repel}\times exp\bigg(-w_{repel}\times \sum_{m=1}^P cell_m^k - other_m^i)^2 \bigg) \bigg]$
 <p>
-where $["cell_k"]$ is a given cell, $["d_{attr}"]$ and $["w_{attr}"]$ are attraction coefficients, $["h_{repel}"]$ and $["w_{repel}"]$ are repulsion coefficients, $["S"]$ is the number of cells in the population, $["P"]$ is the number of dimensions on a given cells position vector.
+where $cell_k$ is a given cell, $d_{attr}$ and $w_{attr}$ are attraction coefficients, $h_{repel}$ and $w_{repel}$ are repulsion coefficients, $S$ is the number of cells in the population, $P$ is the number of dimensions on a given cells position vector.
 </p>
 <p>
-The remaining parameters of the algorithm are as follows $["Cells_{num}"]$ is the number of cells maintained in the population, $["N_{ed}"]$ is the number of elimination-dispersal steps, $["N_{re}"]$ is the number of reproduction steps, $["N_{c}"]$ is the number of chemotaxis steps, $["N_{s}"]$ is the number of swim steps for a given cell, $["Step_{size}"]$ is a random direction vector with the same number of dimensions as the problem space, and each value $["\\in [-1,1]"]$, and $["P_{ed}"]$ is the probability of a cell being subjected to elimination and dispersal.
+The remaining parameters of the algorithm are as follows $Cells_{num}$ is the number of cells maintained in the population, $N_{ed}$ is the number of elimination-dispersal steps, $N_{re}$ is the number of reproduction steps, $N_{c}$ is the number of chemotaxis steps, $N_{s}$ is the number of swim steps for a given cell, $Step_{size}$ is a random direction vector with the same number of dimensions as the problem space, and each value $\in [-1,1]$, and $P_{ed}$ is the probability of a cell being subjected to elimination and dispersal.
 </p>
 <div class='pseudocode'>
 <strong><strong><code>Input</code></strong></strong>: 
@@ -137,17 +137,17 @@ $Cell_{best}$
 <ul>
 <li> The algorithm was designed for application to continuous function optimization problem domains.</li>
 <li> Given the loops in the algorithm, it can be configured numerous ways to elicit different search behavior. It is common to have a large number of chemotaxis iterations, and small numbers of the other iterations.</li>
-<li> The default coefficients for swarming behavior (cell-cell interactions) are as follows $["d_{attract}=0.1"]$, $["w_{attract}=0.2"]$, $["h_{repellant}=d_{attract}"]$, and $["w_{repellant}=10"]$.</li>
+<li> The default coefficients for swarming behavior (cell-cell interactions) are as follows $d_{attract}=0.1$, $w_{attract}=0.2$, $h_{repellant}=d_{attract}$, and $w_{repellant}=10$.</li>
 <li> The step size is commonly a small fraction of the search space, such as 0.1.</li>
 <li> During reproduction, typically half the population with a low health metric are discarded, and two copies of each member from the first (high-health) half of the population are retained.</li>
-<li> The probability of elimination and dispersal ($["p_{ed}"]$) is commonly set quite large, such as 0.25.</li>
+<li> The probability of elimination and dispersal ($p_{ed}$) is commonly set quite large, such as 0.25.</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Bacterial Foraging Optimization Algorithm implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=2"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=2$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is an implementation based on the description on the seminal work  [<a href='#Passino2002'>Passino2002</a>]. The parameters for cell-cell interactions (attraction and repulsion) were taken from the paper, and the various loop parameters were taken from the 'Swarming Effects' example.
 </p>
 <pre class='prettyprint lang-rb'>

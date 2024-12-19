@@ -103,18 +103,18 @@ $Population_{size}$, $Selection_{size}$, $Problem_{size}$, $RandomCells_{num}$, 
 <ul>
 <li> The CLONALG was designed as a general machine learning approach and has been applied to pattern recognition, function optimization, and combinatorial optimization problem domains.</li>
 <li> Binary string representations are used and decoded to a representation suitable for a specific problem domain.</li>
-<li> The number of clones created for each selected member is calculated as a function of the repertoire size $["N_c=round(\\beta \\cdot N)"]$, where $["\\beta"]$ is the user parameter $["Clone_{rate}"]$.</li>
+<li> The number of clones created for each selected member is calculated as a function of the repertoire size $N_c=round(\beta \cdot N)$, where $\beta$ is the user parameter $Clone_{rate}$.</li>
 <li> A rank-based affinity-proportionate function is used to determine the number of clones created for selected members of the population for pattern recognition problem instances.</li>
 <li> The number of random antibodies inserted each iteration is typically very low (1-2).</li>
 <li> Point mutations (bit-flips) are used in the hypermutation operation.</li>
-<li> The function $["exp(-\\rho \\cdot f)"]$ is used to determine the probability of individual component mutation for a given candidate solution, where $["f"]$ is the candidates affinity (normalized maximizing cost value), and $["\\rho"]$ is the user parameter $["Mutation_{rate}"]$.</li>
+<li> The function $exp(-\rho \cdot f)$ is used to determine the probability of individual component mutation for a given candidate solution, where $f$ is the candidates affinity (normalized maximizing cost value), and $\rho$ is the user parameter $Mutation_{rate}$.</li>
 </ul>
 
 
 <h2><a name='code_listing'>Code Listing</a></h2>
 <p>
 Listing (below) provides an example of the Clonal Selection Algorithm (CLONALG) implemented in the Ruby Programming Language.
-The demonstration problem is an instance of a continuous function optimization that seeks $["\\min f(x)"]$ where $["f=\\sum_{i=1}^n x_{i}^2"]$, $["-5.0\\leq x_i \\leq 5.0"]$ and $["n=3"]$. The optimal solution for this basin function is $["(v_0,\\ldots,v_{n-1})=0.0"]$.
+The demonstration problem is an instance of a continuous function optimization that seeks $\min f(x)$ where $f=\sum_{i=1}^n x_{i}^2$, $-5.0\leq x_i \leq 5.0$ and $n=3$. The optimal solution for this basin function is $(v_0,\ldots,v_{n-1})=0.0$.
 The algorithm is implemented as described by de Castro and Von Zuben for function optimization  [<a href='#Castro2002a'>Castro2002a</a>].
 </p>
 <pre class='prettyprint lang-rb'>
