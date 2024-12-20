@@ -2,12 +2,7 @@ h1. Clever Algorithms: Nature-Inspired Programming Recipes
 
 !release/cover_3d.jpg!
 
-"Read Online":https://cleveralgorithms.com/nature-inspired/index.html |
-"Amazon":https://amzn.to/4iKM9uc |
-"GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms |
-"Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC |
-"Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf
-("all code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/) |
+"Read Online":https://cleveralgorithms.com/nature-inspired/index.html | "Amazon":https://amzn.to/4iKM9uc | "GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms | "Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC | "Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf ("all code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/) |
 
 h2. Overview
 
