@@ -16,7 +16,8 @@ h3. Book Details
 | Publication Date |  Revision 2. 16th June 2012  |
 | Publisher | Independently Published |
 | ISBN-13 (paperback) | 978-1446785065 |
-| Length | 438 pages |
+| Length (paperback) | 454 pages |
+| License | Creative Commons Attribution-Noncommercial-Share Alike 2.5 Australia License |
 
 h3. Blurb
 
