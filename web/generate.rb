@@ -1199,7 +1199,9 @@ def get_keywords(data)
 end
 
 def footer()
-  return '<!-- generate math images from latex math snippets -->
+  return '<br><br><br>
+      <p><small>Please Note: This content was automatically generated from the book content and may contain minor differences.</small></p>
+      <!-- generate math images from latex math snippets -->
     <script type="text/javascript" src="https://mathcache.s3.amazonaws.com/replacemath.js"></script>
     <script type="text/javascript">replaceMath(document.body);</script>
         </div></body>
