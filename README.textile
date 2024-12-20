@@ -2,24 +2,26 @@ h1. Clever Algorithms: Nature-Inspired Programming Recipes
 
 !release/cover_3d.jpg!
 
+"Read Online":https://cleveralgorithms.com/nature-inspired/index.html |
+"Amazon":https://amzn.to/4iKM9uc |
+"GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms |
+"Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC |
+"Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf
+("all code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/) |
+
 h2. Overview
 
 *Clever Algorithms: Nature-Inspired Programming Recipes* is an open source book that describes a large number of algorithmic techniques from the the fields of Biologically Inspired Computation, Computational Intelligence and Metaheuristics in a complete, consistent, and centralized manner such that they are accessible, usable, and understandable. This is a repository for the book project.
 
 h3. Book Details
 
-| Title | *Clever Algorithms: Nature-Inspired Programming Recipes* |
+| Title | Clever Algorithms |
+| Subtitle | Nature-Inspired Programming Recipes |
 | Author | Jason Brownlee |
-| Release |  Revision 2. 16th June 2012  |
-
-h3. Links
-
-* "Read Online":https://cleveralgorithms.com/nature-inspired/index.html
-* "Download PDF":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms.pdf
-* "Download Source Code":https://raw.githubusercontent.com/Jason2Brownlee/CleverAlgorithms/master/release/clever_algorithms-src.zip
-* "Read on Google Books":https://www.google.com.au/books/edition/Clever_Algorithms/SESWXQphCUkC
-* "Get the Paperback or Kindle version on Amazon":https://amzn.to/4iKM9uc
-* "Read Reviews on GoodReads":https://www.goodreads.com/book/show/10321060-clever-algorithms
+| Publication Date |  Revision 2. 16th June 2012  |
+| Publisher | Independently Published |
+| ISBN-13 (paperback) | 978-1446785065 |
+| Length | 438 pages |
 
 h3. Blurb
 
